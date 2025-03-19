@@ -12,388 +12,171 @@
             --text-color: #6d6875;
             --light-color: #ffffff;
         }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Cormorant Garamond', serif;
-        }
-        
-        body {
-            background-color: var(--light-color);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header */
-        header {
-            background-color: var(--primary-color);
-            padding: 20px 0;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            margin-top: 20px;
-        }
-        
-        nav ul li {
-            margin: 0 15px;
-        }
-        
-        nav ul li a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-size: 18px;
-            transition: color 0.3s;
-        }
-        
-        nav ul li a:hover {
-            color: var(--accent-color);
-        }
-        
-        /* Hero Section */
-        .hero {
-            height: 80vh;
-            background-image: url('https://github.com/iFelice/wedding-website/blob/main/images/sfondo-1.jpg?raw=true');
-            background-size: cover;
+
+        /* Aggiunta effetto parallax */
+        .parallax {
+            background-attachment: fixed;
             background-position: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: var(--light-color);
-            position: relative;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
-        
-        .hero::before {
+
+        /* Illustrazioni acquerello */
+        body::before {
             content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://github.com/iFelice/wedding-website/blob/main/images/logosposi.png?raw=true');
+            opacity: 0.05;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.3);
+            background: linear-gradient(rgba(245, 219, 222, 0.3), rgba(216, 226, 220, 0.3));
+            opacity: 0;
+            transition: opacity 0.3s;
         }
-        
-        .hero-content {
-            position: relative;
-            z-index: 1;
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
         }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-            font-weight: 300;
+
+        /* Animazioni Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
         }
-        
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
-        
-        .countdown {
-            display: flex;
-            justify-content: center;
-            margin-top: 30px;
-        }
-        
-        .countdown-item {
-            margin: 0 10px;
-            text-align: center;
-        }
-        
-        .countdown-number {
+
+        /* Icone personalizzate */
+        .icon-wrapper {
             font-size: 2rem;
-            font-weight: bold;
-        }
-        
-        .countdown-label {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-        }
-        
-        /* Sections */
-        section {
-            padding: 60px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-            font-size: 2.5rem;
-            font-weight: 300;
-            color: var(--text-color);
-        }
-        
-        .section-subtitle {
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 1.2rem;
-            font-style: italic;
             color: var(--accent-color);
-        }
-        
-        /* Storia */
-        .storia {
-            background-color: var(--secondary-color);
-            padding: 80px 0;
-        }
-        
-        .storia-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        
-        /* Informazioni */
-        .info-card {
-            background-color: var(--light-color);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
-            text-align: center;
-        }
-        
-        .info-card h3 {
             margin-bottom: 15px;
-            font-size: 1.8rem;
-            color: var(--accent-color);
         }
-        
-        .info-card p {
-            margin-bottom: 10px;
+
+        /* Extra: Sezione regalo */
+        .gift-box {
+            position: relative;
+            padding: 30px;
+            background: var(--secondary-color);
+            border-radius: 15px;
+            cursor: pointer;
+            transition: transform 0.3s;
         }
-        
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        /* RSVP Section */
-        .rsvp {
-            background-color: var(--primary-color);
-            padding: 80px 0;
-        }
-        
-        .rsvp iframe {
-            width: 100%;
-            height: 800px;
-            border: none;
-        }
-        
-        /* Mappa */
-        .map {
-            height: 400px;
-            margin-top: 30px;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--text-color);
-            color: var(--light-color);
-            text-align: center;
-            padding: 20px 0;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.2rem;
-            }
-            
-            nav ul {
-                flex-direction: column;
-            }
-            
-            nav ul li {
-                margin: 10px 0;
-            }
-        }
-        
-        /* Decorazioni floreali */
-        .floral-decoration {
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background-image: url('https://github.com/iFelice/wedding-website/blob/main/images/logosposi.png?raw=true');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.5;
-        }
-        
-        .floral-top-left {
-            top: 0;
-            left: 0;
-        }
-        
-        .floral-bottom-right {
-            bottom: 0;
-            right: 0;
-            transform: rotate(0deg);
+
+        .gift-box:hover {
+            transform: rotate(-2deg) scale(1.02);
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Header con logo -->
     <header>
-        <div class="container">
-            <h1>Felice & Federica</h1>
-            <nav>
-                <ul>
-                    <li><a href="#storia">La Nostra Storia</a></li>
-                    <li><a href="#informazioni">Informazioni</a></li>
-                    <li><a href="#rsvp">RSVP</a></li>
-                    <li><a href="#contatti">Contatti</a></li>
-                </ul>
-            </nav>
+        <div class="logo-container">
+            <div class="logo"></div>
         </div>
+        <!-- Nav restante -->
     </header>
-    
-    <section class="hero">
-        <div class="floral-decoration floral-top-left"></div>
-        <div class="floral-decoration floral-bottom-right"></div>
-        <div class="hero-content">
-            <h1>Felice & Federica</h1>
-            <p>12 Luglio 2025</p>
-            <div class="countdown">
-                <div class="countdown-item">
-                    <div class="countdown-number" id="days">000</div>
-                    <div class="countdown-label">Giorni</div>
+
+    <!-- Hero con parallax -->
+    <section class="hero parallax">
+        <!-- Contenuto hero -->
+    </section>
+
+    <!-- Sezione Gallery -->
+    <section id="gallery">
+        <div class="container">
+            <h2 class="section-title reveal">I Nostri Momenti</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item reveal">
+                    <img src="https://via.placeholder.com/300x400.png?text=Photo+1" alt="Gallery 1">
+                    <div class="gallery-overlay"></div>
                 </div>
-                <div class="countdown-item">
-                    <div class="countdown-number" id="hours">00</div>
-                    <div class="countdown-label">Ore</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-number" id="minutes">00</div>
-                    <div class="countdown-label">Minuti</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-number" id="seconds">00</div>
-                    <div class="countdown-label">Secondi</div>
+                <!-- Aggiungi altre immagini -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione Informazioni con icone -->
+    <div class="info-card reveal">
+        <div class="icon-wrapper">
+            <i class="fas fa-church"></i>
+        </div>
+        <h3>Cerimonia</h3>
+        <!-- Contenuto -->
+    </div>
+
+    <!-- Extra: Sezione Regalo -->
+    <section class="reveal">
+        <div class="container">
+            <div class="gift-box">
+                <h3>Lista Nozze</h3>
+                <p>Il vostro amore è il regalo più grande</p>
+                <div class="icon-wrapper">
+                    <i class="fas fa-gift"></i>
                 </div>
             </div>
         </div>
     </section>
-    
-    <section id="storia" class="storia">
-        <div class="container">
-            <h2 class="section-title">La Nostra Storia</h2>
-            <div class="storia-content">
-                <p>Qui potrai inserire la vostra storia d'amore, come vi siete conosciuti, i momenti più importanti del vostro percorso insieme e la proposta di matrimonio.</p>
-            </div>
-        </div>
-    </section>
-    
-    <section id="informazioni">
-        <div class="container">
-            <h2 class="section-title">Informazioni</h2>
-            <p class="section-subtitle">Tutte le informazioni necessarie per il nostro grande giorno</p>
-            
-            <div class="info-grid">
-                <div class="info-card">
-                    <h3>Cerimonia</h3>
-                    <p>12 Luglio 2025, ore 16:00</p>
-                    <p>Duomo di Nola</p>
-                    <p>Piazza Duomo, Nola (NA)</p>
-                    <div class="map">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3017.6254624259683!2d14.52512701108654!3d40.92555057135232!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133bb29b0fec68c5%3A0x5fa97aa7d28f1ee7!2sDuomo%20di%20Nola!5e0!3m2!1sit!2sit!4v1710950297650!5m2!1sit!2sit" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                </div>
-                
-                <div class="info-card">
-                    <h3>Ricevimento</h3>
-                    <p>12 Luglio 2025, a seguire</p>
-                    <p>Castello di Faicchio</p>
-                    <p>Via Roma, 10, 82030 Faicchio (BN)</p>
-                    <div class="map">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d23659.203242299856!2d14.484831187098132!3d41.282187711649186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sit!2sit!4v1742399674378!5m2!1sit!2sit" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                       </div>
-                </div>
-            </div>
-            
-            <div class="info-card">
-                <h3>Come Raggiungere le Location</h3>
-                <div class="info-grid">
-                    <div>
-                        <h4>Duomo di Nola</h4>
-                        <p>In auto: Seguire le indicazioni per Nola centro, parcheggiare nelle vicinanze di Piazza Duomo.</p>
-                        <p>Con i mezzi pubblici: Prendere la Circumvesuviana fino alla fermata di Nola, poi a piedi per circa 10 minuti.</p>
-                    </div>
-                    <div>
-                        <h4>Castello di Faicchio</h4>
-                        <p>In auto: Da Nola, prendere la SS7 Appia in direzione Benevento, seguire le indicazioni per Faicchio.</p>
-                        <p>Da Napoli, prendere l'A30 in direzione Caserta, poi seguire le indicazioni per Faicchio.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section id="rsvp" class="rsvp">
-        <div class="container">
-            <h2 class="section-title">RSVP</h2>
-            <p class="section-subtitle">Conferma la tua presenza entro il 12 Giugno 2025</p>
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdfORL4BEwRXt17hCwxS1RXuzBA14A3usMAijuwa3pn4PTT6w/viewform?embedded=true"></iframe>
-        </div>
-    </section>
-    
-    <section id="contatti">
-        <div class="container">
-            <h2 class="section-title">Contatti</h2>
-            <p class="section-subtitle">Per qualsiasi informazione non esitare a contattarci</p>
-            <div class="info-card">
-                <p>Email: esempio@email.it</p>
-                <p>Telefono: 123-456-7890</p>
-            </div>
-        </div>
-    </section>
-    
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 - Felice & Federica</p>
-        </div>
-    </footer>
-    
+
     <script>
-        // Countdown timer
-        const weddingDate = new Date('July 12, 2025 16:00:00').getTime();
-        
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = weddingDate - now;
-            
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            
-            document.getElementById('days').innerText = days.toString().padStart(3, '0');
-            document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
-        }
-        
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
+        // Scroll Reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+        // Parallax dinamico
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            document.querySelector('.hero').style.backgroundPositionY = `${scrolled * 0.5}px`;
+        });
     </script>
 </body>
 </html>
