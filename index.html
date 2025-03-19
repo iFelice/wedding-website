@@ -6,177 +6,186 @@
     <title>Felice & Federica - 12 Luglio 2025</title>
     <style>
         :root {
-            --primary-color: #F5DBDE;
-            --secondary-color: #d8e2dc;
-            --accent-color: #ffb5a7;
-            --text-color: #6d6875;
-            --light-color: #ffffff;
+            --primary-color: #fff5f7;
+            --secondary-color: #f8f9fa;
+            --accent-color: #d4a8b0;
+            --text-color: #4a4a4a;
+            --gold-color: #c5a482;
         }
 
-        /* Aggiunta effetto parallax */
-        .parallax {
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
+        body {
+            background: var(--primary-color);
+            color: var(--text-color);
+            font-family: 'Playfair Display', serif;
+            line-height: 1.8;
         }
 
-        /* Illustrazioni acquerello */
-        body::before {
+        /* Header Monumentale */
+        header {
+            padding: 4rem 0;
+            text-align: center;
+            background: linear-gradient(rgba(255,245,247,0.9), rgba(255,245,247,0.9)),
+                        url('https://i.ibb.co/0jq7R0B/marble-texture.jpg');
+            border-bottom: 2px solid var(--gold-color);
+        }
+
+        .logo-container {
+            margin-bottom: 2rem;
+        }
+
+        .logo {
+            width: 150px;
+            height: 150px;
+            background: url('https://github.com/iFelice/wedding-website/blob/main/images/logosposi.png?raw=true') center/contain no-repeat;
+            border: 3px solid var(--gold-color);
+            border-radius: 50%;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 4.5rem;
+            letter-spacing: 3px;
+            color: var(--text-color);
+            margin: 2rem 0;
+            text-transform: uppercase;
+            font-weight: 400;
+            position: relative;
+        }
+
+        h1::after {
             content: '';
-            position: fixed;
-            top: 0;
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: var(--gold-color);
+        }
+
+        /* Nav Minimal */
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            list-style: none;
+            padding: 2rem 0;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1.1rem;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
             left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold-color);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
             width: 100%;
-            height: 100%;
-            background-image: url('https://github.com/iFelice/wedding-website/blob/main/images/logosposi.png?raw=true');
-            opacity: 0.05;
-            z-index: -1;
-            pointer-events: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: url('https://i.ibb.co/0jq7R0B/marble-texture.jpg') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 4rem;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
         }
 
         /* Gallery Section */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 4rem 0;
         }
 
         .gallery-item {
             position: relative;
             overflow: hidden;
-            border-radius: 10px;
-            transition: transform 0.3s;
+            aspect-ratio: 3/4;
         }
 
         .gallery-item img {
             width: 100%;
-            height: 300px;
+            height: 100%;
             object-fit: cover;
-            transition: transform 0.3s;
+            transition: transform 0.5s cubic-bezier(0.25, 0.45, 0.45, 0.95);
         }
 
         .gallery-item:hover img {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
-        .gallery-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(rgba(245, 219, 222, 0.3), rgba(216, 226, 220, 0.3));
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-        }
-
-        /* Animazioni Scroll Reveal */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Icone personalizzate */
-        .icon-wrapper {
-            font-size: 2rem;
-            color: var(--accent-color);
-            margin-bottom: 15px;
-        }
-
-        /* Extra: Sezione regalo */
-        .gift-box {
+        /* Info Cards */
+        .info-card {
+            background: white;
+            padding: 3rem;
+            margin: 4rem 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             position: relative;
-            padding: 30px;
-            background: var(--secondary-color);
-            border-radius: 15px;
-            cursor: pointer;
-            transition: transform 0.3s;
+            border-left: 5px solid var(--gold-color);
         }
 
-        .gift-box:hover {
-            transform: rotate(-2deg) scale(1.02);
+        .info-card h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+            font-weight: 400;
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header con logo -->
+    <!-- Header -->
     <header>
-        <div class="logo-container">
-            <div class="logo"></div>
+        <div class="container">
+            <div class="logo-container">
+                <div class="logo"></div>
+            </div>
+            <h1>Felice<br>&<br>Federica</h1>
+            <nav>
+                <ul>
+                    <li><a href="#storia">Storia</a></li>
+                    <li><a href="#evento">Evento</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#dettagli">Dettagli</a></li>
+                </ul>
+            </nav>
         </div>
-        <!-- Nav restante -->
     </header>
 
-    <!-- Hero con parallax -->
-    <section class="hero parallax">
-        <!-- Contenuto hero -->
-    </section>
-
-    <!-- Sezione Gallery -->
-    <section id="gallery">
-        <div class="container">
-            <h2 class="section-title reveal">I Nostri Momenti</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item reveal">
-                    <img src="https://via.placeholder.com/300x400.png?text=Photo+1" alt="Gallery 1">
-                    <div class="gallery-overlay"></div>
-                </div>
-                <!-- Aggiungi altre immagini -->
-            </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>12 Luglio 2025</h2>
+            <p>Castello di Faicchio, Benevento</p>
+            <!-- Countdown -->
         </div>
     </section>
 
-    <!-- Sezione Informazioni con icone -->
-    <div class="info-card reveal">
-        <div class="icon-wrapper">
-            <i class="fas fa-church"></i>
-        </div>
-        <h3>Cerimonia</h3>
-        <!-- Contenuto -->
-    </div>
-
-    <!-- Extra: Sezione Regalo -->
-    <section class="reveal">
-        <div class="container">
-            <div class="gift-box">
-                <h3>Lista Nozze</h3>
-                <p>Il vostro amore è il regalo più grande</p>
-                <div class="icon-wrapper">
-                    <i class="fas fa-gift"></i>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <script>
-        // Scroll Reveal
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-
-        // Parallax dinamico
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            document.querySelector('.hero').style.backgroundPositionY = `${scrolled * 0.5}px`;
-        });
-    </script>
+    <!-- Altre sezioni -->
 </body>
 </html>
