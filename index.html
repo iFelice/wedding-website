@@ -229,10 +229,20 @@
         }
 
         /* Logo Stile */
+        .logo-container {
+          width: 170px; /* Leggermente più grande del logo stesso */
+          height: 170px;
+          margin: 0 auto 10px;
+          border-radius: 50%; /* Crea un cerchio */
+          background-color: rgba(255, 255, 255, 0.8); /* Cerchio bianco semi-trasparente */
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
         .logo {
             width: 150px; /* Regola la larghezza desiderata */
             height: 150px; /* Regola l'altezza desiderata */
-            margin: 0 auto 10px; /* Centra orizzontalmente e aggiunge margine sotto */
             background-image: url('https://github.com/iFelice/wedding-website/blob/main/images/logosposi.png?raw=true');
             background-size: contain;
             background-repeat: no-repeat;
@@ -258,7 +268,9 @@
 
     <section class="hero">
         <div class="hero-content">
-            <div class="logo"></div> <!-- Inserito il logo -->
+            <div class="logo-container">
+                <div class="logo"></div>
+            </div>
             <h1>Felice & Federica</h1>
             <p>12 Luglio 2025</p>
             <div class="countdown">
