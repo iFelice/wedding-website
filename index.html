@@ -229,24 +229,29 @@
         }
 
         /* Logo Stile */
-        .logo-container {
-            width: 200px; /* Aumentato per contenere il logo più grande */
-            height: 200px; /* Aumentato per contenere il logo più grande */
-            margin: 0 auto 10px;
-            border-radius: 50%; /* Crea un cerchio */
-            background-color: rgba(255, 255, 255, 0.8); /* Cerchio bianco semi-trasparente */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+       .logo-container {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Aggiunto */
+}
 
-        .logo {
-            width: 150px; /* Aumentato la dimensione del logo */
-            height: 150px; /* Aumentato la dimensione del logo */
-            background-image: url('https://github.com/iFelice/wedding-website/blob/main/images/logosposiN.png?raw=true');
-            background-size: contain;
-            background-repeat: no-repeat;
-        }
+.logo {
+    width: 150px;
+    height: 150px;
+    background-image: url('https://github.com/iFelice/wedding-website/blob/main/images/logosposiN.png?raw=true');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute; /* Aggiunto */
+    top: 50%; /* Aggiunto */
+    left: 50%; /* Aggiunto */
+    transform: translate(-50%, -50%); /* Aggiunto */
+}
 
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
