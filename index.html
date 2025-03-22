@@ -45,6 +45,9 @@
             width: 100%;
             z-index: 1000;
             transition: all 0.3s ease;
+            display: flex; /* Abilita Flexbox per centrare gli elementi */
+            flex-direction: column; /* Impila gli elementi verticalmente */
+            align-items: center; /* Centra orizzontalmente gli elementi */
         }
 
         header.scrolled {
@@ -141,7 +144,7 @@
         section {
             padding: 80px 0;
             position: relative;
-            margin-top: 70px;
+             /* RIMOSSO margin-top: 70px; - Gestiremo l'altezza dell'header diversamente */
         }
 
         .section-title {
@@ -555,13 +558,14 @@
         /* Stili per il menù hamburger (Mobile) */
         .menu-toggle {
             display: none; /* Nascosto per desktop */
-            position: absolute;
-            top: 20px;
-            right: 20px;
+            /* position: absolute; RIMOSSO -  Ora sarà posizionato centralmente */
+            /* top: 20px; RIMOSSO */
+            /* right: 20px; RIMOSSO */
             font-size: 2rem;
             color: var(--text-color);
             cursor: pointer;
             z-index: 1001;
+            margin: 10px auto; /* Centra orizzontalmente */
         }
 
         .menu-toggle:hover {
@@ -571,17 +575,18 @@
         /* Media query per schermi piccoli */
         @media (max-width: 768px) {
             header {
-                padding: 10px 0; /* Riduce il padding dell'header su mobile */
+                padding: 10px 0 5px 0; /* Ridotto padding inferiore header mobile */
                 position: fixed;
-
+                flex-direction: column; /* Assicura che gli elementi siano impilati */
+                align-items: center; /* Centra gli elementi nell'header */
             }
 
             .menu-toggle {
                 display: block; /* Mostra il menù hamburger */
-                top: 5px;
-                right: 10px;
-                font-size: 2rem;
+                position: relative; /* Posizionamento relativo per il menu toggle */
+                margin: 10px auto; /* Centra il menu toggle */
             }
+
 
             nav {
                 position: absolute;
@@ -610,8 +615,16 @@
                 display: block; /* Mostra il menù quando attivo */
             }
             section {
-                margin-top: 90px;
+                margin-top: 15px; /* Leggero margin-top per le sezioni su mobile */
             }
+            .hero {
+                height: auto; /* Altezza automatica per hero su mobile */
+                padding-bottom: 40px; /* Aggiunto padding inferiore per hero su mobile */
+            }
+            .hero-content {
+                padding-top: 80px; /* Aggiunto padding superiore per hero-content su mobile */
+            }
+
         }
 
         @media (max-width: 768px) {
@@ -647,6 +660,11 @@
 
             .persona {
                 flex: 0 0 100%;
+            }
+             .gallery-container { /* Assicura che la gallery grid funzioni su mobile */
+                display: grid; /* Forza display grid */
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Ripete le colonne */
+                grid-gap: 15px; /* Spazio tra le immagini */
             }
         }
     </style>
