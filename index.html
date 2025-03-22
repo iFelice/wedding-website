@@ -23,6 +23,11 @@
             font-family: 'Cormorant Garamond', serif;
         }
 
+        html, body { /* Reset margini predefiniti html e body */
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             background-color: var(--light-color);
             color: var(--text-color);
@@ -45,9 +50,9 @@
             width: 100%;
             z-index: 1000;
             transition: all 0.3s ease;
-            display: flex; /* Abilita Flexbox per centrare gli elementi */
-            flex-direction: column; /* Impila gli elementi verticalmente */
-            align-items: center; /* Centra orizzontalmente gli elementi */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         header.scrolled {
@@ -144,7 +149,6 @@
         section {
             padding: 80px 0;
             position: relative;
-             /* RIMOSSO margin-top: 70px; - Gestiremo l'altezza dell'header diversamente */
         }
 
         .section-title {
@@ -557,15 +561,12 @@
 
         /* Stili per il menù hamburger (Mobile) */
         .menu-toggle {
-            display: none; /* Nascosto per desktop */
-            /* position: absolute; RIMOSSO -  Ora sarà posizionato centralmente */
-            /* top: 20px; RIMOSSO */
-            /* right: 20px; RIMOSSO */
+            display: none;
             font-size: 2rem;
             color: var(--text-color);
             cursor: pointer;
             z-index: 1001;
-            margin: 10px auto; /* Centra orizzontalmente */
+            margin: 10px auto;
         }
 
         .menu-toggle:hover {
@@ -575,27 +576,33 @@
         /* Media query per schermi piccoli */
         @media (max-width: 768px) {
             header {
-                padding: 10px 0 5px 0; /* Ridotto padding inferiore header mobile */
+                padding: 10px 0 5px 0;
                 position: fixed;
-                flex-direction: column; /* Assicura che gli elementi siano impilati */
-                align-items: center; /* Centra gli elementi nell'header */
+                flex-direction: column;
+                align-items: center;
             }
 
+            header h1 { /* Riduzione font-size h1 header mobile */
+                font-size: 1.8rem; /* Dimensione ridotta per mobile */
+                margin-bottom: 0; /* Ridotto margine inferiore */
+            }
+
+
             .menu-toggle {
-                display: block; /* Mostra il menù hamburger */
-                position: relative; /* Posizionamento relativo per il menu toggle */
-                margin: 10px auto; /* Centra il menu toggle */
+                display: block;
+                position: relative;
+                margin: 10px auto;
             }
 
 
             nav {
                 position: absolute;
-                top: 100%; /* Posiziona sotto l'header */
+                top: 100%;
                 left: 0;
                 width: 100%;
                 background-color: var(--primary-color);
                 box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-                display: none; /* Nascosto inizialmente */
+                display: none;
             }
 
             nav ul {
@@ -612,18 +619,25 @@
             }
 
             nav.active {
-                display: block; /* Mostra il menù quando attivo */
+                display: block;
             }
             section {
-                margin-top: 15px; /* Leggero margin-top per le sezioni su mobile */
+                margin-top: 0px; /* RIMOSSO margin-top dalle sezioni su mobile */
             }
             .hero {
-                height: auto; /* Altezza automatica per hero su mobile */
-                padding-bottom: 40px; /* Aggiunto padding inferiore per hero su mobile */
+                height: auto;
+                padding-bottom: 40px;
             }
             .hero-content {
-                padding-top: 80px; /* Aggiunto padding superiore per hero-content su mobile */
+                padding-top: 60px; /* Ridotto padding top hero-content mobile */
             }
+            .gallery-container {
+                display: grid !important; /* Forzato display grid IMPORTANT */
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                grid-gap: 15px;
+                width: 100%; /* Assicurati che la gallery container occupi tutta la larghezza */
+            }
+
 
         }
 
@@ -660,11 +674,6 @@
 
             .persona {
                 flex: 0 0 100%;
-            }
-             .gallery-container { /* Assicura che la gallery grid funzioni su mobile */
-                display: grid; /* Forza display grid */
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Ripete le colonne */
-                grid-gap: 15px; /* Spazio tra le immagini */
             }
         }
     </style>
