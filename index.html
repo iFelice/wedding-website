@@ -1,456 +1,714 @@
 <!DOCTYPE html>
-<html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Felice & Federica - 12 Luglio 2025</title>
-    <style>
-        :root {
-            --primary-color: #F5DBDE;
-            --secondary-color: #d8e2dc;
-            --accent-color: #ffb5a7;
-            --text-color: #6d6875;
-            --light-color: #ffffff;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Cormorant Garamond', serif;
-        }
-        
-        body {
-            background-color: var(--light-color);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header */
-        header {
-            background-color: var(--primary-color);
-            padding: 20px 0;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: relative; /* Cambiato da fixed a relative */
-            width: 100%;
-            z-index: 100;
-        }
-        
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            margin-top: 20px;
-            flex-wrap: wrap; /* Aggiunto per permettere il wrap su dispositivi mobili */
-        }
-        
-        nav ul li {
-            margin: 0 15px;
-        }
-        
-        nav ul li a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-size: 18px;
-            transition: color 0.3s;
-        }
-        
-        nav ul li a:hover {
-            color: var(--accent-color);
-        }
-        
-        /* Menu mobile */
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--text-color);
-            cursor: pointer;
-            padding: 10px;
-        }
-        
-        /* Hero Section */
-        .hero {
-            height: 80vh;
-            background-image: url('https://github.com/iFelice/wedding-website/blob/main/images/sfondo-1.jpg?raw=true');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: var(--light-color);
-            position: relative;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.3);
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-            font-weight: 300;
-        }
-        
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-        }
-        
-        .countdown {
-            display: flex;
-            justify-content: center;
-            margin-top: 30px;
-        }
-        
-        .countdown-item {
-            margin: 0 10px;
-            text-align: center;
-        }
-        
-        .countdown-number {
-            font-size: 2rem;
-            font-weight: bold;
-        }
-        
-        .countdown-label {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-        }
-        
-        /* Sections */
-        section {
-            padding: 60px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-            font-size: 2.5rem;
-            font-weight: 300;
-            color: var(--text-color);
-        }
-        
-        .section-subtitle {
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 1.2rem;
-            font-style: italic;
-            color: var(--accent-color);
-        }
-        
-        /* Storia */
-        .storia {
-            background-color: var(--secondary-color);
-            padding: 80px 0;
-        }
-        
-        .storia-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        
-        /* Informazioni */
-        .info-card {
-            background-color: var(--light-color);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
-            text-align: center;
-        }
-        
-        .info-card h3 {
-            margin-bottom: 15px;
-            font-size: 1.8rem;
-            color: var(--accent-color);
-        }
-        
-        .info-card p {
-            margin-bottom: 10px;
-        }
-        
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        /* RSVP Section */
-        .rsvp {
-            background-color: var(--primary-color);
-            padding: 80px 0;
-        }
-        
-        .rsvp iframe {
-            width: 100%;
-            height: 800px;
-            border: none;
-        }
-        
-        /* Mappa */
-        .map {
-            height: 400px;
-            margin-top: 30px;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--text-color);
-            color: var(--light-color);
-            text-align: center;
-            padding: 20px 0;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.2rem;
-            }
-            
-            /* Modifiche per menu mobile */
-            .menu-toggle {
-                display: block;
-                margin: 0 auto;
-            }
-            
-            nav ul {
-                display: none; /* Nascondi il menu di default */
-                flex-direction: column;
-                width: 100%;
-                text-align: center;
-            }
-            
-            nav ul.show {
-                display: flex; /* Mostra menu quando la classe show è attiva */
-            }
-            
-            nav ul li {
-                margin: 8px 0;
-            }
-            
-            .countdown {
-                flex-wrap: wrap;
-            }
-            
-            .countdown-item {
-                margin: 10px;
-            }
-            
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        /* Decorazioni floreali */
-        .floral-decoration {
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background-image: url('https://github.com/iFelice/wedding-website/blob/main/images/logosposi.png?raw=true');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 0.5;
-        }
-        
-        .floral-top-left {
-            top: 0;
-            left: 0;
-        }
-        
-        .floral-bottom-right {
-            bottom: 0;
-            right: 0;
-            transform: rotate(0deg);
-        }
-    </style>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-</head>
-<body>
-    <header>
-        <div class="container">
-            <h1>Felice & Federica</h1>
-            <button class="menu-toggle" id="menuToggle">
-                <i class="fas fa-bars"></i> Menu
-            </button>
-            <nav>
-                <ul id="mobileMenu">
-                    <li><a href="#storia">La Nostra Storia</a></li>
-                    <li><a href="#informazioni">Informazioni</a></li>
-                    <li><a href="#rsvp">RSVP</a></li>
-                    <li><a href="#contatti">Contatti</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    
-    <section class="hero">
-        <div class="floral-decoration floral-top-left"></div>
-        <div class="floral-decoration floral-bottom-right"></div>
-        <div class="hero-content">
-            <h1>Felice & Federica</h1>
-            <p>12 Luglio 2025</p>
-            <div class="countdown">
-                <div class="countdown-item">
-                    <div class="countdown-number" id="days">000</div>
-                    <div class="countdown-label">Giorni</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-number" id="hours">00</div>
-                    <div class="countdown-label">Ore</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-number" id="minutes">00</div>
-                    <div class="countdown-label">Minuti</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-number" id="seconds">00</div>
-                    <div class="countdown-label">Secondi</div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section id="storia" class="storia">
-        <div class="container">
-            <h2 class="section-title">La Nostra Storia</h2>
-            <div class="storia-content">
-                <p>Qui potrai inserire la vostra storia d'amore, come vi siete conosciuti, i momenti più importanti del vostro percorso insieme e la proposta di matrimonio.</p>
-            </div>
-        </div>
-    </section>
-    
-    <section id="informazioni">
-        <div class="container">
-            <h2 class="section-title">Informazioni</h2>
-            <p class="section-subtitle">Tutte le informazioni necessarie per il nostro grande giorno</p>
-            
-            <div class="info-grid">
-                <div class="info-card">
-                    <h3>Cerimonia</h3>
-                    <p>12 Luglio 2025, ore 16:00</p>
-                    <p>Duomo di Nola</p>
-                    <p>Piazza Duomo, Nola (NA)</p>
-                    <div class="map">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3017.6254624259683!2d14.52512701108654!3d40.92555057135232!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133bb29b0fec68c5%3A0x5fa97aa7d28f1ee7!2sDuomo%20di%20Nola!5e0!3m2!1sit!2sit!4v1710950297650!5m2!1sit!2sit" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                </div>
-                
-                <div class="info-card">
-                    <h3>Ricevimento</h3>
-                    <p>12 Luglio 2025, a seguire</p>
-                    <p>Castello di Faicchio</p>
-                    <p>Via Roma, 10, 82030 Faicchio (BN)</p>
-                    <div class="map">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d23659.203242299856!2d14.484831187098132!3d41.282187711649186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sit!2sit!4v1742399674378!5m2!1sit!2sit" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                       </div>
-                </div>
-            </div>
-            
-            <div class="info-card">
-                <h3>Come Raggiungere le Location</h3>
-                <div class="info-grid">
-                    <div>
-                        <h4>Duomo di Nola</h4>
-                        <p>In auto: Seguire le indicazioni per Nola centro, parcheggiare nelle vicinanze di Piazza Duomo.</p>
-                        <p>Con i mezzi pubblici: Prendere la Circumvesuviana fino alla fermata di Nola, poi a piedi per circa 10 minuti.</p>
-                    </div>
-                    <div>
-                        <h4>Castello di Faicchio</h4>
-                        <p>In auto: Da Nola, prendere la SS7 Appia in direzione Benevento, seguire le indicazioni per Faicchio.</p>
-                        <p>Da Napoli, prendere l'A30 in direzione Caserta, poi seguire le indicazioni per Faicchio.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section id="rsvp" class="rsvp">
-        <div class="container">
-            <h2 class="section-title">RSVP</h2>
-            <p class="section-subtitle">Conferma la tua presenza entro il 12 Giugno 2025</p>
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdfORL4BEwRXt17hCwxS1RXuzBA14A3usMAijuwa3pn4PTT6w/viewform?embedded=true"></iframe>
-        </div>
-    </section>
-    
-    <section id="contatti">
-        <div class="container">
-            <h2 class="section-title">Contatti</h2>
-            <p class="section-subtitle">Per qualsiasi informazione non esitare a contattarci</p>
-            <div class="info-card">
-                <p>Email: esempio@email.it</p>
-                <p>Telefono: 123-456-7890</p>
-            </div>
-        </div>
-    </section>
-    
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 - Felice & Federica</p>
-        </div>
-    </footer>
-    
-    <script>
-        // Countdown timer
-        const weddingDate = new Date('July 12, 2025 16:00:00').getTime();
-        
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = weddingDate - now;
-            
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            
-            document.getElementById('days').innerText = days.toString().padStart(3, '0');
-            document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
-        }
-        
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-        
-        // Menu mobile toggle
-        document.getElementById('menuToggle').addEventListener('click', function() {
-            document.getElementById('mobileMenu').classList.toggle('show');
-        });
-        
-        // Chiudi menu quando si clicca su un link
-        const navLinks = document.querySelectorAll('nav ul li a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                document.getElementById('mobileMenu').classList.remove('show');
-            });
-        });
-    </script>
-</body>
-</html>
+ <html lang="it">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Felice & Federica - 12 Luglio 2025</title>
+     <style>
+         :root {
+             --primary-color: #F5DBDE;
+             --secondary-color: #d8e2dc;
+             --accent-color: #ffb5a7;
+             --text-color: #6d6875;
+             --light-color: #ffffff;
+         }
+ 
+         * {
+             margin: 0;
+             padding: 0;
+             box-sizing: border-box;
+             font-family: 'Cormorant Garamond', serif;
+         }
+ 
+         body {
+             background-color: var(--light-color);
+             color: var(--text-color);
+             line-height: 1.6;
+         }
+ 
+         .container {
+             max-width: 1200px;
+             margin: 0 auto;
+             padding: 0 20px;
+         }
+ 
+         /* Header */
+         header {
+             background-color: var(--primary-color);
+             padding: 20px 0;
+             text-align: center;
+             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+             position: fixed;
+             width: 100%;
+             z-index: 1000;
+             transition: all 0.3s ease;
+         }
+ 
+         header.scrolled {
+             padding: 10px 0;
+             background-color: rgba(245, 219, 222, 0.95);
+         }
+ 
+         nav ul {
+             display: flex;
+             justify-content: center;
+             list-style: none;
+             margin-top: 20px;
+         }
+ 
+         nav ul li {
+             margin: 0 15px;
+         }
+ 
+         nav ul li a {
+             text-decoration: none;
+             color: var(--text-color);
+             font-size: 18px;
+             transition: color 0.3s;
+         }
+ 
+         nav ul li a:hover {
+             color: var(--accent-color);
+         }
+ 
+         /* Hero Section */
+         .hero {
+             height: 100vh;
+             background-image: url('https://github.com/iFelice/wedding-website/blob/main/images/sfondo-1.jpg?raw=true');
+             background-size: cover;
+             background-position: center;
+             background-attachment: fixed; /* Effetto parallasse */
+             display: flex;
+             flex-direction: column;
+             justify-content: center;
+             align-items: center;
+             text-align: center;
+             color: var(--light-color);
+             position: relative;
+         }
+ 
+         .hero::before {
+             content: '';
+             position: absolute;
+             top: 0;
+             left: 0;
+             width: 100%;
+             height: 100%;
+             background-color: rgba(0, 0, 0, 0.3);
+         }
+ 
+         .hero-content {
+             position: relative;
+             z-index: 1;
+         }
+ 
+         .hero h1 {
+             font-size: 3.5rem;
+             margin-bottom: 5px;
+             font-weight: 300;
+         }
+ 
+         .hero p {
+             font-size: 1.5rem;
+             margin-bottom: 20px;
+         }
+ 
+         .countdown {
+             display: flex;
+             justify-content: center;
+             margin-top: 30px;
+         }
+ 
+         .countdown-item {
+             margin: 0 10px;
+             text-align: center;
+         }
+ 
+         .countdown-number {
+             font-size: 2rem;
+             font-weight: bold;
+         }
+ 
+         .countdown-label {
+             font-size: 0.9rem;
+             text-transform: uppercase;
+         }
+ 
+         /* Sections */
+         section {
+             padding: 80px 0;
+             position: relative;
+         }
+ 
+         .section-title {
+             text-align: center;
+             margin-bottom: 40px;
+             font-size: 2.5rem;
+             font-weight: 300;
+             color: var(--text-color);
+         }
+ 
+         .section-subtitle {
+             text-align: center;
+             margin-bottom: 20px;
+             font-size: 1.2rem;
+             font-style: italic;
+             color: var(--accent-color);
+         }
+ 
+         /* Storia */
+         .storia {
+             background-color: var(--secondary-color);
+             padding: 100px 0;
+         }
+ 
+         .storia-content {
+             max-width: 800px;
+             margin: 0 auto;
+             text-align: center;
+         }
+ 
+         .storia-personale {
+             display: flex;
+             flex-wrap: wrap;
+             justify-content: space-between;
+             margin-top: 50px;
+         }
+ 
+         .persona {
+             flex: 0 0 48%;
+             padding: 20px;
+             background-color: rgba(255, 255, 255, 0.7);
+             border-radius: 10px;
+             margin-bottom: 20px;
+         }
+ 
+         /* Timeline */
+         .timeline {
+             position: relative;
+             max-width: 800px;
+             margin: 0 auto;
+             padding: 40px 0;
+         }
+ 
+         .timeline::after {
+             content: '';
+             position: absolute;
+             width: 2px;
+             background-color: var(--accent-color);
+             top: 0;
+             bottom: 0;
+             left: 50%;
+             margin-left: -1px;
+         }
+ 
+         .timeline-item {
+             padding: 10px 40px;
+             position: relative;
+             width: 50%;
+             box-sizing: border-box;
+         }
+ 
+         .timeline-item::after {
+             content: '';
+             position: absolute;
+             width: 20px;
+             height: 20px;
+             right: -10px;
+             background-color: var(--light-color);
+             border: 4px solid var(--accent-color);
+             top: 15px;
+             border-radius: 50%;
+             z-index: 1;
+         }
+ 
+         .left {
+             left: 0;
+         }
+ 
+         .right {
+             left: 50%;
+         }
+ 
+         .right::after {
+             left: -10px;
+         }
+ 
+         .timeline-content {
+             padding: 20px;
+             background-color: var(--light-color);
+             border-radius: 6px;
+             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+         }
+ 
+         .timeline-content h3 {
+             margin-bottom: 10px;
+             color: var(--accent-color);
+         }
+ 
+         /* Galleria */
+         .gallery {
+             background-color: var(--secondary-color);
+         }
+ 
+         .gallery-container {
+             display: grid;
+             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+             grid-gap: 15px;
+             margin-top: 40px;
+         }
+ 
+         .gallery-item {
+             height: 250px;
+             overflow: hidden;
+             border-radius: 8px;
+             position: relative;
+             cursor: pointer;
+             transition: transform 0.3s;
+         }
+ 
+         .gallery-item:hover {
+             transform: scale(1.03);
+         }
+ 
+         .gallery-item img {
+             width: 100%;
+             height: 100%;
+             object-fit: cover;
+             transition: transform 0.5s;
+         }
+ 
+         .gallery-item:hover img {
+             transform: scale(1.1);
+         }
+ 
+         /* Informazioni */
+         .info-card {
+             background-color: var(--light-color);
+             padding: 30px;
+             border-radius: 10px;
+             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+             margin-bottom: 30px;
+             text-align: center;
+         }
+ 
+         .info-card h3 {
+             margin-bottom: 15px;
+             font-size: 1.8rem;
+             color: var(--accent-color);
+         }
+ 
+         .info-card p {
+             margin-bottom: 10px;
+         }
+ 
+         .info-grid {
+             display: grid;
+             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+             gap: 30px;
+         }
+ 
+         /* RSVP Section */
+         .rsvp {
+             background-color: var(--primary-color);
+             padding: 80px 0;
+         }
+ 
+         .rsvp iframe {
+             width: 100%;
+             height: 800px;
+             border: none;
+         }
+ 
+         /* Mappa */
+         .map {
+             height: 400px;
+             margin-top: 30px;
+         }
+ 
+         /* Alloggi */
+         .accommodation-card {
+             background-color: var(--light-color);
+             border-radius: 8px;
+             overflow: hidden;
+             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+             transition: transform 0.3s;
+         }
+ 
+         .accommodation-card:hover {
+             transform: translateY(-5px);
+         }
+ 
+         .accommodation-img {
+             height: 200px;
+             overflow: hidden;
+         }
+ 
+         .accommodation-img img {
+             width: 100%;
+             height: 100%;
+             object-fit: cover;
+         }
+ 
+         .accommodation-info {
+             padding: 20px;
+         }
+ 
+         .accommodation-info h4 {
+             color: var(--accent-color);
+             margin-bottom: 10px;
+         }
+ 
+         /* FAQ */
+         .faq-container {
+             max-width: 800px;
+             margin: 0 auto;
+         }
+ 
+         .faq-item {
+             margin-bottom: 20px;
+             border-bottom: 1px solid var(--secondary-color);
+             padding-bottom: 20px;
+         }
+ 
+         .faq-question {
+             font-weight: 500;
+             font-size: 1.2rem;
+             color: var(--accent-color);
+             margin-bottom: 10px;
+             cursor: pointer;
+             display: flex;
+             justify-content: space-between;
+             align-items: center;
+         }
+ 
+         .faq-question::after {
+             content: '+';
+             font-size: 1.5rem;
+         }
+ 
+         .faq-question.active::after {
+             content: '-';
+         }
+ 
+         .faq-answer {
+             display: none;
+             padding-top: 10px;
+         }
+ 
+         .faq-answer.show {
+             display: block;
+         }
+ 
+         /* Gift Registry */
+         .gift-registry {
+             background-color: var(--secondary-color);
+         }
+ 
+         .gift-options {
+             display: flex;
+             flex-wrap: wrap;
+             justify-content: center;
+             gap: 30px;
+             margin-top: 40px;
+         }
+ 
+         .gift-option {
+             flex: 0 0 300px;
+             background-color: var(--light-color);
+             border-radius: 10px;
+             overflow: hidden;
+             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+             transition: transform 0.3s;
+         }
+ 
+         .gift-option:hover {
+             transform: translateY(-5px);
+         }
+ 
+         .gift-option-img {
+             height: 200px;
+             overflow: hidden;
+         }
+ 
+         .gift-option-img img {
+             width: 100%;
+             height: 100%;
+             object-fit: cover;
+         }
+ 
+         .gift-option-info {
+             padding: 20px;
+             text-align: center;
+         }
+ 
+         .gift-option-info h3 {
+             color: var(--accent-color);
+             margin-bottom: 10px;
+         }
+ 
+         .btn {
+             display: inline-block;
+             padding: 10px 25px;
+             background-color: var(--accent-color);
+             color: var(--light-color);
+             border: none;
+             border-radius: 5px;
+             text-decoration: none;
+             margin-top: 15px;
+             transition: background-color 0.3s;
+         }
+ 
+         .btn:hover {
+             background-color: #e59f93;
+         }
+ 
+         /* Dress Code */
+         .dress-code {
+             text-align: center;
+             max-width: 800px;
+             margin: 0 auto;
+         }
+ 
+         .dress-code-icon {
+             font-size: 2rem;
+             margin-bottom: 15px;
+             color: var(--accent-color);
+         }
+ 
+         /* Footer */
+         footer {
+             background-color: var(--text-color);
+             color: var(--light-color);
+             text-align: center;
+             padding: 30px 0;
+         }
+ 
+         .social-icons {
+             margin: 20px 0;
+         }
+ 
+         .social-icons a {
+             display: inline-block;
+             margin: 0 10px;
+             color: var(--light-color);
+             font-size: 1.5rem;
+             transition: color 0.3s;
+         }
+ 
+         .social-icons a:hover {
+             color: var(--accent-color);
+         }
+ 
+         /* Back to top button */
+         .back-to-top {
+             position: fixed;
+             bottom: 20px;
+             right: 20px;
+             background-color: var(--accent-color);
+             color: var(--light-color);
+             width: 40px;
+             height: 40px;
+             border-radius: 50%;
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             text-decoration: none;
+             opacity: 0;
+             transition: opacity 0.3s;
+             z-index: 999;
+         }
+ 
+         .back-to-top.show {
+             opacity: 1;
+         }
+ 
+         /* Responsive */
+         @media (max-width: 768px) {
+             .hero h1 {
+                 font-size: 2.5rem;
+             }
+ 
+             .hero p {
+                 font-size: 1.2rem;
+             }
+ 
+             nav ul {
+                 flex-direction: column;
+             }
+ 
+             nav ul li {
+                 margin: 10px 0;
+             }
+ 
+             .timeline::after {
+                 left: 31px;
+             }
+ 
+             .timeline-item {
+                 width: 100%;
+                 padding-left: 70px;
+                 padding-right: 25px;
+             }
+ 
+             .timeline-item::after {
+                 left: 21px;
+             }
+ 
+             .right {
+                 left: 0;
+             }
+ 
+             .storia-personale {
+                 flex-direction: column;
+             }
+ 
+             .persona {
+                 flex: 0 0 100%;
+             }
+         }
+ 
+         /* Logo Stile */
+         .logo-container {
+             width: 200px;
+             height: 200px;
+             margin: 0 auto 10px;
+             border-radius: 50%;
+             background-color: rgba(255, 255, 255, 0.8);
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             position: relative;
+         }
+ 
+         .logo {
+             width: 135px;
+             height: 135px;
+             background-image: url('https://github.com/iFelice/wedding-website/blob/main/images/logosposigrey.png?raw=true');
+             background-size: contain;
+             background-repeat: no-repeat;
+             position: absolute;
+             top: 50%;
+             left: 57%;
+             transform: translate(-50%, -50%);
+         }
+     </style>
+     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+ </head>
+ <body>
+     <header id="header">
+         <div class="container">
+             <h1>Benvenuto nella pagina dedicata al nostro matrimonio</h1>
+             <nav>
+                 <ul>
+                     <li><a href="#storia">La Nostra Storia</a></li>
+                     <li><a href="#timeline">Timeline</a></li>
+                     <li><a href="#galleria">Galleria</a></li>
+                     <li><a href="#informazioni">Informazioni</a></li>
+                     <li><a href="#alloggi">Alloggi</a></li>
+                     <li><a href="#faq">FAQ</a></li>
+                     <li><a href="#lista-nozze">Lista Nozze</a></li>
+                     <li><a href="#rsvp">RSVP</a></li>
+                     <li><a href="#contatti">Contatti</a></li>
+                 </ul>
+             </nav>
+         </div>
+     </header>
+ 
+     <section class="hero">
+         <div class="hero-content">
+             <div class="logo-container">
+                 <div class="logo"></div>
+             </div>
+             <h1>Felice & Federica</h1>
+             <p>12 Luglio 2025</p>
+             <div class="countdown">
+                 <div class="countdown-item">
+                     <div class="countdown-number" id="days">000</div>
+                     <div class="countdown-label">Giorni</div>
+                 </div>
+                 <div class="countdown-item">
+                     <div class="countdown-number" id="hours">00</div>
+                     <div class="countdown-label">Ore</div>
+                 </div>
+                 <div class="countdown-item">
+                     <div class="countdown-number" id="minutes">00</div>
+                     <div class="countdown-label">Minuti</div>
+                 </div>
+                 <div class="countdown-item">
+                     <div class="countdown-number" id="seconds">00</div>
+                     <div class="countdown-label">Secondi</div>
+                 </div>
+             </div>
+         </div>
+     </section>
+ 
+     <section id="storia" class="storia">
+         <div class="container">
+             <h2 class="section-title">La Nostra Storia</h2>
+             <div class="storia-content">
+                 <p>Ci siamo conosciuti in un caffè nel centro di Napoli in una fredda giornata di gennaio. Quello che doveva essere un incontro casuale si è trasformato in cinque ore di conversazione. Da quel giorno non ci siamo più separati.</p>
+                 <p>Dopo tre anni di fidanzamento, durante una vacanza in Grecia, Felice ha fatto la proposta di matrimonio al tramonto sulla spiaggia di Santorini.</p>
+ 
+                 <div class="storia-personale">
+                     <div class="persona">
+                         <h3>Felice</h3>
+                         <p>Ingegnere informatico con la passione per la fotografia. Ama le lunghe passeggiate in montagna e colleziona vinili di musica jazz.</p>
+                     </div>
+                     <div class="persona">
+                         <h3>Federica</h3>
+                         <p>Architetto con la passione per il design d'interni. Nel tempo libero dipinge acquerelli e si dedica al giardinaggio urbano.</p>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </section>
+ 
+     <section id="timeline">
+         <div class="container">
+             <h2 class="section-title">Timeline della Giornata</h2>
+             <p class="section-subtitle">Il programma del nostro grande giorno</p>
+ 
+             <div class="timeline">
+                 <div class="timeline-item left">
+                     <div class="timeline-content">
+                         <h3>16:00</h3>
+                         <p>Cerimonia presso il Duomo di Nola</p>
+                     </div>
+                 </div>
+                 <div class="timeline-item right">
+                     <div class="timeline-content">
+                         <h3>17:30</h3>
+                         <p>Partenza per il ricevimento</p>
+                     </div>
+                 </div>
+                 <div class="timeline-item left">
+                     <div class="timeline-content">
+                         <h3>18:30</h3>
+                         <p>Aperitivo di benvenuto al Castello di Faicchio</p>
+                     </div>
+                 </div>
+                 <div class="timeline-item right">
+                     <div class="timeline-content">
+                         <h3>20:00</h3>
+                         <p>Cena</p>
+                     </div>
+                 </div>
+                 <div class="timeline-item left">
+                     <div class="timeline-content">
+                         <h3>22:30</h3>
+                         <p>Taglio della torta</p>
+                     </div>
+                 </div>
+                 <div class="timeline-item right">
+                     <div class="timeline-content">
+                         <h3>23:00</h3>
+                         <p>Balli e festeggiamenti</p>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </section>
+ 
+     <section id="galleria" class="gallery">
