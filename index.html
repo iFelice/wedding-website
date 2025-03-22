@@ -27,6 +27,8 @@
         body {
             margin: 0;
             padding: 0;
+            width: 100%; /* Assicura che il body occupi tutta la larghezza */
+            overflow-x: hidden; /* Prevent horizontal scrolling */
         }
 
         body {
@@ -86,7 +88,7 @@
         /* Hero Section */
         .hero {
             height: 100vh;
-            background-image: url('https://github.com/iFelice/wedding-website/blob/main/images/sfondo-1.jpg?raw=true');
+            background-image: url('https://github.com/iFelice/wedding-website/blob/main/images/sfondo-1.png?raw=true');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -112,7 +114,8 @@
         .hero-content {
             position: relative;
             z-index: 1;
-            padding-top: 80px; /* Padding top per hero content desktop */
+            padding-top: 80px;
+            /* Padding top per hero content desktop */
         }
 
         .hero h1 {
@@ -564,11 +567,13 @@
         /* Stili per il menù hamburger (Mobile) */
         .menu-toggle {
             display: none;
-            font-size: 1.6rem; /* **RIDOTTO: Lineette menu proporzionali al testo** */
+            font-size: 1.6rem;
+            /* **RIDOTTO: Lineette menu proporzionali al testo** */
             color: var(--text-color);
             cursor: pointer;
             z-index: 1001;
-            margin: 6px auto; /* **RIDOTTO: Margine menu ridotto** */
+            margin: 6px auto;
+            /* **RIDOTTO: Margine menu ridotto** */
         }
 
         .menu-toggle:hover {
@@ -578,22 +583,26 @@
         /* Media query per schermi piccoli */
         @media (max-width: 768px) {
             header {
-                padding: 5px 0 0px 0; /* **HEADER MOBILE ANCORA PIU' STRETTO** */
+                padding: 5px 0 0px 0;
+                /* **HEADER MOBILE ANCORA PIU' STRETTO** */
                 position: fixed;
                 flex-direction: column;
                 align-items: center;
             }
 
             header h1 {
-                font-size: 1.4rem; /* **RIDOTTO ULTERIORMENTE: Testo benvenuto più piccolo** */
+                font-size: 1.4rem;
+                /* **RIDOTTO ULTERMENTE: Testo benvenuto più piccolo** */
                 margin-bottom: 0;
             }
 
             .menu-toggle {
                 display: block;
                 position: relative;
-                margin: 6px auto; /* **RIDOTTO: Margine menu toggle ridotto** */
-                font-size: 1.6rem; /* **RIDOTTO: Icona hamburger mobile proporzionale al testo** */
+                margin: 6px auto;
+                /* **RIDOTTO: Margine menu toggle ridotto** */
+                font-size: 1.6rem;
+                /* **RIDOTTO: Icona hamburger mobile proporzionale al testo** */
             }
 
             nav {
@@ -604,7 +613,8 @@
                 background-color: var(--primary-color);
                 box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
                 display: none;
-                padding: 10px 0; /* **RIDOTTO: Padding verticale menu a tendina** */
+                padding: 10px 0;
+                /* **RIDOTTO: Padding verticale menu a tendina** */
             }
 
             nav ul {
@@ -613,13 +623,17 @@
             }
 
             nav ul li {
-                margin: 5px 0; /* **RIDOTTO: Margini voci menu a tendina (MENO SPAZIO)** */
+                margin: 5px 0;
+                /* **RIDOTTO: Margini voci menu a tendina (MENO SPAZIO)** */
             }
 
             nav ul li a {
-                font-size: 1.2rem; /* **RIDOTTO: Font-size voci menu a tendina** */
-                padding: 8px 15px; /* **RIDOTTO: Padding link menu a tendina** */
-                display: block; /* Assicura che l'area cliccabile sia piena */
+                font-size: 1.2rem;
+                /* **RIDOTTO: Font-size voci menu a tendina** */
+                padding: 8px 15px;
+                /* **RIDOTTO: Padding link menu a tendina** */
+                display: block;
+                /* Assicura che l'area cliccabile sia piena */
             }
 
             nav.active {
@@ -632,25 +646,35 @@
 
             .hero {
                 height: auto;
-                padding-bottom: 20px; /* **RIDOTTO: Padding bottom hero mobile** */
-                background-image: url('https://github.com/iFelice/wedding-website/blob/main/images/sfondo-1.jpg?raw=true') !important; /* **IMPORTANTE: Assicura immagine sfondo hero mobile** */
+                padding-bottom: 20px;
+                /* **RIDOTTO: Padding bottom hero mobile** */
+                background-image: url('https://github.com/iFelice/wedding-website/blob/main/images/sfondo-1.png?raw=true') !important;
+                /* **IMPORTANTE: Assicura immagine sfondo hero mobile** */
             }
 
             .hero-content {
-                padding-top: 40px; /* **AUMENTATO: Spazio logo e countdown più in basso** */
+                padding-top: 40px;
+                /* **AUMENTATO: Spazio logo e countdown più in basso** */
+            }
+
+             .logo-container {
+                margin-bottom: 20px; /* Aumenta il margine inferiore del logo */
             }
 
             .gallery-container {
-                display: grid !important; /* Forzato display grid IMPORTANT */
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important; /* **GALLERY MOBILE: Colonne più strette** */
-                grid-gap: 10px !important; /* **GALLERY MOBILE: Gap ridotto** */
+                display: grid !important;
+                /* Forzato display grid IMPORTANT */
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
+                /* **GALLERY MOBILE: Colonne più strette** */
+                grid-gap: 10px !important;
+                /* **GALLERY MOBILE: Gap ridotto** */
                 width: 100%;
             }
-             .gallery-item {
-                height: 200px; /* **GALLERY MOBILE: Altezza items ridotta** */
+
+            .gallery-item {
+                height: 200px;
+                /* **GALLERY MOBILE: Altezza items ridotta** */
             }
-
-
         }
 
         @media (max-width: 768px) {
@@ -692,6 +716,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
 
 <body>
@@ -747,19 +772,23 @@
 
     <!-- ... (Resto del contenuto HTML - sezioni storia, timeline, galleria, etc.) ... -->
 
-     <section id="storia" class="storia">
+    <section id="storia" class="storia">
         <div class="container">
             <h2 class="section-title">La Nostra Storia</h2>
             <div class="storia-content">
-                <p>Ci siamo conosciuti in un caffè nel centro di Napoli in una fredda giornata di gennaio. Quello che doveva essere
-                    un incontro casuale si è trasformato in cinque ore di conversazione. Da quel giorno non ci siamo più separati.</p>
-                <p>Dopo tre anni di fidanzamento, durante una vacanza in Grecia, Felice ha fatto la proposta di matrimonio al tramonto
+                <p>Ci siamo conosciuti in un caffè nel centro di Napoli in una fredda giornata di gennaio. Quello che doveva
+                    essere
+                    un incontro casuale si è trasformato in cinque ore di conversazione. Da quel giorno non ci siamo più
+                    separati.</p>
+                <p>Dopo tre anni di fidanzamento, durante una vacanza in Grecia, Felice ha fatto la proposta di matrimonio al
+                    tramonto
                     sulla spiaggia di Santorini.</p>
 
                 <div class="storia-personale">
                     <div class="persona">
                         <h3>Felice</h3>
-                        <p>Ingegnere informatico con la passione per la fotografia. Ama le lunghe passeggiate in montagna e colleziona
+                        <p>Ingegnere informatico con la passione per la fotografia. Ama le lunghe passeggiate in montagna e
+                            colleziona
                             vinili di musica jazz.</p>
                     </div>
                     <div class="persona">
@@ -830,25 +859,19 @@
                         alt="Foto di coppia">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://source.unsplash.com/random/600x600/?engagement" alt="Proposta di matrimonio">
+                    <img src="https://github.com/iFelice/wedding-website/blob/main/images/IMG_6022.jpg?raw=true" alt="Proposta di matrimonio">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://source.unsplash.com/random/600x600/?travel" alt="Viaggio insieme">
-                    <img src="https://github.com/iFelice/wedding-website/blob/main/images/IMG_6022.jpg?raw=true"
-                        alt="Momenti insieme">
+                    <img src="https://github.com/iFelice/wedding-website/blob/main/images/IMG_6621.jpg?raw=true" alt="Viaggio insieme">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://source.unsplash.com/random/600x600/?love" alt="Momenti insieme">
-                    <img src="https://github.com/iFelice/wedding-website/blob/main/images/IMG_6621.jpg?raw=true"
-                        alt="Viaggio insieme">
+                    <img src="https://github.com/iFelice/wedding-website/blob/main/images/IMG_7177.jpg?raw=true" alt="Momenti insieme">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://source.unsplash.com/random/600x600/?ring" alt="Anello di fidanzamento">
+                    <img src="https://github.com/iFelice/wedding-website/blob/main/images/IMG_3389.jpg?raw=true" alt="Anello di fidanzamento">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://source.unsplash.com/random/600x600/?anniversary" alt="Anniversario">
-                    <img src="https://github.com/iFelice/wedding-website/blob/main/images/IMG_7177.jpg?raw=true"
-                        alt="Anniversario">
+                    <img src="https://github.com/iFelice/wedding-website/blob/main/images/IMG_6022.jpg?raw=true" alt="Anniversario">
                 </div>
             </div>
         </div>
@@ -893,7 +916,8 @@
                     <div>
                         <h4>Duomo di Nola</h4>
                         <p>In auto: Seguire le indicazioni per Nola centro, parcheggiare nelle vicinanze di Piazza Duomo.</p>
-                        <p>Con i mezzi pubblici: Prendere la Circumvesuviana fino alla fermata di Nola, poi a piedi per circa 10 minuti.</p>
+                        <p>Con i mezzi pubblici: Prendere la Circumvesuviana fino alla fermata di Nola, poi a piedi per circa 10
+                            minuti.</p>
                     </div>
                     <div>
                         <h4>Castello di Faicchio</h4>
@@ -974,27 +998,34 @@
             <div class="faq-container">
                 <div class="faq-item">
                     <div class="faq-question">Ci saranno degli autobus per il trasferimento tra le location?</div>
-                    <div class="faq-answer">Sì, abbiamo organizzato un servizio navetta che partirà dal Duomo di Nola subito dopo la cerimonia per raggiungere il Castello di Faicchio.</div>
+                    <div class="faq-answer">Sì, abbiamo organizzato un servizio navetta che partirà dal Duomo di Nola subito
+                        dopo la cerimonia per raggiungere il Castello di Faicchio.</div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question">È possibile portare i bambini?</div>
-                    <div class="faq-answer">Certamente! I vostri bambini sono i benvenuti. Abbiamo organizzato un servizio di animazione dedicato a loro durante il ricevimento.</div>
+                    <div class="faq-answer">Certamente! I vostri bambini sono i benvenuti. Abbiamo organizzato un servizio di
+                        animazione dedicato a loro durante il ricevimento.</div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question">C'è un parcheggio disponibile presso le location?</div>
-                    <div class="faq-answer">Sì, entrambe le location dispongono di ampi parcheggi gratuiti per gli ospiti.</div>
+                    <div class="faq-answer">Sì, entrambe le location dispongono di ampi parcheggi gratuiti per gli ospiti.
+                    </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question">Ci sono opzioni per chi ha esigenze alimentari particolari?</div>
-                    <div class="faq-answer">Assolutamente sì. Vi preghiamo di indicare eventuali allergie o intolleranze nel modulo RSVP, e saremo felici di adattare il menu alle vostre esigenze.</div>
+                    <div class="faq-answer">Assolutamente sì. Vi preghiamo di indicare eventuali allergie o intolleranze nel
+                        modulo RSVP, e saremo felici di adattare il menu alle vostre esigenze.</div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question">Possiamo scattare foto durante la cerimonia?</div>
-                    <div class="faq-answer">Preferiremmo che durante la cerimonia religiosa le foto siano lasciate ai fotografi professionisti. Durante il ricevimento, invece, sentitevi liberi di immortalare tutti i momenti speciali! Vi invitiamo a usare l'hashtag #FeliceFederica2025 quando condividete le foto sui social.</div>
+                    <div class="faq-answer">Preferiremmo che durante la cerimonia religiosa le foto siano lasciate ai fotografi
+                        professionisti. Durante il ricevimento, invece, sentitevi liberi di immortalare tutti i momenti
+                        speciali! Vi invitiamo a usare l'hashtag #FeliceFederica2025 quando condividete le foto sui social.
+                    </div>
                 </div>
             </div>
         </div>
@@ -1005,7 +1036,9 @@
             <h2 class="section-title">Lista Nozze</h2>
             <p class="section-subtitle">Se desiderate farci un regalo</p>
 
-            <p style="text-align: center; max-width: 700px; margin: 0 auto 40px;">La vostra presenza al nostro matrimonio è il regalo più grande. Tuttavia, per chi desidera contribuire alla nostra nuova vita insieme, abbiamo pensato ad alcune opzioni.</p>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 40px;">La vostra presenza al nostro matrimonio
+                è il regalo più grande. Tuttavia, per chi desidera contribuire alla nostra nuova vita insieme, abbiamo
+                pensato ad alcune opzioni.</p>
 
             <div class="gift-options">
                 <div class="gift-option">
@@ -1048,7 +1081,8 @@
         <div class="container">
             <h2 class="section-title">RSVP</h2>
             <p class="section-subtitle">Conferma la tua presenza entro il 12 Giugno 2025</p>
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdfORL4BEwRXt17hCwxS1RXuzBA14A3usMAijuwa3pn4PTT6w/viewform?embedded=true"></iframe>
+            <iframe
+                src="https://docs.google.com/forms/d/e/1FAIpQLSdfORL4BEwRXt17hCwxS1RXuzBA14A3usMAijuwa3pn4PTT6w/viewform?embedded=true"></iframe>
         </div>
     </section>
 
@@ -1192,6 +1226,12 @@
                 alert('Gallery modal would open here!');
             });
         });
+
+        // Hamburger menu icon style (thinner lines)
+        const hamburgerIcon = document.querySelector('.menu-toggle i');
+        if (hamburgerIcon) {
+            hamburgerIcon.style.setProperty('--hamburger-line-width', '2px'); // Adjust as needed
+        }
     </script>
 </body>
 
