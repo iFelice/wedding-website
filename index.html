@@ -69,7 +69,8 @@
         }
 
         header h1 {
-            margin-bottom: 5px; /* Ridotto margine inferiore */
+            margin-bottom: 5px;
+            /* Ridotto margine inferiore */
         }
 
 
@@ -97,27 +98,21 @@
         }
 
         /* Hero Section */
-        .hero {
-            height: 100vh;
-            /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#f5dbde+0,d8e2dc+100 */
-            background: #f5dbde; /* Old browsers */
-            background: -moz-linear-gradient(-45deg,  #f5dbde 0%, #d8e2dc 100%); /* FF3.6-15 */
-            background: -webkit-linear-gradient(-45deg,  #f5dbde 0%,#d8e2dc 100%); /* Chrome10-25,Safari5.1-6 */
-            background: linear-gradient(135deg,  #f5dbde 0%,#d8e2dc 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5dbde', endColorstr='#d8e2dc',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+.hero {
+    height: 100vh;
+    background-image: url('https://github.com/iFelice/wedding-website/blob/main/images/sfondo-1.png?raw=true');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Immagine fissa */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--light-color);
+    position: relative;
+}
 
-            background-image: url('https://github.com/iFelice/wedding-website/blob/main/images/sfondo-1.png?raw=true');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: var(--light-color);
-            position: relative;
-        }
 
 
          .hero::before {
@@ -133,8 +128,7 @@
         .hero-content {
             position: relative;
             z-index: 1;
-            padding-top: 120px;
-            /* Aumentato padding per desktop */
+           padding-top: 100px; /* Desktop */
             /* Padding top per hero content desktop */
         }
 
@@ -142,14 +136,14 @@
             font-size: 3.5rem;
             margin-bottom: 5px;
             font-weight: 300;
-                color: var(--text-color); /* Testo titolo principale più scuro */
+            color: var(--text-color);
 
         }
 
         .hero p {
             font-size: 1.5rem;
             margin-bottom: 20px;
-             color: var(--text-color); /* Testo titolo principale più scuro */
+             color: var(--text-color);
         }
 
         .countdown {
@@ -166,14 +160,14 @@
         .countdown-number {
             font-size: 2rem;
             font-weight: bold;
-                color: var(--text-color); /* Testo countdown più scuro */
+                color: var(--text-color);
 
         }
 
         .countdown-label {
             font-size: 0.9rem;
             text-transform: uppercase;
-              color: var(--text-color); /* Testo countdown più scuro */
+              color: var(--text-color);
         }
 
         /* Sections */
@@ -498,7 +492,7 @@
             border-radius: 5px;
             text-decoration: none;
             margin-top: 15px;
-            transition: background-color 0.3s;
+            transition: background-color: 0.3s;
         }
 
         .btn:hover {
@@ -666,8 +660,8 @@
 
             }
 
-            .hero-content {
-                   padding-top: 180px; /* Aumentato per mobile */
+             .hero-content {
+                padding-top: 130px; /* Mobile */
             }
 
             .logo-container {
@@ -958,7 +952,6 @@
             </div>
 
             <div class="info-card">
-                            <div class="info-card">
                 <h3>Dress Code</h3>
                 <div class="dress-code">
                     <div class="dress-code-icon">
@@ -985,7 +978,7 @@
                     </div>
                     <div class="accommodation-info">
                         <h4>Hotel Palazzo</h4>
-                        <p>Via Example 123, Faicchio</p>
+                        <p>Via Example 123, Faicchio</
                         <p>Distanza dalla location: 2 km</p>
                         <p>Tel: 123-456-7890</p>
                         <p><a href="#" class="btn">Prenota</a></p>
