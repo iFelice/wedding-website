@@ -97,78 +97,73 @@
             color: var(--accent-color);
         }
 
-        /* Hero Section */
+      /* Hero Section */
 .hero {
     height: 100vh;
-    background-image: url('https://github.com/iFelice/wedding-website/blob/main/images/sfondo-1.jpg?raw=true');
+    background-image: url('https://github.com/iFelice/wedding-website/blob/main/images/sfondo-1.jpg?raw=true'); /* Usa .jpg */
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Immagine fissa */
+    background-attachment: fixed;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: var(--light-color);
+    color: var(--light-color); /* Testo bianco */
     position: relative;
 }
 
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Velo scuro */
+}
 
+.hero-content {
+    position: relative;
+    z-index: 1;
+    padding-top: 100px; /* Desktop */
+}
 
-         .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.3); /* Aggiunto overlay scuro */
-        }
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 5px;
+    font-weight: 300;
+    color: var(--light-color); /* Bianco */
+}
 
-        .hero-content {
-            position: relative;
-            z-index: 1;
-           padding-top: 100px; /* Desktop */
-            /* Padding top per hero content desktop */
-        }
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: var(--light-color); /* Bianco */
+}
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 5px;
-            font-weight: 300;
-            color: var(--text-color);
+.countdown {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
 
-        }
+.countdown-item {
+    margin: 0 10px;
+    text-align: center;
+}
 
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-             color: var(--text-color);
-        }
+.countdown-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--light-color); /* Bianco */
+}
 
-        .countdown {
-            display: flex;
-            justify-content: center;
-            margin-top: 30px;
-        }
-
-        .countdown-item {
-            margin: 0 10px;
-            text-align: center;
-        }
-
-        .countdown-number {
-            font-size: 2rem;
-            font-weight: bold;
-                color: var(--text-color);
-
-        }
-
-        .countdown-label {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-              color: var(--text-color);
-        }
+.countdown-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: var(--light-color); /* Bianco */
+}
 
         /* Sections */
         section {
@@ -656,7 +651,7 @@
             .hero {
                 height: auto;
                 padding-bottom: 20px;
-                background-image: url('https://github.com/iFelice/wedding-website/blob/main/images/sfondo-1.png?raw=true') !important;
+                background-image: url('https://github.com/iFelice/wedding-website/blob/main/images/sfondo-1.jpg?raw=true') !important; /* Usa .jpg */
 
             }
 
@@ -766,7 +761,7 @@
             <div class="logo-container">
                 <div class="logo"></div>
             </div>
-            <h1>Felice & Federica</h1>
+           <h1>Federica & Felice</h1>  <!-- Nomi invertiti -->
             <p>12 Luglio 2025</p>
             <div class="countdown">
                 <div class="countdown-item">
@@ -978,7 +973,7 @@
                     </div>
                     <div class="accommodation-info">
                         <h4>Hotel Palazzo</h4>
-                        <p>Via Example 123, Faicchio</
+                        <p>Via Example 123, Faicchio</p>
                         <p>Distanza dalla location: 2 km</p>
                         <p>Tel: 123-456-7890</p>
                         <p><a href="#" class="btn">Prenota</a></p>
