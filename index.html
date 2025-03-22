@@ -564,11 +564,11 @@
         /* Stili per il menù hamburger (Mobile) */
         .menu-toggle {
             display: none;
-            font-size: 1.8rem; /* Rimpicciolito icona hamburger */
+            font-size: 1.6rem; /* **RIDOTTO: Lineette menu proporzionali al testo** */
             color: var(--text-color);
             cursor: pointer;
             z-index: 1001;
-            margin: 8px auto; /* Margine ridotto */
+            margin: 6px auto; /* **RIDOTTO: Margine menu ridotto** */
         }
 
         .menu-toggle:hover {
@@ -578,25 +578,23 @@
         /* Media query per schermi piccoli */
         @media (max-width: 768px) {
             header {
-                padding: 8px 0 3px 0; /* Header mobile più stretto */
+                padding: 5px 0 0px 0; /* **HEADER MOBILE ANCORA PIU' STRETTO** */
                 position: fixed;
                 flex-direction: column;
                 align-items: center;
             }
 
             header h1 {
-                font-size: 1.6rem; /* Ridotto ulteriormente font-size h1 mobile */
+                font-size: 1.4rem; /* **RIDOTTO ULTERIORMENTE: Testo benvenuto più piccolo** */
                 margin-bottom: 0;
             }
-
 
             .menu-toggle {
                 display: block;
                 position: relative;
-                margin: 8px auto; /* Margine menu toggle ridotto */
-                font-size: 1.8rem; /* Rimpicciolito icona hamburger mobile */
+                margin: 6px auto; /* **RIDOTTO: Margine menu toggle ridotto** */
+                font-size: 1.6rem; /* **RIDOTTO: Icona hamburger mobile proporzionale al testo** */
             }
-
 
             nav {
                 position: absolute;
@@ -606,6 +604,7 @@
                 background-color: var(--primary-color);
                 box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
                 display: none;
+                padding: 10px 0; /* **RIDOTTO: Padding verticale menu a tendina** */
             }
 
             nav ul {
@@ -614,35 +613,41 @@
             }
 
             nav ul li {
-                margin: 10px 0; /* Margini ridotti voci menu mobile */
+                margin: 5px 0; /* **RIDOTTO: Margini voci menu a tendina (MENO SPAZIO)** */
             }
 
             nav ul li a {
-                font-size: 1.4rem; /* Font-size ridotto voci menu mobile */
+                font-size: 1.2rem; /* **RIDOTTO: Font-size voci menu a tendina** */
+                padding: 8px 15px; /* **RIDOTTO: Padding link menu a tendina** */
+                display: block; /* Assicura che l'area cliccabile sia piena */
             }
 
             nav.active {
                 display: block;
             }
 
-            section.hero { /* Hero section inizia subito dopo header */
-                margin-top: 0; /* RIMOSSO margin-top da hero section mobile */
+            section.hero {
+                margin-top: 0;
             }
 
             .hero {
                 height: auto;
-                padding-bottom: 30px; /* Padding-bottom hero mobile ridotto */
-                background-image: url('https://github.com/iFelice/wedding-website/blob/main/images/sfondo-1.jpg?raw=true'); /* Assicurati che l'immagine sia qui */
+                padding-bottom: 20px; /* **RIDOTTO: Padding bottom hero mobile** */
+                background-image: url('https://github.com/iFelice/wedding-website/blob/main/images/sfondo-1.jpg?raw=true') !important; /* **IMPORTANTE: Assicura immagine sfondo hero mobile** */
             }
+
             .hero-content {
-                padding-top: 50px; /* Padding-top hero-content mobile ridotto */
+                padding-top: 40px; /* **AUMENTATO: Spazio logo e countdown più in basso** */
             }
 
             .gallery-container {
                 display: grid !important; /* Forzato display grid IMPORTANT */
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-                grid-gap: 15px;
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important; /* **GALLERY MOBILE: Colonne più strette** */
+                grid-gap: 10px !important; /* **GALLERY MOBILE: Gap ridotto** */
                 width: 100%;
+            }
+             .gallery-item {
+                height: 200px; /* **GALLERY MOBILE: Altezza items ridotta** */
             }
 
 
@@ -1079,21 +1084,19 @@
         // Mobile Menu Toggle and Auto-Close
         const menuToggle = document.querySelector('.menu-toggle');
         const nav = document.querySelector('nav');
-        const navLinks = document.querySelectorAll('nav ul li a'); // Seleziona i link del menu
+        const navLinks = document.querySelectorAll('nav ul li a');
 
         menuToggle.addEventListener('click', () => {
             nav.classList.toggle('active');
         });
 
-        // Funzione per chiudere il menu e rimuovere 'active'
         function closeMenu() {
             nav.classList.remove('active');
         }
 
-        // Aggiungi event listener a ciascun link del menu per chiudere il menu dopo il click
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
-                closeMenu(); // Chiudi il menu quando un link viene cliccato
+                closeMenu();
             });
         });
 
