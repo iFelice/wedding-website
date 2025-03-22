@@ -212,9 +212,8 @@
         .hamburger {
             display: none;
             cursor: pointer;
-            position: absolute;
-            right: 20px;
-            top: 20px;
+            position: relative;
+            margin: 10px auto 0;
             z-index: 1001;
         }
 
@@ -222,7 +221,7 @@
             display: block;
             width: 25px;
             height: 3px;
-            margin: 5px 0;
+            margin: 5px auto;
             background: var(--text-color);
             transition: all 0.3s ease;
         }
@@ -234,13 +233,14 @@
 
             nav {
                 position: fixed;
-                top: 60px;
+                top: 0;
                 left: -100%;
                 width: 100%;
+                height: 100vh;
                 background: var(--primary-color);
                 transition: left 0.3s ease;
                 z-index: 999;
-                box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+                padding-top: 100px;
             }
 
             nav.active {
@@ -253,7 +253,7 @@
             }
 
             nav ul li {
-                margin: 10px 20px;
+                margin: 15px 0;
             }
 
             .hero {
@@ -282,9 +282,6 @@
                 transform: rotate(-45deg) translate(7px, -6px);
             }
         }
-
-        /* [Altri stili rimasti invariati...] */
-
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -322,7 +319,354 @@
         </div>
     </div>
 
-    <!-- [Tutte le altre sezioni rimaste invariate...] -->
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="logo-container">
+                <div class="logo"></div>
+            </div>
+            <h1>Felice & Federica</h1>
+            <p>12 Luglio 2025</p>
+            <div class="countdown">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">000</div>
+                    <div class="countdown-label">Giorni</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-label">Ore</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="minutes">00</div>
+                    <div class="countdown-label">Minuti</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="seconds">00</div>
+                    <div class="countdown-label">Secondi</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- La Nostra Storia -->
+    <section id="storia" class="storia">
+        <div class="container">
+            <h2 class="section-title">La Nostra Storia</h2>
+            <div class="storia-content">
+                <p>Ci siamo conosciuti in un caffè nel centro di Napoli in una fredda giornata di gennaio. Quello che doveva essere un incontro casuale si è trasformato in cinque ore di conversazione. Da quel giorno non ci siamo più separati.</p>
+                <p>Dopo tre anni di fidanzamento, durante una vacanza in Grecia, Felice ha fatto la proposta di matrimonio al tramonto sulla spiaggia di Santorini.</p>
+
+                <div class="storia-personale">
+                    <div class="persona">
+                        <h3>Felice</h3>
+                        <p>Ingegnere informatico con la passione per la fotografia. Ama le lunghe passeggiate in montagna e colleziona vinili di musica jazz.</p>
+                    </div>
+                    <div class="persona">
+                        <h3>Federica</h3>
+                        <p>Architetto con la passione per il design d'interni. Nel tempo libero dipinge acquerelli e si dedica al giardinaggio urbano.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section id="timeline">
+        <div class="container">
+            <h2 class="section-title">Timeline della Giornata</h2>
+            <p class="section-subtitle">Il programma del nostro grande giorno</p>
+
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>16:00</h3>
+                        <p>Cerimonia presso il Duomo di Nola</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>17:30</h3>
+                        <p>Partenza per il ricevimento</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>18:30</h3>
+                        <p>Aperitivo di benvenuto al Castello di Faicchio</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>20:00</h3>
+                        <p>Cena</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>22:30</h3>
+                        <p>Taglio della torta</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>23:00</h3>
+                        <p>Balli e festeggiamenti</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galleria -->
+    <section id="galleria" class="gallery">
+        <div class="container">
+            <h2 class="section-title">La Nostra Galleria</h2>
+            <p class="section-subtitle">Momenti speciali del nostro percorso insieme</p>
+
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="https://github.com/iFelice/wedding-website/blob/main/images/IMG_3389.jpg?raw=true" alt="Foto di coppia">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://github.com/iFelice/wedding-website/blob/main/images/IMG_6022.jpg?raw=true" alt="Viaggio insieme">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://github.com/iFelice/wedding-website/blob/main/images/IMG_6621.jpg?raw=true" alt="Fidanzamento">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://github.com/iFelice/wedding-website/blob/main/images/IMG_7177.jpg?raw=true" alt="Anniversario">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Informazioni -->
+    <section id="informazioni">
+        <div class="container">
+            <h2 class="section-title">Informazioni</h2>
+            <p class="section-subtitle">Tutte le informazioni necessarie per il nostro grande giorno</p>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Cerimonia</h3>
+                    <p>12 Luglio 2025, ore 16:00</p>
+                    <p>Duomo di Nola</p>
+                    <p>Piazza Duomo, Nola (NA)</p>
+                    <div class="map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3017.6254624259683!2d14.52512701108654!3d40.92555057135232!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133bb29b0fec68c5%3A0x5fa97aa7d28f1ee7!2sDuomo%20di%20Nola!5e0!3m2!1sit!2sit" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h3>Ricevimento</h3>
+                    <p>12 Luglio 2025, a seguire</p>
+                    <p>Castello di Faicchio</p>
+                    <p>Via Roma, 10, 82030 Faicchio (BN)</p>
+                    <div class="map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d23659.203242299856!2d14.484831187098132!3d41.282187711649186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sit!2sit!4v1742399674378!5m2!1sit!2sit" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h3>Come Raggiungere le Location</h3>
+                <div class="info-grid">
+                    <div>
+                        <h4>Duomo di Nola</h4>
+                        <p>In auto: Seguire le indicazioni per Nola centro, parcheggiare nelle vicinanze di Piazza Duomo.</p>
+                        <p>Con i mezzi pubblici: Prendere la Circumvesuviana fino alla fermata di Nola, poi a piedi per circa 10 minuti.</p>
+                    </div>
+                    <div>
+                        <h4>Castello di Faicchio</h4>
+                        <p>In auto: Da Nola, prendere la SS7 Appia in direzione Benevento, seguire le indicazioni per Faicchio.</p>
+                        <p>Da Napoli, prendere l'A30 in direzione Caserta, poi seguire le indicazioni per Faicchio.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h3>Dress Code</h3>
+                <div class="dress-code">
+                    <div class="dress-code-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <p>Per questo giorno speciale, vi suggeriamo un abbigliamento formale elegante.</p>
+                    <p>Signori: abito scuro o completo elegante.</p>
+                    <p>Signore: abito da cocktail o lungo.</p>
+                    <p>Vi preghiamo di evitare abiti bianchi, riservati alla sposa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alloggi -->
+    <section id="alloggi">
+        <div class="container">
+            <h2 class="section-title">Suggerimenti per l'Alloggio</h2>
+            <p class="section-subtitle">Per gli ospiti che vengono da lontano</p>
+
+            <div class="info-grid">
+                <div class="accommodation-card">
+                    <div class="accommodation-img">
+                        <img src="https://source.unsplash.com/random/600x400/?hotel" alt="Hotel">
+                    </div>
+                    <div class="accommodation-info">
+                        <h4>Hotel Palazzo</h4>
+                        <p>Via Example 123, Faicchio</p>
+                        <p>Distanza dalla location: 2 km</p>
+                        <p>Tel: 123-456-7890</p>
+                        <p><a href="#" class="btn">Prenota</a></p>
+                    </div>
+                </div>
+
+                <div class="accommodation-card">
+                    <div class="accommodation-img">
+                        <img src="https://source.unsplash.com/random/600x400/?bnb" alt="B&B">
+                    </div>
+                    <div class="accommodation-info">
+                        <h4>B&B Il Giardino</h4>
+                        <p>Via Sample 456, Faicchio</p>
+                        <p>Distanza dalla location: 1.5 km</p>
+                        <p>Tel: 098-765-4321</p>
+                        <p><a href="#" class="btn">Prenota</a></p>
+                    </div>
+                </div>
+
+                <div class="accommodation-card">
+                    <div class="accommodation-img">
+                        <img src="https://source.unsplash.com/random/600x400/?villa" alt="Agriturismo">
+                    </div>
+                    <div class="accommodation-info">
+                        <h4>Agriturismo La Collina</h4>
+                        <p>Contrada Example, Faicchio</p>
+                        <p>Distanza dalla location: 3 km</p>
+                        <p>Tel: 555-123-4567</p>
+                        <p><a href="#" class="btn">Prenota</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+        <div class="container">
+            <h2 class="section-title">Domande Frequenti</h2>
+            <p class="section-subtitle">Risposte alle domande più comuni</p>
+
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">Ci saranno degli autobus per il trasferimento tra le location?</div>
+                    <div class="faq-answer">Sì, abbiamo organizzato un servizio navetta che partirà dal Duomo di Nola subito dopo la cerimonia per raggiungere il Castello di Faicchio.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">È possibile portare i bambini?</div>
+                    <div class="faq-answer">Certamente! I vostri bambini sono i benvenuti. Abbiamo organizzato un servizio di animazione dedicato a loro durante il ricevimento.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">C'è un parcheggio disponibile presso le location?</div>
+                    <div class="faq-answer">Sì, entrambe le location dispongono di ampi parcheggi gratuiti per gli ospiti.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Ci sono opzioni per chi ha esigenze alimentari particolari?</div>
+                    <div class="faq-answer">Assolutamente sì. Vi preghiamo di indicare eventuali allergie o intolleranze nel modulo RSVP, e saremo felici di adattare il menu alle vostre esigenze.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Possiamo scattare foto durante la cerimonia?</div>
+                    <div class="faq-answer">Preferiremmo che durante la cerimonia religiosa le foto siano lasciate ai fotografi professionisti. Durante il ricevimento, invece, sentitevi liberi di immortalare tutti i momenti speciali! Vi invitiamo a usare l'hashtag #FeliceFederica2025 quando condividete le foto sui social.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lista Nozze -->
+    <section id="lista-nozze" class="gift-registry">
+        <div class="container">
+            <h2 class="section-title">Lista Nozze</h2>
+            <p class="section-subtitle">Se desiderate farci un regalo</p>
+
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 40px;">La vostra presenza al nostro matrimonio è il regalo più grande. Tuttavia, per chi desidera contribuire alla nostra nuova vita insieme, abbiamo pensato ad alcune opzioni.</p>
+
+            <div class="gift-options">
+                <div class="gift-option">
+                    <div class="gift-option-img">
+                        <img src="https://source.unsplash.com/random/600x400/?honeymoon" alt="Viaggio di nozze">
+                    </div>
+                    <div class="gift-option-info">
+                        <h3>Viaggio di Nozze</h3>
+                        <p>Contribuisci alla nostra luna di miele in Giappone</p>
+                        <a href="#" class="btn">Contribuisci</a>
+                    </div>
+                </div>
+
+                <div class="gift-option">
+                    <div class="gift-option-img">
+                        <img src="https://source.unsplash.com/random/600x400/?house" alt="Casa">
+                    </div>
+                    <div class="gift-option-info">
+                        <h3>La Nostra Casa</h3>
+                        <p>Aiutaci ad arredare il nostro nido d'amore</p>
+                        <a href="#" class="btn">Contribuisci</a>
+                    </div>
+                </div>
+
+                <div class="gift-option">
+                    <div class="gift-option-img">
+                        <img src="https://source.unsplash.com/random/600x400/?gift" alt="Lista nozze tradizionale">
+                    </div>
+                    <div class="gift-option-info">
+                        <h3>Lista Nozze Tradizionale</h3>
+                        <p>Abbiamo creato una lista presso Coincasa</p>
+                        <a href="#" class="btn">Visualizza</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP -->
+    <section id="rsvp" class="rsvp">
+        <div class="container">
+            <h2 class="section-title">RSVP</h2>
+            <p class="section-subtitle">Conferma la tua presenza entro il 12 Giugno 2025</p>
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdfORL4BEwRXt17hCwxS1RXuzBA14A3usMAijuwa3pn4PTT6w/viewform?embedded=true"></iframe>
+        </div>
+    </section>
+
+    <!-- Contatti -->
+    <section id="contatti">
+        <div class="container">
+            <h2 class="section-title">Contatti</h2>
+            <p class="section-subtitle">Per qualsiasi informazione non esitare a contattarci</p>
+            <div class="info-card">
+                <p>Email: felicefederica2025@email.it</p>
+                <p>Telefono: 123-456-7890</p>
+
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+
+                <p>Seguici su Instagram con l'hashtag: <strong>#FeliceFederica2025</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top -->
+    <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 - Felice & Federica</p>
+            <p>Non vediamo l'ora di festeggiare con voi!</p>
+        </div>
+    </footer>
 
     <script>
         // Menu Hamburger
@@ -390,7 +734,33 @@
             });
         });
 
-        // [Altri script rimasti invariati...]
+        // Back to Top
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if(window.scrollY > 300) {
+                backToTop.style.opacity = '1';
+            } else {
+                backToTop.style.opacity = '0';
+            }
+        });
+
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // FAQ Accordion
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                question.classList.toggle('active');
+                answer.classList.toggle('show');
+            });
+        });
     </script>
 </body>
 </html>
