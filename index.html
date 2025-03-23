@@ -810,7 +810,7 @@
             z-index: 1101;
         }
 
-        .modal-nav {
+.modal-nav {
     position: fixed;
     top: 50%;
     transform: translateY(-50%);
@@ -819,13 +819,11 @@
     cursor: pointer;
     z-index: 1101;
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 50%;
-    transition: background-color 0.3s;
+    transition: color 0.3s;
 }
 
 .modal-nav:hover {
-    background-color: rgba(0, 0, 0, 0.6);
+    color: var(--accent-color);
 }
 
 .modal-prev {
@@ -834,6 +832,21 @@
 
 .modal-next {
     right: 20px;
+}
+
+@media (max-width: 768px) {
+    .modal-nav {
+        font-size: 30px;
+        padding: 15px;
+    }
+    
+    .modal-prev {
+        left: 10px;
+    }
+    
+    .modal-next {
+        right: 10px;
+    }
 }
 
 @media (max-width: 768px) {
