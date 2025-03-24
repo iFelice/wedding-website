@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ci dispiace - Felice & Federica</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #F5DBDE;
+            --secondary-color: #d8e2dc;
+            --accent-color: #ffb5a7;
+            --text-color: #6d6875;
+            --light-color: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--primary-color);
+            padding: 20px;
+        }
+
+        .thank-you-container {
+            text-align: center;
+            background-color: var(--light-color);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 90%;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            background-image: url('https://github.com/iFelice/wedding-website/blob/main/images/logosposigrey.png?raw=true');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: 0 auto 30px;
+        }
+
+        h1 {
+            color: var(--text-color);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        p {
+            color: var(--text-color);
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--text-color);
+            color: var(--light-color);
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #565360;
+        }
+
+        @media (max-width: 768px) {
+            .thank-you-container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you-container">
+        <div class="logo"></div>
+        <h1>Ci dispiace che non potrai essere presente</h1>
+        <p>Comprendiamo che non tutti possano partecipare e ti ringraziamo per avercelo comunicato.</p>
+        <p>Ti terremo aggiornato sui momenti più belli della giornata!</p>
+        <a href="index.html" class="btn">Torna al sito</a>
+    </div>
+</body>
+</html>
