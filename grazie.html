@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grazie - Felice & Federica</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #F5DBDE;
+            --secondary-color: #d8e2dc;
+            --accent-color: #ffb5a7;
+            --text-color: #6d6875;
+            --light-color: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--primary-color);
+            padding: 20px;
+        }
+
+        .thank-you-container {
+            text-align: center;
+            background-color: var(--light-color);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 90%;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            background-image: url('https://github.com/iFelice/wedding-website/blob/main/images/logosposigrey.png?raw=true');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: 0 auto 30px;
+        }
+
+        h1 {
+            color: var(--text-color);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        p {
+            color: var(--text-color);
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--text-color);
+            color: var(--light-color);
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #565360;
+        }
+
+        .countdown {
+            margin: 30px 0;
+            font-size: 1.2rem;
+            color: var(--text-color);
+        }
+
+        @media (max-width: 768px) {
+            .thank-you-container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you-container">
+        <div class="logo"></div>
+        <h1>Grazie per la tua risposta!</h1>
+        <p>Abbiamo ricevuto la tua conferma e non vediamo l'ora di festeggiare insieme questo giorno speciale.</p>
+        <div class="countdown">
+            <p>Mancano solo:</p>
+            <div id="countdown"></div>
+        </div>
+        <a href="index.html" class="btn">Torna al sito</a>
+    </div>
+
+    <script>
+        // Countdown
+        function updateCountdown() {
+            const weddingDate = new Date('July 12, 2025 16:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+            document.getElementById('countdown').innerHTML = 
+                `${days} giorni, ${hours} ore e ${minutes} minuti`;
+
+            if (distance < 0) {
+                document.getElementById('countdown').innerHTML = "È arrivato il grande giorno!";
+            }
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 60000); // Aggiorna ogni minuto
+    </script>
+</body>
+</html>
