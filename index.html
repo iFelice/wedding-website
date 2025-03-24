@@ -1109,6 +1109,17 @@
         margin-bottom: 15px;
     }
 }
+
+.album-link {
+    color: var(--text-color);
+    text-decoration: underline;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.album-link:hover {
+    color: var(--accent-color);
+}
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap"
         rel="stylesheet">
@@ -1295,53 +1306,51 @@
                     <div class="app-info">
                         <i class="fab fa-google" style="font-size: 2.5rem; color: var(--text-color); margin-bottom: 20px;"></i>
                         <h3>Album Condiviso su Google Photos</h3>
-                        <p>Condividi facilmente le tue foto e i video del matrimonio nel nostro album comune</p>
+                        <p>Condividi le foto e i video che catturerai durante il nostro giorno speciale</p>
                         <ul class="features-list">
-                            <li><i class="fas fa-check"></i> Carica foto e video direttamente dall'app o dal browser</li>
-                            <li><i class="fas fa-check"></i> Nessuna app da scaricare se usi il browser</li>
-                            <li><i class="fas fa-check"></i> Accesso immediato all'album condiviso</li>
-                            <li><i class="fas fa-check"></i> Qualità originale delle foto</li>
-                            <li><i class="fas fa-check"></i> Spazio illimitato per tutti i ricordi</li>
+                            <li><i class="fas fa-check"></i> Carica foto e video direttamente dall'app o da Chrome</li>
+                            <li><i class="fas fa-check"></i> Accesso semplice tramite il tuo account Google</li>
+                            <li><i class="fas fa-check"></i> Tutte le foto in un unico album condiviso</li>
                         </ul>
                     </div>
                     <div class="qr-container">
-                        <img src="https://github.com/iFelice/wedding-website/blob/main/images/qr-code.png?raw=true" alt="QR Code Google Photos">
-                        <p>Inquadra il QR code per accedere all'album</p>
+                        <img src="https://photos.app.goo.gl/HVoMuAg6GpvSNUBq9" alt="QR Code Google Photos">
+                        <p>Inquadra il QR code o <a href="LINK_ALBUM" class="album-link">clicca qui</a> per accedere all'album</p>
                     </div>
                 </div>
                 <div class="share-instructions">
                     <div class="instruction-step">
                         <div class="step-number">1</div>
                         <h4>Accedi all'Album</h4>
-                        <p>Inquadra il QR code o usa il link che troverai sui tavoli</p>
+                        <p>Inquadra il QR code o usa il link fornito</p>
                     </div>
                     <div class="instruction-step">
                         <div class="step-number">2</div>
-                        <h4>Aggiungi le Tue Foto</h4>
-                        <p>Carica le foto e i video che scatti durante la giornata</p>
+                        <h4>Accedi con Google</h4>
+                        <p>Utilizza il tuo account Google per accedere</p>
                     </div>
                     <div class="instruction-step">
                         <div class="step-number">3</div>
                         <h4>Condividi i Ricordi</h4>
-                        <p>Tutte le foto saranno disponibili nell'album condiviso</p>
+                        <p>Carica le tue foto nell'album condiviso</p>
                     </div>
                 </div>
 
                 <div class="additional-info">
-                    <h4>Come utilizzare Google Photos</h4>
+                    <h4>Come caricare le tue foto</h4>
                     <div class="usage-options">
                         <div class="option">
                             <h5><i class="fas fa-mobile-alt"></i> Da Smartphone</h5>
                             <ol>
-                                <li>Apri la fotocamera e inquadra il QR code</li>
-                                <li>Apri il link nell'app Google Photos o nel browser</li>
-                                <li>Seleziona le foto da caricare nell'album</li>
+                                <li>Inquadra il QR code o usa il link</li>
+                                <li>Accedi con il tuo account Google</li>
+                                <li>Seleziona le foto da caricare</li>
                             </ol>
                         </div>
                         <div class="option">
                             <h5><i class="fas fa-laptop"></i> Da Computer</h5>
                             <ol>
-                                <li>Visita il link dell'album</li>
+                                <li>Usa Google Chrome per aprire il link dell'album</li>
                                 <li>Accedi con il tuo account Google</li>
                                 <li>Carica le foto dal tuo computer</li>
                             </ol>
