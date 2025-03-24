@@ -1300,7 +1300,7 @@
     <section id="rsvp" class="rsvp">
         <div class="container">
             <h2 class="section-title">RSVP</h2>
-            <p class="section-subtitle" style="color: var(--text-color);">Conferma la tua presenza entro il 12 Giugno 2025</p>
+            <p class="section-subtitle" style="color: var(--text-color);">Conferma la tua presenza entro il 21 Giugno 2025</p>
             
             <form id="rsvpForm" class="rsvp-form" action="https://formspree.io/f/xnnpvogn" method="POST">
                 <div class="form-group">
@@ -1367,9 +1367,7 @@
                     <textarea id="note" name="note" placeholder="Eventuali note o richieste particolari"></textarea>
                 </div>
 
-                <input type="hidden" name="_next" value="https://github.com/iFelice/wedding-website/blob/main/grazie.html">
                 <input type="hidden" name="_subject" value="Nuova risposta RSVP">
-                <input type="hidden" name="_autoresponse" value="Grazie per aver confermato la tua partecipazione al nostro matrimonio!">
 
                 <button type="submit" class="btn submit-btn">Invia Conferma</button>
             </form>
@@ -1578,24 +1576,35 @@ prevBtn.addEventListener('click', (e) => e.stopPropagation());
 nextBtn.addEventListener('click', (e) => e.stopPropagation());
 
 // Gestione del form RSVP
-document.getElementById('partecipo-si').addEventListener('change', function() {
-    document.getElementById('numero-ospiti-group').style.display = 'block';
-    document.getElementById('nomi-ospiti-group').style.display = 'block';
-});
-
-document.getElementById('partecipo-no').addEventListener('change', function() {
-    document.getElementById('numero-ospiti-group').style.display = 'none';
-    document.getElementById('nomi-ospiti-group').style.display = 'none';
-});
-
 document.getElementById('rsvpForm').addEventListener('submit', function(e) {
     e.preventDefault();
     
-    // Qui puoi aggiungere la logica per inviare i dati del form
-    // Per esempio, inviarli a un server o salvarli in un database
+    const formData = new FormData(this);
+    const partecipazione = formData.get('partecipazione');
     
-    alert('Grazie per aver confermato la tua partecipazione!');
-    this.reset();
+    // URL di Formspree
+    const formspreeUrl = 'https://formspree.io/f/xnnpvogn';
+    
+    fetch(formspreeUrl, {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Reindirizza in base alla risposta
+        if (partecipazione === 'si') {
+            window.location.href = 'grazie.html';
+        } else {
+            window.location.href = 'dispiaciuti.html';
+        }
+    })
+    .catch(error => {
+        console.error('Errore:', error);
+        alert('Si è verificato un errore nell\'invio del form. Riprova più tardi.');
+    });
 });
 
     </script>
