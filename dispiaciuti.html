@@ -93,6 +93,26 @@
             }
         }
     </style>
+    <script>
+        // Reindirizzamento dopo 15 secondi
+        setTimeout(function() {
+            window.location.href = 'index.html';  // torna alla home
+        }, 15000);  // 15000 millisecondi = 15 secondi
+
+        // Aggiunge un contatore (opzionale)
+        let timeLeft = 15;
+        const timerElement = document.getElementById('timer');
+        
+        const countdown = setInterval(function() {
+            timeLeft--;
+            if (timerElement) {
+                timerElement.textContent = timeLeft;
+            }
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+            }
+        }, 1000);
+    </script>
 </head>
 <body>
     <div class="thank-you-container">
@@ -101,6 +121,7 @@
         <p>Comprendiamo che non tutti possano partecipare e ti ringraziamo per avercelo comunicato.</p>
         <p>Ti terremo aggiornato sui momenti più belli della giornata!</p>
         <a href="index.html" class="btn">Torna al sito</a>
+        <p>Sarai reindirizzato alla home page tra <span id="timer">15</span> secondi</p>
     </div>
 </body>
 </html>
