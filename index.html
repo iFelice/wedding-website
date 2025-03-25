@@ -1748,7 +1748,7 @@
                 <div id="loading-overlay" style="display: none;">
                     <div class="spinner"></div>
                     <p>Invio in corso...</p>
-                </div>
+                    </div>
 
                 <div class="form-group">
                     <label for="nome">Nome e Cognome *</label>
@@ -1758,7 +1758,7 @@
                 <div class="form-group">
                     <label for="email">Email *</label>
                     <input type="email" id="email" name="entry.1994603631" required>
-                </div>
+            </div>
 
                 <div class="form-group">
                     <label>Partecipazione *</label>
@@ -2203,30 +2203,48 @@ document.addEventListener('DOMContentLoaded', function() {
     // Gestione submit del form
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
+        console.log('Form submitted');
+
         const loadingOverlay = document.getElementById('loading-overlay');
         if (loadingOverlay) loadingOverlay.style.display = 'flex';
-        
+
         try {
+            // Log dei dati che stiamo inviando
             const formData = new FormData(form);
-            await fetch(GOOGLE_FORM_URL, {
+            for (let pair of formData.entries()) {
+                console.log(pair[0] + ': ' + pair[1]);
+            }
+
+            const response = await fetch(GOOGLE_FORM_URL, {
                 method: 'POST',
                 body: formData,
-                mode: 'no-cors'
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
             });
 
-            // Reindirizza direttamente senza alert
+            console.log('Response:', response);
+
+            // Aggiungiamo un delay più lungo (5 secondi) per vedere gli errori
+            await new Promise(resolve => setTimeout(resolve, 5000));
+
             const partecipazioneValue = document.querySelector('input[name="entry.682165499"]:checked').value;
+            
             if (partecipazioneValue === 'Sì, ci sarò') {
+                console.log('Reindirizzamento a grazie.html...');
                 window.location.href = 'grazie.html';
             } else {
+                console.log('Reindirizzamento a dispiaciuti.html...');
                 window.location.href = 'dispiaciuti.html';
             }
 
         } catch (error) {
+            console.error('Errore dettagliato:', error);
             if (loadingOverlay) loadingOverlay.style.display = 'none';
-            alert('Si è verificato un errore. Per favore, riprova.');
-            console.error('Errore:', error);
+            // Fermiamo il reindirizzamento in caso di errore
+            alert('Si è verificato un errore. Per favore, controlla la console e riprova.');
+            return false;
         }
     });
 
