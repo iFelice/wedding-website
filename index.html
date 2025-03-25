@@ -2211,16 +2211,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 mode: 'no-cors'
             });
 
-            setTimeout(() => {
-                const partecipazioneValue = document.querySelector('input[name="entry.1866331037"]:checked').value;
-                alert('Form inviato con successo! Sarai reindirizzato alla pagina di conferma.');
-                
-                if (partecipazioneValue === 'Sì, parteciperò') {
-                    window.location.href = 'grazie.html';
-                } else {
-                    window.location.href = 'dispiaciuti.html';
-                }
-            }, 1000);
+            // Reindirizza direttamente senza alert
+            const partecipazioneValue = document.querySelector('input[name="entry.1866331037"]:checked').value;
+            if (partecipazioneValue === 'Sì, parteciperò') {
+                window.location.href = 'grazie.html';
+            } else {
+                window.location.href = 'dispiaciuti.html';
+            }
 
         } catch (error) {
             if (loadingOverlay) loadingOverlay.style.display = 'none';
