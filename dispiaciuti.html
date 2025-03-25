@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ci dispiace - Felice & Federica</title>
+    <title>Grazie - Felice & Federica</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -79,6 +79,12 @@
             background-color: #565360;
         }
 
+        .countdown {
+            margin: 30px 0;
+            font-size: 1.2rem;
+            color: var(--text-color);
+        }
+
         @media (max-width: 768px) {
             .thank-you-container {
                 padding: 30px 20px;
@@ -131,13 +137,39 @@
 <body>
     <div class="thank-you-container">
         <div class="logo"></div>
-        <h1>Ci dispiace che non potrai essere presente</h1>
-        <p>Comprendiamo che non tutti possano partecipare e ti ringraziamo per avercelo comunicato.</p>
-        <p>Ti terremo aggiornato sui momenti più belli della giornata!</p>
-        <button onclick="window.location.href='index.html'" class="btn">Torna al sito</button>
-        <div class="redirect-message">
-            Sarai reindirizzato alla home page tra <span id="timer">15</span> secondi
+        <h1>Grazie per la tua risposta!</h1>
+        <p>Abbiamo ricevuto la tua conferma e non vediamo l'ora di festeggiare insieme questo giorno speciale.</p>
+        <div class="countdown">
+            <p>Mancano solo:</p>
+            <div id="countdown"></div>
         </div>
+        <button onclick="window.location.href='index.html'" class="btn">Torna al sito</button>
+    </div>
+
+    <script>
+        // Countdown
+        function updateCountdown() {
+            const weddingDate = new Date('July 12, 2025 16:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+            document.getElementById('countdown').innerHTML = 
+                `${days} giorni, ${hours} ore e ${minutes} minuti`;
+
+            if (distance < 0) {
+                document.getElementById('countdown').innerHTML = "È arrivato il grande giorno!";
+            }
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 60000); // Aggiorna ogni minuto
+    </script>
+    <div class="redirect-message">
+        Sarai reindirizzato alla home page tra <span id="timer">15</span> secondi
     </div>
 </body>
 </html>
