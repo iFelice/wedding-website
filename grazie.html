@@ -28,6 +28,8 @@
             align-items: center;
             background-color: var(--primary-color);
             padding: 20px;
+            /* Aggiunto per posizionare correttamente il messaggio di redirect se fosse esterno */
+            /* flex-direction: column; */ 
         }
 
         .thank-you-container {
@@ -60,7 +62,7 @@
         p {
             color: var(--text-color);
             font-size: 1.2rem;
-            margin-bottom: 30px;
+            margin-bottom: 15px; /* Ridotto leggermente per fare spazio */
             line-height: 1.6;
         }
 
@@ -73,17 +75,42 @@
             border-radius: 5px;
             font-size: 1.1rem;
             transition: background-color 0.3s;
+            margin-top: 20px; /* Aggiunto margine sopra */
         }
 
         .btn:hover {
             background-color: #565360;
         }
 
-        .countdown {
-            margin: 30px 0;
-            font-size: 1.2rem;
+        .countdown-display { /* Rinominato per chiarezza */
+            margin: 25px 0; /* Aggiustato margine */
+            font-size: 1.1rem; /* Leggermente ridotto */
             color: var(--text-color);
         }
+        .countdown-display p {
+             margin-bottom: 5px; /* Margine sotto "Mancano solo:" */
+        }
+        #countdown-values { /* ID per i valori del countdown */
+            font-weight: 500; /* Leggermente più bold */
+            font-size: 1.2rem;
+        }
+
+
+        .redirect-message {
+            text-align: center;
+            margin-top: 25px; /* Spazio sopra il messaggio di redirect */
+            font-family: 'Cormorant Garamond', serif;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        #timer {
+            font-weight: bold;
+            /* color: #d4a373; */ /* Rimosso colore specifico se non desiderato */
+            color: var(--accent-color); /* Usa colore accent */
+            margin: 0 3px; /* Spazio attorno al numero */
+        }
+
 
         @media (max-width: 768px) {
             .thank-you-container {
@@ -97,40 +124,40 @@
             p {
                 font-size: 1.1rem;
             }
-        }
-
-        .redirect-message {
-            text-align: center;
-            margin-top: 20px;
-            font-family: 'Cormorant Garamond', serif;
-            color: #666;
-            font-size: 0.9em;
-        }
-        
-        #timer {
-            font-weight: bold;
-            color: #d4a373;
-            margin: 0 5px;
+             .countdown-display {
+                 font-size: 1rem;
+             }
+              #countdown-values {
+                 font-size: 1.1rem;
+              }
         }
     </style>
     <script>
+        // Script per il timer di reindirizzamento automatico (15 secondi)
         document.addEventListener('DOMContentLoaded', function() {
             let timeLeft = 15;
             const timerElement = document.getElementById('timer');
-            
-            const countdown = setInterval(function() {
-                timeLeft--;
-                if (timerElement) {
-                    timerElement.textContent = timeLeft;
-                }
-                if (timeLeft <= 0) {
-                    clearInterval(countdown);
-                }
-            }, 1000);
 
+            // Verifica che l'elemento timer esista prima di usarlo
+            if (timerElement) {
+                const countdownInterval = setInterval(function() {
+                    timeLeft--;
+                    timerElement.textContent = timeLeft; // Aggiorna il numero visualizzato
+
+                    if (timeLeft <= 0) {
+                        clearInterval(countdownInterval);
+                        // Il reindirizzamento viene gestito dal setTimeout qui sotto
+                    }
+                }, 1000); // Esegui ogni secondo (1000 ms)
+            } else {
+                console.warn("Elemento con ID 'timer' non trovato per il countdown.");
+            }
+
+
+            // Imposta il reindirizzamento dopo 15 secondi
             setTimeout(function() {
-                window.location.href = 'index.html';
-            }, 15000);
+                window.location.href = 'index.html'; // Reindirizza a index.html
+            }, 15000); // 15000 millisecondi = 15 secondi
         });
     </script>
 </head>
@@ -139,37 +166,51 @@
         <div class="logo"></div>
         <h1>Grazie per la tua risposta!</h1>
         <p>Abbiamo ricevuto la tua conferma e non vediamo l'ora di festeggiare insieme questo giorno speciale.</p>
-        <div class="countdown">
+
+        <!-- Contenitore per il countdown al matrimonio -->
+        <div class="countdown-display">
             <p>Mancano solo:</p>
-            <div id="countdown"></div>
+            <div id="countdown-values">Caricamento...</div> <!-- Mostra un placeholder -->
         </div>
+
+        <!-- Bottone per tornare al sito -->
         <button onclick="window.location.href='index.html'" class="btn">Torna al sito</button>
+
+        <!-- Messaggio di reindirizzamento automatico -->
+        <!-- Spostato qui dentro! -->
+        <div class="redirect-message">
+            Sarai reindirizzato alla home page tra <span id="timer">15</span> secondi
+        </div>
     </div>
 
+    <!-- Script per il countdown al matrimonio -->
     <script>
-        // Countdown
-        function updateCountdown() {
-            const weddingDate = new Date('July 12, 2025 16:00:00').getTime();
+        function updateWeddingCountdown() {
+            const weddingDate = new Date('July 12, 2025 15:30:00').getTime(); // Orario Cerimonia
             const now = new Date().getTime();
             const distance = weddingDate - now;
+            const countdownValuesElement = document.getElementById('countdown-values');
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-
-            document.getElementById('countdown').innerHTML = 
-                `${days} giorni, ${hours} ore e ${minutes} minuti`;
+            // Verifica che l'elemento esista
+            if (!countdownValuesElement) return;
 
             if (distance < 0) {
-                document.getElementById('countdown').innerHTML = "È arrivato il grande giorno!";
+                countdownValuesElement.innerHTML = "È arrivato il grande giorno!";
+                clearInterval(weddingCountdownInterval); // Ferma l'intervallo se la data è passata
+            } else {
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+                // Formatta l'output
+                countdownValuesElement.innerHTML =
+                    `${days} giorni, ${hours} ore e ${minutes} minuti`;
             }
         }
 
-        updateCountdown();
-        setInterval(updateCountdown, 60000); // Aggiorna ogni minuto
+        // Chiama la funzione subito e poi aggiorna ogni minuto
+        updateWeddingCountdown();
+        const weddingCountdownInterval = setInterval(updateWeddingCountdown, 60000); // 60000 ms = 1 minuto
     </script>
-    <div class="redirect-message">
-        Sarai reindirizzato alla home page tra <span id="timer">15</span> secondi
-    </div>
 </body>
 </html>
