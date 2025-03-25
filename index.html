@@ -1745,42 +1745,70 @@
             <p class="section-subtitle" style="color: var(--text-color);">Conferma la tua presenza entro il 21 Giugno 2025</p>
             
             <form id="rsvpForm" class="rsvp-form">
-                <!-- Nome e Cognome -->
-                <input type="text" name="entry.709286806" required>
+                <div id="loading-overlay" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Invio in corso...</p>
+                </div>
 
-                <!-- Email -->
-                <input type="email" name="entry.1994603631" required>
+                <div class="form-group">
+                    <label for="nome">Nome e Cognome *</label>
+                    <input type="text" id="nome" name="entry.709286806" required>
+                </div>
 
-                <!-- Partecipazione -->
-                <input type="radio" name="entry.682165499" value="Sì, ci sarò">
-                <input type="radio" name="entry.682165499" value="No, non potrò essere presente">
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="entry.1994603631" required>
+                </div>
 
-                <!-- Numero ospiti -->
-                <select name="entry.349902564">
-                    <option value="Solo io">Solo io</option>
-                    <option value="+1">+1</option>
-                    <option value="+2">+2</option>
-                    <option value="+3">+3</option>
-                    <option value="+4">+4</option>
-                </select>
+                <div class="form-group">
+                    <label>Partecipazione *</label>
+                    <div class="radio-group">
+                        <input type="radio" id="partecipo" name="entry.682165499" value="Sì, ci sarò" required>
+                        <label for="partecipo">Sì, parteciperò</label>
+                        <input type="radio" id="non-partecipo" name="entry.682165499" value="No, non potrò essere presente">
+                        <label for="non-partecipo">No, non potrò essere presente</label>
+                    </div>
+                </div>
 
-                <!-- Nomi ospiti -->
-                <textarea name="entry.155324483"></textarea>
+                <div class="form-group" id="numero-ospiti-group">
+                    <label for="numero-ospiti">Numero di ospiti aggiuntivi</label>
+                    <select id="numero-ospiti" name="entry.349902564">
+                        <option value="Solo io">Solo io</option>
+                        <option value="+1">+1</option>
+                        <option value="+2">+2</option>
+                        <option value="+3">+3</option>
+                        <option value="+4">+4</option>
+                    </select>
+                </div>
 
-                <!-- Preferenze Menu -->
-                <select name="entry.1172181114">
-                    <option value="Menu Standard">Menu Standard</option>
-                    <option value="Menu Vegetariano">Menu Vegetariano</option>
-                    <option value="Menu Vegano">Menu Vegano</option>
-                    <option value="Menu Senza Glutine">Menu Senza Glutine</option>
-                    <option value="Menu Pescetariano">Menu Pescetariano</option>
-                </select>
+                <div class="form-group" id="nomi-ospiti-group">
+                    <label for="nomi-ospiti">Nomi degli ospiti aggiuntivi</label>
+                    <textarea id="nomi-ospiti" name="entry.155324483" rows="3"></textarea>
+                </div>
 
-                <!-- Intolleranze -->
-                <textarea name="entry.304213983"></textarea>
+                <div class="form-group" id="preferenze-menu-group">
+                    <label for="preferenze-menu">Preferenze Menu *</label>
+                    <select id="preferenze-menu" name="entry.1172181114" required>
+                        <option value="">Seleziona una preferenza</option>
+                        <option value="Menu Standard">Menu Standard</option>
+                        <option value="Menu Vegetariano">Menu Vegetariano</option>
+                        <option value="Menu Vegano">Menu Vegano</option>
+                        <option value="Menu Senza Glutine">Menu Senza Glutine</option>
+                        <option value="Menu Pescetariano">Menu Pescetariano</option>
+                    </select>
+                </div>
 
-                <!-- Note aggiuntive -->
-                <textarea name="entry.123813858"></textarea>
+                <div class="form-group" id="intolleranze-group">
+                    <label for="intolleranze">Intolleranze o allergie alimentari</label>
+                    <textarea id="intolleranze" name="entry.304213983" rows="3"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="note">Note aggiuntive</label>
+                    <textarea id="note" name="entry.123813858" rows="3"></textarea>
+                </div>
+
+                <button type="submit" class="btn submit-btn">Invia Conferma</button>
             </form>
         </div>
     </section>
