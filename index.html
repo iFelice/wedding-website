@@ -2209,42 +2209,39 @@ document.addEventListener('DOMContentLoaded', function() {
         if (loadingOverlay) loadingOverlay.style.display = 'flex';
 
         try {
-            // Log dei dati che stiamo inviando
             const formData = new FormData(form);
+            
+            // Creiamo l'URL con i parametri
+            const params = new URLSearchParams();
             for (let pair of formData.entries()) {
-                console.log(pair[0] + ': ' + pair[1]);
+                params.append(pair[0], pair[1]);
             }
+            
+            // Inviamo il form usando JSONP attraverso un iframe nascosto
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            document.body.appendChild(iframe);
+            
+            iframe.src = `${GOOGLE_FORM_URL}?${params.toString()}&submit=Submit`;
 
-            const response = await fetch(GOOGLE_FORM_URL, {
-                method: 'POST',
-                body: formData,
-                mode: 'no-cors',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                }
-            });
-
-            console.log('Response:', response);
-
-            // Aggiungiamo un delay più lungo (5 secondi) per vedere gli errori
-            await new Promise(resolve => setTimeout(resolve, 5000));
+            // Aspettiamo un momento per assicurarci che i dati vengano inviati
+            await new Promise(resolve => setTimeout(resolve, 2000));
 
             const partecipazioneValue = document.querySelector('input[name="entry.682165499"]:checked').value;
             
+            // Rimuoviamo l'iframe
+            document.body.removeChild(iframe);
+
             if (partecipazioneValue === 'Sì, ci sarò') {
-                console.log('Reindirizzamento a grazie.html...');
                 window.location.href = 'grazie.html';
             } else {
-                console.log('Reindirizzamento a dispiaciuti.html...');
                 window.location.href = 'dispiaciuti.html';
             }
 
         } catch (error) {
-            console.error('Errore dettagliato:', error);
+            console.error('Errore:', error);
             if (loadingOverlay) loadingOverlay.style.display = 'none';
-            // Fermiamo il reindirizzamento in caso di errore
-            alert('Si è verificato un errore. Per favore, controlla la console e riprova.');
-            return false;
+            alert('Si è verificato un errore. Per favore, riprova.');
         }
     });
 
