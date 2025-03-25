@@ -95,17 +95,16 @@
 
         .redirect-message {
             text-align: center;
-            margin: 20px 0;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 8px;
-            font-size: 1.1em;
+            margin-top: 20px;
+            font-family: 'Cormorant Garamond', serif;
+            color: #666;
+            font-size: 0.9em;
         }
         
         #timer {
             font-weight: bold;
-            color: #d4a373;  /* colore in tema con il tuo sito */
-            font-size: 1.2em;
+            color: #d4a373;
+            margin: 0 5px;
         }
     </style>
     <script>
@@ -135,7 +134,7 @@
         <h1>Ci dispiace che non potrai essere presente</h1>
         <p>Comprendiamo che non tutti possano partecipare e ti ringraziamo per avercelo comunicato.</p>
         <p>Ti terremo aggiornato sui momenti più belli della giornata!</p>
-        <a href="index.html" class="btn">Torna al sito</a>
+        <button onclick="window.location.href='index.html'" class="btn">Torna al sito</button>
         <div class="redirect-message">
             Sarai reindirizzato alla home page tra <span id="timer">15</span> secondi
         </div>
