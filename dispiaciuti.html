@@ -92,26 +92,41 @@
                 font-size: 1.1rem;
             }
         }
+
+        .redirect-message {
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            font-size: 1.1em;
+        }
+        
+        #timer {
+            font-weight: bold;
+            color: #d4a373;  /* colore in tema con il tuo sito */
+            font-size: 1.2em;
+        }
     </style>
     <script>
-        // Reindirizzamento dopo 15 secondi
-        setTimeout(function() {
-            window.location.href = 'index.html';  // torna alla home
-        }, 15000);  // 15000 millisecondi = 15 secondi
+        document.addEventListener('DOMContentLoaded', function() {
+            let timeLeft = 15;
+            const timerElement = document.getElementById('timer');
+            
+            const countdown = setInterval(function() {
+                timeLeft--;
+                if (timerElement) {
+                    timerElement.textContent = timeLeft;
+                }
+                if (timeLeft <= 0) {
+                    clearInterval(countdown);
+                }
+            }, 1000);
 
-        // Aggiunge un contatore (opzionale)
-        let timeLeft = 15;
-        const timerElement = document.getElementById('timer');
-        
-        const countdown = setInterval(function() {
-            timeLeft--;
-            if (timerElement) {
-                timerElement.textContent = timeLeft;
-            }
-            if (timeLeft <= 0) {
-                clearInterval(countdown);
-            }
-        }, 1000);
+            setTimeout(function() {
+                window.location.href = 'index.html';
+            }, 15000);
+        });
     </script>
 </head>
 <body>
@@ -121,7 +136,9 @@
         <p>Comprendiamo che non tutti possano partecipare e ti ringraziamo per avercelo comunicato.</p>
         <p>Ti terremo aggiornato sui momenti più belli della giornata!</p>
         <a href="index.html" class="btn">Torna al sito</a>
-        <p>Sarai reindirizzato alla home page tra <span id="timer">15</span> secondi</p>
+        <div class="redirect-message">
+            Sarai reindirizzato alla home page tra <span id="timer">15</span> secondi
+        </div>
     </div>
 </body>
 </html>
