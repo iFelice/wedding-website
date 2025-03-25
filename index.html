@@ -2211,12 +2211,20 @@ document.addEventListener('DOMContentLoaded', function() {
         try {
             const formData = new FormData(form);
             
+            // Log dei dati che stiamo inviando
+            console.log('Dati del form:');
+            for (let pair of formData.entries()) {
+                console.log(pair[0] + ': ' + pair[1]);
+            }
+            
             // Creiamo l'URL con i parametri
             const params = new URLSearchParams();
             for (let pair of formData.entries()) {
                 params.append(pair[0], pair[1]);
             }
             
+            console.log('URL completo:', `${GOOGLE_FORM_URL}?${params.toString()}&submit=Submit`);
+
             // Inviamo il form usando JSONP attraverso un iframe nascosto
             const iframe = document.createElement('iframe');
             iframe.style.display = 'none';
@@ -2224,9 +2232,10 @@ document.addEventListener('DOMContentLoaded', function() {
             
             iframe.src = `${GOOGLE_FORM_URL}?${params.toString()}&submit=Submit`;
 
-            // Aspettiamo un momento per assicurarci che i dati vengano inviati
-            await new Promise(resolve => setTimeout(resolve, 2000));
+            console.log('Form inviato attraverso iframe');
 
+            // TEMPORANEAMENTE COMMENTATO IL REINDIRIZZAMENTO
+            /*
             const partecipazioneValue = document.querySelector('input[name="entry.682165499"]:checked').value;
             
             // Rimuoviamo l'iframe
@@ -2237,11 +2246,12 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 window.location.href = 'dispiaciuti.html';
             }
+            */
 
         } catch (error) {
-            console.error('Errore:', error);
+            console.error('Errore dettagliato:', error);
             if (loadingOverlay) loadingOverlay.style.display = 'none';
-            alert('Si è verificato un errore. Per favore, riprova.');
+            alert('Si è verificato un errore. Per favore, controlla la console e riprova.');
         }
     });
 
