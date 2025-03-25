@@ -99,20 +99,34 @@
         /* Hero Section */
         .hero {
             height: 100vh;
-            background-image: url('https://github.com/iFelice/wedding-website/blob/main/images/sfondo-1.jpg?raw=true');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            position: relative;
+            width: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             color: var(--light-color);
-            position: relative;
-            width: 100%;
+            overflow: hidden;  /* Importante per contenere lo sfondo sfocato */
         }
 
+        /* Creiamo un elemento separato per lo sfondo sfocato */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://github.com/iFelice/wedding-website/blob/main/images/sfondo-1.jpg?raw=true');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            filter: blur(1px);
+            z-index: 1;
+        }
+
+        /* Overlay scuro */
         .hero::before {
             content: '';
             position: absolute;
@@ -120,13 +134,15 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.3);
+            background-color: rgba(0, 0, 0, 0.35);
+            z-index: 2;
         }
 
-        .hero-content {
+        /* Mantieni il contenuto nitido */
+            .hero-content {
             position: relative;
-            z-index: 1;
-            padding-top: 100px;
+            z-index: 3;  /* Sopra lo sfondo e l'overlay */
+                padding-top: 100px;
             width: 100%;
         }
 
@@ -433,6 +449,10 @@
             .section-subtitle {
                 font-size: 1.3rem;
             }
+
+            .hero::after {
+                background-attachment: scroll;
+            }
         }
 
         /* Mappa */
@@ -576,19 +596,6 @@
 
         .btn:hover {
             background-color: #e59f93;
-        }
-
-        /* Dress Code */
-        .dress-code {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .dress-code-icon {
-            font-size: 2rem;
-            margin-bottom: 15px;
-            color: var(--accent-color);
         }
 
         /* Footer */
@@ -1124,6 +1131,209 @@
 .album-link:hover {
     color: var(--accent-color);
 }
+
+/* Stili aggiornati per la sezione Alloggi */
+.accommodation-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+.accommodation-intro p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+.booking-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.booking-card {
+    background-color: var(--light-color);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.booking-card:hover {
+    transform: translateY(-5px);
+}
+
+.booking-card i {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+.booking-card h4 {
+    color: var(--text-color);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.booking-card p {
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.booking-card .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--text-color);
+    color: var(--light-color);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.booking-card .btn:hover {
+    background-color: #565360;
+}
+
+.accommodation-tips {
+    background-color: var(--light-color);
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.accommodation-tips h4 {
+    color: var(--text-color);
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.accommodation-tips ul {
+    list-style: none;
+    max-width: 800px;
+    margin: 0 auto;
+    display: inline-block;
+    text-align: left;
+}
+
+.accommodation-tips li {
+    color: var(--text-color);
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.accommodation-tips li::before {
+    content: "•";
+    color: var(--accent-color);
+    margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+    .booking-options {
+        grid-template-columns: 1fr;
+    }
+    
+    .accommodation-tips {
+        margin: 20px 15px;
+    }
+}
+
+/* Aggiungi questi stili CSS */
+#alloggi {
+    border-bottom: 2px solid var(--primary-color);
+    margin-bottom: 60px;
+    padding-bottom: 60px;
+}
+
+.section-divider {
+    height: 50px;
+    background-color: var(--secondary-color);
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.section-divider::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
+}
+
+.directions-container {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.direction-box {
+    flex: 1;
+    padding: 20px;
+    background-color: var(--secondary-color);
+    border-radius: 8px;
+}
+
+.direction-box.left {
+    text-align: left;
+}
+
+.direction-box.right {
+    text-align: right;
+}
+
+.direction-box h4 {
+    color: var(--text-color);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.direction-box p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.direction-box.left p {
+    text-align: left;
+}
+
+.direction-box.right p {
+    text-align: right;
+}
+
+@media (max-width: 768px) {
+    .directions-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .direction-box h4 {
+        text-align: center;
+    }
+    
+    .direction-box.left p,
+    .direction-box.right p {
+        text-align: left;
+    }
+}
+
+.option li i.fa-cloud-upload-alt {
+    color: transparent;
+    -webkit-text-stroke: 1px var(--text-color);
+}
+
+.upload-icon {
+    color: var(--text-color);
+    margin: 0 3px;
+}
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap"
         rel="stylesheet">
@@ -1259,7 +1469,7 @@
 
             <div class="gallery-container">
                 <div class="gallery-item">
-                    <img src="https://github.com/iFelice/wedding-website/blob/main/images/IMG_3389.jpg?raw=true"
+                    <img src="https://github.com/iFelice/wedding-website/blob/main/images/IMG_0209.jpeg?raw=true"
                         alt="Foto di coppia">
                 </div>
                 <div class="gallery-item">
@@ -1275,7 +1485,7 @@
                         alt="Momenti insieme">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://github.com/iFelice/wedding-website/blob/main/images/IMG_6422.jpg?raw=true"
+                    <img src="https://github.com/iFelice/wedding-website/blob/main/images/IMG_3389.jpg?raw=true"
                         alt="Anello di fidanzamento">
                 </div>
                 <div class="gallery-item">
@@ -1283,11 +1493,11 @@
                         alt="Anniversario">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://github.com/iFelice/wedding-website/blob/main/images/IMG_7787.jpeg?raw=true"
+                    <img src="https://github.com/iFelice/wedding-website/blob/main/images/IMG_0249.jpeg?raw=true"
                         alt="Momenti speciali">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://github.com/iFelice/wedding-website/blob/main/images/IMG_8402.jpge?raw=true"
+                    <img src="https://github.com/iFelice/wedding-website/blob/main/images/IMG_8402.jpeg?raw=true"
                         alt="Momenti insieme">
                 </div>
             </div>
@@ -1342,7 +1552,11 @@
                             <ol>
                                 <li>Inquadra il QR code o usa il link</li>
                                 <li>Accedi con il tuo account Google</li>
-                                <li>Seleziona le foto da caricare</li>
+                                <li>Seleziona le foto da caricare cliccando su 
+                                    <img src="https://github.com/iFelice/wedding-website/blob/main/images/upload?raw=true" 
+                                         alt="upload icon" 
+                                         style="width: 20px; height: 20px; display: inline-block; vertical-align: middle;">
+                                </li>
                             </ol>
                         </div>
                         <div class="option">
@@ -1367,7 +1581,7 @@
             <div class="info-grid">
                 <div class="info-card">
                     <h3>Cerimonia</h3>
-                    <p>12 Luglio 2025, ore 16:00</p>
+                    <p>12 Luglio 2025, ore 15:30</p>
                     <p>Duomo di Nola</p>
                     <p>Piazza Duomo, Nola (NA)</p>
                     <div class="map">
@@ -1394,31 +1608,17 @@
 
             <div class="info-card">
                 <h3>Come Raggiungere le Location</h3>
-                <div class="info-grid">
-                    <div>
+                <div class="directions-container">
+                    <div class="direction-box left">
                         <h4>Duomo di Nola</h4>
                         <p>In auto: Seguire le indicazioni per Nola centro, parcheggiare nelle vicinanze di Piazza Duomo.</p>
-                        <p>Con i mezzi pubblici: Prendere la Circumvesuviana fino alla fermata di Nola, poi a piedi per circa 10
-                            minuti.</p>
+                        <p>Con i mezzi pubblici: Prendere la Circumvesuviana fino alla fermata di Nola, poi a piedi per circa 10 minuti.</p>
                     </div>
-                    <div>
+                    <div class="direction-box right">
                         <h4>Castello di Faicchio</h4>
                         <p>In auto: Da Nola, prendere la SS7 Appia in direzione Benevento, seguire le indicazioni per Faicchio.</p>
                         <p>Da Napoli, prendere l'A30 in direzione Caserta, poi seguire le indicazioni per Faicchio.</p>
                     </div>
-                </div>
-            </div>
-
-            <div class="info-card">
-                <h3>Dress Code</h3>
-                <div class="dress-code">
-                    <div class="dress-code-icon">
-                        <i class="fas fa-tshirt"></i>
-                    </div>
-                    <p>Per questo giorno speciale, vi suggeriamo un abbigliamento formale elegante.</p>
-                    <p>Signori: abito scuro o completo elegante.</p>
-                    <p>Signore: abito da cocktail o lungo.</p>
-                    <p>Vi preghiamo di evitare abiti bianchi, riservati alla sposa.</p>
                 </div>
             </div>
         </div>
@@ -1549,52 +1749,49 @@
 
     <section id="alloggi">
         <div class="container">
-            <h2 class="section-title">Suggerimenti per l'Alloggio</h2>
+            <h2 class="section-title">Alloggi</h2>
             <p class="section-subtitle">Per gli ospiti che vengono da lontano</p>
 
-            <div class="info-grid">
-                <div class="accommodation-card">
-                    <div class="accommodation-img">
-                        <img src="https://source.unsplash.com/random/600x400/?hotel" alt="Hotel">
-                    </div>
-                    <div class="accommodation-info">
-                        <h4>Hotel Palazzo</h4>
-                        <p>Via Example 123, Faicchio</p>
-                        <p>Distanza dalla location: 2 km</p>
-                        <p>Tel: 123-456-7890</p>
-                        <p><a href="#" class="btn">Prenota</a></p>
-                    </div>
+            <div class="accommodation-intro">
+                <p>Per aiutarvi nella ricerca di un alloggio per la notte del matrimonio (12 luglio 2025), abbiamo selezionato le migliori piattaforme di prenotazione della zona. Potrete verificare in tempo reale disponibilità e prezzi.</p>
+            </div>
+
+            <div class="booking-options">
+                <div class="booking-card">
+                    <i class="fas fa-building"></i>
+                    <h4>Booking.com</h4>
+                    <p>Trova hotel e B&B a Faicchio e dintorni</p>
+                    <a href="https://www.booking.com/searchresults.it.html?ss=Faicchio&checkin=2025-07-12&checkout=2025-07-13&group_adults=2&no_rooms=1" class="btn" target="_blank">Cerca su Booking</a>
                 </div>
 
-                <div class="accommodation-card">
-                    <div class="accommodation-img">
-                        <img src="https://source.unsplash.com/random/600x400/?bnb" alt="B&B">
-                    </div>
-                    <div class="accommodation-info">
-                        <h4>B&B Il Giardino</h4>
-                        <p>Via Sample 456, Faicchio</p>
-                        <p>Distanza dalla location: 1.5 km</p>
-                        <p>Tel: 098-765-4321</p>
-                        <p><a href="#" class="btn">Prenota</a></p>
-                    </div>
+                <div class="booking-card">
+                    <i class="fab fa-airbnb"></i>
+                    <h4>Airbnb</h4>
+                    <p>Scopri appartamenti e case vacanza nella zona</p>
+                    <a href="https://www.airbnb.it/s/Faicchio/homes?checkin=2025-07-12&checkout=2025-07-13&adults=2" class="btn" target="_blank">Cerca su Airbnb</a>
                 </div>
 
-                <div class="accommodation-card">
-                    <div class="accommodation-img">
-                        <img src="https://source.unsplash.com/random/600x400/?villa" alt="Agriturismo">
-                    </div>
-                    <div class="accommodation-info">
-                        <h4>Agriturismo La Collina</h4>
-                        <p>Contrada Example, Faicchio</p>
-                        <p>Distanza dalla location: 3 km</p>
-                        <p>Tel: 555-123-4567</p>
-                        <p><a href="#" class="btn">Prenota</a></p>
-                    </div>
+                <div class="booking-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h4>Google Maps</h4>
+                    <p>Visualizza tutte le strutture nelle vicinanze</p>
+                    <a href="https://www.google.com/maps/search/hotel+near+Faicchio+Benevento" class="btn" target="_blank">Cerca su Maps</a>
                 </div>
+            </div>
+
+            <div class="accommodation-tips">
+                <h4>Suggerimenti per la ricerca</h4>
+                <ul>
+                    <li>La location del ricevimento si trova a Faicchio (BN)</li>
+                    <li>Consigliamo di prenotare con anticipo data l'alta stagione</li>
+                    <li>Le zone limitrofe (nel raggio di 15km) sono ben collegate</li>
+                    <li>Per qualsiasi necessità non esitate a contattarci</li>
+                </ul>
             </div>
         </div>
     </section>
 
+    <div class="section-divider"></div>
     <section id="faq">
         <div class="container">
             <h2 class="section-title">Domande Frequenti</h2>
@@ -1629,7 +1826,7 @@
                     <div class="faq-question">Possiamo scattare foto durante la cerimonia?</div>
                     <div class="faq-answer">Preferiremmo che durante la cerimonia religiosa le foto siano lasciate ai fotografi
                         professionisti. Durante il ricevimento, invece, sentitevi liberi di immortalare tutti i momenti
-                        speciali! Vi invitiamo a usare l'hashtag #FeliceFederica2025 quando condividete le foto sui social.
+                        speciali! Vi invitiamo a usare l'hashtag #FedericaeFelice2025 quando condividete le foto sui social.
                     </div>
                 </div>
             </div>
@@ -1641,7 +1838,7 @@
             <h2 class="section-title">Contatti</h2>
             <p class="section-subtitle">Per qualsiasi informazione non esitare a contattarci</p>
             <div class="info-card">
-                <p>Email: felicefederica2025@email.it</p>
+                <p>Email: federicaefelice@gmail.com</p>
                 <p>Telefono: 123-456-7890</p>
 
                 <div class="social-icons">
@@ -1650,7 +1847,7 @@
                     <a href="#"><i class="fab fa-whatsapp"></i></a>
                 </div>
 
-                <p>Seguici su Instagram con l'hashtag: <strong>#FeliceFederica2025</strong></p>
+                <p>Seguici su Instagram con l'hashtag: <strong>#FedericaeFelice2025</strong></p>
             </div>
         </div>
     </section>
@@ -1659,7 +1856,7 @@
 
     <footer>
         <div class="container">
-            <p>© 2025 - Felice & Federica</p>
+            <p>© 2025 - aiFelice</p>
             <p>Non vediamo l'ora di festeggiare con voi!</p>
         </div>
     </footer>
