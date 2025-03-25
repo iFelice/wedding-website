@@ -538,31 +538,30 @@
         /* Gift Registry */
         .gift-registry {
             background-color: var(--secondary-color);
+            padding: 80px 0;
         }
 
-        .gift-options {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 40px;
+        .gift-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: var(--text-color);
         }
 
         .gift-option {
-            flex: 0 0 300px;
             background-color: var(--light-color);
-            border-radius: 10px;
+            border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-
-        .gift-option:hover {
-            transform: translateY(-5px);
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
         .gift-option-img {
-            height: 200px;
+            width: 100%;
+            height: 400px;
             overflow: hidden;
         }
 
@@ -573,29 +572,60 @@
         }
 
         .gift-option-info {
-            padding: 20px;
+            padding: 40px;
             text-align: center;
         }
 
         .gift-option-info h3 {
-            color: var(--accent-color);
+            color: var(--text-color);
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .gift-option-info p {
+            color: var(--text-color);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .gift-details {
+            background-color: var(--secondary-color);
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        .bank-details {
+            text-align: left;
+            max-width: 500px;
+            margin: 20px auto 0;
+            padding: 20px;
+            background-color: var(--light-color);
+            border-radius: 8px;
+        }
+
+        .bank-details p {
             margin-bottom: 10px;
+            font-size: 1.1rem;
         }
 
-        .btn {
-            display: inline-block;
-            padding: 10px 25px;
-            background-color: var(--accent-color);
-            color: var(--light-color);
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            margin-top: 15px;
-            transition: background-color 0.3s;
-        }
+        @media (max-width: 768px) {
+            .gift-option {
+                margin: 0 15px;
+            }
 
-        .btn:hover {
-            background-color: #e59f93;
+            .gift-option-img {
+                height: 250px;
+            }
+
+            .gift-option-info {
+                padding: 30px 20px;
+            }
+
+            .bank-details {
+                padding: 15px;
+            }
         }
 
         /* Footer */
@@ -1334,6 +1364,91 @@
     color: var(--text-color);
     margin: 0 3px;
 }
+
+/* Aggiungi questi stili CSS */
+.loader-spinner {
+    border: 4px solid var(--secondary-color);
+    border-top: 4px solid var(--accent-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#form-loader {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.response-message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.response-content {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.loader-spinner {
+    border: 4px solid var(--secondary-color);
+    border-top: 4px solid var(--accent-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap"
         rel="stylesheet">
@@ -1629,72 +1744,65 @@
             <h2 class="section-title">RSVP</h2>
             <p class="section-subtitle" style="color: var(--text-color);">Conferma la tua presenza entro il 21 Giugno 2025</p>
             
-            <form id="rsvpForm" class="rsvp-form" action="https://formspree.io/f/xnnpvogn" method="POST">
+            <form id="rsvpForm" class="rsvp-form" onsubmit="return false;">
                 <div class="form-group">
                     <label for="nome">Nome e Cognome *</label>
-                    <input type="text" id="nome" name="nome" required>
+                    <input type="text" id="nome" name="entry.1865819444" required>
                 </div>
 
                 <div class="form-group">
                     <label for="email">Email *</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="telefono">Telefono</label>
-                    <input type="tel" id="telefono" name="telefono">
+                    <input type="email" id="email" name="entry.1144297737" required>
                 </div>
 
                 <div class="form-group">
                     <label>Parteciperò *</label>
                     <div class="radio-group">
-                        <input type="radio" id="partecipo-si" name="partecipazione" value="si" required>
-                        <label for="partecipo-si">Sì, ci sarò</label>
+                        <input type="radio" id="partecipo-si" name="entry.1866331037" value="Sì, parteciperò" required>
+                        <label for="partecipo-si">Sì, parteciperò</label>
                         
-                        <input type="radio" id="partecipo-no" name="partecipazione" value="no">
+                        <input type="radio" id="partecipo-no" name="entry.1866331037" value="No, non potrò essere presente">
                         <label for="partecipo-no">No, non potrò essere presente</label>
                     </div>
                 </div>
 
                 <div class="form-group" id="numero-ospiti-group" style="display: none;">
-                    <label for="numero-ospiti">Numero di ospiti aggiuntivi *</label>
-                    <select id="numero-ospiti" name="numero-ospiti">
-                        <option value="0">Solo io</option>
-                        <option value="1">+1</option>
-                        <option value="2">+2</option>
-                        <option value="3">+3</option>
-                        <option value="4">+4</option>
+                    <label for="numero-ospiti">Numero di ospiti aggiuntivi</label>
+                    <select id="numero-ospiti" name="entry.1878646715">
+                        <option value="Solo io">Solo io</option>
+                        <option value="+1">+1</option>
+                        <option value="+2">+2</option>
+                        <option value="+3">+3</option>
+                        <option value="+4">+4</option>
                     </select>
                 </div>
 
                 <div class="form-group" id="nomi-ospiti-group" style="display: none;">
                     <label for="nomi-ospiti">Nomi degli ospiti aggiuntivi</label>
-                    <textarea id="nomi-ospiti" name="nomi-ospiti" placeholder="Inserisci i nomi degli ospiti che verranno con te"></textarea>
+                    <textarea id="nomi-ospiti" name="entry.1498297614"></textarea>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group" id="preferenze-menu-group">
                     <label for="preferenze-menu">Preferenze Menu *</label>
-                    <select id="preferenze-menu" name="preferenze-menu" required>
+                    <select id="preferenze-menu" name="entry.1401181352">
                         <option value="">Seleziona una preferenza</option>
-                        <option value="standard">Menu Standard</option>
-                        <option value="vegetariano">Menu Vegetariano</option>
-                        <option value="vegano">Menu Vegano</option>
-                        <option value="celiaco">Menu Senza Glutine</option>
-                        <option value="pescetariano">Menu Pescetariano</option>
+                        <option value="Menu Standard">Menu Standard</option>
+                        <option value="Menu Vegetariano">Menu Vegetariano</option>
+                        <option value="Menu Vegano">Menu Vegano</option>
+                        <option value="Menu Senza Glutine">Menu Senza Glutine</option>
+                        <option value="Menu Pescetariano">Menu Pescetariano</option>
                     </select>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group" id="intolleranze-group">
                     <label for="intolleranze">Intolleranze o allergie alimentari</label>
-                    <textarea id="intolleranze" name="intolleranze" placeholder="Specifica eventuali intolleranze o allergie alimentari"></textarea>
+                    <textarea id="intolleranze" name="entry.1234567890" rows="3"></textarea>
                 </div>
 
                 <div class="form-group">
                     <label for="note">Note aggiuntive</label>
-                    <textarea id="note" name="note" placeholder="Eventuali note o richieste particolari"></textarea>
+                    <textarea id="note" name="entry.839859647"></textarea>
                 </div>
-
-                <input type="hidden" name="_subject" value="Nuova risposta RSVP">
 
                 <button type="submit" class="btn submit-btn">Invia Conferma</button>
             </form>
@@ -1706,41 +1814,24 @@
             <h2 class="section-title">Lista Nozze</h2>
             <p class="section-subtitle">Se desiderate farci un regalo</p>
 
-            <p style="text-align: center; max-width: 700px; margin: 0 auto 40px;">La vostra presenza al nostro matrimonio
-                è il regalo più grande. Tuttavia, per chi desidera contribuire alla nostra nuova vita insieme, abbiamo
-                pensato ad alcune opzioni.</p>
+            <div class="gift-intro">
+                <p>La vostra presenza al nostro matrimonio è il regalo più prezioso. Per chi desidera contribuire alla realizzazione dei nostri sogni, abbiamo pensato ad una lista nozze dedicata al nostro viaggio di nozze in Giappone.</p>
+            </div>
 
-            <div class="gift-options">
-                <div class="gift-option">
-                    <div class="gift-option-img">
-                        <img src="https://source.unsplash.com/random/600x400/?honeymoon" alt="Viaggio di nozze">
-                    </div>
-                    <div class="gift-option-info">
-                        <h3>Viaggio di Nozze</h3>
-                        <p>Contribuisci alla nostra luna di miele in Giappone</p>
-                        <a href="#" class="btn">Contribuisci</a>
-                    </div>
+            <div class="gift-option">
+                <div class="gift-option-img">
+                    <img src="https://source.unsplash.com/random/800x600/?japan" alt="Viaggio di nozze">
                 </div>
-
-                <div class="gift-option">
-                    <div class="gift-option-img">
-                        <img src="https://source.unsplash.com/random/600x400/?house" alt="Casa">
-                    </div>
-                    <div class="gift-option-info">
-                        <h3>La Nostra Casa</h3>
-                        <p>Aiutaci ad arredare il nostro nido d'amore</p>
-                        <a href="#" class="btn">Contribuisci</a>
-                    </div>
-                </div>
-
-                <div class="gift-option">
-                    <div class="gift-option-img">
-                        <img src="https://source.unsplash.com/random/600x400/?gift" alt="Lista nozze tradizionale">
-                    </div>
-                    <div class="gift-option-info">
-                        <h3>Lista Nozze Tradizionale</h3>
-                        <p>Abbiamo creato una lista presso Coincasa</p>
-                        <a href="#" class="btn">Visualizza</a>
+                <div class="gift-option-info">
+                    <h3>Il Nostro Viaggio in Giappone</h3>
+                    <p>Aiutateci a realizzare il nostro sogno di esplorare il Giappone, dalla moderna Tokyo ai templi di Kyoto, dalle spiagge di Okinawa ai giardini zen di Kanazawa.</p>
+                    <div class="gift-details">
+                        <p>Potete contribuire al nostro viaggio con un bonifico bancario:</p>
+                        <div class="bank-details">
+                            <p><strong>IBAN:</strong> IT00 X000 0000 0000 0000 0000 000</p>
+                            <p><strong>Intestato a:</strong> Felice & Federica</p>
+                            <p><strong>Causale:</strong> Regalo di nozze [Vostro Nome]</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1867,6 +1958,16 @@
     <img class="modal-content" id="modalImg">
     <span class="modal-nav modal-next"><i class="fas fa-chevron-right"></i></span>
 </div>
+    
+    <div id="form-loader" style="display: none;">
+        <div class="loader-spinner"></div>
+        <p>Invio in corso...</p>
+    </div>
+    
+    <div id="loading-overlay" style="display: none;">
+        <div class="spinner"></div>
+        <p>Invio in corso...</p>
+    </div>
     
     <script>
         // Mobile Menu Toggle and Auto-Close
@@ -2034,48 +2135,105 @@ modalImg.addEventListener('click', (e) => e.stopPropagation());
 prevBtn.addEventListener('click', (e) => e.stopPropagation());
 nextBtn.addEventListener('click', (e) => e.stopPropagation());
 
-// Gestione del form RSVP e campi obbligatori
-document.getElementById('rsvpForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const formData = new FormData(this);
-    const partecipazione = formData.get('partecipazione');
-    
-    // URL di Formspree
-    const formspreeUrl = 'https://formspree.io/f/xnnpvogn';
-    
-    fetch(formspreeUrl, {
-        method: 'POST',
-        body: formData,
-        headers: {
-            'Accept': 'application/json'
-        }
-    })
-    .then(response => response.json())
-    .then(data => {
-        // Reindirizza in base alla risposta
-        if (partecipazione === 'si') {
-            window.location.href = 'https://raw.githack.com/iFelice/wedding-website/refs/heads/main/grazie.html';
+// Wrappa tutto il codice in un event listener DOMContentLoaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Definisci l'URL del form Google
+    const GOOGLE_FORM_URL = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSc5ZEuGDHcmxZ6kOG-q_cMBp0g_o_QQK8Dn3_Yvz1oXOHPZkA/formResponse';
+
+    // Ottieni il form con l'ID corretto
+    const form = document.getElementById('rsvpForm');
+    if (!form) {
+        console.error('Form non trovato!');
+        return;
+    }
+
+    // Rimuovi l'handler onsubmit esistente
+    form.removeAttribute('onsubmit');
+
+    // Gestione campi condizionali
+    const handlePartecipazioneChange = (mostraCampi) => {
+        const numeroOspitiGroup = document.getElementById('numero-ospiti-group');
+        const nomiOspitiGroup = document.getElementById('nomi-ospiti-group');
+        const preferenzeMenuGroup = document.getElementById('preferenze-menu-group');
+        const intolleranzeGroup = document.getElementById('intolleranze-group');
+        const preferenzeMenu = document.getElementById('preferenze-menu');
+        const intolleranze = document.getElementById('intolleranze');
+
+        if (mostraCampi) {
+            [numeroOspitiGroup, nomiOspitiGroup, preferenzeMenuGroup, intolleranzeGroup].forEach(el => {
+                if (el) {
+                    el.style.display = 'block';
+                    requestAnimationFrame(() => {
+                        el.style.opacity = '1';
+                    });
+                }
+            });
+            if (preferenzeMenu) preferenzeMenu.required = true;
         } else {
-            window.location.href = 'https://raw.githack.com/iFelice/wedding-website/refs/heads/main/dispiaciuti.html';
+            [numeroOspitiGroup, nomiOspitiGroup, preferenzeMenuGroup, intolleranzeGroup].forEach(el => {
+                if (el) {
+                    el.style.opacity = '0';
+                    setTimeout(() => {
+                        el.style.display = 'none';
+                    }, 300);
+                }
+            });
+            // Resetta i valori
+            if (document.getElementById('numero-ospiti')) document.getElementById('numero-ospiti').value = '';
+            if (document.getElementById('nomi-ospiti')) document.getElementById('nomi-ospiti').value = '';
+            if (preferenzeMenu) {
+                preferenzeMenu.value = '';
+                preferenzeMenu.required = false;
+            }
+            if (intolleranze) intolleranze.value = '';
         }
-    })
-    .catch(error => {
-        console.error('Errore:', error);
-        alert('Si è verificato un errore nell\'invio del form. Riprova più tardi.');
+    };
+
+    // Aggiungi gli event listener per i radio button
+    document.querySelectorAll('input[name="entry.1866331037"]').forEach(radio => {
+        radio.addEventListener('change', (e) => {
+            handlePartecipazioneChange(e.target.value === 'Sì, parteciperò');
+        });
     });
-});
 
-document.getElementById('partecipo-si').addEventListener('change', function() {
-    document.getElementById('numero-ospiti-group').style.display = 'block';
-    document.getElementById('nomi-ospiti-group').style.display = 'block';
-    document.getElementById('preferenze-menu').required = true; // Rendi obbligatorio
-});
+    // Gestione submit del form
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const loadingOverlay = document.getElementById('loading-overlay');
+        if (loadingOverlay) loadingOverlay.style.display = 'flex';
+        
+        try {
+            const formData = new FormData(form);
+            await fetch(GOOGLE_FORM_URL, {
+                method: 'POST',
+                body: formData,
+                mode: 'no-cors'
+            });
 
-document.getElementById('partecipo-no').addEventListener('change', function() {
-    document.getElementById('numero-ospiti-group').style.display = 'none';
-    document.getElementById('nomi-ospiti-group').style.display = 'none';
-    document.getElementById('preferenze-menu').required = false; // Rimuovi l'obbligatorietà
+            setTimeout(() => {
+                const partecipazioneValue = document.querySelector('input[name="entry.1866331037"]:checked').value;
+                alert('Form inviato con successo! Sarai reindirizzato alla pagina di conferma.');
+                
+                if (partecipazioneValue === 'Sì, parteciperò') {
+                    window.location.href = 'grazie.html';
+                } else {
+                    window.location.href = 'dispiaciuti.html';
+                }
+            }, 1000);
+
+        } catch (error) {
+            if (loadingOverlay) loadingOverlay.style.display = 'none';
+            alert('Si è verificato un errore. Per favore, riprova.');
+            console.error('Errore:', error);
+        }
+    });
+
+    // Inizializza lo stato dei campi al caricamento della pagina
+    const partecipazione = document.querySelector('input[name="entry.1866331037"]:checked');
+    if (partecipazione) {
+        handlePartecipazioneChange(partecipazione.value === 'Sì, parteciperò');
+    }
 });
 
     </script>
