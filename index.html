@@ -139,10 +139,10 @@
         }
 
         /* Mantieni il contenuto nitido */
-            .hero-content {
+        .hero-content {
             position: relative;
             z-index: 3;  /* Sopra lo sfondo e l'overlay */
-                padding-top: 100px;
+            padding-top: 100px;
             width: 100%;
         }
 
@@ -1448,7 +1448,7 @@
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
-}
+        }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap"
         rel="stylesheet">
@@ -1744,67 +1744,43 @@
             <h2 class="section-title">RSVP</h2>
             <p class="section-subtitle" style="color: var(--text-color);">Conferma la tua presenza entro il 21 Giugno 2025</p>
             
-            <form id="rsvpForm" class="rsvp-form" onsubmit="return false;">
-                <div class="form-group">
-                    <label for="nome">Nome e Cognome *</label>
-                    <input type="text" id="nome" name="entry.1865819444" required>
-                </div>
+            <form id="rsvpForm" class="rsvp-form">
+                <!-- Nome e Cognome -->
+                <input type="text" name="entry.709286806" required>
 
-                <div class="form-group">
-                    <label for="email">Email *</label>
-                    <input type="email" id="email" name="entry.1144297737" required>
-                </div>
+                <!-- Email -->
+                <input type="email" name="entry.1994603631" required>
 
-                <div class="form-group">
-                    <label>Parteciperò *</label>
-                    <div class="radio-group">
-                        <input type="radio" id="partecipo-si" name="entry.1866331037" value="Sì, parteciperò" required>
-                        <label for="partecipo-si">Sì, parteciperò</label>
-                        
-                        <input type="radio" id="partecipo-no" name="entry.1866331037" value="No, non potrò essere presente">
-                        <label for="partecipo-no">No, non potrò essere presente</label>
-                    </div>
-                </div>
+                <!-- Partecipazione -->
+                <input type="radio" name="entry.682165499" value="Sì, ci sarò">
+                <input type="radio" name="entry.682165499" value="No, non potrò essere presente">
 
-                <div class="form-group" id="numero-ospiti-group" style="display: none;">
-                    <label for="numero-ospiti">Numero di ospiti aggiuntivi</label>
-                    <select id="numero-ospiti" name="entry.1878646715">
-                        <option value="Solo io">Solo io</option>
-                        <option value="+1">+1</option>
-                        <option value="+2">+2</option>
-                        <option value="+3">+3</option>
-                        <option value="+4">+4</option>
-                    </select>
-                </div>
+                <!-- Numero ospiti -->
+                <select name="entry.349902564">
+                    <option value="Solo io">Solo io</option>
+                    <option value="+1">+1</option>
+                    <option value="+2">+2</option>
+                    <option value="+3">+3</option>
+                    <option value="+4">+4</option>
+                </select>
 
-                <div class="form-group" id="nomi-ospiti-group" style="display: none;">
-                    <label for="nomi-ospiti">Nomi degli ospiti aggiuntivi</label>
-                    <textarea id="nomi-ospiti" name="entry.1498297614"></textarea>
-                </div>
+                <!-- Nomi ospiti -->
+                <textarea name="entry.155324483"></textarea>
 
-                <div class="form-group" id="preferenze-menu-group">
-                    <label for="preferenze-menu">Preferenze Menu *</label>
-                    <select id="preferenze-menu" name="entry.1401181352">
-                        <option value="">Seleziona una preferenza</option>
-                        <option value="Menu Standard">Menu Standard</option>
-                        <option value="Menu Vegetariano">Menu Vegetariano</option>
-                        <option value="Menu Vegano">Menu Vegano</option>
-                        <option value="Menu Senza Glutine">Menu Senza Glutine</option>
-                        <option value="Menu Pescetariano">Menu Pescetariano</option>
-                    </select>
-                </div>
+                <!-- Preferenze Menu -->
+                <select name="entry.1172181114">
+                    <option value="Menu Standard">Menu Standard</option>
+                    <option value="Menu Vegetariano">Menu Vegetariano</option>
+                    <option value="Menu Vegano">Menu Vegano</option>
+                    <option value="Menu Senza Glutine">Menu Senza Glutine</option>
+                    <option value="Menu Pescetariano">Menu Pescetariano</option>
+                </select>
 
-                <div class="form-group" id="intolleranze-group">
-                    <label for="intolleranze">Intolleranze o allergie alimentari</label>
-                    <textarea id="intolleranze" name="entry.1234567890" rows="3"></textarea>
-                </div>
+                <!-- Intolleranze -->
+                <textarea name="entry.304213983"></textarea>
 
-                <div class="form-group">
-                    <label for="note">Note aggiuntive</label>
-                    <textarea id="note" name="entry.839859647"></textarea>
-                </div>
-
-                <button type="submit" class="btn submit-btn">Invia Conferma</button>
+                <!-- Note aggiuntive -->
+                <textarea name="entry.123813858"></textarea>
             </form>
         </div>
     </section>
@@ -1816,12 +1792,12 @@
 
             <div class="gift-intro">
                 <p>La vostra presenza al nostro matrimonio è il regalo più prezioso. Per chi desidera contribuire alla realizzazione dei nostri sogni, abbiamo pensato ad una lista nozze dedicata al nostro viaggio di nozze in Giappone.</p>
-            </div>
+                    </div>
 
             <div class="gift-option">
                 <div class="gift-option-img">
                     <img src="https://source.unsplash.com/random/800x600/?japan" alt="Viaggio di nozze">
-                </div>
+                    </div>
                 <div class="gift-option-info">
                     <h3>Il Nostro Viaggio in Giappone</h3>
                     <p>Aiutateci a realizzare il nostro sogno di esplorare il Giappone, dalla moderna Tokyo ai templi di Kyoto, dalle spiagge di Okinawa ai giardini zen di Kanazawa.</p>
@@ -1831,10 +1807,10 @@
                             <p><strong>IBAN:</strong> IT00 X000 0000 0000 0000 0000 000</p>
                             <p><strong>Intestato a:</strong> Felice & Federica</p>
                             <p><strong>Causale:</strong> Regalo di nozze [Vostro Nome]</p>
-                        </div>
+                </div>
+                    </div>
                     </div>
                 </div>
-            </div>
         </div>
     </section>
 
@@ -1845,7 +1821,7 @@
 
             <div class="accommodation-intro">
                 <p>Per aiutarvi nella ricerca di un alloggio per la notte del matrimonio (12 luglio 2025), abbiamo selezionato le migliori piattaforme di prenotazione della zona. Potrete verificare in tempo reale disponibilità e prezzi.</p>
-            </div>
+                    </div>
 
             <div class="booking-options">
                 <div class="booking-card">
@@ -1853,7 +1829,7 @@
                     <h4>Booking.com</h4>
                     <p>Trova hotel e B&B a Faicchio e dintorni</p>
                     <a href="https://www.booking.com/searchresults.it.html?ss=Faicchio&checkin=2025-07-12&checkout=2025-07-13&group_adults=2&no_rooms=1" class="btn" target="_blank">Cerca su Booking</a>
-                </div>
+                    </div>
 
                 <div class="booking-card">
                     <i class="fab fa-airbnb"></i>
@@ -1968,7 +1944,7 @@
         <div class="spinner"></div>
         <p>Invio in corso...</p>
     </div>
-    
+
     <script>
         // Mobile Menu Toggle and Auto-Close
         const menuToggle = document.querySelector('.menu-toggle');
@@ -2138,7 +2114,7 @@ nextBtn.addEventListener('click', (e) => e.stopPropagation());
 // Wrappa tutto il codice in un event listener DOMContentLoaded
 document.addEventListener('DOMContentLoaded', function() {
     // Definisci l'URL del form Google
-    const GOOGLE_FORM_URL = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSc5ZEuGDHcmxZ6kOG-q_cMBp0g_o_QQK8Dn3_Yvz1oXOHPZkA/formResponse';
+    const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfEVroewVvdUUNXcM4ceirh0hnazy440pHOZz6b_MuknOiksg/formResponse';
 
     // Ottieni il form con l'ID corretto
     const form = document.getElementById('rsvpForm');
@@ -2190,9 +2166,9 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     // Aggiungi gli event listener per i radio button
-    document.querySelectorAll('input[name="entry.1866331037"]').forEach(radio => {
+    document.querySelectorAll('input[name="entry.682165499"]').forEach(radio => {
         radio.addEventListener('change', (e) => {
-            handlePartecipazioneChange(e.target.value === 'Sì, parteciperò');
+            handlePartecipazioneChange(e.target.value === 'Sì, ci sarò');
         });
     });
 
@@ -2212,8 +2188,8 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             // Reindirizza direttamente senza alert
-            const partecipazioneValue = document.querySelector('input[name="entry.1866331037"]:checked').value;
-            if (partecipazioneValue === 'Sì, parteciperò') {
+            const partecipazioneValue = document.querySelector('input[name="entry.682165499"]:checked').value;
+            if (partecipazioneValue === 'Sì, ci sarò') {
                 window.location.href = 'grazie.html';
             } else {
                 window.location.href = 'dispiaciuti.html';
@@ -2227,11 +2203,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Inizializza lo stato dei campi al caricamento della pagina
-    const partecipazione = document.querySelector('input[name="entry.1866331037"]:checked');
+    const partecipazione = document.querySelector('input[name="entry.682165499"]:checked');
     if (partecipazione) {
-        handlePartecipazioneChange(partecipazione.value === 'Sì, parteciperò');
+        handlePartecipazioneChange(partecipazione.value === 'Sì, ci sarò');
     }
-});
+        });
 
     </script>
 </body>
