@@ -1990,12 +1990,28 @@
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 closeMenu();
+                // Smooth scroll for mobile menu links as well
+                const targetId = link.getAttribute('href');
+                if (targetId && targetId.startsWith('#')) {
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                         // Adjust offset for fixed header
+                         const headerOffset = document.getElementById('header')?.offsetHeight || 70;
+                         const elementPosition = targetElement.offsetTop;
+                         const offsetPosition = elementPosition - headerOffset;
+
+                         window.scrollTo({
+                             top: offsetPosition,
+                             behavior: 'smooth'
+                         });
+                    }
+                }
             });
         });
 
 
         // Countdown timer
-        const weddingDate = new Date('July 12, 2025 16:00:00').getTime();
+        const weddingDate = new Date('July 12, 2025 15:30:00').getTime(); // Orario cerimonia
 
         function updateCountdown() {
             const now = new Date().getTime();
@@ -2017,44 +2033,57 @@
                 document.getElementById('hours').innerText = '00';
                 document.getElementById('minutes').innerText = '00';
                 document.getElementById('seconds').innerText = '00';
+                // Optionally display a "Wedding Day!" message
             }
         }
 
         // Update the countdown every second
-        updateCountdown();
+        updateCountdown(); // Initial call
         const countdownTimer = setInterval(updateCountdown, 1000);
 
         // Header scroll effect
         window.addEventListener('scroll', function () {
             const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
+            if (header) { // Check if header exists
+                 if (window.scrollY > 50) {
+                     header.classList.add('scrolled');
+                 } else {
+                     header.classList.remove('scrolled');
+                 }
             }
 
             // Back to top button
             const backToTop = document.getElementById('backToTop');
-            if (window.scrollY > 300) {
-                backToTop.classList.add('show');
-            } else {
-                backToTop.classList.remove('show');
-            }
+             if (backToTop) { // Check if button exists
+                 if (window.scrollY > 300) {
+                     backToTop.classList.add('show');
+                 } else {
+                     backToTop.classList.remove('show');
+                 }
+             }
         });
 
-        // Smooth scrolling for anchor links
+        // Smooth scrolling for anchor links (non-mobile menu)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
+             // Exclude mobile menu links handled separately if needed, though the logic above should cover them
+             if (!anchor.closest('nav ul')) {
+                  anchor.addEventListener('click', function (e) {
+                     e.preventDefault();
+                     const targetId = this.getAttribute('href');
+                     const targetElement = document.querySelector(targetId);
+                     if (targetElement) {
+                         // Adjust offset for fixed header
+                         const headerOffset = document.getElementById('header')?.offsetHeight || 70;
+                         const elementPosition = targetElement.offsetTop;
+                         const offsetPosition = elementPosition - headerOffset;
 
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    window.scrollTo({
-                        top: target.offsetTop - 70,
-                        behavior: 'smooth'
-                    });
-                }
-            });
+                         window.scrollTo({
+                             top: offsetPosition,
+                             behavior: 'smooth'
+                         });
+                     }
+                 });
+             }
         });
 
         // FAQ accordion
@@ -2062,205 +2091,286 @@
         faqQuestions.forEach(question => {
             question.addEventListener('click', () => {
                 const answer = question.nextElementSibling;
+                const isActive = question.classList.contains('active');
+
+                 // Optional: Close other open FAQs
+                 // faqQuestions.forEach(q => {
+                 //     if (q !== question && q.classList.contains('active')) {
+                 //         q.classList.remove('active');
+                 //         q.nextElementSibling.style.display = 'none'; // Or use max-height for animation
+                 //     }
+                 // });
+
                 question.classList.toggle('active');
-                answer.classList.toggle('show');
+                if (answer) { // Check if answer element exists
+                     // Use max-height for smooth animation (requires CSS adjustments)
+                     // if (!isActive) {
+                     //     answer.style.maxHeight = answer.scrollHeight + "px";
+                     // } else {
+                     //     answer.style.maxHeight = null;
+                     // }
+                     // Simple show/hide:
+                     answer.classList.toggle('show'); // Assumes .show class sets display: block
+                }
             });
         });
 
         // Back to top functionality
-        document.getElementById('backToTop').addEventListener('click', function (e) {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
+        const backToTopButton = document.getElementById('backToTop');
+        if (backToTopButton) {
+             backToTopButton.addEventListener('click', function (e) {
+                 e.preventDefault();
+                 window.scrollTo({
+                     top: 0,
+                     behavior: 'smooth'
+                 });
+             });
+        }
 
-        // Initialize gallery modal (basic implementation)
         // Gallery modal implementation
-const modal = document.getElementById('galleryModal');
-const modalImg = document.getElementById('modalImg');
-const closeBtn = document.querySelector('.modal-close');
-const prevBtn = document.querySelector('.modal-prev');
-const nextBtn = document.querySelector('.modal-next');
+        const modal = document.getElementById('galleryModal');
+        const modalImg = document.getElementById('modalImg');
+        const closeBtn = document.querySelector('.modal-close');
+        const prevBtn = document.querySelector('.modal-prev');
+        const nextBtn = document.querySelector('.modal-next');
+        const galleryItems = document.querySelectorAll('.gallery-item img'); // Select images directly
+        let currentImageIndex = 0;
 
-const galleryItems = document.querySelectorAll('.gallery-item img');
-let currentImageIndex = 0;
+        function updateModalImage() {
+            if (galleryItems.length > 0 && modalImg) {
+                modalImg.src = galleryItems[currentImageIndex].src;
+                modalImg.alt = galleryItems[currentImageIndex].alt; // Update alt text too
+            }
+        }
 
-function openModal(index) {
-    modal.style.display = 'flex';
-    currentImageIndex = index;
-    updateModalImage();
-}
+        function openModal(index) {
+            if (modal && galleryItems.length > 0) {
+                modal.style.display = 'flex';
+                currentImageIndex = index;
+                updateModalImage();
+                // Optional: Disable body scroll when modal is open
+                // document.body.style.overflow = 'hidden';
+            }
+        }
 
-function updateModalImage() {
-    modalImg.src = galleryItems[currentImageIndex].src;
-}
+        function closeModal() {
+            if (modal) {
+                modal.style.display = 'none';
+                 // Optional: Re-enable body scroll
+                 // document.body.style.overflow = '';
+            }
+        }
 
-function nextImage() {
-    currentImageIndex = (currentImageIndex + 1) % galleryItems.length;
-    updateModalImage();
-}
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % galleryItems.length;
+            updateModalImage();
+        }
 
-function prevImage() {
-    currentImageIndex = (currentImageIndex - 1 + galleryItems.length) % galleryItems.length;
-    updateModalImage();
-}
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + galleryItems.length) % galleryItems.length;
+            updateModalImage();
+        }
 
-galleryItems.forEach((item, index) => {
-    item.parentElement.addEventListener('click', () => openModal(index));
-});
+        // Add click listeners to gallery items (the div containers)
+        document.querySelectorAll('.gallery-item').forEach((item, index) => {
+             item.addEventListener('click', () => openModal(index));
+        });
 
-closeBtn.addEventListener('click', () => {
-    modal.style.display = 'none';
-});
+        // Add listeners for modal controls if they exist
+        if (closeBtn) closeBtn.addEventListener('click', closeModal);
+        if (prevBtn) prevBtn.addEventListener('click', prevImage);
+        if (nextBtn) nextBtn.addEventListener('click', nextImage);
 
-prevBtn.addEventListener('click', prevImage);
-nextBtn.addEventListener('click', nextImage);
+        // Keyboard navigation for modal
+        document.addEventListener('keydown', (e) => {
+            if (modal && modal.style.display === 'flex') {
+                if (e.key === 'ArrowLeft') prevImage();
+                if (e.key === 'ArrowRight') nextImage();
+                if (e.key === 'Escape') closeModal();
+            }
+        });
 
-// Gestione delle frecce della tastiera
-document.addEventListener('keydown', (e) => {
-    if (modal.style.display === 'flex') {
-        if (e.key === 'ArrowLeft') prevImage();
-        if (e.key === 'ArrowRight') nextImage();
-        if (e.key === 'Escape') modal.style.display = 'none';
-    }
-});
+        // Close modal clicking outside the image (but not on nav buttons)
+        if (modal) {
+             modal.addEventListener('click', (e) => {
+                 if (e.target === modal) { // Clicked on the background overlay
+                     closeModal();
+                 }
+             });
+        }
+        // Prevent closing when clicking the image itself or nav buttons
+        // if (modalImg) modalImg.addEventListener('click', (e) => e.stopPropagation());
+        // if (prevBtn) prevBtn.addEventListener('click', (e) => e.stopPropagation()); // Already handled by specific listeners
+        // if (nextBtn) nextBtn.addEventListener('click', (e) => e.stopPropagation());
 
-// Chiudi la modal cliccando fuori dall'immagine
-modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        modal.style.display = 'none';
-    }
-});
 
-// Previeni la chiusura quando si clicca sull'immagine o sui pulsanti di navigazione
-modalImg.addEventListener('click', (e) => e.stopPropagation());
-prevBtn.addEventListener('click', (e) => e.stopPropagation());
-nextBtn.addEventListener('click', (e) => e.stopPropagation());
+        // --- RSVP Form Logic ---
+        document.addEventListener('DOMContentLoaded', function() {
 
-// Wrappa tutto il codice in un event listener DOMContentLoaded
-document.addEventListener('DOMContentLoaded', function() {
-    // Definisci l'URL del form Google
-    const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfEVroewVvdUUNXcM4ceirh0hnazy440pHOZz6b_MuknOiksg/formResponse';
+            // --- INCOLLA QUI L'URL DELLA TUA APP WEB ---
+            const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbyz9pePUO-T2SbDVxP-3Xvv8EfNoraIf6jUaniIw4dpXbmU3cjsDQq64dJemoPthu1M/exec'; // <-- URL INSERITO!
 
-    // Ottieni il form con l'ID corretto
-    const form = document.getElementById('rsvpForm');
-    if (!form) {
-        console.error('Form non trovato!');
-        return;
-    }
+            const form = document.getElementById('rsvpForm');
+            const loadingOverlay = document.getElementById('loading-overlay');
 
-    // Rimuovi l'handler onsubmit esistente
-    form.removeAttribute('onsubmit');
+            // Controllo che il form e l'URL esistano
+            if (!form) {
+                console.error('Modulo RSVP non trovato! Verificare l\'ID "rsvpForm".');
+                return;
+            }
+            if (!WEB_APP_URL || WEB_APP_URL === 'IL_TUO_URL_COPIATO_QUI') { // Check generic placeholder too
+                console.error('URL dell\'App Web non impostato. Incolla l\'URL dello script distribuito.');
+                alert('Errore di configurazione del modulo. Si prega di contattare gli sposi.');
+                if (form.querySelector('button[type="submit"]')) {
+                     form.querySelector('button[type="submit"]').disabled = true; // Disable submit button
+                     form.querySelector('button[type="submit"]').textContent = 'Errore Configurazione';
+                }
+                return;
+            }
+             if (!loadingOverlay) {
+                 console.warn('Elemento di caricamento "loading-overlay" non trovato.');
+             }
 
-    // Gestione campi condizionali
-    const handlePartecipazioneChange = (mostraCampi) => {
-        const numeroOspitiGroup = document.getElementById('numero-ospiti-group');
-        const nomiOspitiGroup = document.getElementById('nomi-ospiti-group');
-        const preferenzeMenuGroup = document.getElementById('preferenze-menu-group');
-        const intolleranzeGroup = document.getElementById('intolleranze-group');
-        const preferenzeMenu = document.getElementById('preferenze-menu');
-        const intolleranze = document.getElementById('intolleranze');
+            // Funzione per mostrare/nascondere campi condizionali
+            const handlePartecipazioneChange = (mostraCampi) => {
+                const numeroOspitiGroup = document.getElementById('numero-ospiti-group');
+                const nomiOspitiGroup = document.getElementById('nomi-ospiti-group');
+                const preferenzeMenuGroup = document.getElementById('preferenze-menu-group');
+                const intolleranzeGroup = document.getElementById('intolleranze-group');
+                const numeroOspitiSelect = document.getElementById('numero-ospiti');
+                const nomiOspitiText = document.getElementById('nomi-ospiti');
+                const preferenzeMenu = document.getElementById('preferenze-menu');
+                const intolleranze = document.getElementById('intolleranze');
 
-        if (mostraCampi) {
-            [numeroOspitiGroup, nomiOspitiGroup, preferenzeMenuGroup, intolleranzeGroup].forEach(el => {
-                if (el) {
-                    el.style.display = 'block';
-                    requestAnimationFrame(() => {
-                        el.style.opacity = '1';
+                const fieldsToShow = [numeroOspitiGroup, nomiOspitiGroup, preferenzeMenuGroup, intolleranzeGroup];
+                const inputsToReset = [numeroOspitiSelect, nomiOspitiText, preferenzeMenu, intolleranze];
+                const conditionalRequiredFields = [preferenzeMenu]; // Add other required fields here if needed
+
+                fieldsToShow.forEach(el => {
+                     if (el) {
+                         if (mostraCampi) {
+                             el.style.display = 'block';
+                             // Force reflow before adding opacity for transition
+                             void el.offsetWidth;
+                             el.style.opacity = '1';
+                         } else {
+                             el.style.opacity = '0';
+                             // Hide after transition (adjust time to match CSS transition duration)
+                             setTimeout(() => {
+                                 if (el.style.opacity === '0') { // Check if still hidden before setting display none
+                                      el.style.display = 'none';
+                                 }
+                             }, 300); // Match your CSS transition duration if any
+                         }
+                     }
+                 });
+
+                 // Set required attribute and reset values
+                 conditionalRequiredFields.forEach(input => {
+                     if (input) input.required = mostraCampi;
+                 });
+
+                 if (!mostraCampi) {
+                     inputsToReset.forEach(input => {
+                         if (input) {
+                             if (input.tagName === 'SELECT') input.selectedIndex = 0;
+                             else input.value = '';
+                         }
+                     });
+                 }
+            };
+
+            // Aggiungi gli event listener per i radio button di partecipazione
+            document.querySelectorAll('input[name="entry.682165499"]').forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    handlePartecipazioneChange(e.target.value === 'Sì, ci sarò');
+                });
+            });
+
+            // --- Logica di Invio Modulo usando fetch ---
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault(); // Impedisce l'invio standard
+                console.log('Invio modulo avviato...');
+
+                // Mostra l'indicatore di caricamento se esiste
+                if (loadingOverlay) loadingOverlay.style.display = 'flex';
+
+                // Disabilita il bottone per prevenire invii multipli
+                const submitButton = form.querySelector('button[type="submit"]');
+                if (submitButton) submitButton.disabled = true;
+
+
+                try {
+                    const formData = new FormData(form);
+                    const partecipazioneValue = formData.get('entry.682165499'); // Get participation value for redirection
+
+                    // Log per debug
+                    console.log('Invio dati a:', WEB_APP_URL);
+                    // for (let pair of formData.entries()) { console.log(pair[0] + ': ' + pair[1]); } // Uncomment for detailed data log
+
+                    const response = await fetch(WEB_APP_URL, {
+                        method: 'POST',
+                        body: formData,
                     });
+
+                    // Controlla se la risposta HTTP è OK
+                    if (!response.ok) {
+                        let errorMsg = `Errore HTTP! Status: ${response.status} ${response.statusText}`;
+                        try {
+                            const errorData = await response.json();
+                            errorMsg += ` - Messaggio dallo script: ${errorData.message || 'Nessun dettaglio'}`;
+                            console.error('Dettaglio errore dallo script:', errorData);
+                        } catch (jsonError) {
+                            console.error('Impossibile leggere JSON di errore dalla risposta:', jsonError);
+                            const textError = await response.text(); // Try reading as text
+                            console.error('Risposta testuale errore:', textError);
+                            errorMsg += ' - Impossibile leggere dettagli errore dallo script.';
+                        }
+                        throw new Error(errorMsg);
+                    }
+
+                    // Leggi la risposta JSON di successo
+                    const data = await response.json();
+                    console.log('Risposta dallo Script Google Apps:', data);
+
+                    // Controlla il risultato nello script
+                    if (data.result === 'success') {
+                        console.log('Invio completato con successo!');
+                        // Reindirizza alla pagina corretta
+                        // !!! Assicurati che 'grazie.html' e 'dispiaciuti.html' esistano nella stessa cartella !!!
+                        if (data.partecipazione === 'Sì, ci sarò') {
+                            window.location.href = 'grazie.html';
+                        } else {
+                            window.location.href = 'dispiaciuti.html';
+                        }
+                        // Non riabilitare il bottone o nascondere l'overlay qui, il reindirizzamento gestisce la pagina
+                        return; // Esce dalla funzione
+                    } else {
+                        // Lo script ha risposto OK ma ha indicato un errore interno
+                        throw new Error(`Errore riportato dallo Script Google Apps: ${data.message || 'Errore sconosciuto'}`);
+                    }
+
+                } catch (error) {
+                    // Cattura errori di rete o durante l'elaborazione
+                    console.error('Errore durante invio modulo:', error);
+                    // Nascondi l'overlay in caso di errore se esiste
+                    if (loadingOverlay) loadingOverlay.style.display = 'none';
+                     // Riabilita il bottone in caso di errore
+                     if (submitButton) submitButton.disabled = false;
+                    // Mostra un messaggio all'utente
+                    alert('Si è verificato un errore durante l\'invio della conferma. Si prega di riprovare o contattare gli sposi.\n\nDettagli tecnici: ' + error.message);
                 }
             });
-            if (preferenzeMenu) preferenzeMenu.required = true;
-        } else {
-            [numeroOspitiGroup, nomiOspitiGroup, preferenzeMenuGroup, intolleranzeGroup].forEach(el => {
-                if (el) {
-                    el.style.opacity = '0';
-                    setTimeout(() => {
-                        el.style.display = 'none';
-                    }, 300);
-                }
-            });
-            // Resetta i valori
-            if (document.getElementById('numero-ospiti')) document.getElementById('numero-ospiti').value = '';
-            if (document.getElementById('nomi-ospiti')) document.getElementById('nomi-ospiti').value = '';
-            if (preferenzeMenu) {
-                preferenzeMenu.value = '';
-                preferenzeMenu.required = false;
-            }
-            if (intolleranze) intolleranze.value = '';
-        }
-    };
 
-    // Aggiungi gli event listener per i radio button
-    document.querySelectorAll('input[name="entry.682165499"]').forEach(radio => {
-        radio.addEventListener('change', (e) => {
-            handlePartecipazioneChange(e.target.value === 'Sì, ci sarò');
-        });
-    });
-
-    // Gestione submit del form
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        console.log('Form submitted');
-
-        const loadingOverlay = document.getElementById('loading-overlay');
-        if (loadingOverlay) loadingOverlay.style.display = 'flex';
-
-        try {
-            const formData = new FormData(form);
-            
-            // Log dei dati che stiamo inviando
-            console.log('Dati del form:');
-            for (let pair of formData.entries()) {
-                console.log(pair[0] + ': ' + pair[1]);
-            }
-            
-            // Creiamo l'URL con i parametri
-            const params = new URLSearchParams();
-            for (let pair of formData.entries()) {
-                params.append(pair[0], pair[1]);
-            }
-            
-            console.log('URL completo:', `${GOOGLE_FORM_URL}?${params.toString()}&submit=Submit`);
-
-            // Inviamo il form usando JSONP attraverso un iframe nascosto
-            const iframe = document.createElement('iframe');
-            iframe.style.display = 'none';
-            document.body.appendChild(iframe);
-            
-            iframe.src = `${GOOGLE_FORM_URL}?${params.toString()}&submit=Submit`;
-
-            console.log('Form inviato attraverso iframe');
-
-            // TEMPORANEAMENTE COMMENTATO IL REINDIRIZZAMENTO
-            /*
-            const partecipazioneValue = document.querySelector('input[name="entry.682165499"]:checked').value;
-            
-            // Rimuoviamo l'iframe
-            document.body.removeChild(iframe);
-
-            if (partecipazioneValue === 'Sì, ci sarò') {
-                window.location.href = 'grazie.html';
+            // Inizializza i campi condizionali al caricamento della pagina
+            const initialPartecipazione = document.querySelector('input[name="entry.682165499"]:checked');
+            if (initialPartecipazione) {
+                handlePartecipazioneChange(initialPartecipazione.value === 'Sì, ci sarò');
             } else {
-                window.location.href = 'dispiaciuti.html';
+                // Se nessun radio button è selezionato all'inizio, nascondi i campi
+                handlePartecipazioneChange(false);
             }
-            */
-
-        } catch (error) {
-            console.error('Errore dettagliato:', error);
-            if (loadingOverlay) loadingOverlay.style.display = 'none';
-            alert('Si è verificato un errore. Per favore, controlla la console e riprova.');
-        }
-    });
-
-    // Inizializza lo stato dei campi al caricamento della pagina
-    const partecipazione = document.querySelector('input[name="entry.682165499"]:checked');
-    if (partecipazione) {
-        handlePartecipazioneChange(partecipazione.value === 'Sì, ci sarò');
-    }
-        });
+        }); // Fine DOMContentLoaded per Form Logic
 
     </script>
 </body>
