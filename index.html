@@ -1771,19 +1771,22 @@
                 </div>
 
                 <div class="form-group" id="numero-ospiti-group">
-                    <label for="numero-ospiti">Numero di ospiti aggiuntivi</label>
-                    <select id="numero-ospiti" name="entry.349902564">
-                        <option value="Solo io">Solo io</option>
-                        <option value="+1">+1</option>
-                        <option value="+2">+2</option>
-                        <option value="+3">+3</option>
-                        <option value="+4">+4</option>
+                    <label for="numero-ospiti">Numero totale di persone (incluso te) *</label>
+                    <select id="numero-ospiti" name="entry.349902564" required>
+                        <option value="">Seleziona il numero di persone</option>
+                        <option value="1 persona">1 persona (solo io)</option>
+                        <option value="2 persone">2 persone (coppia)</option>
+                        <option value="3 persone">3 persone (es. coppia con 1 figlio)</option>
+                        <option value="4 persone">4 persone (es. coppia con 2 figli)</option>
+                        <option value="5 persone">5 persone (es. coppia con 3 figli)</option>
+                        <option value="6 persone">6 persone (es. coppia con 4 figli)</option>
                     </select>
                 </div>
 
                 <div class="form-group" id="nomi-ospiti-group">
-                    <label for="nomi-ospiti">Nomi degli ospiti aggiuntivi</label>
-                    <textarea id="nomi-ospiti" name="entry.155324483" rows="3"></textarea>
+                    <label for="nomi-ospiti">Nomi dei componenti della famiglia/gruppo *</label>
+                    <small class="form-text">Inserisci i nomi di tutti i partecipanti, incluso il tuo</small>
+                    <textarea id="nomi-ospiti" name="entry.155324483" rows="3" placeholder="Es: Mario Rossi (papà), Maria Rossi (mamma), Marco Rossi (figlio 8 anni), Anna Rossi (figlia 5 anni)" required></textarea>
                 </div>
 
                 <div class="form-group" id="preferenze-menu-group">
