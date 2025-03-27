@@ -107,10 +107,9 @@
             align-items: center;
             text-align: center;
             color: var(--light-color);
-            overflow: hidden;  /* Importante per contenere lo sfondo sfocato */
+            overflow: hidden;
         }
 
-        /* Creiamo un elemento separato per lo sfondo sfocato */
         .hero::after {
             content: '';
             position: absolute;
@@ -126,7 +125,6 @@
             z-index: 1;
         }
 
-        /* Overlay scuro */
         .hero::before {
             content: '';
             position: absolute;
@@ -138,10 +136,9 @@
             z-index: 2;
         }
 
-        /* Mantieni il contenuto nitido */
         .hero-content {
             position: relative;
-            z-index: 3;  /* Sopra lo sfondo e l'overlay */
+            z-index: 3;
             padding-top: 100px;
             width: 100%;
         }
@@ -208,7 +205,7 @@
         /* Storia */
         .storia {
             background-color: var(--secondary-color);
-            padding: 100px 0;
+            padding: 60px 0; /* Modifica: Ridotto padding verticale */
         }
 
         .storia-content {
@@ -271,17 +268,9 @@
             z-index: 1;
         }
 
-        .left {
-            left: 0;
-        }
-
-        .right {
-            left: 50%;
-        }
-
-        .right::after {
-            left: -10px;
-        }
+        .left { left: 0; }
+        .right { left: 50%; }
+        .right::after { left: -10px; }
 
         .timeline-content {
             padding: 20px;
@@ -296,6 +285,9 @@
         }
 
         /* Galleria */
+        #galleria { /* Modifica: ID specifico per ridurre padding sotto */
+             padding-bottom: 40px;
+        }
         .gallery {
             background-color: var(--secondary-color);
         }
@@ -316,20 +308,14 @@
             transition: transform 0.3s;
         }
 
-        .gallery-item:hover {
-            transform: scale(1.03);
-        }
-
+        .gallery-item:hover { transform: scale(1.03); }
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s;
         }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
+        .gallery-item:hover img { transform: scale(1.1); }
 
         /* Informazioni */
         .info-card {
@@ -347,10 +333,7 @@
             color: var(--accent-color);
         }
 
-        .info-card p {
-            margin-bottom: 10px;
-        }
-
+        .info-card p { margin-bottom: 10px; }
         .info-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -358,10 +341,7 @@
         }
 
         /* RSVP Section */
-        .rsvp {
-            background-color: var(--primary-color);
-        }
-
+        .rsvp { background-color: var(--primary-color); }
         .rsvp-form {
             max-width: 800px;
             margin: 0 auto;
@@ -370,11 +350,7 @@
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
+        .form-group { margin-bottom: 25px; }
         .form-group label {
             display: block;
             margin-bottom: 10px;
@@ -382,7 +358,6 @@
             font-weight: 500;
             font-size: 1.1em;
         }
-
         .form-group input[type="text"],
         .form-group input[type="email"],
         .form-group input[type="tel"],
@@ -396,28 +371,10 @@
             color: var(--text-color);
             font-family: inherit;
         }
-
-        .form-group textarea {
-            height: 120px;
-            resize: vertical;
-        }
-
-        .radio-group {
-            display: flex;
-            gap: 30px;
-            margin-top: 10px;
-        }
-
-        .radio-group label {
-            color: var(--text-color);
-            font-size: 1.1em;
-        }
-
-        .radio-group input[type="radio"] {
-            margin-right: 10px;
-            transform: scale(1.2);
-        }
-
+        .form-group textarea { height: 120px; resize: vertical; }
+        .radio-group { display: flex; gap: 30px; margin-top: 10px; }
+        .radio-group label { color: var(--text-color); font-size: 1.1em; }
+        .radio-group input[type="radio"] { margin-right: 10px; transform: scale(1.2); }
         .submit-btn {
             width: 100%;
             padding: 15px;
@@ -430,946 +387,247 @@
             transition: background-color 0.3s;
             margin-top: 20px;
         }
-
-        .submit-btn:hover {
-            background-color: #565360;
-        }
+        .submit-btn:hover { background-color: #565360; }
 
         @media (max-width: 768px) {
-            .rsvp-form {
-                padding: 25px;
-                margin: 15px;
-            }
-
-            .radio-group {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .section-subtitle {
-                font-size: 1.3rem;
-            }
-
-            .hero::after {
-                background-attachment: scroll;
-            }
+            .rsvp-form { padding: 25px; margin: 15px; }
+            .radio-group { flex-direction: column; gap: 15px; }
+            .section-subtitle { font-size: 1.3rem; }
+            .hero::after { background-attachment: scroll; }
         }
 
         /* Mappa */
         .map {
-            height: 400px;
+            height: 300px; /* Modifica: Altezza ridotta per renderla più quadrata */
             margin-top: 30px;
         }
 
-        /* Alloggi */
-        .accommodation-card {
-            background-color: var(--light-color);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
+        /* Alloggi (Icone e Pulsanti modificati) */
+        .accommodation-card { background-color: var(--light-color); border-radius: 8px; overflow: hidden; box-shadow: 0 3px 10px rgba(0,0,0,0.1); transition: transform .3s; }
+        .accommodation-card:hover { transform: translateY(-5px); }
+        .accommodation-img { height: 200px; overflow: hidden; }
+        .accommodation-img img { width: 100%; height: 100%; object-fit: cover; }
+        .accommodation-info { padding: 20px; }
+        .accommodation-info h4 { color: var(--accent-color); margin-bottom: 10px; }
+        .accommodation-intro { text-align: center; max-width: 800px; margin: 0 auto 40px; }
+        .accommodation-intro p { font-size: 1.1rem; color: var(--text-color); }
+        .booking-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin: 40px 0; }
+        .booking-card { background-color: var(--light-color); padding: 30px; border-radius: 10px; text-align: center; box-shadow: 0 3px 10px rgba(0,0,0,0.1); transition: transform .3s; }
+        .booking-card:hover { transform: translateY(-5px); }
+        .booking-card i { /* Modifica: Colore Icona */
+            font-size: 2.5rem;
+            color: var(--secondary-color); /* Usa verde chiaro */
+            margin-bottom: 20px;
         }
-
-        .accommodation-card:hover {
-            transform: translateY(-5px);
+        .booking-card h4 { color: var(--text-color); margin-bottom: 15px; font-size: 1.3rem; }
+        .booking-card p { margin-bottom: 20px; color: var(--text-color); }
+        .booking-card .btn { /* Modifica: Stile Bottone */
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--secondary-color); /* Usa verde chiaro */
+            color: var(--text-color); /* Testo scuro */
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color .3s, color .3s;
         }
-
-        .accommodation-img {
-            height: 200px;
-            overflow: hidden;
+        .booking-card .btn:hover { /* Modifica: Stile Hover Bottone */
+            background-color: var(--text-color); /* Sfondo scuro */
+            color: var(--light-color); /* Testo chiaro */
         }
-
-        .accommodation-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .accommodation-info {
-            padding: 20px;
-        }
-
-        .accommodation-info h4 {
-            color: var(--accent-color);
-            margin-bottom: 10px;
-        }
+        .accommodation-tips { background-color: var(--light-color); padding: 30px; border-radius: 10px; margin-top: 40px; text-align: center; }
+        .accommodation-tips h4 { color: var(--text-color); margin-bottom: 20px; font-size: 1.2rem; }
+        .accommodation-tips ul { list-style: none; max-width: 800px; margin: 0 auto; display: inline-block; text-align: left; }
+        .accommodation-tips li { color: var(--text-color); margin-bottom: 15px; font-size: 1.1rem; padding: 0; display: flex; align-items: center; justify-content: center; }
+        .accommodation-tips li::before { content: "•"; color: var(--accent-color); margin-right: 10px; flex-shrink: 0; }
 
         /* FAQ */
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            margin-bottom: 20px;
-            border-bottom: 1px solid var(--secondary-color);
-            padding-bottom: 20px;
-        }
-
-        .faq-question {
-            font-weight: 500;
-            font-size: 1.2rem;
-            color: var(--accent-color);
-            margin-bottom: 10px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .faq-question::after {
-            content: '+';
-            font-size: 1.5rem;
-        }
-
-        .faq-question.active::after {
-            content: '-';
-        }
-
-        .faq-answer {
-            display: none;
-            padding-top: 10px;
-        }
-
-        .faq-answer.show {
-            display: block;
-        }
+        .faq-container { max-width: 800px; margin: 0 auto; }
+        .faq-item { margin-bottom: 20px; border-bottom: 1px solid var(--secondary-color); padding-bottom: 20px; }
+        .faq-question { font-weight: 500; font-size: 1.2rem; color: var(--accent-color); margin-bottom: 10px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .faq-question::after { content: '+'; font-size: 1.5rem; }
+        .faq-question.active::after { content: '-'; }
+        .faq-answer { display: none; padding-top: 10px; }
+        .faq-answer.show { display: block; }
 
         /* Gift Registry */
-        .gift-registry {
-            background-color: var(--secondary-color);
-            padding: 80px 0;
-        }
-
-        .gift-intro {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 50px;
-            font-size: 1.2rem;
-            line-height: 1.6;
-            color: var(--text-color);
-        }
-
-        .gift-option {
-            background-color: var(--light-color);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .gift-option-img {
-            width: 100%;
-            height: 400px;
-            overflow: hidden;
-        }
-
-        .gift-option-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .gift-option-info {
-            padding: 40px;
-            text-align: center;
-        }
-
-        .gift-option-info h3 {
-            color: var(--text-color);
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-
-        .gift-option-info p {
-            color: var(--text-color);
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 30px;
-        }
-
-        .gift-details {
-            background-color: var(--secondary-color);
-            padding: 30px;
-            border-radius: 10px;
-            margin-top: 30px;
-        }
-
-        .bank-details {
-            text-align: left;
-            max-width: 500px;
-            margin: 20px auto 0;
-            padding: 20px;
-            background-color: var(--light-color);
-            border-radius: 8px;
-        }
-
-        .bank-details p {
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-        }
+        .gift-registry { background-color: var(--secondary-color); padding: 80px 0; }
+        .gift-intro { text-align: center; max-width: 800px; margin: 0 auto 50px; font-size: 1.2rem; line-height: 1.6; color: var(--text-color); }
+        .gift-option { background-color: var(--light-color); border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); max-width: 1000px; margin: 0 auto; }
+        .gift-option-img { width: 100%; height: 400px; overflow: hidden; }
+        .gift-option-img img { width: 100%; height: 100%; object-fit: cover; }
+        .gift-option-info { padding: 40px; text-align: center; }
+        .gift-option-info h3 { color: var(--text-color); font-size: 2rem; margin-bottom: 20px; }
+        .gift-option-info p { color: var(--text-color); font-size: 1.1rem; line-height: 1.6; margin-bottom: 30px; }
+        .gift-details { background-color: var(--secondary-color); padding: 30px; border-radius: 10px; margin-top: 30px; }
+        .bank-details { text-align: left; max-width: 500px; margin: 20px auto 0; padding: 20px; background-color: var(--light-color); border-radius: 8px; }
+        .bank-details p { margin-bottom: 10px; font-size: 1.1rem; }
 
         @media (max-width: 768px) {
-            .gift-option {
-                margin: 0 15px;
-            }
-
-            .gift-option-img {
-                height: 250px;
-            }
-
-            .gift-option-info {
-                padding: 30px 20px;
-            }
-
-            .bank-details {
-                padding: 15px;
-            }
+            .gift-option { margin: 0 15px; }
+            .gift-option-img { height: 250px; }
+            .gift-option-info { padding: 30px 20px; }
+            .bank-details { padding: 15px; }
         }
 
         /* Footer */
-        footer {
-            background-color: var(--text-color);
-            color: var(--light-color);
-            text-align: center;
-            padding: 30px 0;
-            width: 100%;
-        }
-
-        .social-icons {
-            margin: 20px 0;
-        }
-
-        .social-icons a {
-            display: inline-block;
-            margin: 0 10px;
-            color: var(--light-color);
-            font-size: 1.5rem;
-            transition: color 0.3s;
-        }
-
-        .social-icons a:hover {
-            color: var(--accent-color);
-        }
+        footer { background-color: var(--text-color); color: var(--light-color); text-align: center; padding: 30px 0; width: 100%; }
+        .social-icons { margin: 20px 0; }
+        .social-icons a { display: inline-block; margin: 0 10px; color: var(--light-color); font-size: 1.5rem; transition: color .3s; }
+        .social-icons a:hover { color: var(--accent-color); }
 
         /* Back to top button */
-        .back-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: var(--accent-color);
-            color: var(--light-color);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-decoration: none;
-            opacity: 0;
-            transition: opacity 0.3s;
-            z-index: 999;
-        }
-
-        .back-to-top.show {
-            opacity: 1;
-        }
+        .back-to-top { position: fixed; bottom: 20px; right: 20px; background-color: var(--accent-color); color: var(--light-color); width: 40px; height: 40px; border-radius: 50%; display: flex; justify-content: center; align-items: center; text-decoration: none; opacity: 0; transition: opacity .3s; z-index: 999; }
+        .back-to-top.show { opacity: 1; }
 
         /* Logo Stile */
-        .logo-container {
-            width: 200px;
-            height: 200px;
-            margin: 0 auto 10px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
+        .logo-container { width: 200px; height: 200px; margin: 0 auto 10px; border-radius: 50%; background-color: rgba(255,255,255,0.8); display: flex; justify-content: center; align-items: center; position: relative; }
+        .logo { width: 135px; height: 135px; background-image: url('https://github.com/iFelice/wedding-website/blob/main/images/logosposigrey.png?raw=true'); background-size: contain; background-repeat: no-repeat; position: absolute; top: 50%; left: 57%; transform: translate(-50%, -50%); }
 
-        .logo {
-            width: 135px;
-            height: 135px;
-            background-image: url('https://github.com/iFelice/wedding-website/blob/main/images/logosposigrey.png?raw=true');
-            background-size: contain;
-            background-repeat: no-repeat;
-            position: absolute;
-            top: 50%;
-            left: 57%;
-            transform: translate(-50%, -50%);
-        }
+        /* Stili Menu Mobile */
+        .menu-toggle { display: none; font-size: 1.6rem; color: var(--text-color); cursor: pointer; z-index: 1001; margin: 6px auto; }
+        .menu-toggle:hover { color: var(--accent-color); }
 
-        /* Stili per il menù hamburger (Mobile) */
-        .menu-toggle {
-            display: none;
-            font-size: 1.6rem;
-            color: var(--text-color);
-            cursor: pointer;
-            z-index: 1001;
-            margin: 6px auto;
-        }
-
-        .menu-toggle:hover {
-            color: var(--accent-color);
-        }
-
-        /* Media query per schermi piccoli */
+        /* Media query Mobile (Portrait) */
         @media (max-width: 768px) {
-            header {
-                padding: 5px 0 0px 0;
-                position: fixed;
-                flex-direction: column;
-                align-items: center;
-                width: 100%;
-            }
-
-            header h1 {
-                font-size: 1.4rem;
-                margin-bottom: 0;
-            }
-
-            .menu-toggle {
-                display: block;
-                position: relative;
-                margin: 6px auto;
-                font-size: 1.6rem;
-            }
-
-            nav {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background-color: var(--primary-color);
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-                display: none;
-                padding: 5px 0;
-            }
-
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-                margin-top: 5px;
-            }
-
-            nav ul li {
-                margin: 3px 0;
-            }
-
-            nav ul li a {
-                font-size: 1.2rem;
-                padding: 5px 15px;
-                display: block;
-            }
-
-            nav.active {
-                display: block;
-            }
-
-            section.hero {
-                margin-top: 0;
-            }
-
-            .hero {
-                height: 100vh;
-                width: 100%;
-                padding: 0;
-                background-image: url('https://github.com/iFelice/wedding-website/blob/main/images/sfondo-1.jpg?raw=true');
-                background-size: cover;
-                background-position: center;
-                background-attachment: scroll; /* Cambiato per dispositivi mobili */
-            }
-
-            .hero-content {
-                padding-top: 130px;
-                width: 100%;
-            }
-
-            .logo-container {
-                margin-bottom: 20px;
-            }
-
-            .gallery-container {
-                display: grid !important;
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)) !important;
-                grid-gap: 10px !important;
-                width: 100%;
-            }
-
-            .gallery-item {
-                height: 150px;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1.2rem;
-            }
-
-            .timeline::after {
-                left: 31px;
-            }
-
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-
-            .timeline-item::after {
-                left: 21px;
-            }
-
-            .right {
-                left: 0;
-            }
-
-            .storia-personale {
-                flex-direction: column;
-            }
-
-            .persona {
-                flex: 0 0 100%;
-            }
-
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .gift-options {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .gift-option {
-                width: 100%;
-                max-width: 300px;
-            }
-
-            .rsvp iframe {
-                height: 600px;
-            }
+            header { padding: 5px 0 0 0; position: fixed; flex-direction: column; align-items: center; width: 100%; }
+            header h1 { font-size: 1.4rem; margin-bottom: 0; }
+            .menu-toggle { display: block; position: relative; margin: 6px auto; font-size: 1.6rem; }
+            nav { position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--primary-color); box-shadow: 0 2px 10px rgba(0,0,0,0.1); display: none; padding: 5px 0; }
+            nav ul { flex-direction: column; align-items: center; margin-top: 5px; }
+            nav ul li { margin: 3px 0; }
+            nav ul li a { font-size: 1.2rem; padding: 5px 15px; display: block; }
+            nav.active { display: block; }
+            /* section.hero { margin-top: 0; } */ /* Rimosso perché non necessario con header fisso */
+            .hero { height: 100vh; width: 100%; padding: 0; background-attachment: scroll; }
+            .hero-content { padding-top: 130px; width: 100%; }
+            .logo-container { margin-bottom: 20px; }
+            .gallery-container { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)) !important; grid-gap: 10px !important; width: 100%; }
+            .gallery-item { height: 150px; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.2rem; }
+            .timeline::after { left: 31px; }
+            .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
+            .timeline-item::after { left: 21px; }
+            .right { left: 0; }
+            .storia-personale { flex-direction: column; }
+            .persona { flex: 0 0 100%; }
+            .info-grid { grid-template-columns: 1fr; }
+            /* .gift-options rimosso perché non usato */
+            .gift-option { width: 100%; max-width: 90%; /* Adattato per mobile */ margin: 0 auto 30px; } /* Aggiunto margine sotto */
+            .rsvp iframe { height: 600px; } /* Se usi iframe, altrimenti ignora */
+            .booking-options { grid-template-columns: 1fr; }
+            .accommodation-tips { margin: 20px 15px 0; }
+             .ring-divider { /* Già definito in media query landscape, ma specifichiamo anche qui se serve diverso */
+                 margin: 40px 0 30px 0 !important;
+             }
         }
 
         /* Fix per landscape su mobile */
         @media (orientation: landscape) and (max-width: 900px) {
-            .hero {
-                height: 100vh;
-                min-height: 500px;
-                width: 100vw;
-                max-width: 100%;
-                padding: 0;
-                margin: 0;
-                background-attachment: scroll;
-            }
+            .hero { min-height: 500px; } /* Resto invariato */
+            .hero-content { padding-top: 100px; }
+            .logo-container { width: 150px; height: 150px; }
+            .logo { width: 100px; height: 100px; }
+            body, html { /* Invariato */ }
 
-            .hero-content {
-                padding-top: 100px;
-            }
+            /* --- Nessuna modifica al .container qui --- */
 
-            .logo-container {
-                width: 150px;
-                height: 150px;
-            }
+            /* --- REGOLE LISTA NOZZE (per landscape) --- */
+            #lista-nozze .gift-option { max-width: 90%; margin-left: auto; margin-right: auto; }
+            #lista-nozze .gift-option-img { height: 250px; }
+            #lista-nozze .gift-option-info { padding: 25px; }
+            /* --- FINE REGOLE LISTA NOZZE --- */
 
-            .logo {
-                width: 100px;
-                height: 100px;
-            }
+             /* Aggiustamenti divisore (per landscape) */
+             .ring-divider::before,
+             .ring-divider::after { width: calc(50% - 55px); }
+             .ring-divider { margin: 40px 0 30px 0 !important; }
 
-            body, html {
-                overflow-x: hidden;
-                width: 100vw;
-                max-width: 100%;
-                margin: 0;
-                padding: 0;
-            }
-            #lista-nozze .gift-option {
-                max-width: 90%; /* Riduci la larghezza massima per dare respiro */
-                margin-left: auto; /* Assicura centraggio */
-                margin-right: auto; /* Assicura centraggio */
-            }
-            #lista-nozze .gift-option-img {
-                height: 250px; /* Riduci l'altezza dell'immagine */
-            }
-            #lista-nozze .gift-option-info {
-                padding: 25px; /* Riduci un po' il padding interno */
-            }
-        }
+        } /* Chiusura media query landscape */
 
         /* Assicura che il contenuto non sia mai più stretto della viewport */
         @media (min-width: 1240px) {
-            .container {
-                max-width: 1200px;
-                margin-left: auto;
-                margin-right: auto;
-                padding-left: 20px;
-                padding-right: 20px;
-            }
+            .container { max-width: 1200px; margin-left: auto; margin-right: auto; padding-left: 20px; padding-right: 20px; }
         }
 
-        /* Stile per la Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1100;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            max-width: 90%;
-            max-height: 90vh;
-            object-fit: contain;
-            margin: auto;
-        }
-
-       .modal-close {
-            position: fixed;
-            right: 25px;
-            top: 10px;
-            color: var(--light-color);
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
-            z-index: 1101;
-        }
-
-        .modal-nav {
-            position: fixed;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--light-color);
-            font-size: 40px;
-            cursor: pointer;
-            z-index: 1101;
-            padding: 20px;
-            transition: color 0.3s;
-        }
-
-        .modal-nav:hover {
-            color: var(--accent-color);
-        }
-
-        .modal-prev {
-            left: 20px;
-        }
-
-        .modal-next {
-            right: 20px;
-        }
-
+        /* Stile Modal Galleria */
+        .modal { display: none; position: fixed; z-index: 1100; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); justify-content: center; align-items: center; }
+        .modal-content { max-width: 90%; max-height: 90vh; object-fit: contain; margin: auto; }
+        .modal-close { position: fixed; right: 25px; top: 10px; color: var(--light-color); font-size: 40px; font-weight: bold; cursor: pointer; z-index: 1101; }
+        .modal-nav { position: fixed; top: 50%; transform: translateY(-50%); color: var(--light-color); font-size: 40px; cursor: pointer; z-index: 1101; padding: 20px; transition: color .3s; }
+        .modal-nav:hover { color: var(--accent-color); }
+        .modal-prev { left: 20px; }
+        .modal-next { right: 20px; }
         @media (max-width: 768px) {
-            .modal-nav {
-                font-size: 30px;
-                padding: 15px;
-            }
-
-            .modal-prev {
-                left: 10px;
-            }
-
-            .modal-next {
-                right: 10px;
-            }
+            .modal-nav { font-size: 30px; padding: 15px; }
+            .modal-prev { left: 10px; }
+            .modal-next { right: 10px; }
         }
 
-        /* Stili per la sezione Condividi Foto */
-        .share-photos {
-            background-color: var(--secondary-color);
-            padding: 80px 0;
-        }
-
-        .share-container {
-            max-width: 900px;
-            margin: 0 auto;
-            background-color: var(--light-color);
-            border-radius: 10px;
-            padding: 40px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .share-info {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 50px;
-            gap: 40px;
-        }
-
-        .app-info {
-            flex: 1;
-            text-align: left;
-        }
-
-        .app-info h3 {
-            color: var(--text-color);
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-        }
-
-        .features-list {
-            list-style: none;
-            margin-top: 20px;
-        }
-
-        .features-list li {
-            margin-bottom: 10px;
-            color: var(--text-color);
-        }
-
-        .features-list li i {
-            color: var(--accent-color);
-            margin-right: 10px;
-        }
-
-        .qr-container {
-            text-align: center;
-            padding: 20px;
-        }
-
-        .qr-container img {
-            max-width: 200px;
-            margin-bottom: 15px;
-        }
-
-        .qr-container p {
-            color: var(--text-color);
-            font-style: italic;
-        }
-
-        .share-instructions {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .instruction-step {
-            flex: 1;
-            text-align: center;
-            padding: 20px;
-            position: relative;
-        }
-
-        .step-number {
-            width: 40px;
-            height: 40px;
-            background-color: var(--accent-color);
-            color: var(--light-color);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 15px;
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
-
-        .instruction-step h4 {
-            color: var(--text-color);
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-        }
-
+        /* Stili Condividi Foto */
+        .share-photos { background-color: var(--secondary-color); padding: 80px 0; }
+        .share-container { max-width: 900px; margin: 0 auto; background-color: var(--light-color); border-radius: 10px; padding: 40px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .share-info { display: flex; justify-content: space-between; align-items: center; margin-bottom: 50px; gap: 40px; }
+        .app-info { flex: 1; text-align: left; }
+        .app-info h3 { color: var(--text-color); font-size: 1.8rem; margin-bottom: 15px; }
+        .features-list { list-style: none; margin-top: 20px; padding-left: 0; } /* Rimosso padding default */
+        .features-list li { margin-bottom: 10px; color: var(--text-color); }
+        .features-list li i { color: var(--accent-color); margin-right: 10px; }
+        .qr-container { text-align: center; padding: 20px; }
+        .qr-container img { max-width: 200px; margin-bottom: 15px; }
+        .qr-container p { color: var(--text-color); font-style: italic; }
+        .share-instructions { display: flex; justify-content: space-between; gap: 20px; margin-top: 30px; }
+        .instruction-step { flex: 1; text-align: center; padding: 20px; position: relative; }
+        .step-number { width: 40px; height: 40px; background-color: var(--accent-color); color: var(--light-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 1.2rem; font-weight: bold; }
+        .instruction-step h4 { color: var(--text-color); margin-bottom: 10px; font-size: 1.2rem; }
         @media (max-width: 768px) {
-            .share-info {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .share-instructions {
-                flex-direction: column;
-            }
-
-            .instruction-step {
-                margin-bottom: 20px;
-            }
-
-            .share-container {
-                padding: 20px;
-                margin: 0 15px;
-            }
-
-            .features-list {
-                text-align: left;
-                padding-left: 20px;
-            }
+            .share-info { flex-direction: column; text-align: center; }
+            .share-instructions { flex-direction: column; }
+            .instruction-step { margin-bottom: 20px; }
+            .share-container { padding: 20px; margin: 0 15px; }
+            .features-list { text-align: left; padding-left: 20px; /* Ripristinato padding per mobile se serve */ }
         }
-
-        /* Stili aggiuntivi per la sezione Google Photos */
-        .additional-info {
-            margin-top: 40px;
-            padding-top: 30px;
-            border-top: 1px solid var(--secondary-color);
-        }
-
-        .additional-info h4 {
-            color: var(--text-color);
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 1.4rem;
-        }
-
-        .usage-options {
-            display: flex;
-            justify-content: space-around;
-            gap: 30px;
-        }
-
-        .option {
-            flex: 1;
-            padding: 20px;
-            background-color: var(--secondary-color);
-            border-radius: 8px;
-        }
-
-        .option h5 {
-            color: var(--text-color);
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-        }
-
-        .option h5 i {
-            margin-right: 10px;
-        }
-
-        .option ol {
-            color: var(--text-color);
-            padding-left: 20px;
-        }
-
-        .option ol li {
-            margin-bottom: 8px;
-        }
-
+        .additional-info { margin-top: 40px; padding-top: 30px; border-top: 1px solid var(--secondary-color); }
+        .additional-info h4 { color: var(--text-color); text-align: center; margin-bottom: 20px; font-size: 1.4rem; }
+        .usage-options { display: flex; justify-content: space-around; gap: 30px; }
+        .option { flex: 1; padding: 20px; background-color: var(--secondary-color); border-radius: 8px; }
+        .option h5 { color: var(--text-color); margin-bottom: 15px; font-size: 1.1rem; }
+        .option h5 i { margin-right: 10px; }
+        .option ol { color: var(--text-color); padding-left: 20px; }
+        .option ol li { margin-bottom: 8px; }
         @media (max-width: 768px) {
-            .usage-options {
-                flex-direction: column;
-            }
-
-            .option {
-                margin-bottom: 15px;
-            }
+            .usage-options { flex-direction: column; }
+            .option { margin-bottom: 15px; }
         }
+        .album-link { color: var(--text-color); text-decoration: underline; font-weight: 500; transition: color .3s; }
+        .album-link:hover { color: var(--accent-color); }
 
-        .album-link {
-            color: var(--text-color);
-            text-decoration: underline;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .album-link:hover {
-            color: var(--accent-color);
-        }
-
-        /* Stili aggiornati per la sezione Alloggi */
-        .accommodation-intro {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 40px;
-        }
-
-        .accommodation-intro p {
-            font-size: 1.1rem;
-            color: var(--text-color);
-        }
-
-        .booking-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
-        }
-
-        .booking-card {
-            background-color: var(--light-color);
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-
-        .booking-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .booking-card i {
-            font-size: 2.5rem;
-            color: var(--secondary-color);
-            margin-bottom: 20px;
-        }
-
-        .booking-card h4 {
-            color: var(--text-color);
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-
-        .booking-card p {
-            margin-bottom: 20px;
-            color: var(--text-color);
-        }
-
-        .booking-card .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: var(--secondary-color);
-            color: var(--text-color);
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        .booking-card .btn:hover {
-            background-color: var(--text-color);
-            color: var(--light-color);
-        }
-
-        .accommodation-tips {
-            background-color: var(--light-color);
-            padding: 30px;
-            border-radius: 10px;
-            margin-top: 40px;
-            text-align: center;
-        }
-
-        .accommodation-tips h4 {
-            color: var(--text-color);
-            margin-bottom: 20px;
-            font-size: 1.2rem;
-        }
-
-        .accommodation-tips ul {
-            list-style: none;
-            max-width: 800px;
-            margin: 0 auto;
-            display: inline-block;
-            text-align: left;
-        }
-
-        .accommodation-tips li {
-            color: var(--text-color);
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center; /* Centra il testo se la lista non è a tutta larghezza */
-        }
-
-        .accommodation-tips li::before {
-            content: "•";
-            color: var(--accent-color);
-            margin-right: 10px;
-            flex-shrink: 0; /* Impedisce al bullet di restringersi */
-        }
-
-        @media (max-width: 768px) {
-            .booking-options {
-                grid-template-columns: 1fr;
-            }
-
-            .accommodation-tips {
-                margin: 20px 15px 0; /* Rimuovi margine inferiore qui se lo gestisce il divisore */
-            }
-            /* Modifica margine divisore su mobile se serve */
-             .ring-divider {
-                 margin: 40px 0 30px 0 !important; /* Esempio: riduci margini per mobile */
-             }
-        }
-
-        /* --- Stili CORRETTI per la sezione Alloggi e il Divisore ad Anelli --- */
-        #alloggi {
-            /* Rimosso: border-bottom: 2px solid var(--primary-color); */
-            /* Rimosso: padding-bottom: 14px; */
-            margin-bottom: 0; /* Lascia 0 per far attaccare le sezioni o regola a piacere */
-            padding-bottom: 0; /* Il padding sotto è gestito dal margine del divisore */
-        }
-
-        /* NUOVE REGOLE PER IL DIVISORE AD ANELLI */
-        .ring-divider {
-            position: relative; /* Per posizionare ::before e ::after */
-            height: 30px; /* Altezza dell'SVG */
-            /* text-align: center; è già nello stile inline */
-            /* margin: 60px 0 40px 0; è già nello stile inline */
-        }
-
+        /* Divisore ad anelli (Stili CSS) */
+        #alloggi { margin-bottom: 0; padding-bottom: 0; } /* Rimosso border/padding specifici */
+        .ring-divider { position: relative; height: 30px; }
         .ring-divider::before,
-        .ring-divider::after {
-            content: '';
-            position: absolute;
-            top: 50%; /* Centro verticale */
-            transform: translateY(-50%); /* Allineamento verticale preciso */
-            height: 2px; /* Spessore della linea */
-            background-color: var(--primary-color); /* Colore rosa */
-            width: calc(50% - 45px); /* Larghezza linea: metà contenitore - (metà anelli + gap) */
+        .ring-divider::after { content: ''; position: absolute; top: 50%; transform: translateY(-50%); height: 2px; background-color: var(--primary-color); width: calc(50% - 45px); /* Adattato per anelli r=8 */ }
+        .ring-divider::before { left: 0; }
+        .ring-divider::after { right: 0; }
+        @media (max-width: 768px) { /* Include portrait e landscape < 768 */
+             .ring-divider::before,
+             .ring-divider::after { width: calc(50% - 55px); } /* Adattato per mobile */
+             .ring-divider { margin: 40px 0 30px 0 !important; } /* Assicura margine mobile */
+        }
+        @media (min-width: 769px) and (orientation: landscape) and (max-width: 900px) { /* Solo landscape specifico tra 769 e 900 */
+             .ring-divider::before,
+             .ring-divider::after { width: calc(50% - 55px); } /* Mantiene adattamento */
+              .ring-divider { margin: 40px 0 30px 0 !important; } /* Mantiene margine */
         }
 
-        .ring-divider::before {
-            left: 0; /* Linea sinistra */
-        }
+        /* Spazio sopra FAQ e Contatti */
+        #faq { padding-top: 40px; }
+        #contatti { padding-top: 40px; } /* Ridotto padding sopra contatti dopo divisore */
 
-        .ring-divider::after {
-            right: 0; /* Linea destra */
-        }
-
-        /* Aggiustamenti Responsive per il divisore */
-        @media (max-width: 768px) {
-            .ring-divider::before,
-            .ring-divider::after {
-                width: calc(50% - 55px); /* Esempio più corto per mobile */
-            }
-             /* Esempio per sovrascrivere il margine inline solo su mobile */
-             .ring-divider {
-                  margin: 40px 0 30px 0 !important;
-             }
-        }
-        /* --- Fine Stili Divisore --- */
-
-        /* Riduci spazio sopra le FAQ */
-        #faq {
-            padding-top: 40px; /* Riduci da 80px (default section) a 40px. Aggiusta se necessario */
-        }
-
-
-        /* Altri stili (Indicazioni, Upload icon, Loader, etc.) - Lasciati invariati dalla tua versione */
-        .directions-container {
-            display: flex;
-            gap: 30px;
-            margin-top: 20px;
-        }
-        .direction-box { flex: 1; padding: 20px; background-color: var(--secondary-color); border-radius: 8px; }
-        .direction-box.left { text-align: left; }
-        .direction-box.right { text-align: right; }
-        .direction-box h4 { color: var(--text-color); margin-bottom: 15px; font-size: 1.2rem; text-align: center; }
-        .direction-box p { margin-bottom: 10px; line-height: 1.5; }
-        .direction-box.left p { text-align: left; }
-        .direction-box.right p { text-align: right; }
-        @media (max-width: 768px) {
-            .directions-container { flex-direction: column; gap: 20px; }
-            .direction-box h4 { text-align: center; }
-            .direction-box.left p, .direction-box.right p { text-align: left; }
-        }
-        .option li i.fa-cloud-upload-alt { color: transparent; -webkit-text-stroke: 1px var(--text-color); }
-        .upload-icon { color: var(--text-color); margin: 0 3px; }
+        /* Loader / Spinner */
         .loader-spinner { border: 4px solid var(--secondary-color); border-top: 4px solid var(--accent-color); border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 20px auto; }
-        #form-loader { text-align: center; margin-top: 20px; }
-        .response-message { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.7); display: flex; justify-content: center; align-items: center; z-index: 1000; }
-        .response-content { background: white; padding: 30px; border-radius: 10px; text-align: center; }
-        #loading-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.9); display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 1000; }
-        .spinner { width: 50px; height: 50px; border: 5px solid #f3f3f3; border-top: 5px solid var(--accent-color); /* Usato accent color */ border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 20px; }
+        #loading-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.9); display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 1000; }
+        .spinner { width: 50px; height: 50px; border: 5px solid #f3f3f3; border-top: 5px solid var(--accent-color); border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 20px; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
     </style>
@@ -1384,7 +642,8 @@
         <div class="container">
             <h1>Benvenuto nella pagina dedicata al nostro matrimonio</h1>
             <div class="menu-toggle">
-                <i class="fas fa-bars"></i>
+                <!-- Modifica: Icona menu mobile cambiata -->
+                <i class="fas fa-ellipsis-h"></i>
             </div>
             <nav>
                 <ul>
@@ -1506,38 +765,14 @@
             <p class="section-subtitle">Momenti speciali del nostro percorso insieme</p>
 
             <div class="gallery-container">
-                <div class="gallery-item">
-                    <img src="https://github.com/iFelice/wedding-website/blob/main/images/IMG_0209.jpeg?raw=true"
-                        alt="Foto di coppia">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://github.com/iFelice/wedding-website/blob/main/images/IMG_6022.jpg?raw=true"
-                        alt="Proposta di matrimonio">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://github.com/iFelice/wedding-website/blob/main/images/IMG_6621.jpg?raw=true"
-                        alt="Viaggio insieme">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://github.com/iFelice/wedding-website/blob/main/images/IMG_7177.jpg?raw=true"
-                        alt="Momenti insieme">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://github.com/iFelice/wedding-website/blob/main/images/IMG_3389.jpg?raw=true"
-                        alt="Anello di fidanzamento">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://github.com/iFelice/wedding-website/blob/main/images/IMG_7744.jpeg?raw=true"
-                        alt="Anniversario">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://github.com/iFelice/wedding-website/blob/main/images/IMG_0249.jpeg?raw=true"
-                        alt="Momenti speciali">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://github.com/iFelice/wedding-website/blob/main/images/IMG_8402.jpeg?raw=true"
-                        alt="Momenti insieme">
-                </div>
+                <div class="gallery-item"> <img src="https://github.com/iFelice/wedding-website/blob/main/images/IMG_0209.jpeg?raw=true" alt="Foto di coppia"> </div>
+                <div class="gallery-item"> <img src="https://github.com/iFelice/wedding-website/blob/main/images/IMG_6022.jpg?raw=true" alt="Proposta di matrimonio"> </div>
+                <div class="gallery-item"> <img src="https://github.com/iFelice/wedding-website/blob/main/images/IMG_6621.jpg?raw=true" alt="Viaggio insieme"> </div>
+                <div class="gallery-item"> <img src="https://github.com/iFelice/wedding-website/blob/main/images/IMG_7177.jpg?raw=true" alt="Momenti insieme"> </div>
+                <div class="gallery-item"> <img src="https://github.com/iFelice/wedding-website/blob/main/images/IMG_3389.jpg?raw=true" alt="Anello di fidanzamento"> </div>
+                <div class="gallery-item"> <img src="https://github.com/iFelice/wedding-website/blob/main/images/IMG_7744.jpeg?raw=true" alt="Anniversario"> </div>
+                <div class="gallery-item"> <img src="https://github.com/iFelice/wedding-website/blob/main/images/IMG_0249.jpeg?raw=true" alt="Momenti speciali"> </div>
+                <div class="gallery-item"> <img src="https://github.com/iFelice/wedding-website/blob/main/images/IMG_8402.jpeg?raw=true" alt="Momenti insieme"> </div>
             </div>
         </div>
     </section>
@@ -1550,7 +785,7 @@
             <div class="share-container">
                 <div class="share-info">
                     <div class="app-info">
-                        <i class="fab fa-google" style="font-size: 2.5rem; color: var(--text-color); margin-bottom: 20px;"></i>
+                        <!-- Modifica: Rimosso tag <i> per Google -->
                         <h3>Album Condiviso su Google Photos</h3>
                         <p>Condividi le foto e i video che catturerai durante il nostro giorno speciale</p>
                         <ul class="features-list">
@@ -1565,21 +800,9 @@
                     </div>
                 </div>
                 <div class="share-instructions">
-                    <div class="instruction-step">
-                        <div class="step-number">1</div>
-                        <h4>Accedi all'Album</h4>
-                        <p>Inquadra il QR code o usa il link fornito</p>
-                    </div>
-                    <div class="instruction-step">
-                        <div class="step-number">2</div>
-                        <h4>Accedi con Google</h4>
-                        <p>Utilizza il tuo account Google per accedere</p>
-                    </div>
-                    <div class="instruction-step">
-                        <div class="step-number">3</div>
-                        <h4>Condividi i Ricordi</h4>
-                        <p>Carica le tue foto nell'album condiviso</p>
-                    </div>
+                    <div class="instruction-step"> <div class="step-number">1</div> <h4>Accedi all'Album</h4> <p>Inquadra il QR code o usa il link fornito</p> </div>
+                    <div class="instruction-step"> <div class="step-number">2</div> <h4>Accedi con Google</h4> <p>Utilizza il tuo account Google per accedere</p> </div>
+                    <div class="instruction-step"> <div class="step-number">3</div> <h4>Condividi i Ricordi</h4> <p>Carica le tue foto nell'album condiviso</p> </div>
                 </div>
 
                 <div class="additional-info">
@@ -1590,11 +813,7 @@
                             <ol>
                                 <li>Inquadra il QR code o usa il link</li>
                                 <li>Accedi con il tuo account Google</li>
-                                <li>Seleziona le foto da caricare cliccando su
-                                    <img src="https://github.com/iFelice/wedding-website/blob/main/images/logo-foto-upload.png?raw=true"
-                                    alt="Icona Carica Foto"
-                                    style="height: 20px; width: auto; display: inline-block; vertical-align: middle;">
-                                </li>
+                                <li>Cerca e clicca sull'opzione per aggiungere/caricare foto (solitamente un'icona '+' o una nuvola con freccia in su).</li>
                             </ol>
                         </div>
                         <div class="option">
@@ -1644,21 +863,8 @@
                 </div>
             </div>
 
-            <div class="info-card">
-                <h3>Come Raggiungere le Location</h3>
-                <div class="directions-container">
-                    <div class="direction-box left">
-                        <h4>Duomo di Nola</h4>
-                        <p>In auto: Seguire le indicazioni per Nola centro, parcheggiare nelle vicinanze di Piazza Duomo.</p>
-                        <p>Con i mezzi pubblici: Prendere la Circumvesuviana fino alla fermata di Nola, poi a piedi per circa 10 minuti.</p>
-                    </div>
-                    <div class="direction-box right">
-                        <h4>Castello di Faicchio</h4>
-                        <p>In auto: Da Nola, prendere la SS7 Appia in direzione Benevento, seguire le indicazioni per Faicchio.</p>
-                        <p>Da Napoli, prendere l'A30 in direzione Caserta, poi seguire le indicazioni per Faicchio.</p>
-                    </div>
-                </div>
-            </div>
+             <!-- Modifica: Rimosso blocco "Come Raggiungere le Location" -->
+
         </div>
     </section>
 
@@ -1668,76 +874,40 @@
             <p class="section-subtitle" style="color: var(--text-color);">Conferma la tua presenza entro il 21 Giugno 2025</p>
 
             <form id="rsvpForm" class="rsvp-form">
-                <div id="loading-overlay" style="display: none;">
-                    <div class="spinner"></div>
-                    <p>Invio in corso...</p>
-                    </div>
-
-                <div class="form-group">
-                    <label for="nome">Nome e Cognome *</label>
-                    <input type="text" id="nome" name="entry.709286806" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email *</label>
-                    <input type="email" id="email" name="entry.1994603631" required>
-                </div>
-
+                <div id="loading-overlay" style="display: none;"> <div class="spinner"></div> <p>Invio in corso...</p> </div>
+                <div class="form-group"> <label for="nome">Nome e Cognome *</label> <input type="text" id="nome" name="entry.709286806" required> </div>
+                <div class="form-group"> <label for="email">Email *</label> <input type="email" id="email" name="entry.1994603631" required> </div>
                 <div class="form-group">
                     <label>Partecipazione *</label>
                     <div class="radio-group">
-                        <input type="radio" id="partecipo" name="entry.682165499" value="Sì, ci sarò" required>
-                        <label for="partecipo">Sì, parteciperò</label>
-                        <input type="radio" id="non-partecipo" name="entry.682165499" value="No, non potrò essere presente">
-                        <label for="non-partecipo">No, non potrò essere presente</label>
+                        <input type="radio" id="partecipo" name="entry.682165499" value="Sì, ci sarò" required> <label for="partecipo">Sì, parteciperò</label>
+                        <input type="radio" id="non-partecipo" name="entry.682165499" value="No, non potrò essere presente"> <label for="non-partecipo">No, non potrò essere presente</label>
                     </div>
                 </div>
-
                 <div class="form-group" id="numero-ospiti-group" style="display: none; opacity: 0;">
                     <label for="numero-ospiti">Numero totale di persone (incluso te) *</label>
-                    <select id="numero-ospiti" name="entry.349902564">
-                        <option value="">Seleziona il numero di persone</option>
-                        <option value="1 persona">1 persona (solo io)</option>
-                        <option value="2 persone">2 persone (coppia)</option>
-                        <option value="3 persone">3 persone (es. coppia con 1 figlio)</option>
-                        <option value="4 persone">4 persone (es. coppia con 2 figli)</option>
-                        <option value="5 persone">5 persone (es. coppia con 3 figli)</option>
-                        <option value="6 persone">6 persone (es. coppia con 4 figli)</option>
-                    </select>
+                    <select id="numero-ospiti" name="entry.349902564"> <option value="">Seleziona il numero di persone</option> <option value="1 persona">1 persona (solo io)</option> <option value="2 persone">2 persone (coppia)</option> <option value="3 persone">3 persone (es. coppia con 1 figlio)</option> <option value="4 persone">4 persone (es. coppia con 2 figli)</option> <option value="5 persone">5 persone (es. coppia con 3 figli)</option> <option value="6 persone">6 persone (es. coppia con 4 figli)</option> </select>
                 </div>
-
                 <div class="form-group" id="nomi-ospiti-group" style="display: none; opacity: 0;">
                     <label for="nomi-ospiti">Nomi dei componenti della famiglia/gruppo *</label>
                     <small class="form-text">Inserisci i nomi di tutti i partecipanti, escluso il tuo</small>
                     <textarea id="nomi-ospiti" name="entry.155324483" rows="3" placeholder="Es: Mario Rossi (papà), Maria Rossi (mamma), Marco Rossi (figlio 8 anni), Anna Rossi (figlia 5 anni)"></textarea>
                 </div>
-
                 <div class="form-group" id="preferenze-menu-group" style="display: none; opacity: 0;">
                     <label for="preferenze-menu">Preferenze Menu *</label>
                      <small class="form-text">Indica se qualcuno nel gruppo ha preferenze diverse dal menu standard (es. vegetariano, vegano, etc.). Se tutti seguono il menu standard, seleziona "Menu Standard".</small>
-                    <select id="preferenze-menu" name="entry.1172181114">
-                        <option value="">Seleziona una preferenza</option>
-                        <option value="Menu Standard">Menu Standard</option>
-                        <option value="Menu Vegetariano">Menu Vegetariano</option>
-                        <option value="Menu Vegano">Menu Vegano</option>
-                        <option value="Menu Senza Glutine">Menu Senza Glutine</option>
-                        <option value="Menu Pescetariano">Menu Pescetariano</option>
-                         <option value="Altro (specificare nelle note)">Altro (specificare nelle note)</option>
-                    </select>
+                    <select id="preferenze-menu" name="entry.1172181114"> <option value="">Seleziona una preferenza</option> <option value="Menu Standard">Menu Standard</option> <option value="Menu Vegetariano">Menu Vegetariano</option> <option value="Menu Vegano">Menu Vegano</option> <option value="Menu Senza Glutine">Menu Senza Glutine</option> <option value="Menu Pescetariano">Menu Pescetariano</option> <option value="Altro (specificare nelle note)">Altro (specificare nelle note)</option> </select>
                 </div>
-
                 <div class="form-group" id="intolleranze-group" style="display: none; opacity: 0;">
                     <label for="intolleranze">Intolleranze o allergie alimentari</label>
                      <small class="form-text">Specifica qui eventuali allergie o intolleranze per ciascun partecipante (es. Mario Rossi: allergia alle noci; Anna Verdi: intolleranza al lattosio).</small>
                     <textarea id="intolleranze" name="entry.304213983" rows="3"></textarea>
                 </div>
-
                 <div class="form-group">
                     <label for="note">Note aggiuntive</label>
                      <small class="form-text">Usa questo spazio per specificare chi segue menu alternativi, per segnalare la presenza di bambini piccoli (e la loro età), per indicare interesse alla navetta, o per qualsiasi altra comunicazione.</small>
                     <textarea id="note" name="entry.123813858" rows="3"></textarea>
                 </div>
-
                 <button type="submit" class="btn submit-btn">Invia Conferma</button>
             </form>
         </div>
@@ -1747,25 +917,15 @@
         <div class="container">
             <h2 class="section-title">Lista Nozze</h2>
             <p class="section-subtitle">Se desiderate farci un regalo</p>
-
-            <div class="gift-intro">
-                <p>La vostra presenza al nostro matrimonio è il regalo più prezioso. Per chi desidera contribuire alla realizzazione dei nostri sogni, abbiamo pensato ad una lista nozze dedicata al nostro viaggio di nozze in Giappone.</p>
-            </div>
-
+            <div class="gift-intro"> <p>La vostra presenza al nostro matrimonio è il regalo più prezioso. Per chi desidera contribuire alla realizzazione dei nostri sogni, abbiamo pensato ad una lista nozze dedicata al nostro viaggio di nozze in Giappone.</p> </div>
             <div class="gift-option">
-                <div class="gift-option-img">
-                    <img src="https://turexviaggiinediti.com/wp-content/uploads/2017/02/japan-ok.jpg" alt="Viaggio di nozze">
-                </div>
+                <div class="gift-option-img"> <img src="https://turexviaggiinediti.com/wp-content/uploads/2017/02/japan-ok.jpg" alt="Viaggio di nozze"> </div>
                 <div class="gift-option-info">
                     <h3>Il Nostro Viaggio in Giappone</h3>
                     <p>Aiutateci a realizzare il nostro sogno di esplorare il Giappone, dalla moderna Tokyo ai templi di Kyoto, dalle spiagge di Okinawa ai giardini zen di Kanazawa.</p>
                     <div class="gift-details">
                         <p>Potete contribuire al nostro viaggio con un bonifico bancario:</p>
-                        <div class="bank-details">
-                            <p><strong>IBAN:</strong> IT00 X000 0000 0000 0000 0000 000</p>
-                            <p><strong>Intestato a:</strong> Felice & Federica</p>
-                            <p><strong>Causale:</strong> Regalo di nozze [Vostro Nome]</p>
-                        </div>
+                        <div class="bank-details"> <p><strong>IBAN:</strong> IT00 X000 0000 0000 0000 0000 000</p> <p><strong>Intestato a:</strong> Felice & Federica</p> <p><strong>Causale:</strong> Regalo di nozze [Vostro Nome]</p> </div>
                          <p style="margin-top: 20px; font-size: 0.9em;"><em>In alternativa, sarà disponibile un'urna per le buste durante il ricevimento.</em></p>
                     </div>
                 </div>
@@ -1777,96 +937,57 @@
         <div class="container">
             <h2 class="section-title">Alloggi</h2>
             <p class="section-subtitle">Per gli ospiti che vengono da lontano</p>
-
-            <div class="accommodation-intro">
-                <p>Per aiutarvi nella ricerca di un alloggio per la notte del matrimonio (12 luglio 2025), abbiamo selezionato le migliori piattaforme di prenotazione della zona. Potrete verificare in tempo reale disponibilità e prezzi.</p>
-            </div>
-
+            <div class="accommodation-intro"> <p>Per aiutarvi nella ricerca di un alloggio per la notte del matrimonio (12 luglio 2025), abbiamo selezionato le migliori piattaforme di prenotazione della zona. Potrete verificare in tempo reale disponibilità e prezzi.</p> </div>
             <div class="booking-options">
-                <div class="booking-card">
-                    <i class="fas fa-building"></i>
-                    <h4>Booking.com</h4>
-                    <p>Trova hotel e B&B a Faicchio e dintorni</p>
-                    <a href="https://www.booking.com/searchresults.it.html?ss=Faicchio&checkin=2025-07-12&checkout=2025-07-13&group_adults=2&no_rooms=1" class="btn" target="_blank">Cerca su Booking</a>
-                </div>
-
-                <div class="booking-card">
-                    <i class="fab fa-airbnb"></i>
-                    <h4>Airbnb</h4>
-                    <p>Scopri appartamenti e case vacanza nella zona</p>
-                    <a href="https://www.airbnb.it/s/Faicchio/homes?checkin=2025-07-12&checkout=2025-07-13&adults=2" class="btn" target="_blank">Cerca su Airbnb</a>
-                </div>
-
-                <div class="booking-card">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h4>Google Maps</h4>
-                    <p>Visualizza tutte le strutture nelle vicinanze</p>
-                    <a href="https://www.google.com/maps/search/hotel+near+Faicchio+Benevento" class="btn" target="_blank">Cerca su Maps</a>
-                </div>
+                <div class="booking-card"> <i class="fas fa-building"></i> <h4>Booking.com</h4> <p>Trova hotel e B&B a Faicchio e dintorni</p> <a href="https://www.booking.com/searchresults.it.html?ss=Faicchio&checkin=2025-07-12&checkout=2025-07-13&group_adults=2&no_rooms=1" class="btn" target="_blank">Cerca su Booking</a> </div>
+                <div class="booking-card"> <i class="fab fa-airbnb"></i> <h4>Airbnb</h4> <p>Scopri appartamenti e case vacanza nella zona</p> <a href="https://www.airbnb.it/s/Faicchio/homes?checkin=2025-07-12&checkout=2025-07-13&adults=2" class="btn" target="_blank">Cerca su Airbnb</a> </div>
+                <div class="booking-card"> <i class="fas fa-map-marker-alt"></i> <h4>Google Maps</h4> <p>Visualizza tutte le strutture nelle vicinanze</p> <a href="https://www.google.com/maps/search/hotel+near+Faicchio+Benevento" class="btn" target="_blank">Cerca su Maps</a> </div>
             </div>
-
             <div class="accommodation-tips">
                 <h4>Suggerimenti per la ricerca</h4>
-                <ul>
-                    <li>La location del ricevimento si trova a Faicchio (BN)</li>
-                    <li>Consigliamo di prenotare con anticipo data l'alta stagione</li>
-                    <li>Le zone limitrofe (nel raggio di 15km) sono ben collegate</li>
-                    <li>Per qualsiasi necessità non esitate a contattarci</li>
-                </ul>
+                <ul> <li>La location del ricevimento si trova a Faicchio (BN)</li> <li>Consigliamo di prenotare con anticipo data l'alta stagione</li> <li>Le zone limitrofe (nel raggio di 15km) sono ben collegate</li> <li>Per qualsiasi necessità non esitate a contattarci</li> </ul>
             </div>
-
-            <!-- Divisore ad anelli - HTML CORRETTO -->
-            <div class="ring-divider" style="text-align: center; margin: 60px 0 40px 0;"> <!-- Margine sopra e sotto -->
-                <svg width="80" height="30" viewBox="0 0 80 30">
-                    <circle cx="37" cy="15" r="8" stroke="var(--primary-color)" fill="none" stroke-width="1.5"/> <!-- Colore rosa -->
-                    <circle cx="43" cy="15" r="8" stroke="var(--primary-color)" fill="none" stroke-width="1.5"/> <!-- Colore rosa -->
-                </svg>
+            <!-- Divisore ad anelli (tra Alloggi e FAQ) -->
+            <div class="ring-divider" style="text-align: center; margin: 60px 0 40px 0;">
+                <svg width="80" height="30" viewBox="0 0 80 30"> <circle cx="37" cy="15" r="8" stroke="var(--primary-color)" fill="none" stroke-width="1.5"/> <circle cx="43" cy="15" r="8" stroke="var(--primary-color)" fill="none" stroke-width="1.5"/> </svg>
             </div>
-            <!-- Fine Divisore -->
-
-        </div> <!-- Chiusura .container -->
-    </section> <!-- Chiusura #alloggi -->
+        </div>
+    </section>
 
     <section id="faq">
         <div class="container">
             <h2 class="section-title">Domande Frequenti</h2>
             <p class="section-subtitle">Risposte alle domande più comuni</p>
-
             <div class="faq-container">
                 <div class="faq-item">
                     <div class="faq-question">Ci saranno degli autobus per il trasferimento tra le location?</div>
-                    <div class="faq-answer">Sì, abbiamo organizzato un servizio navetta che partirà dal Duomo di Nola subito
-                        dopo la cerimonia per raggiungere il Castello di Faicchio.</div>
+                    <div class="faq-answer">Sì, abbiamo organizzato un servizio navetta che partirà dal Duomo di Nola subito dopo la cerimonia per raggiungere il Castello di Faicchio.</div>
                 </div>
-
                 <div class="faq-item">
-                    <div class="faq-question">È possibile portare i bambini?</div>
-                    <div class="faq-answer">Certamente! I vostri bambini sono i benvenuti. Abbiamo organizzato un servizio di
-                        animazione dedicato a loro durante il ricevimento.</div>
+                    <!-- Modifica: Domanda su animali domestici -->
+                    <div class="faq-question">Sono ammessi animali domestici?</div>
+                    <div class="faq-answer">Amiamo molto gli animali, ma data la natura dell'evento e le location specifiche, purtroppo non sarà possibile portare con sé i propri amici a quattro zampe. Vi ringraziamo per la comprensione.</div>
                 </div>
-
                 <div class="faq-item">
                     <div class="faq-question">C'è un parcheggio disponibile presso le location?</div>
-                    <div class="faq-answer">Sì, entrambe le location dispongono di ampi parcheggi gratuiti per gli ospiti.
-                    </div>
+                    <div class="faq-answer">Sì, entrambe le location dispongono di ampi parcheggi gratuiti per gli ospiti.</div>
                 </div>
-
                 <div class="faq-item">
                     <div class="faq-question">Ci sono opzioni per chi ha esigenze alimentari particolari?</div>
-                    <div class="faq-answer">Assolutamente sì. Vi preghiamo di indicare eventuali allergie o intolleranze nel
-                        modulo RSVP, e saremo felici di adattare il menu alle vostre esigenze.</div>
+                    <div class="faq-answer">Assolutamente sì. Vi preghiamo di indicare eventuali allergie o intolleranze nel modulo RSVP, e saremo felici di adattare il menu alle vostre esigenze.</div>
                 </div>
-
                 <div class="faq-item">
                     <div class="faq-question">Possiamo scattare foto durante la cerimonia?</div>
-                    <div class="faq-answer">Preferiremmo che durante la cerimonia religiosa le foto siano lasciate ai fotografi
-                        professionisti. Durante il ricevimento, invece, sentitevi liberi di immortalare tutti i momenti
-                        speciali! Vi invitiamo a usare l'hashtag #FedericaeFelice2025 quando condividete le foto sui social.
-                    </div>
+                    <div class="faq-answer">Preferiremmo che durante la cerimonia religiosa le foto siano lasciate ai fotografi professionisti. Durante il ricevimento, invece, sentitevi liberi di immortalare tutti i momenti speciali! Vi invitiamo a usare l'hashtag #FedericaeFelice2025 quando condividete le foto sui social.</div>
                 </div>
             </div>
         </div>
-    </section>
+    </section> <!-- Chiusura #faq -->
+
+    <!-- Modifica: Aggiunto divisore tra FAQ e Contatti -->
+    <div class="ring-divider" style="text-align: center; margin: 0 0 40px 0;"> <!-- Margine solo sotto prima di Contatti -->
+        <svg width="80" height="30" viewBox="0 0 80 30"> <circle cx="37" cy="15" r="8" stroke="var(--primary-color)" fill="none" stroke-width="1.5"/> <circle cx="43" cy="15" r="8" stroke="var(--primary-color)" fill="none" stroke-width="1.5"/> </svg>
+    </div>
 
     <section id="contatti">
         <div class="container">
@@ -1875,13 +996,7 @@
             <div class="info-card" style="max-width: 600px; margin: 0 auto;">
                 <p>Email: federicaefelice@gmail.com</p>
                 <p>Telefono: 123-456-7890</p>
-
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-whatsapp"></i></a>
-                </div>
-
+                <div class="social-icons"> <a href="#"><i class="fab fa-instagram"></i></a> <a href="#"><i class="fab fa-facebook"></i></a> <a href="#"><i class="fab fa-whatsapp"></i></a> </div>
                 <p>Seguici su Instagram con l'hashtag: <strong>#FedericaeFelice2025</strong></p>
             </div>
         </div>
@@ -1890,307 +1005,64 @@
     <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
 
     <footer>
-        <div class="container">
-             <p>© 2025 - Sviluppato da aiFelice <p> 
-            <p>Non vediamo l'ora di festeggiare con voi!</p>
-        </div>
+        <div class="container"> <p>© 2025 - aiFelice</p> <p>Non vediamo l'ora di festeggiare con voi!</p> </div>
     </footer>
 
-    <div id="galleryModal" class="modal">
-        <span class="modal-close">×</span>
-        <span class="modal-nav modal-prev"><i class="fas fa-chevron-left"></i></span>
-        <img class="modal-content" id="modalImg">
-        <span class="modal-nav modal-next"><i class="fas fa-chevron-right"></i></span>
-    </div>
-
-    <div id="form-loader" style="display: none;">
-        <div class="loader-spinner"></div>
-        <p>Invio in corso...</p>
-    </div>
-
-    <div id="loading-overlay" style="display: none;">
-        <div class="spinner"></div>
-        <p>Invio in corso...</p>
-    </div>
+    <div id="galleryModal" class="modal"> <span class="modal-close">×</span> <span class="modal-nav modal-prev"><i class="fas fa-chevron-left"></i></span> <img class="modal-content" id="modalImg"> <span class="modal-nav modal-next"><i class="fas fa-chevron-right"></i></span> </div>
+    <div id="form-loader" style="display: none;"> <div class="loader-spinner"></div> <p>Invio in corso...</p> </div>
+    <div id="loading-overlay" style="display: none;"> <div class="spinner"></div> <p>Invio in corso...</p> </div>
 
     <script>
         // --- Funzioni Utilità ---
-        function setAttributes(el, attrs) {
-          for(var key in attrs) {
-            el.setAttribute(key, attrs[key]);
-          }
-        }
+        function setAttributes(el, attrs) { for(var key in attrs) { el.setAttribute(key, attrs[key]); } }
 
         // --- Mobile Menu Toggle and Auto-Close ---
         const menuToggle = document.querySelector('.menu-toggle');
         const nav = document.querySelector('nav');
         const navLinks = document.querySelectorAll('nav ul li a');
-
-        if (menuToggle && nav) {
-            menuToggle.addEventListener('click', () => {
-                const isActive = nav.classList.toggle('active');
-                setAttributes(menuToggle, {'aria-expanded': isActive, 'aria-label': isActive ? 'Chiudi menu' : 'Apri menu'});
-            });
-        }
-
-        function closeMenu() {
-            if (nav && nav.classList.contains('active')) {
-                nav.classList.remove('active');
-                 setAttributes(menuToggle, {'aria-expanded': 'false', 'aria-label': 'Apri menu'});
-            }
-        }
-
-        navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                const targetId = link.getAttribute('href');
-                if (targetId && targetId.startsWith('#')) {
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        e.preventDefault();
-                        closeMenu();
-
-                         const headerOffset = document.getElementById('header')?.offsetHeight || 70;
-                         const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                         const offsetPosition = elementPosition - headerOffset;
-
-                         window.scrollTo({
-                             top: offsetPosition,
-                             behavior: 'smooth'
-                         });
-                    } else {
-                         closeMenu();
-                    }
-                } else {
-                     closeMenu();
-                }
-            });
-        });
-
-        document.addEventListener('click', (event) => {
-          const isClickInsideNav = nav?.contains(event.target);
-          const isClickOnToggle = menuToggle?.contains(event.target);
-          if (!isClickInsideNav && !isClickOnToggle && nav?.classList.contains('active')) {
-            closeMenu();
-          }
-        });
+        if (menuToggle && nav) { menuToggle.addEventListener('click', () => { const isActive = nav.classList.toggle('active'); setAttributes(menuToggle, {'aria-expanded': isActive, 'aria-label': isActive ? 'Chiudi menu' : 'Apri menu'}); }); }
+        function closeMenu() { if (nav && nav.classList.contains('active')) { nav.classList.remove('active'); setAttributes(menuToggle, {'aria-expanded': 'false', 'aria-label': 'Apri menu'}); } }
+        navLinks.forEach(link => { link.addEventListener('click', (e) => { const targetId = link.getAttribute('href'); if (targetId && targetId.startsWith('#')) { const targetElement = document.querySelector(targetId); if (targetElement) { e.preventDefault(); closeMenu(); const headerOffset = document.getElementById('header')?.offsetHeight || 70; const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset; const offsetPosition = elementPosition - headerOffset; window.scrollTo({ top: offsetPosition, behavior: 'smooth' }); } else { closeMenu(); } } else { closeMenu(); } }); });
+        document.addEventListener('click', (event) => { const isClickInsideNav = nav?.contains(event.target); const isClickOnToggle = menuToggle?.contains(event.target); if (!isClickInsideNav && !isClickOnToggle && nav?.classList.contains('active')) { closeMenu(); } });
 
         // --- Countdown timer ---
-        // Il codice del countdown è stato ripristinato alla versione del file che mi hai fornito
-        // Assicurati che gli ID 'days', 'hours', 'minutes', 'seconds' esistano nel tuo HTML
-        const weddingDate = new Date('July 12, 2025 15:30:00').getTime(); // Orario cerimonia
-
+        const weddingDate = new Date('July 12, 2025 15:30:00').getTime();
         function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = weddingDate - now;
-
-            const daysEl = document.getElementById('days');
-            const hoursEl = document.getElementById('hours');
-            const minutesEl = document.getElementById('minutes');
-            const secondsEl = document.getElementById('seconds');
-
-            if (distance < 0) {
-                clearInterval(countdownTimer);
-                if (daysEl) daysEl.innerText = '000';
-                if (hoursEl) hoursEl.innerText = '00';
-                if (minutesEl) minutesEl.innerText = '00';
-                if (secondsEl) secondsEl.innerText = '00';
-                return;
-            }
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            if (daysEl) daysEl.innerText = days.toString().padStart(3, '0');
-            if (hoursEl) hoursEl.innerText = hours.toString().padStart(2, '0');
-            if (minutesEl) minutesEl.innerText = minutes.toString().padStart(2, '0');
-            if (secondsEl) secondsEl.innerText = seconds.toString().padStart(2, '0');
+            const now = new Date().getTime(); const distance = weddingDate - now;
+            const daysEl = document.getElementById('days'); const hoursEl = document.getElementById('hours'); const minutesEl = document.getElementById('minutes'); const secondsEl = document.getElementById('seconds');
+            if (distance < 0) { clearInterval(countdownTimer); if (daysEl) daysEl.innerText = '000'; if (hoursEl) hoursEl.innerText = '00'; if (minutesEl) minutesEl.innerText = '00'; if (secondsEl) secondsEl.innerText = '00'; return; }
+            const days = Math.floor(distance / 864e5); const hours = Math.floor((distance % 864e5) / 36e5); const minutes = Math.floor((distance % 36e5) / 6e4); const seconds = Math.floor((distance % 6e4) / 1e3);
+            if (daysEl) daysEl.innerText = days.toString().padStart(3, '0'); if (hoursEl) hoursEl.innerText = hours.toString().padStart(2, '0'); if (minutesEl) minutesEl.innerText = minutes.toString().padStart(2, '0'); if (secondsEl) secondsEl.innerText = seconds.toString().padStart(2, '0');
         }
-
-        updateCountdown(); // Initial call
-        const countdownTimer = setInterval(updateCountdown, 1000);
-
+        updateCountdown(); const countdownTimer = setInterval(updateCountdown, 1000);
 
         // --- Header scroll effect & Back to top button ---
-        const header = document.getElementById('header');
-        const backToTopBtn = document.getElementById('backToTop');
-
-        window.addEventListener('scroll', function () {
-            const scrollY = window.scrollY;
-            if (header) {
-                 header.classList.toggle('scrolled', scrollY > 50);
-            }
-            if (backToTopBtn) {
-                 backToTopBtn.classList.toggle('show', scrollY > 300);
-                 backToTopBtn.setAttribute('aria-hidden', scrollY <= 300);
-            }
-        });
-
-        if (backToTopBtn) {
-             backToTopBtn.addEventListener('click', function (e) {
-                 e.preventDefault();
-                 window.scrollTo({
-                     top: 0,
-                     behavior: 'smooth'
-                 });
-             });
-        }
+        const header = document.getElementById('header'); const backToTopBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', function () { const scrollY = window.scrollY; if (header) { header.classList.toggle('scrolled', scrollY > 50); } if (backToTopBtn) { backToTopBtn.classList.toggle('show', scrollY > 300); backToTopBtn.setAttribute('aria-hidden', scrollY <= 300); } });
+        if (backToTopBtn) { backToTopBtn.addEventListener('click', function (e) { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }); }
 
         // --- Smooth scrolling generico ---
-        document.querySelectorAll('a[href^="#"]:not(nav ul li a)').forEach(anchor => {
-             anchor.addEventListener('click', function (e) {
-                 const targetId = this.getAttribute('href');
-                 const targetElement = document.querySelector(targetId);
-                 if (targetElement) {
-                     e.preventDefault();
-                     const headerOffset = header?.offsetHeight || 70;
-                     const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                     const offsetPosition = elementPosition - headerOffset;
-
-                     window.scrollTo({
-                         top: offsetPosition,
-                         behavior: 'smooth'
-                     });
-                 }
-             });
-        });
-
+        document.querySelectorAll('a[href^="#"]:not(nav ul li a)').forEach(anchor => { anchor.addEventListener('click', function (e) { const targetId = this.getAttribute('href'); const targetElement = document.querySelector(targetId); if (targetElement) { e.preventDefault(); const headerOffset = header?.offsetHeight || 70; const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset; const offsetPosition = elementPosition - headerOffset; window.scrollTo({ top: offsetPosition, behavior: 'smooth' }); } }); });
 
         // --- FAQ accordion ---
         const faqQuestions = document.querySelectorAll('.faq-question');
-        faqQuestions.forEach((question, index) => {
-            const answer = question.nextElementSibling;
-            if (answer && answer.classList.contains('faq-answer')) {
-                 const questionId = `faq-question-${index}`;
-                 const answerId = `faq-answer-${index}`;
-                setAttributes(question, { 'id': questionId, 'aria-expanded': 'false', 'aria-controls': answerId, 'role': 'button', 'tabindex': '0' });
-                setAttributes(answer, { 'id': answerId, 'role': 'region', 'aria-labelledby': questionId });
-
-                question.addEventListener('click', () => {
-                    const isActive = question.classList.toggle('active');
-                    answer.classList.toggle('show');
-                    question.setAttribute('aria-expanded', isActive);
-                });
-                question.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); question.click(); } });
-            }
-        });
-
+        faqQuestions.forEach((question, index) => { const answer = question.nextElementSibling; if (answer && answer.classList.contains('faq-answer')) { const questionId = `faq-question-${index}`; const answerId = `faq-answer-${index}`; setAttributes(question, { 'id': questionId, 'aria-expanded': 'false', 'aria-controls': answerId, 'role': 'button', 'tabindex': '0' }); setAttributes(answer, { 'id': answerId, 'role': 'region', 'aria-labelledby': questionId }); question.addEventListener('click', () => { const isActive = question.classList.toggle('active'); answer.classList.toggle('show'); question.setAttribute('aria-expanded', isActive); }); question.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); question.click(); } }); } });
 
         // --- Gallery modal implementation ---
-        const modal = document.getElementById('galleryModal');
-        const modalImg = document.getElementById('modalImg');
-        const closeBtn = modal?.querySelector('.modal-close');
-        const prevBtn = modal?.querySelector('.modal-prev');
-        const nextBtn = modal?.querySelector('.modal-next');
-        const galleryItems = document.querySelectorAll('.gallery-item img');
-        let currentImageIndex = 0;
-        let modalIsOpen = false;
+        const modal = document.getElementById('galleryModal'); const modalImg = document.getElementById('modalImg'); const closeBtn = modal?.querySelector('.modal-close'); const prevBtn = modal?.querySelector('.modal-prev'); const nextBtn = modal?.querySelector('.modal-next'); const galleryItems = document.querySelectorAll('.gallery-item img'); let currentImageIndex = 0; let modalIsOpen = false;
+        function updateModalImage() { if (galleryItems.length > 0 && modalImg) { modalImg.src = galleryItems[currentImageIndex].src; modalImg.alt = galleryItems[currentImageIndex].alt || `Immagine galleria ${currentImageIndex + 1}`; } } function openModal(index) { if (!modal || galleryItems.length === 0) return; modalIsOpen = true; modal.style.display = 'flex'; currentImageIndex = index; updateModalImage(); document.body.style.overflow = 'hidden'; modal.setAttribute('aria-hidden', 'false'); closeBtn?.focus(); } function closeModal() { if (!modal) return; modalIsOpen = false; modal.style.display = 'none'; document.body.style.overflow = ''; modal.setAttribute('aria-hidden', 'true'); } function nextImage() { if (!modalIsOpen) return; currentImageIndex = (currentImageIndex + 1) % galleryItems.length; updateModalImage(); } function prevImage() { if (!modalIsOpen) return; currentImageIndex = (currentImageIndex - 1 + galleryItems.length) % galleryItems.length; updateModalImage(); }
+        document.querySelectorAll('.gallery-item').forEach((item, index) => { item.addEventListener('click', () => openModal(index)); setAttributes(item, {'role': 'button', 'tabindex': '0', 'aria-label': `Apri immagine ${index+1}`}); item.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(index); } }); });
+        if (closeBtn) closeBtn.addEventListener('click', closeModal); if (prevBtn) prevBtn.addEventListener('click', prevImage); if (nextBtn) nextBtn.addEventListener('click', nextImage); document.addEventListener('keydown', (e) => { if (modalIsOpen) { if (e.key === 'ArrowLeft') prevImage(); if (e.key === 'ArrowRight') nextImage(); if (e.key === 'Escape') closeModal(); } }); if (modal) { modal.addEventListener('click', (e) => { if (e.target === modal) { closeModal(); } }); }
 
-        function updateModalImage() { if (galleryItems.length > 0 && modalImg) { modalImg.src = galleryItems[currentImageIndex].src; modalImg.alt = galleryItems[currentImageIndex].alt || `Immagine galleria ${currentImageIndex + 1}`; } }
-        function openModal(index) { if (!modal || galleryItems.length === 0) return; modalIsOpen = true; modal.style.display = 'flex'; currentImageIndex = index; updateModalImage(); document.body.style.overflow = 'hidden'; modal.setAttribute('aria-hidden', 'false'); closeBtn?.focus(); }
-        function closeModal() { if (!modal) return; modalIsOpen = false; modal.style.display = 'none'; document.body.style.overflow = ''; modal.setAttribute('aria-hidden', 'true'); }
-        function nextImage() { if (!modalIsOpen) return; currentImageIndex = (currentImageIndex + 1) % galleryItems.length; updateModalImage(); }
-        function prevImage() { if (!modalIsOpen) return; currentImageIndex = (currentImageIndex - 1 + galleryItems.length) % galleryItems.length; updateModalImage(); }
-
-        document.querySelectorAll('.gallery-item').forEach((item, index) => {
-             item.addEventListener('click', () => openModal(index));
-             setAttributes(item, {'role': 'button', 'tabindex': '0', 'aria-label': `Apri immagine ${index+1}`});
-             item.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(index); } });
-        });
-
-        if (closeBtn) closeBtn.addEventListener('click', closeModal);
-        if (prevBtn) prevBtn.addEventListener('click', prevImage);
-        if (nextBtn) nextBtn.addEventListener('click', nextImage);
-        document.addEventListener('keydown', (e) => { if (modalIsOpen) { if (e.key === 'ArrowLeft') prevImage(); if (e.key === 'ArrowRight') nextImage(); if (e.key === 'Escape') closeModal(); } });
-        if (modal) { modal.addEventListener('click', (e) => { if (e.target === modal) { closeModal(); } }); }
-
-
-        // --- RSVP Form Logic (Basato sulla tua versione precedente) ---
+        // --- RSVP Form Logic ---
         document.addEventListener('DOMContentLoaded', function() {
             const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbyz9pePUO-T2SbDVxP-3Xvv8EfNoraIf6jUaniIw4dpXbmU3cjsDQq64dJemoPthu1M/exec';
-            const form = document.getElementById('rsvpForm');
-            const loadingOverlay = document.getElementById('loading-overlay');
-            const submitButton = form?.querySelector('button[type="submit"]');
-            const numeroOspitiGroup = document.getElementById('numero-ospiti-group');
-            const nomiOspitiGroup = document.getElementById('nomi-ospiti-group');
-            const preferenzeMenuGroup = document.getElementById('preferenze-menu-group');
-            const intolleranzeGroup = document.getElementById('intolleranze-group');
-            const numeroOspitiSelect = document.getElementById('numero-ospiti');
-            const nomiOspitiText = document.getElementById('nomi-ospiti');
-            const preferenzeMenuSelect = document.getElementById('preferenze-menu'); // Rinominato per chiarezza
-            const intolleranzeText = document.getElementById('intolleranze'); // Rinominato per chiarezza
-            const conditionalGroups = [numeroOspitiGroup, nomiOspitiGroup, preferenzeMenuGroup, intolleranzeGroup];
-            const conditionalInputs = [numeroOspitiSelect, nomiOspitiText, preferenzeMenuSelect, intolleranzeText];
-            const requiredIfParticipating = [numeroOspitiSelect, nomiOspitiText, preferenzeMenuSelect]; // Aggiornato nome var
-
-            if (!form) { console.error('Modulo RSVP non trovato!'); return; }
-            if (!WEB_APP_URL || WEB_APP_URL === 'IL_TUO_URL_COPIATO_QUI' || !WEB_APP_URL.startsWith('https://script.google.com/')) {
-                console.error('URL App Web non valido.');
-                alert('Errore configurazione modulo (URL). Contattare gli sposi.');
-                if (submitButton) { submitButton.disabled = true; submitButton.textContent = 'Errore Configurazione'; }
-                return;
-            }
-            if (!loadingOverlay) { console.warn('Elemento "loading-overlay" non trovato.'); }
-
-            const handlePartecipazioneChange = (showFields) => {
-                conditionalGroups.forEach(el => {
-                    if (el) {
-                        el.style.transition = 'opacity 0.3s ease, display 0.3s ease';
-                        if (showFields) {
-                            el.style.display = 'block';
-                            void el.offsetWidth;
-                            el.style.opacity = '1';
-                        } else {
-                            el.style.opacity = '0';
-                            setTimeout(() => { if (el.style.opacity === '0') { el.style.display = 'none'; } }, 300);
-                        }
-                    }
-                });
-                requiredIfParticipating.forEach(input => { if (input) input.required = showFields; });
-                if (!showFields) {
-                    conditionalInputs.forEach(input => {
-                        if (input) {
-                            if (input.tagName === 'SELECT') input.selectedIndex = 0; else input.value = '';
-                            input.removeAttribute('required');
-                        }
-                    });
-                }
-            };
-
-            document.querySelectorAll('input[name="entry.682165499"]').forEach(radio => {
-                radio.addEventListener('change', (e) => handlePartecipazioneChange(e.target.value === 'Sì, ci sarò'));
-            });
-
-            form.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                if (loadingOverlay) { loadingOverlay.style.display = 'flex'; loadingOverlay.setAttribute('aria-hidden', 'false'); }
-                if (submitButton) submitButton.disabled = true;
-                try {
-                    const formData = new FormData(form);
-                    const partecipazioneValue = formData.get('entry.682165499');
-                    const response = await fetch(WEB_APP_URL, { method: 'POST', body: formData, mode: 'cors' });
-                    if (!response.ok) {
-                        let errorMsg = `Errore HTTP: ${response.status} ${response.statusText}`;
-                        try { const errorData = await response.json(); errorMsg += ` - Dettaglio: ${errorData.message || JSON.stringify(errorData)}`; }
-                        catch (jsonError) { const textError = await response.text(); errorMsg += ` - Risposta non JSON: ${textError}`; }
-                        throw new Error(errorMsg);
-                    }
-                    const data = await response.json();
-                    if (data.result === 'success') {
-                        window.location.href = (partecipazioneValue === 'Sì, ci sarò') ? 'grazie.html' : 'dispiaciuti.html';
-                        return;
-                    } else { throw new Error(`Errore dallo script: ${data.message || 'Dettaglio non fornito'}`); }
-                } catch (error) {
-                    console.error('Errore invio modulo RSVP:', error);
-                    if (loadingOverlay) { loadingOverlay.style.display = 'none'; loadingOverlay.setAttribute('aria-hidden', 'true'); }
-                    if (submitButton) submitButton.disabled = false;
-                    alert('Si è verificato un errore durante l\'invio.\nRiprovare o contattare gli sposi.\nDettagli: ' + error.message);
-                }
-            });
-
-            const initialPartecipazione = document.querySelector('input[name="entry.682165499"]:checked');
-            handlePartecipazioneChange(initialPartecipazione?.value === 'Sì, ci sarò');
+            const form = document.getElementById('rsvpForm'); const loadingOverlay = document.getElementById('loading-overlay'); const submitButton = form?.querySelector('button[type="submit"]'); const numeroOspitiGroup = document.getElementById('numero-ospiti-group'); const nomiOspitiGroup = document.getElementById('nomi-ospiti-group'); const preferenzeMenuGroup = document.getElementById('preferenze-menu-group'); const intolleranzeGroup = document.getElementById('intolleranze-group'); const numeroOspitiSelect = document.getElementById('numero-ospiti'); const nomiOspitiText = document.getElementById('nomi-ospiti'); const preferenzeMenuSelect = document.getElementById('preferenze-menu'); const intolleranzeText = document.getElementById('intolleranze'); const conditionalGroups = [numeroOspitiGroup, nomiOspitiGroup, preferenzeMenuGroup, intolleranzeGroup]; const conditionalInputs = [numeroOspitiSelect, nomiOspitiText, preferenzeMenuSelect, intolleranzeText]; const requiredIfParticipating = [numeroOspitiSelect, nomiOspitiText, preferenzeMenuSelect];
+            if (!form) { console.error('Modulo RSVP non trovato!'); return; } if (!WEB_APP_URL || WEB_APP_URL === 'IL_TUO_URL_COPIATO_QUI' || !WEB_APP_URL.startsWith('https://script.google.com/')) { console.error('URL App Web non valido.'); alert('Errore configurazione modulo (URL). Contattare gli sposi.'); if (submitButton) { submitButton.disabled = true; submitButton.textContent = 'Errore Configurazione'; } return; } if (!loadingOverlay) { console.warn('Elemento "loading-overlay" non trovato.'); }
+            const handlePartecipazioneChange = (showFields) => { conditionalGroups.forEach(el => { if (el) { el.style.transition = 'opacity 0.3s ease, display 0.3s ease'; if (showFields) { el.style.display = 'block'; void el.offsetWidth; el.style.opacity = '1'; } else { el.style.opacity = '0'; setTimeout(() => { if (el.style.opacity === '0') { el.style.display = 'none'; } }, 300); } } }); requiredIfParticipating.forEach(input => { if (input) input.required = showFields; }); if (!showFields) { conditionalInputs.forEach(input => { if (input) { if (input.tagName === 'SELECT') input.selectedIndex = 0; else input.value = ''; input.removeAttribute('required'); } }); } };
+            document.querySelectorAll('input[name="entry.682165499"]').forEach(radio => { radio.addEventListener('change', (e) => handlePartecipazioneChange(e.target.value === 'Sì, ci sarò')); });
+            form.addEventListener('submit', async (e) => { e.preventDefault(); if (loadingOverlay) { loadingOverlay.style.display = 'flex'; loadingOverlay.setAttribute('aria-hidden', 'false'); } if (submitButton) submitButton.disabled = true; try { const formData = new FormData(form); const partecipazioneValue = formData.get('entry.682165499'); const response = await fetch(WEB_APP_URL, { method: 'POST', body: formData, mode: 'cors' }); if (!response.ok) { let errorMsg = `Errore HTTP: ${response.status} ${response.statusText}`; try { const errorData = await response.json(); errorMsg += ` - Dettaglio: ${errorData.message || JSON.stringify(errorData)}`; } catch (jsonError) { const textError = await response.text(); errorMsg += ` - Risposta non JSON: ${textError}`; } throw new Error(errorMsg); } const data = await response.json(); if (data.result === 'success') { window.location.href = (partecipazioneValue === 'Sì, ci sarò') ? 'grazie.html' : 'dispiaciuti.html'; return; } else { throw new Error(`Errore dallo script: ${data.message || 'Dettaglio non fornito'}`); } } catch (error) { console.error('Errore invio modulo RSVP:', error); if (loadingOverlay) { loadingOverlay.style.display = 'none'; loadingOverlay.setAttribute('aria-hidden', 'true'); } if (submitButton) submitButton.disabled = false; alert('Si è verificato un errore durante l\'invio.\nRiprovare o contattare gli sposi.\nDettagli: ' + error.message); } });
+            const initialPartecipazione = document.querySelector('input[name="entry.682165499"]:checked'); handlePartecipazioneChange(initialPartecipazione?.value === 'Sì, ci sarò');
         }); // Fine DOMContentLoaded
 
     </script>
