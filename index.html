@@ -184,7 +184,7 @@
 
         /* Sections */
         section {
-            padding: 80px 0;
+            padding: 80px 0; /* Padding standard */
             position: relative;
             width: 100%;
         }
@@ -866,21 +866,21 @@
                 margin: 0;
                 background-attachment: scroll;
             }
-            
+
             .hero-content {
                 padding-top: 100px;
             }
-            
+
             .logo-container {
                 width: 150px;
                 height: 150px;
             }
-            
+
             .logo {
                 width: 100px;
                 height: 100px;
             }
-            
+
             body, html {
                 overflow-x: hidden;
                 width: 100vw;
@@ -900,7 +900,7 @@
                 padding-right: 20px;
             }
         }
-        
+
         /* Stile per la Modal */
         .modal {
             display: none;
@@ -933,522 +933,433 @@
             z-index: 1101;
         }
 
-.modal-nav {
-    position: fixed;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--light-color);
-    font-size: 40px;
-    cursor: pointer;
-    z-index: 1101;
-    padding: 20px;
-    transition: color 0.3s;
-}
-
-.modal-nav:hover {
-    color: var(--accent-color);
-}
-
-.modal-prev {
-    left: 20px;
-}
-
-.modal-next {
-    right: 20px;
-}
-
-@media (max-width: 768px) {
-    .modal-nav {
-        font-size: 30px;
-        padding: 15px;
-    }
-    
-    .modal-prev {
-        left: 10px;
-    }
-    
-    .modal-next {
-        right: 10px;
-    }
-}
-
-/* Stili per la sezione Condividi Foto */
-.share-photos {
-    background-color: var(--secondary-color);
-    padding: 80px 0;
-}
-
-.share-container {
-    max-width: 900px;
-    margin: 0 auto;
-    background-color: var(--light-color);
-    border-radius: 10px;
-    padding: 40px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.share-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 50px;
-    gap: 40px;
-}
-
-.app-info {
-    flex: 1;
-    text-align: left;
-}
-
-.app-info h3 {
-    color: var(--text-color);
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-}
-
-.features-list {
-    list-style: none;
-    margin-top: 20px;
-}
-
-.features-list li {
-    margin-bottom: 10px;
-    color: var(--text-color);
-}
-
-.features-list li i {
-    color: var(--accent-color);
-    margin-right: 10px;
-}
-
-.qr-container {
-    text-align: center;
-    padding: 20px;
-}
-
-.qr-container img {
-    max-width: 200px;
-    margin-bottom: 15px;
-}
-
-.qr-container p {
-    color: var(--text-color);
-    font-style: italic;
-}
-
-.share-instructions {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    margin-top: 30px;
-}
-
-.instruction-step {
-    flex: 1;
-    text-align: center;
-    padding: 20px;
-    position: relative;
-}
-
-.step-number {
-    width: 40px;
-    height: 40px;
-    background-color: var(--accent-color);
-    color: var(--light-color);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 15px;
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
-.instruction-step h4 {
-    color: var(--text-color);
-    margin-bottom: 10px;
-    font-size: 1.2rem;
-}
-
-@media (max-width: 768px) {
-    .share-info {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .share-instructions {
-        flex-direction: column;
-    }
-
-    .instruction-step {
-        margin-bottom: 20px;
-    }
-
-    .share-container {
-        padding: 20px;
-        margin: 0 15px;
-    }
-
-    .features-list {
-        text-align: left;
-        padding-left: 20px;
-    }
-}
-
-/* Stili aggiuntivi per la sezione Google Photos */
-.additional-info {
-    margin-top: 40px;
-    padding-top: 30px;
-    border-top: 1px solid var(--secondary-color);
-}
-
-.additional-info h4 {
-    color: var(--text-color);
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 1.4rem;
-}
-
-.usage-options {
-    display: flex;
-    justify-content: space-around;
-    gap: 30px;
-}
-
-.option {
-    flex: 1;
-    padding: 20px;
-    background-color: var(--secondary-color);
-    border-radius: 8px;
-}
-
-.option h5 {
-    color: var(--text-color);
-    margin-bottom: 15px;
-    font-size: 1.1rem;
-}
-
-.option h5 i {
-    margin-right: 10px;
-}
-
-.option ol {
-    color: var(--text-color);
-    padding-left: 20px;
-}
-
-.option ol li {
-    margin-bottom: 8px;
-}
-
-@media (max-width: 768px) {
-    .usage-options {
-        flex-direction: column;
-    }
-    
-    .option {
-        margin-bottom: 15px;
-    }
-}
-
-.album-link {
-    color: var(--text-color);
-    text-decoration: underline;
-    font-weight: 500;
-    transition: color 0.3s;
-}
-
-.album-link:hover {
-    color: var(--accent-color);
-}
-
-/* Stili aggiornati per la sezione Alloggi */
-.accommodation-intro {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 40px;
-}
-
-.accommodation-intro p {
-    font-size: 1.1rem;
-    color: var(--text-color);
-}
-
-.booking-options {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin: 40px 0;
-}
-
-.booking-card {
-    background-color: var(--light-color);
-    padding: 30px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
-}
-
-.booking-card:hover {
-    transform: translateY(-5px);
-}
-
-.booking-card i {
-    font-size: 2.5rem;
-    color: var(--text-color);
-    margin-bottom: 20px;
-}
-
-.booking-card h4 {
-    color: var(--text-color);
-    margin-bottom: 15px;
-    font-size: 1.3rem;
-}
-
-.booking-card p {
-    margin-bottom: 20px;
-    color: var(--text-color);
-}
-
-.booking-card .btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: var(--text-color);
-    color: var(--light-color);
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.booking-card .btn:hover {
-    background-color: #565360;
-}
-
-.accommodation-tips {
-    background-color: var(--light-color);
-    padding: 30px;
-    border-radius: 10px;
-    margin-top: 40px;
-    text-align: center;
-}
-
-.accommodation-tips h4 {
-    color: var(--text-color);
-    margin-bottom: 20px;
-    font-size: 1.2rem;
-}
-
-.accommodation-tips ul {
-    list-style: none;
-    max-width: 800px;
-    margin: 0 auto;
-    display: inline-block;
-    text-align: left;
-}
-
-.accommodation-tips li {
-    color: var(--text-color);
-    margin-bottom: 15px;
-    font-size: 1.1rem;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.accommodation-tips li::before {
-    content: "•";
-    color: var(--accent-color);
-    margin-right: 10px;
-}
-
-@media (max-width: 768px) {
-    .booking-options {
-        grid-template-columns: 1fr;
-    }
-    
-    .accommodation-tips {
-        margin: 20px 15px;
-    }
-}
-
-/* Aggiungi questi stili CSS */
-#alloggi {
-    border-bottom: 2px solid var(--primary-color);
-    margin-bottom: 60px;
-    padding-bottom: 60px;
-}
-
-.section-divider {
-    height: 50px;
-    background-color: var(--secondary-color);
-    margin: 0;
-    position: relative;
-    overflow: hidden;
-}
-
-.section-divider::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 20px;
-    background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
-}
-
-.directions-container {
-    display: flex;
-    gap: 30px;
-    margin-top: 20px;
-}
-
-.direction-box {
-    flex: 1;
-    padding: 20px;
-    background-color: var(--secondary-color);
-    border-radius: 8px;
-}
-
-.direction-box.left {
-    text-align: left;
-}
-
-.direction-box.right {
-    text-align: right;
-}
-
-.direction-box h4 {
-    color: var(--text-color);
-    margin-bottom: 15px;
-    font-size: 1.2rem;
-    text-align: center;
-}
-
-.direction-box p {
-    margin-bottom: 10px;
-    line-height: 1.5;
-}
-
-.direction-box.left p {
-    text-align: left;
-}
-
-.direction-box.right p {
-    text-align: right;
-}
-
-@media (max-width: 768px) {
-    .directions-container {
-        flex-direction: column;
-        gap: 20px;
-    }
-    
-    .direction-box h4 {
-        text-align: center;
-    }
-    
-    .direction-box.left p,
-    .direction-box.right p {
-        text-align: left;
-    }
-}
-
-.option li i.fa-cloud-upload-alt {
-    color: transparent;
-    -webkit-text-stroke: 1px var(--text-color);
-}
-
-.upload-icon {
-    color: var(--text-color);
-    margin: 0 3px;
-}
-
-/* Aggiungi questi stili CSS */
-.loader-spinner {
-    border: 4px solid var(--secondary-color);
-    border-top: 4px solid var(--accent-color);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    animation: spin 1s linear infinite;
-    margin: 20px auto;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-#form-loader {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.response-message {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.response-content {
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    text-align: center;
-}
-
-.loader-spinner {
-    border: 4px solid var(--secondary-color);
-    border-top: 4px solid var(--accent-color);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    animation: spin 1s linear infinite;
-    margin: 0 auto 20px;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-#loading-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.9);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.spinner {
-    width: 50px;
-    height: 50px;
-    border: 5px solid #f3f3f3;
-    border-top: 5px solid #3498db;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    margin-bottom: 20px;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+        .modal-nav {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--light-color);
+            font-size: 40px;
+            cursor: pointer;
+            z-index: 1101;
+            padding: 20px;
+            transition: color 0.3s;
         }
+
+        .modal-nav:hover {
+            color: var(--accent-color);
+        }
+
+        .modal-prev {
+            left: 20px;
+        }
+
+        .modal-next {
+            right: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .modal-nav {
+                font-size: 30px;
+                padding: 15px;
+            }
+
+            .modal-prev {
+                left: 10px;
+            }
+
+            .modal-next {
+                right: 10px;
+            }
+        }
+
+        /* Stili per la sezione Condividi Foto */
+        .share-photos {
+            background-color: var(--secondary-color);
+            padding: 80px 0;
+        }
+
+        .share-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: var(--light-color);
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .share-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 50px;
+            gap: 40px;
+        }
+
+        .app-info {
+            flex: 1;
+            text-align: left;
+        }
+
+        .app-info h3 {
+            color: var(--text-color);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .features-list li {
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        .features-list li i {
+            color: var(--accent-color);
+            margin-right: 10px;
+        }
+
+        .qr-container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .qr-container img {
+            max-width: 200px;
+            margin-bottom: 15px;
+        }
+
+        .qr-container p {
+            color: var(--text-color);
+            font-style: italic;
+        }
+
+        .share-instructions {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .instruction-step {
+            flex: 1;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent-color);
+            color: var(--light-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .instruction-step h4 {
+            color: var(--text-color);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .share-info {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .share-instructions {
+                flex-direction: column;
+            }
+
+            .instruction-step {
+                margin-bottom: 20px;
+            }
+
+            .share-container {
+                padding: 20px;
+                margin: 0 15px;
+            }
+
+            .features-list {
+                text-align: left;
+                padding-left: 20px;
+            }
+        }
+
+        /* Stili aggiuntivi per la sezione Google Photos */
+        .additional-info {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid var(--secondary-color);
+        }
+
+        .additional-info h4 {
+            color: var(--text-color);
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+
+        .usage-options {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+        }
+
+        .option {
+            flex: 1;
+            padding: 20px;
+            background-color: var(--secondary-color);
+            border-radius: 8px;
+        }
+
+        .option h5 {
+            color: var(--text-color);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .option h5 i {
+            margin-right: 10px;
+        }
+
+        .option ol {
+            color: var(--text-color);
+            padding-left: 20px;
+        }
+
+        .option ol li {
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .usage-options {
+                flex-direction: column;
+            }
+
+            .option {
+                margin-bottom: 15px;
+            }
+        }
+
+        .album-link {
+            color: var(--text-color);
+            text-decoration: underline;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .album-link:hover {
+            color: var(--accent-color);
+        }
+
+        /* Stili aggiornati per la sezione Alloggi */
+        .accommodation-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        .accommodation-intro p {
+            font-size: 1.1rem;
+            color: var(--text-color);
+        }
+
+        .booking-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .booking-card {
+            background-color: var(--light-color);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .booking-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .booking-card i {
+            font-size: 2.5rem;
+            color: var(--text-color);
+            margin-bottom: 20px;
+        }
+
+        .booking-card h4 {
+            color: var(--text-color);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .booking-card p {
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+
+        .booking-card .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--text-color);
+            color: var(--light-color);
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .booking-card .btn:hover {
+            background-color: #565360;
+        }
+
+        .accommodation-tips {
+            background-color: var(--light-color);
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .accommodation-tips h4 {
+            color: var(--text-color);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .accommodation-tips ul {
+            list-style: none;
+            max-width: 800px;
+            margin: 0 auto;
+            display: inline-block;
+            text-align: left;
+        }
+
+        .accommodation-tips li {
+            color: var(--text-color);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Centra il testo se la lista non è a tutta larghezza */
+        }
+
+        .accommodation-tips li::before {
+            content: "•";
+            color: var(--accent-color);
+            margin-right: 10px;
+            flex-shrink: 0; /* Impedisce al bullet di restringersi */
+        }
+
+        @media (max-width: 768px) {
+            .booking-options {
+                grid-template-columns: 1fr;
+            }
+
+            .accommodation-tips {
+                margin: 20px 15px 0; /* Rimuovi margine inferiore qui se lo gestisce il divisore */
+            }
+            /* Modifica margine divisore su mobile se serve */
+             .ring-divider {
+                 margin: 40px 0 30px 0 !important; /* Esempio: riduci margini per mobile */
+             }
+        }
+
+        /* --- Stili CORRETTI per la sezione Alloggi e il Divisore ad Anelli --- */
+        #alloggi {
+            /* Rimosso: border-bottom: 2px solid var(--primary-color); */
+            /* Rimosso: padding-bottom: 14px; */
+            margin-bottom: 0; /* Lascia 0 per far attaccare le sezioni o regola a piacere */
+            padding-bottom: 0; /* Il padding sotto è gestito dal margine del divisore */
+        }
+
+        /* NUOVE REGOLE PER IL DIVISORE AD ANELLI */
+        .ring-divider {
+            position: relative; /* Per posizionare ::before e ::after */
+            height: 30px; /* Altezza dell'SVG */
+            /* text-align: center; è già nello stile inline */
+            /* margin: 60px 0 40px 0; è già nello stile inline */
+        }
+
+        .ring-divider::before,
+        .ring-divider::after {
+            content: '';
+            position: absolute;
+            top: 50%; /* Centro verticale */
+            transform: translateY(-50%); /* Allineamento verticale preciso */
+            height: 2px; /* Spessore della linea */
+            background-color: var(--primary-color); /* Colore rosa */
+            width: calc(50% - 50px); /* Larghezza linea: metà contenitore - (metà anelli + gap) */
+        }
+
+        .ring-divider::before {
+            left: 0; /* Linea sinistra */
+        }
+
+        .ring-divider::after {
+            right: 0; /* Linea destra */
+        }
+
+        /* Aggiustamenti Responsive per il divisore */
+        @media (max-width: 768px) {
+            .ring-divider::before,
+            .ring-divider::after {
+                width: calc(50% - 60px); /* Esempio più corto per mobile */
+            }
+             /* Esempio per sovrascrivere il margine inline solo su mobile */
+             .ring-divider {
+                  margin: 40px 0 30px 0 !important;
+             }
+        }
+        /* --- Fine Stili Divisore --- */
+
+        /* Riduci spazio sopra le FAQ */
+        #faq {
+            padding-top: 40px; /* Riduci da 80px (default section) a 40px. Aggiusta se necessario */
+        }
+
+
+        /* Altri stili (Indicazioni, Upload icon, Loader, etc.) - Lasciati invariati dalla tua versione */
+        .directions-container {
+            display: flex;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .direction-box { flex: 1; padding: 20px; background-color: var(--secondary-color); border-radius: 8px; }
+        .direction-box.left { text-align: left; }
+        .direction-box.right { text-align: right; }
+        .direction-box h4 { color: var(--text-color); margin-bottom: 15px; font-size: 1.2rem; text-align: center; }
+        .direction-box p { margin-bottom: 10px; line-height: 1.5; }
+        .direction-box.left p { text-align: left; }
+        .direction-box.right p { text-align: right; }
+        @media (max-width: 768px) {
+            .directions-container { flex-direction: column; gap: 20px; }
+            .direction-box h4 { text-align: center; }
+            .direction-box.left p, .direction-box.right p { text-align: left; }
+        }
+        .option li i.fa-cloud-upload-alt { color: transparent; -webkit-text-stroke: 1px var(--text-color); }
+        .upload-icon { color: var(--text-color); margin: 0 3px; }
+        .loader-spinner { border: 4px solid var(--secondary-color); border-top: 4px solid var(--accent-color); border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 20px auto; }
+        #form-loader { text-align: center; margin-top: 20px; }
+        .response-message { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.7); display: flex; justify-content: center; align-items: center; z-index: 1000; }
+        .response-content { background: white; padding: 30px; border-radius: 10px; text-align: center; }
+        #loading-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.9); display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 1000; }
+        .spinner { width: 50px; height: 50px; border: 5px solid #f3f3f3; border-top: 5px solid var(--accent-color); /* Usato accent color */ border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 20px; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap"
         rel="stylesheet">
@@ -1512,9 +1423,9 @@
         <div class="container">
             <h2 class="section-title">La Nostra Storia</h2>
             <div class="storia-content">
-                <p>Ci siamo conosciuti sul posto di lavoro, in uno studio di progettazione di locali commerciali. 
-                    Il nostro rapporto è sbocciato quando Federica ha iniziato a lavorare come docente nella scuola, 
-                    nonostante la distanza con Milano. Il giorno del compleanno di Federica, Felice ha organizzato una festa a 
+                <p>Ci siamo conosciuti sul posto di lavoro, in uno studio di progettazione di locali commerciali.
+                    Il nostro rapporto è sbocciato quando Federica ha iniziato a lavorare come docente nella scuola,
+                    nonostante la distanza con Milano. Il giorno del compleanno di Federica, Felice ha organizzato una festa a
                     sorpresa con amici e parenti, coronando la serata con la proposta di matrimonio.</p>
 
                 <div class="storia-personale">
@@ -1667,10 +1578,10 @@
                             <ol>
                                 <li>Inquadra il QR code o usa il link</li>
                                 <li>Accedi con il tuo account Google</li>
-                                <li>Seleziona le foto da caricare cliccando su 
-                                    <img src="https://github.com/iFelice/wedding-website/blob/main/images/upload?raw=true" 
-                                         alt="upload icon" 
-                                         style="width: 20px; height: 20px; display: inline-block; vertical-align: middle;">
+                                <li>Seleziona le foto da caricare cliccando su
+                                    <img src="https://github.com/iFelice/wedding-website/blob/main/images/logo-foto-upload.png?raw=true"
+                                    alt="Icona Carica Foto"
+                                    style="height: 20px; width: auto; display: inline-block; vertical-align: middle;">
                                 </li>
                             </ol>
                         </div>
@@ -1679,7 +1590,7 @@
                             <ol>
                                 <li>Usa Google Chrome per aprire il link dell'album</li>
                                 <li>Accedi con il tuo account Google</li>
-                                <li>Carica le foto dal tuo computer</li>
+                                <li>Trascina le foto nella finestra o clicca su "Aggiungi foto"</li>
                             </ol>
                         </div>
                     </div>
@@ -1714,7 +1625,7 @@
                     <p>Via Roma, 10, 82030 Faicchio (BN)</p>
                     <div class="map">
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d23659.203242299856!2d14.484831187098132!3d41.282187711649186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sit!2sit!4v1742399674378!5m2!1sit!2sit"
+                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12082.016493409546!2d14.472874440517166!3d41.28172056820365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133a4f51143b7d15%3A0xdd797ed8c93755e9!2sCastello%20di%20Faicchio!5e0!3m2!1sit!2sit!4v1721488830862!5m2!1sit!2sit"
                             width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
@@ -1743,7 +1654,7 @@
         <div class="container">
             <h2 class="section-title">RSVP</h2>
             <p class="section-subtitle" style="color: var(--text-color);">Conferma la tua presenza entro il 21 Giugno 2025</p>
-            
+
             <form id="rsvpForm" class="rsvp-form">
                 <div id="loading-overlay" style="display: none;">
                     <div class="spinner"></div>
@@ -1758,7 +1669,7 @@
                 <div class="form-group">
                     <label for="email">Email *</label>
                     <input type="email" id="email" name="entry.1994603631" required>
-            </div>
+                </div>
 
                 <div class="form-group">
                     <label>Partecipazione *</label>
@@ -1770,9 +1681,9 @@
                     </div>
                 </div>
 
-                <div class="form-group" id="numero-ospiti-group">
+                <div class="form-group" id="numero-ospiti-group" style="display: none; opacity: 0;">
                     <label for="numero-ospiti">Numero totale di persone (incluso te) *</label>
-                    <select id="numero-ospiti" name="entry.349902564" required>
+                    <select id="numero-ospiti" name="entry.349902564">
                         <option value="">Seleziona il numero di persone</option>
                         <option value="1 persona">1 persona (solo io)</option>
                         <option value="2 persone">2 persone (coppia)</option>
@@ -1783,31 +1694,35 @@
                     </select>
                 </div>
 
-                <div class="form-group" id="nomi-ospiti-group">
+                <div class="form-group" id="nomi-ospiti-group" style="display: none; opacity: 0;">
                     <label for="nomi-ospiti">Nomi dei componenti della famiglia/gruppo *</label>
                     <small class="form-text">Inserisci i nomi di tutti i partecipanti, escluso il tuo</small>
-                    <textarea id="nomi-ospiti" name="entry.155324483" rows="3" placeholder="Es: Mario Rossi (papà), Maria Rossi (mamma), Marco Rossi (figlio 8 anni), Anna Rossi (figlia 5 anni)" required></textarea>
+                    <textarea id="nomi-ospiti" name="entry.155324483" rows="3" placeholder="Es: Mario Rossi (papà), Maria Rossi (mamma), Marco Rossi (figlio 8 anni), Anna Rossi (figlia 5 anni)"></textarea>
                 </div>
 
-                <div class="form-group" id="preferenze-menu-group">
+                <div class="form-group" id="preferenze-menu-group" style="display: none; opacity: 0;">
                     <label for="preferenze-menu">Preferenze Menu *</label>
-                    <select id="preferenze-menu" name="entry.1172181114" required>
+                     <small class="form-text">Indica se qualcuno nel gruppo ha preferenze diverse dal menu standard (es. vegetariano, vegano, etc.). Se tutti seguono il menu standard, seleziona "Menu Standard".</small>
+                    <select id="preferenze-menu" name="entry.1172181114">
                         <option value="">Seleziona una preferenza</option>
                         <option value="Menu Standard">Menu Standard</option>
                         <option value="Menu Vegetariano">Menu Vegetariano</option>
                         <option value="Menu Vegano">Menu Vegano</option>
                         <option value="Menu Senza Glutine">Menu Senza Glutine</option>
                         <option value="Menu Pescetariano">Menu Pescetariano</option>
+                         <option value="Altro (specificare nelle note)">Altro (specificare nelle note)</option>
                     </select>
                 </div>
 
-                <div class="form-group" id="intolleranze-group">
+                <div class="form-group" id="intolleranze-group" style="display: none; opacity: 0;">
                     <label for="intolleranze">Intolleranze o allergie alimentari</label>
+                     <small class="form-text">Specifica qui eventuali allergie o intolleranze per ciascun partecipante (es. Mario Rossi: allergia alle noci; Anna Verdi: intolleranza al lattosio).</small>
                     <textarea id="intolleranze" name="entry.304213983" rows="3"></textarea>
                 </div>
 
                 <div class="form-group">
                     <label for="note">Note aggiuntive</label>
+                     <small class="form-text">Usa questo spazio per specificare chi segue menu alternativi, per segnalare la presenza di bambini piccoli (e la loro età), per indicare interesse alla navetta, o per qualsiasi altra comunicazione.</small>
                     <textarea id="note" name="entry.123813858" rows="3"></textarea>
                 </div>
 
@@ -1823,12 +1738,12 @@
 
             <div class="gift-intro">
                 <p>La vostra presenza al nostro matrimonio è il regalo più prezioso. Per chi desidera contribuire alla realizzazione dei nostri sogni, abbiamo pensato ad una lista nozze dedicata al nostro viaggio di nozze in Giappone.</p>
-                    </div>
+            </div>
 
             <div class="gift-option">
                 <div class="gift-option-img">
                     <img src="https://turexviaggiinediti.com/wp-content/uploads/2017/02/japan-ok.jpg" alt="Viaggio di nozze">
-                    </div>
+                </div>
                 <div class="gift-option-info">
                     <h3>Il Nostro Viaggio in Giappone</h3>
                     <p>Aiutateci a realizzare il nostro sogno di esplorare il Giappone, dalla moderna Tokyo ai templi di Kyoto, dalle spiagge di Okinawa ai giardini zen di Kanazawa.</p>
@@ -1838,10 +1753,11 @@
                             <p><strong>IBAN:</strong> IT00 X000 0000 0000 0000 0000 000</p>
                             <p><strong>Intestato a:</strong> Felice & Federica</p>
                             <p><strong>Causale:</strong> Regalo di nozze [Vostro Nome]</p>
-                </div>
+                        </div>
+                         <p style="margin-top: 20px; font-size: 0.9em;"><em>In alternativa, sarà disponibile un'urna per le buste durante il ricevimento.</em></p>
                     </div>
-                    </div>
                 </div>
+            </div>
         </div>
     </section>
 
@@ -1852,7 +1768,7 @@
 
             <div class="accommodation-intro">
                 <p>Per aiutarvi nella ricerca di un alloggio per la notte del matrimonio (12 luglio 2025), abbiamo selezionato le migliori piattaforme di prenotazione della zona. Potrete verificare in tempo reale disponibilità e prezzi.</p>
-                    </div>
+            </div>
 
             <div class="booking-options">
                 <div class="booking-card">
@@ -1860,7 +1776,7 @@
                     <h4>Booking.com</h4>
                     <p>Trova hotel e B&B a Faicchio e dintorni</p>
                     <a href="https://www.booking.com/searchresults.it.html?ss=Faicchio&checkin=2025-07-12&checkout=2025-07-13&group_adults=2&no_rooms=1" class="btn" target="_blank">Cerca su Booking</a>
-                    </div>
+                </div>
 
                 <div class="booking-card">
                     <i class="fab fa-airbnb"></i>
@@ -1886,10 +1802,19 @@
                     <li>Per qualsiasi necessità non esitate a contattarci</li>
                 </ul>
             </div>
-        </div>
-    </section>
 
-    <div class="section-divider"></div>
+            <!-- Divisore ad anelli - HTML CORRETTO -->
+            <div class="ring-divider" style="text-align: center; margin: 60px 0 40px 0;"> <!-- Margine sopra e sotto -->
+                <svg width="80" height="30" viewBox="0 0 80 30">
+                    <circle cx="35" cy="15" r="6" stroke="var(--primary-color)" fill="none" stroke-width="1.5"/> <!-- Colore rosa -->
+                    <circle cx="45" cy="15" r="6" stroke="var(--primary-color)" fill="none" stroke-width="1.5"/> <!-- Colore rosa -->
+                </svg>
+            </div>
+            <!-- Fine Divisore -->
+
+        </div> <!-- Chiusura .container -->
+    </section> <!-- Chiusura #alloggi -->
+
     <section id="faq">
         <div class="container">
             <h2 class="section-title">Domande Frequenti</h2>
@@ -1935,7 +1860,7 @@
         <div class="container">
             <h2 class="section-title">Contatti</h2>
             <p class="section-subtitle">Per qualsiasi informazione non esitare a contattarci</p>
-            <div class="info-card">
+            <div class="info-card" style="max-width: 600px; margin: 0 auto;">
                 <p>Email: federicaefelice@gmail.com</p>
                 <p>Telefono: 123-456-7890</p>
 
@@ -1954,174 +1879,144 @@
 
     <footer>
         <div class="container">
-            <p>© 2025 - aiFelice</p>
+             <p>© 2025 - aiFelice</p> <!-- Ripristinato testo originale -->
             <p>Non vediamo l'ora di festeggiare con voi!</p>
         </div>
     </footer>
 
     <div id="galleryModal" class="modal">
-    <span class="modal-close">&times;</span>
-    <span class="modal-nav modal-prev"><i class="fas fa-chevron-left"></i></span>
-    <img class="modal-content" id="modalImg">
-    <span class="modal-nav modal-next"><i class="fas fa-chevron-right"></i></span>
-</div>
-    
+        <span class="modal-close">×</span>
+        <span class="modal-nav modal-prev"><i class="fas fa-chevron-left"></i></span>
+        <img class="modal-content" id="modalImg">
+        <span class="modal-nav modal-next"><i class="fas fa-chevron-right"></i></span>
+    </div>
+
     <div id="form-loader" style="display: none;">
         <div class="loader-spinner"></div>
         <p>Invio in corso...</p>
     </div>
-    
+
     <div id="loading-overlay" style="display: none;">
         <div class="spinner"></div>
         <p>Invio in corso...</p>
     </div>
 
     <script>
-        // Mobile Menu Toggle and Auto-Close
+        // --- Funzioni Utilità ---
+        function setAttributes(el, attrs) {
+          for(var key in attrs) {
+            el.setAttribute(key, attrs[key]);
+          }
+        }
+
+        // --- Mobile Menu Toggle and Auto-Close ---
         const menuToggle = document.querySelector('.menu-toggle');
         const nav = document.querySelector('nav');
         const navLinks = document.querySelectorAll('nav ul li a');
 
-        menuToggle.addEventListener('click', () => {
-            nav.classList.toggle('active');
-        });
+        if (menuToggle && nav) {
+            menuToggle.addEventListener('click', () => {
+                const isActive = nav.classList.toggle('active');
+                setAttributes(menuToggle, {'aria-expanded': isActive, 'aria-label': isActive ? 'Chiudi menu' : 'Apri menu'});
+            });
+        }
 
         function closeMenu() {
-            nav.classList.remove('active');
+            if (nav && nav.classList.contains('active')) {
+                nav.classList.remove('active');
+                 setAttributes(menuToggle, {'aria-expanded': 'false', 'aria-label': 'Apri menu'});
+            }
         }
 
         navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                closeMenu();
-                // Smooth scroll for mobile menu links as well
+            link.addEventListener('click', (e) => {
                 const targetId = link.getAttribute('href');
                 if (targetId && targetId.startsWith('#')) {
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
-                         // Adjust offset for fixed header
+                        e.preventDefault();
+                        closeMenu();
+
                          const headerOffset = document.getElementById('header')?.offsetHeight || 70;
-                         const elementPosition = targetElement.offsetTop;
+                         const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
                          const offsetPosition = elementPosition - headerOffset;
 
                          window.scrollTo({
                              top: offsetPosition,
                              behavior: 'smooth'
                          });
+                    } else {
+                         closeMenu();
                     }
+                } else {
+                     closeMenu();
                 }
             });
         });
 
+        document.addEventListener('click', (event) => {
+          const isClickInsideNav = nav?.contains(event.target);
+          const isClickOnToggle = menuToggle?.contains(event.target);
+          if (!isClickInsideNav && !isClickOnToggle && nav?.classList.contains('active')) {
+            closeMenu();
+          }
+        });
 
-        // Countdown timer
+        // --- Countdown timer ---
+        // Il codice del countdown è stato ripristinato alla versione del file che mi hai fornito
+        // Assicurati che gli ID 'days', 'hours', 'minutes', 'seconds' esistano nel tuo HTML
         const weddingDate = new Date('July 12, 2025 15:30:00').getTime(); // Orario cerimonia
 
         function updateCountdown() {
             const now = new Date().getTime();
             const distance = weddingDate - now;
 
+            const daysEl = document.getElementById('days');
+            const hoursEl = document.getElementById('hours');
+            const minutesEl = document.getElementById('minutes');
+            const secondsEl = document.getElementById('seconds');
+
+            if (distance < 0) {
+                clearInterval(countdownTimer);
+                if (daysEl) daysEl.innerText = '000';
+                if (hoursEl) hoursEl.innerText = '00';
+                if (minutesEl) minutesEl.innerText = '00';
+                if (secondsEl) secondsEl.innerText = '00';
+                return;
+            }
+
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            document.getElementById('days').innerText = days.toString().padStart(3, '0');
-            document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
-
-            if (distance < 0) {
-                clearInterval(countdownTimer);
-                document.getElementById('days').innerText = '000';
-                document.getElementById('hours').innerText = '00';
-                document.getElementById('minutes').innerText = '00';
-                document.getElementById('seconds').innerText = '00';
-                // Optionally display a "Wedding Day!" message
-            }
+            if (daysEl) daysEl.innerText = days.toString().padStart(3, '0');
+            if (hoursEl) hoursEl.innerText = hours.toString().padStart(2, '0');
+            if (minutesEl) minutesEl.innerText = minutes.toString().padStart(2, '0');
+            if (secondsEl) secondsEl.innerText = seconds.toString().padStart(2, '0');
         }
 
-        // Update the countdown every second
         updateCountdown(); // Initial call
         const countdownTimer = setInterval(updateCountdown, 1000);
 
-        // Header scroll effect
+
+        // --- Header scroll effect & Back to top button ---
+        const header = document.getElementById('header');
+        const backToTopBtn = document.getElementById('backToTop');
+
         window.addEventListener('scroll', function () {
-            const header = document.getElementById('header');
-            if (header) { // Check if header exists
-                 if (window.scrollY > 50) {
-                     header.classList.add('scrolled');
-                 } else {
-                     header.classList.remove('scrolled');
-                 }
+            const scrollY = window.scrollY;
+            if (header) {
+                 header.classList.toggle('scrolled', scrollY > 50);
             }
-
-            // Back to top button
-            const backToTop = document.getElementById('backToTop');
-             if (backToTop) { // Check if button exists
-                 if (window.scrollY > 300) {
-                     backToTop.classList.add('show');
-                 } else {
-                     backToTop.classList.remove('show');
-                 }
-             }
+            if (backToTopBtn) {
+                 backToTopBtn.classList.toggle('show', scrollY > 300);
+                 backToTopBtn.setAttribute('aria-hidden', scrollY <= 300);
+            }
         });
 
-        // Smooth scrolling for anchor links (non-mobile menu)
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-             // Exclude mobile menu links handled separately if needed, though the logic above should cover them
-             if (!anchor.closest('nav ul')) {
-                  anchor.addEventListener('click', function (e) {
-                     e.preventDefault();
-                     const targetId = this.getAttribute('href');
-                     const targetElement = document.querySelector(targetId);
-                     if (targetElement) {
-                         // Adjust offset for fixed header
-                         const headerOffset = document.getElementById('header')?.offsetHeight || 70;
-                         const elementPosition = targetElement.offsetTop;
-                         const offsetPosition = elementPosition - headerOffset;
-
-                         window.scrollTo({
-                             top: offsetPosition,
-                             behavior: 'smooth'
-                         });
-                     }
-                 });
-             }
-        });
-
-        // FAQ accordion
-        const faqQuestions = document.querySelectorAll('.faq-question');
-        faqQuestions.forEach(question => {
-            question.addEventListener('click', () => {
-                const answer = question.nextElementSibling;
-                const isActive = question.classList.contains('active');
-
-                 // Optional: Close other open FAQs
-                 // faqQuestions.forEach(q => {
-                 //     if (q !== question && q.classList.contains('active')) {
-                 //         q.classList.remove('active');
-                 //         q.nextElementSibling.style.display = 'none'; // Or use max-height for animation
-                 //     }
-                 // });
-
-                question.classList.toggle('active');
-                if (answer) { // Check if answer element exists
-                     // Use max-height for smooth animation (requires CSS adjustments)
-                     // if (!isActive) {
-                     //     answer.style.maxHeight = answer.scrollHeight + "px";
-                     // } else {
-                     //     answer.style.maxHeight = null;
-                     // }
-                     // Simple show/hide:
-                     answer.classList.toggle('show'); // Assumes .show class sets display: block
-                }
-            });
-        });
-
-        // Back to top functionality
-        const backToTopButton = document.getElementById('backToTop');
-        if (backToTopButton) {
-             backToTopButton.addEventListener('click', function (e) {
+        if (backToTopBtn) {
+             backToTopBtn.addEventListener('click', function (e) {
                  e.preventDefault();
                  window.scrollTo({
                      top: 0,
@@ -2130,250 +2025,161 @@
              });
         }
 
-        // Gallery modal implementation
-        const modal = document.getElementById('galleryModal');
-        const modalImg = document.getElementById('modalImg');
-        const closeBtn = document.querySelector('.modal-close');
-        const prevBtn = document.querySelector('.modal-prev');
-        const nextBtn = document.querySelector('.modal-next');
-        const galleryItems = document.querySelectorAll('.gallery-item img'); // Select images directly
-        let currentImageIndex = 0;
+        // --- Smooth scrolling generico ---
+        document.querySelectorAll('a[href^="#"]:not(nav ul li a)').forEach(anchor => {
+             anchor.addEventListener('click', function (e) {
+                 const targetId = this.getAttribute('href');
+                 const targetElement = document.querySelector(targetId);
+                 if (targetElement) {
+                     e.preventDefault();
+                     const headerOffset = header?.offsetHeight || 70;
+                     const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                     const offsetPosition = elementPosition - headerOffset;
 
-        function updateModalImage() {
-            if (galleryItems.length > 0 && modalImg) {
-                modalImg.src = galleryItems[currentImageIndex].src;
-                modalImg.alt = galleryItems[currentImageIndex].alt; // Update alt text too
-            }
-        }
-
-        function openModal(index) {
-            if (modal && galleryItems.length > 0) {
-                modal.style.display = 'flex';
-                currentImageIndex = index;
-                updateModalImage();
-                // Optional: Disable body scroll when modal is open
-                // document.body.style.overflow = 'hidden';
-            }
-        }
-
-        function closeModal() {
-            if (modal) {
-                modal.style.display = 'none';
-                 // Optional: Re-enable body scroll
-                 // document.body.style.overflow = '';
-            }
-        }
-
-        function nextImage() {
-            currentImageIndex = (currentImageIndex + 1) % galleryItems.length;
-            updateModalImage();
-        }
-
-        function prevImage() {
-            currentImageIndex = (currentImageIndex - 1 + galleryItems.length) % galleryItems.length;
-            updateModalImage();
-        }
-
-        // Add click listeners to gallery items (the div containers)
-        document.querySelectorAll('.gallery-item').forEach((item, index) => {
-             item.addEventListener('click', () => openModal(index));
+                     window.scrollTo({
+                         top: offsetPosition,
+                         behavior: 'smooth'
+                     });
+                 }
+             });
         });
 
-        // Add listeners for modal controls if they exist
+
+        // --- FAQ accordion ---
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach((question, index) => {
+            const answer = question.nextElementSibling;
+            if (answer && answer.classList.contains('faq-answer')) {
+                 const questionId = `faq-question-${index}`;
+                 const answerId = `faq-answer-${index}`;
+                setAttributes(question, { 'id': questionId, 'aria-expanded': 'false', 'aria-controls': answerId, 'role': 'button', 'tabindex': '0' });
+                setAttributes(answer, { 'id': answerId, 'role': 'region', 'aria-labelledby': questionId });
+
+                question.addEventListener('click', () => {
+                    const isActive = question.classList.toggle('active');
+                    answer.classList.toggle('show');
+                    question.setAttribute('aria-expanded', isActive);
+                });
+                question.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); question.click(); } });
+            }
+        });
+
+
+        // --- Gallery modal implementation ---
+        const modal = document.getElementById('galleryModal');
+        const modalImg = document.getElementById('modalImg');
+        const closeBtn = modal?.querySelector('.modal-close');
+        const prevBtn = modal?.querySelector('.modal-prev');
+        const nextBtn = modal?.querySelector('.modal-next');
+        const galleryItems = document.querySelectorAll('.gallery-item img');
+        let currentImageIndex = 0;
+        let modalIsOpen = false;
+
+        function updateModalImage() { if (galleryItems.length > 0 && modalImg) { modalImg.src = galleryItems[currentImageIndex].src; modalImg.alt = galleryItems[currentImageIndex].alt || `Immagine galleria ${currentImageIndex + 1}`; } }
+        function openModal(index) { if (!modal || galleryItems.length === 0) return; modalIsOpen = true; modal.style.display = 'flex'; currentImageIndex = index; updateModalImage(); document.body.style.overflow = 'hidden'; modal.setAttribute('aria-hidden', 'false'); closeBtn?.focus(); }
+        function closeModal() { if (!modal) return; modalIsOpen = false; modal.style.display = 'none'; document.body.style.overflow = ''; modal.setAttribute('aria-hidden', 'true'); }
+        function nextImage() { if (!modalIsOpen) return; currentImageIndex = (currentImageIndex + 1) % galleryItems.length; updateModalImage(); }
+        function prevImage() { if (!modalIsOpen) return; currentImageIndex = (currentImageIndex - 1 + galleryItems.length) % galleryItems.length; updateModalImage(); }
+
+        document.querySelectorAll('.gallery-item').forEach((item, index) => {
+             item.addEventListener('click', () => openModal(index));
+             setAttributes(item, {'role': 'button', 'tabindex': '0', 'aria-label': `Apri immagine ${index+1}`});
+             item.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(index); } });
+        });
+
         if (closeBtn) closeBtn.addEventListener('click', closeModal);
         if (prevBtn) prevBtn.addEventListener('click', prevImage);
         if (nextBtn) nextBtn.addEventListener('click', nextImage);
-
-        // Keyboard navigation for modal
-        document.addEventListener('keydown', (e) => {
-            if (modal && modal.style.display === 'flex') {
-                if (e.key === 'ArrowLeft') prevImage();
-                if (e.key === 'ArrowRight') nextImage();
-                if (e.key === 'Escape') closeModal();
-            }
-        });
-
-        // Close modal clicking outside the image (but not on nav buttons)
-        if (modal) {
-             modal.addEventListener('click', (e) => {
-                 if (e.target === modal) { // Clicked on the background overlay
-                     closeModal();
-                 }
-             });
-        }
-        // Prevent closing when clicking the image itself or nav buttons
-        // if (modalImg) modalImg.addEventListener('click', (e) => e.stopPropagation());
-        // if (prevBtn) prevBtn.addEventListener('click', (e) => e.stopPropagation()); // Already handled by specific listeners
-        // if (nextBtn) nextBtn.addEventListener('click', (e) => e.stopPropagation());
+        document.addEventListener('keydown', (e) => { if (modalIsOpen) { if (e.key === 'ArrowLeft') prevImage(); if (e.key === 'ArrowRight') nextImage(); if (e.key === 'Escape') closeModal(); } });
+        if (modal) { modal.addEventListener('click', (e) => { if (e.target === modal) { closeModal(); } }); }
 
 
-        // --- RSVP Form Logic ---
+        // --- RSVP Form Logic (Basato sulla tua versione precedente) ---
         document.addEventListener('DOMContentLoaded', function() {
-
-            // --- INCOLLA QUI L'URL DELLA TUA APP WEB ---
-            const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbyz9pePUO-T2SbDVxP-3Xvv8EfNoraIf6jUaniIw4dpXbmU3cjsDQq64dJemoPthu1M/exec'; // <-- URL INSERITO!
-
+            const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbyz9pePUO-T2SbDVxP-3Xvv8EfNoraIf6jUaniIw4dpXbmU3cjsDQq64dJemoPthu1M/exec';
             const form = document.getElementById('rsvpForm');
             const loadingOverlay = document.getElementById('loading-overlay');
+            const submitButton = form?.querySelector('button[type="submit"]');
+            const numeroOspitiGroup = document.getElementById('numero-ospiti-group');
+            const nomiOspitiGroup = document.getElementById('nomi-ospiti-group');
+            const preferenzeMenuGroup = document.getElementById('preferenze-menu-group');
+            const intolleranzeGroup = document.getElementById('intolleranze-group');
+            const numeroOspitiSelect = document.getElementById('numero-ospiti');
+            const nomiOspitiText = document.getElementById('nomi-ospiti');
+            const preferenzeMenuSelect = document.getElementById('preferenze-menu'); // Rinominato per chiarezza
+            const intolleranzeText = document.getElementById('intolleranze'); // Rinominato per chiarezza
+            const conditionalGroups = [numeroOspitiGroup, nomiOspitiGroup, preferenzeMenuGroup, intolleranzeGroup];
+            const conditionalInputs = [numeroOspitiSelect, nomiOspitiText, preferenzeMenuSelect, intolleranzeText];
+            const requiredIfParticipating = [numeroOspitiSelect, nomiOspitiText, preferenzeMenuSelect]; // Aggiornato nome var
 
-            // Controllo che il form e l'URL esistano
-            if (!form) {
-                console.error('Modulo RSVP non trovato! Verificare l\'ID "rsvpForm".');
+            if (!form) { console.error('Modulo RSVP non trovato!'); return; }
+            if (!WEB_APP_URL || WEB_APP_URL === 'IL_TUO_URL_COPIATO_QUI' || !WEB_APP_URL.startsWith('https://script.google.com/')) {
+                console.error('URL App Web non valido.');
+                alert('Errore configurazione modulo (URL). Contattare gli sposi.');
+                if (submitButton) { submitButton.disabled = true; submitButton.textContent = 'Errore Configurazione'; }
                 return;
             }
-            if (!WEB_APP_URL || WEB_APP_URL === 'IL_TUO_URL_COPIATO_QUI') { // Check generic placeholder too
-                console.error('URL dell\'App Web non impostato. Incolla l\'URL dello script distribuito.');
-                alert('Errore di configurazione del modulo. Si prega di contattare gli sposi.');
-                if (form.querySelector('button[type="submit"]')) {
-                     form.querySelector('button[type="submit"]').disabled = true; // Disable submit button
-                     form.querySelector('button[type="submit"]').textContent = 'Errore Configurazione';
+            if (!loadingOverlay) { console.warn('Elemento "loading-overlay" non trovato.'); }
+
+            const handlePartecipazioneChange = (showFields) => {
+                conditionalGroups.forEach(el => {
+                    if (el) {
+                        el.style.transition = 'opacity 0.3s ease, display 0.3s ease';
+                        if (showFields) {
+                            el.style.display = 'block';
+                            void el.offsetWidth;
+                            el.style.opacity = '1';
+                        } else {
+                            el.style.opacity = '0';
+                            setTimeout(() => { if (el.style.opacity === '0') { el.style.display = 'none'; } }, 300);
+                        }
+                    }
+                });
+                requiredIfParticipating.forEach(input => { if (input) input.required = showFields; });
+                if (!showFields) {
+                    conditionalInputs.forEach(input => {
+                        if (input) {
+                            if (input.tagName === 'SELECT') input.selectedIndex = 0; else input.value = '';
+                            input.removeAttribute('required');
+                        }
+                    });
                 }
-                return;
-            }
-             if (!loadingOverlay) {
-                 console.warn('Elemento di caricamento "loading-overlay" non trovato.');
-             }
-
-            // Funzione per mostrare/nascondere campi condizionali
-            const handlePartecipazioneChange = (mostraCampi) => {
-                const numeroOspitiGroup = document.getElementById('numero-ospiti-group');
-                const nomiOspitiGroup = document.getElementById('nomi-ospiti-group');
-                const preferenzeMenuGroup = document.getElementById('preferenze-menu-group');
-                const intolleranzeGroup = document.getElementById('intolleranze-group');
-                const numeroOspitiSelect = document.getElementById('numero-ospiti');
-                const nomiOspitiText = document.getElementById('nomi-ospiti');
-                const preferenzeMenu = document.getElementById('preferenze-menu');
-                const intolleranze = document.getElementById('intolleranze');
-
-                const fieldsToShow = [numeroOspitiGroup, nomiOspitiGroup, preferenzeMenuGroup, intolleranzeGroup];
-                const inputsToReset = [numeroOspitiSelect, nomiOspitiText, preferenzeMenu, intolleranze];
-                const conditionalRequiredFields = [preferenzeMenu]; // Add other required fields here if needed
-
-                fieldsToShow.forEach(el => {
-                     if (el) {
-                         if (mostraCampi) {
-                             el.style.display = 'block';
-                             // Force reflow before adding opacity for transition
-                             void el.offsetWidth;
-                             el.style.opacity = '1';
-                         } else {
-                             el.style.opacity = '0';
-                             // Hide after transition (adjust time to match CSS transition duration)
-                             setTimeout(() => {
-                                 if (el.style.opacity === '0') { // Check if still hidden before setting display none
-                                      el.style.display = 'none';
-                                 }
-                             }, 300); // Match your CSS transition duration if any
-                         }
-                     }
-                 });
-
-                 // Set required attribute and reset values
-                 conditionalRequiredFields.forEach(input => {
-                     if (input) input.required = mostraCampi;
-                 });
-
-                 if (!mostraCampi) {
-                     inputsToReset.forEach(input => {
-                         if (input) {
-                             if (input.tagName === 'SELECT') input.selectedIndex = 0;
-                             else input.value = '';
-                         }
-                     });
-                 }
             };
 
-            // Aggiungi gli event listener per i radio button di partecipazione
             document.querySelectorAll('input[name="entry.682165499"]').forEach(radio => {
-                radio.addEventListener('change', (e) => {
-                    handlePartecipazioneChange(e.target.value === 'Sì, ci sarò');
-                });
+                radio.addEventListener('change', (e) => handlePartecipazioneChange(e.target.value === 'Sì, ci sarò'));
             });
 
-            // --- Logica di Invio Modulo usando fetch ---
             form.addEventListener('submit', async (e) => {
-                e.preventDefault(); // Impedisce l'invio standard
-                console.log('Invio modulo avviato...');
-
-                // Mostra l'indicatore di caricamento se esiste
-                if (loadingOverlay) loadingOverlay.style.display = 'flex';
-
-                // Disabilita il bottone per prevenire invii multipli
-                const submitButton = form.querySelector('button[type="submit"]');
+                e.preventDefault();
+                if (loadingOverlay) { loadingOverlay.style.display = 'flex'; loadingOverlay.setAttribute('aria-hidden', 'false'); }
                 if (submitButton) submitButton.disabled = true;
-
-
                 try {
                     const formData = new FormData(form);
-                    const partecipazioneValue = formData.get('entry.682165499'); // Get participation value for redirection
-
-                    // Log per debug
-                    console.log('Invio dati a:', WEB_APP_URL);
-                    // for (let pair of formData.entries()) { console.log(pair[0] + ': ' + pair[1]); } // Uncomment for detailed data log
-
-                    const response = await fetch(WEB_APP_URL, {
-                        method: 'POST',
-                        body: formData,
-                    });
-
-                    // Controlla se la risposta HTTP è OK
+                    const partecipazioneValue = formData.get('entry.682165499');
+                    const response = await fetch(WEB_APP_URL, { method: 'POST', body: formData, mode: 'cors' });
                     if (!response.ok) {
-                        let errorMsg = `Errore HTTP! Status: ${response.status} ${response.statusText}`;
-                        try {
-                            const errorData = await response.json();
-                            errorMsg += ` - Messaggio dallo script: ${errorData.message || 'Nessun dettaglio'}`;
-                            console.error('Dettaglio errore dallo script:', errorData);
-                        } catch (jsonError) {
-                            console.error('Impossibile leggere JSON di errore dalla risposta:', jsonError);
-                            const textError = await response.text(); // Try reading as text
-                            console.error('Risposta testuale errore:', textError);
-                            errorMsg += ' - Impossibile leggere dettagli errore dallo script.';
-                        }
+                        let errorMsg = `Errore HTTP: ${response.status} ${response.statusText}`;
+                        try { const errorData = await response.json(); errorMsg += ` - Dettaglio: ${errorData.message || JSON.stringify(errorData)}`; }
+                        catch (jsonError) { const textError = await response.text(); errorMsg += ` - Risposta non JSON: ${textError}`; }
                         throw new Error(errorMsg);
                     }
-
-                    // Leggi la risposta JSON di successo
                     const data = await response.json();
-                    console.log('Risposta dallo Script Google Apps:', data);
-
-                    // Controlla il risultato nello script
                     if (data.result === 'success') {
-                        console.log('Invio completato con successo!');
-                        // Reindirizza alla pagina corretta
-                        // !!! Assicurati che 'grazie.html' e 'dispiaciuti.html' esistano nella stessa cartella !!!
-                        if (data.partecipazione === 'Sì, ci sarò') {
-                            window.location.href = 'grazie.html';
-                        } else {
-                            window.location.href = 'dispiaciuti.html';
-                        }
-                        // Non riabilitare il bottone o nascondere l'overlay qui, il reindirizzamento gestisce la pagina
-                        return; // Esce dalla funzione
-                    } else {
-                        // Lo script ha risposto OK ma ha indicato un errore interno
-                        throw new Error(`Errore riportato dallo Script Google Apps: ${data.message || 'Errore sconosciuto'}`);
-                    }
-
+                        window.location.href = (partecipazioneValue === 'Sì, ci sarò') ? 'grazie.html' : 'dispiaciuti.html';
+                        return;
+                    } else { throw new Error(`Errore dallo script: ${data.message || 'Dettaglio non fornito'}`); }
                 } catch (error) {
-                    // Cattura errori di rete o durante l'elaborazione
-                    console.error('Errore durante invio modulo:', error);
-                    // Nascondi l'overlay in caso di errore se esiste
-                    if (loadingOverlay) loadingOverlay.style.display = 'none';
-                     // Riabilita il bottone in caso di errore
-                     if (submitButton) submitButton.disabled = false;
-                    // Mostra un messaggio all'utente
-                    alert('Si è verificato un errore durante l\'invio della conferma. Si prega di riprovare o contattare gli sposi.\n\nDettagli tecnici: ' + error.message);
+                    console.error('Errore invio modulo RSVP:', error);
+                    if (loadingOverlay) { loadingOverlay.style.display = 'none'; loadingOverlay.setAttribute('aria-hidden', 'true'); }
+                    if (submitButton) submitButton.disabled = false;
+                    alert('Si è verificato un errore durante l\'invio.\nRiprovare o contattare gli sposi.\nDettagli: ' + error.message);
                 }
             });
 
-            // Inizializza i campi condizionali al caricamento della pagina
             const initialPartecipazione = document.querySelector('input[name="entry.682165499"]:checked');
-            if (initialPartecipazione) {
-                handlePartecipazioneChange(initialPartecipazione.value === 'Sì, ci sarò');
-            } else {
-                // Se nessun radio button è selezionato all'inizio, nascondi i campi
-                handlePartecipazioneChange(false);
-            }
-        }); // Fine DOMContentLoaded per Form Logic
+            handlePartecipazioneChange(initialPartecipazione?.value === 'Sì, ci sarò');
+        }); // Fine DOMContentLoaded
 
     </script>
 </body>
