@@ -1,3 +1,5 @@
+/* --- START OF FILE style.css --- */
+
 /* --- NUOVA PALETTE, FONTS E VARIABILI --- */
 :root {
     --blush-pink-light: #F9F1F1; /* Rosa cipria chiarissimo per sfondi card */
@@ -148,12 +150,12 @@ nav ul li a.active {
     align-items: center;
     text-align: center;
     position: relative;
-    /* overflow: hidden; */ /* Rimuovi o commenta se le decorazioni vengono tagliate */
-    padding: 40px 20px; /* Padding originale o aggiusta */
+    /* overflow: hidden; */ /* Potrebbe servire rimuoverlo se ancora taglia */
+    padding: 40px 20px;
 }
 .hero-content {
-    position: relative; /* Fondamentale per posizionare le decorazioni figlie */
-    z-index: 2; /* Contenuto sopra z-index negativi */
+    position: relative;
+    z-index: 2;
     background-color: rgba(255, 255, 255, 0.8);
     padding: 40px 30px;
     border-radius: var(--border-radius-medium);
@@ -211,37 +213,31 @@ h1.couple-names {
 /* ====== Decorazioni Floreali - RIPOSIZIONATE VICINO AL BOX ====== */
 .floral-decoration {
     position: absolute;
-    z-index: -1; /* Dietro il box .hero-content */
+    z-index: -1;
     pointer-events: none;
-    /* === DIMENSIONE REGOLATA ===
-       Esempio: max 220px su desktop. Regola questi valori! */
-    width: clamp(100px, 20vw, 220px);
+    width: clamp(100px, 20vw, 220px); /* Dimensione Desktop */
 }
-
 .floral-decoration img {
     width: 100%;
     height: auto;
     display: block;
     opacity: 0.95;
 }
-
-/* === POSIZIONAMENTO RELATIVO A hero-content ===
-   Usa valori negativi per spostarle fuori dai bordi del box. Regola questi valori! */
 .floral-top-right {
-    top: -40px;    /* Sposta in alto fuori dal box */
-    right: -50px;   /* Sposta a destra fuori dal box */
+    top: -40px;    /* Offset Desktop */
+    right: -50px;
     transform: rotate(5deg);
 }
-
 .floral-bottom-left {
-    bottom: -55px; /* Sposta in basso fuori dal box */
-    left: -45px;   /* Sposta a sinistra fuori dal box */
+    bottom: -55px; /* Offset Desktop */
+    left: -45px;
     transform: rotate(-8deg);
 }
 /* ====== Fine Modifiche Floreali ====== */
 
 
 /* --- STILI PAGINE INTERNE --- */
+/* [ ... Stili pagine interne come prima ... ] */
 .content-section {
     padding: 50px 0;
 }
@@ -287,12 +283,9 @@ h1.couple-names {
     font-weight: 500;
 }
 
-/* --- ELEMENTI SPECIFICI (Come prima) --- */
-/* [ Incolla qui tutte le regole CSS specifiche per le varie pagine:
-   Storia, Timeline, Galleria, Condividi Foto, Informazioni, RSVP,
-   Lista Nozze, Alloggi, FAQ, Contatti ]
-   ... Queste regole non sono state modificate ... */
 
+/* --- ELEMENTI SPECIFICI (Come prima) --- */
+/* [ ... Incolla qui tutte le regole CSS specifiche per le varie pagine ... ] */
 /* Storia */
 .storia-content { max-width: 850px; margin: 0 auto; text-align: center; }
 .storia-content p:first-of-type { margin-bottom: 30px; font-size: 1.1rem; }
@@ -465,17 +458,20 @@ footer p:first-of-type { font-weight: 500; }
     .countdown-label { font-size: 0.7rem; }
     .hero-content { padding: 30px 20px; max-width: 90%; }
 
-    /* ====== Decorazioni Floreali Responsive (Tablet/Mobile) ====== */
+    /* ====== Decorazioni Floreali Responsive (Tablet/Mobile) - MODIFICATE ====== */
     .floral-decoration {
-        width: clamp(80px, 18vw, 150px); /* Riduci per schermi medi */
+        /* Aumentiamo leggermente le dimensioni */
+        width: clamp(90px, 22vw, 180px); /* Era: clamp(80px, 18vw, 150px) */
     }
     .floral-top-right {
-        top: -30px; /* Regola offset negativo */
-        right: -35px;
+        /* Aumentiamo l'offset negativo per avvicinarla di più */
+        top: -35px;    /* Era: -30px */
+        right: -40px;   /* Era: -35px */
     }
     .floral-bottom-left {
-        bottom: -40px; /* Regola offset negativo */
-        left: -30px;
+        /* Aumentiamo l'offset negativo per avvicinarla di più */
+        bottom: -45px; /* Era: -40px */
+        left: -35px;   /* Era: -30px */
     }
     /* ====== Fine Modifiche Floreali Responsive ====== */
 
@@ -521,17 +517,20 @@ footer p:first-of-type { font-weight: 500; }
     .countdown { gap: 15px; }
     .countdown-number { font-size: 1.6rem; }
 
-    /* ====== Decorazioni Floreali Responsive (Mobile Piccolo) ====== */
+    /* ====== Decorazioni Floreali Responsive (Mobile Piccolo) - MODIFICATE ====== */
      .floral-decoration {
-         width: clamp(60px, 15vw, 100px); /* Riduci ulteriormente */
+         /* Aumentiamo le dimensioni anche qui */
+         width: clamp(75px, 20vw, 130px); /* Era: clamp(60px, 15vw, 100px) */
      }
       .floral-top-right {
-        top: -20px; /* Regola offset negativo */
-        right: -25px;
+        /* Aumentiamo l'offset negativo */
+        top: -25px;    /* Era: -20px */
+        right: -30px;   /* Era: -25px */
       }
       .floral-bottom-left {
-          bottom: -30px; /* Regola offset negativo */
-          left: -20px;
+        /* Aumentiamo l'offset negativo */
+          bottom: -35px; /* Era: -30px */
+          left: -25px;   /* Era: -20px */
       }
      /* ====== Fine Modifiche Floreali Responsive ====== */
 
@@ -569,3 +568,5 @@ footer p:first-of-type { font-weight: 500; }
     .nav-arrow { padding: 10px 12px; font-size: 1.3rem; }
     .nav-arrow i { font-size: 1.2rem; }
 }
+
+/* --- END OF FILE style.css --- */
