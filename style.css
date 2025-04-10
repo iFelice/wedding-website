@@ -150,7 +150,7 @@ nav ul li a.active {
     align-items: center;
     text-align: center;
     position: relative;
-    /* overflow: hidden; */ /* Potrebbe servire rimuoverlo se ancora taglia */
+    /* overflow: hidden; */ /* COMMENTA O RIMUOVI questa riga se le decorazioni vengono tagliate */
     padding: 40px 20px;
 }
 .hero-content {
@@ -458,22 +458,19 @@ footer p:first-of-type { font-weight: 500; }
     .countdown-label { font-size: 0.7rem; }
     .hero-content { padding: 30px 20px; max-width: 90%; }
 
-    /* ====== Decorazioni Floreali Responsive (Tablet/Mobile) - MODIFICATE ====== */
+    /* ====== Decorazioni Floreali Responsive (Tablet/Mobile) ====== */
     .floral-decoration {
-        /* Aumentiamo leggermente le dimensioni */
-        width: clamp(90px, 22vw, 180px); /* Era: clamp(80px, 18vw, 150px) */
+        width: clamp(90px, 22vw, 180px);
     }
     .floral-top-right {
-        /* Aumentiamo l'offset negativo per avvicinarla di più */
-        top: -35px;    /* Era: -30px */
-        right: -40px;   /* Era: -35px */
+        top: -35px;
+        right: -40px;
     }
     .floral-bottom-left {
-        /* Aumentiamo l'offset negativo per avvicinarla di più */
-        bottom: -45px; /* Era: -40px */
-        left: -35px;   /* Era: -30px */
+        bottom: -45px;
+        left: -35px;
     }
-    /* ====== Fine Modifiche Floreali Responsive ====== */
+    /* ====== Fine ====== */
 
     .page-title { font-size: 2.1rem; }
     .page-subtitle { font-size: 1.1rem; }
@@ -510,6 +507,7 @@ footer p:first-of-type { font-weight: 500; }
     .modal-prev { left: 5px; } .modal-next { right: 5px; }
 }
 
+/* === MODIFICHE PIÙ IMPORTANTI QUI === */
 @media (max-width: 480px) {
     h1.couple-names { font-size: 2rem; }
     .ampersand { font-size: 1.8rem; }
@@ -517,20 +515,20 @@ footer p:first-of-type { font-weight: 500; }
     .countdown { gap: 15px; }
     .countdown-number { font-size: 1.6rem; }
 
-    /* ====== Decorazioni Floreali Responsive (Mobile Piccolo) - MODIFICATE ====== */
+    /* ====== Decorazioni Floreali Responsive (Mobile Piccolo) - MODIFICATE ANCORA ====== */
      .floral-decoration {
-         /* Aumentiamo le dimensioni anche qui */
-         width: clamp(75px, 20vw, 130px); /* Era: clamp(60px, 15vw, 100px) */
+         /* Aumentiamo ancora la dimensione minima e vw. Regola se troppo grande! */
+         width: clamp(95px, 28vw, 160px); /* Era: clamp(75px, 20vw, 130px) */
      }
       .floral-top-right {
-        /* Aumentiamo l'offset negativo */
-        top: -25px;    /* Era: -20px */
-        right: -30px;   /* Era: -25px */
+        /* Aumentiamo ancora l'offset negativo. Regola se si sovrappone troppo! */
+        top: -40px;    /* Era: -25px */
+        right: -50px;   /* Era: -30px */
       }
       .floral-bottom-left {
-        /* Aumentiamo l'offset negativo */
-          bottom: -35px; /* Era: -30px */
-          left: -25px;   /* Era: -20px */
+        /* Aumentiamo ancora l'offset negativo. Regola se si sovrappone troppo! */
+          bottom: -50px; /* Era: -35px */
+          left: -40px;   /* Era: -25px */
       }
      /* ====== Fine Modifiche Floreali Responsive ====== */
 
