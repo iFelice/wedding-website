@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Nostra Storia - Felice & Federica</title>
+    <!-- Copia tutti i link head da index.html (Favicons, Fonts, CSS, Font Awesome) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://github.com/iFelice/wedding-website/blob/main/images/logosposigrey.png?raw=true">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://github.com/iFelice/wedding-website/blob/main/images/logosposigrey.png?raw=true">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://github.com/iFelice/wedding-website/blob/main/images/logosposigrey.png?raw=true">
+    <link rel="shortcut icon" href="https://github.com/iFelice/wedding-website/blob/main/images/logosposigrey.png?raw=true">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body class="page-interna page-storia"> <!-- Aggiungi classe specifica pagina se serve -->
+
+    <header id="header">
+        <div class="container header-container">
+             <!-- <a href="index.html" class="logo-link"><img src="images/logo_placeholder.png" alt="Logo F&F"></a> -->
+            <div class="menu-toggle" aria-label="Apri menu" aria-expanded="false">
+                 <i class="fas fa-bars"></i>
+             </div>
+            <nav>
+                 <ul>
+                     <!-- Metti la classe 'active' sul link della pagina corrente -->
+                     <li><a href="index.html">Home</a></li>
+                     <li><a href="storia.html" class="active">La Nostra Storia</a></li>
+                     <li><a href="timeline.html">Timeline</a></li>
+                     <li><a href="galleria.html">Galleria</a></li>
+                     <li><a href="condividi.html">Condividi Foto</a></li>
+                     <li><a href="informazioni.html">Informazioni</a></li>
+                     <li><a href="rsvp.html">RSVP</a></li>
+                     <li><a href="lista-nozze.html">Lista Nozze</a></li>
+                     <li><a href="alloggi.html">Alloggi</a></li>
+                     <li><a href="faq.html">FAQ</a></li>
+                     <li><a href="contatti.html">Contatti</a></li>
+                 </ul>
+             </nav>
+        </div>
+    </header>
+
+    <main class="content-section">
+        <div class="container page-container">
+            <!-- Decorazione opzionale -->
+            <!-- <div class="floral-divider"><img src="images/floral_divider.png" alt=""></div> -->
+
+            <h1 class="page-title">La Nostra Storia</h1>
+
+            <!-- Contenuto specifico della sezione "Storia" dall'HTML originale -->
+            <div class="storia-content">
+                 <p>Ci siamo conosciuti sul posto di lavoro, in uno studio di progettazione di locali commerciali. Il nostro rapporto è sbocciato quando Federica ha iniziato a lavorare come docente nella scuola, nonostante la distanza con Milano. Il giorno del compleanno di Federica, Felice ha organizzato una festa a sorpresa con amici e parenti, coronando la serata con la proposta di matrimonio.</p>
+                 <div class="storia-personale">
+                    <div class="persona card-style"> <!-- Aggiunta classe card-style -->
+                        <h3>Felice</h3>
+                        <p>Docente di sostegno con la passione per la tecnologia. Ama praticare sport, in particolare calcio e tennis, e viaggiare in giro per il mondo.</p>
+                    </div>
+                    <div class="persona card-style"> <!-- Aggiunta classe card-style -->
+                        <h3>Federica</h3>
+                        <p>Architetto e docente di sostegno. Appassionata di pulizia della casa, nel tempo libero si dedica alla cura del proprio corpo.</p>
+                    </div>
+                </div>
+            </div>
+             <!-- Fine contenuto originale #storia -->
+
+             <!-- Decorazione opzionale -->
+            <!-- <div class="floral-divider bottom"><img src="images/floral_divider_small.png" alt=""></div> -->
+        </div>
+    </main>
+<!-- In storia.html -->
+<nav class="page-navigation" aria-label="Navigazione pagine">
+    <div class="container nav-arrow-container">
+        <a href="index.html" class="nav-arrow prev" aria-label="Pagina precedente"> <!-- Corretto: Solo nome file -->
+            <i class="fas fa-chevron-left"></i>
+            <span>Prec.</span>
+        </a>
+        <a href="timeline.html" class="nav-arrow next" aria-label="Pagina successiva"> <!-- Corretto: Solo nome file -->
+            <span>Succ.</span>
+            <i class="fas fa-chevron-right"></i>
+        </a>
+    </div>
+</nav>
+    <footer>
+        <div class="container">
+             <p>© 2025 - aiFelice</p>
+             <p>Vi aspettiamo!</p>
+        </div>
+    </footer>
+
+    <!-- Link a JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ci Dispiace! - Felice & Federica</title>
+    <!-- Copia tutti i link head da index.html -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://github.com/iFelice/wedding-website/blob/main/images/logosposigrey.png?raw=true">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://github.com/iFelice/wedding-website/blob/main/images/logosposigrey.png?raw=true">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://github.com/iFelice/wedding-website/blob/main/images/logosposigrey.png?raw=true">
+    <link rel="shortcut icon" href="https://github.com/iFelice/wedding-website/blob/main/images/logosposigrey.png?raw=true">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="page-interna">
+     <header id="header">
+        <!-- Copia l'header completo da index.html, NON mettere 'active' su RSVP -->
+        <div class="container header-container">
+             <div class="menu-toggle" aria-label="Apri menu" aria-expanded="false"> <i class="fas fa-bars"></i> </div>
+             <nav>
+                 <ul>
+                     <li><a href="index.html">Home</a></li>
+                     <li><a href="storia.html">La Nostra Storia</a></li>
+                     <li><a href="timeline.html">Timeline</a></li>
+                     <li><a href="galleria.html">Galleria</a></li>
+                     <li><a href="condividi.html">Condividi Foto</a></li>
+                     <li><a href="informazioni.html">Informazioni</a></li>
+                     <li><a href="rsvp.html">RSVP</a></li>
+                     <li><a href="lista-nozze.html">Lista Nozze</a></li>
+                     <li><a href="alloggi.html">Alloggi</a></li>
+                     <li><a href="faq.html">FAQ</a></li>
+                     <li><a href="contatti.html">Contatti</a></li>
+                 </ul>
+             </nav>
+        </div>
+    </header>
+    <main class="content-section">
+        <div class="container page-container" style="text-align: center;">
+            <h1 class="page-title">Ci Dispiace della Tua Assenza</h1>
+            <p style="font-size: 1.2rem; margin-bottom: 30px;">Grazie comunque per averci risposto.</p>
+            <p>Ci mancherai, ma speriamo di vederti presto!</p>
+            <a href="index.html" class="btn" style="margin-top: 30px;">Torna alla Home</a>
+             <!-- Aggiungi qui l'overlay di caricamento se necessario -->
+             <div id="loading-overlay" style="display: none;"> <div class="spinner"></div> <p>Attendere...</p> </div>
+             <!-- Aggiungi qui il modal della galleria se necessario -->
+             <div id="galleryModal" class="modal"> <span class="modal-close">×</span> <span class="modal-nav modal-prev"><i class="fas fa-chevron-left"></i></span> <img class="modal-content" id="modalImg"> <span class="modal-nav modal-next"><i class="fas fa-chevron-right"></i></span> </div>
+             <!-- Aggiungi qui il bottone back-to-top se lo usi -->
+             <a href="#" class="back-to-top" id="backToTop" aria-hidden="true"><i class="fas fa-arrow-up"></i></a>
+        </div>
+    </main>
+     <footer>
+        <!-- Copia il footer da index.html -->
+        <div class="container"> <p>© 2025 - aiFelice</p> <p>Vi aspettiamo!</p> </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alloggi - Felice & Federica</title>
+    <!-- Copia tutti i link head da index.html -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://github.com/iFelice/wedding-website/blob/main/images/logosposigrey.png?raw=true">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://github.com/iFelice/wedding-website/blob/main/images/logosposigrey.png?raw=true">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://github.com/iFelice/wedding-website/blob/main/images/logosposigrey.png?raw=true">
+    <link rel="shortcut icon" href="https://github.com/iFelice/wedding-website/blob/main/images/logosposigrey.png?raw=true">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="page-interna page-alloggi">
+    <header id="header">
+        <div class="container header-container">
+            <div class="menu-toggle" aria-label="Apri menu" aria-expanded="false"> <i class="fas fa-bars"></i> </div>
+             <nav>
+                 <ul>
+                     <li><a href="index.html">Home</a></li>
+                     <li><a href="storia.html">La Nostra Storia</a></li>
+                     <li><a href="timeline.html">Timeline</a></li>
+                     <li><a href="galleria.html">Galleria</a></li>
+                     <li><a href="condividi.html">Condividi Foto</a></li>
+                     <li><a href="informazioni.html">Informazioni</a></li>
+                     <li><a href="rsvp.html">RSVP</a></li>
+                     <li><a href="lista-nozze.html">Lista Nozze</a></li>
+                     <li><a href="alloggi.html" class="active">Alloggi</a></li>
+                     <li><a href="faq.html">FAQ</a></li>
+                     <li><a href="contatti.html">Contatti</a></li>
+                 </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="content-section"> <!-- Rimosso ID alloggi se non serve più per CSS specifico -->
+        <div class="container page-container">
+             <h1 class="page-title">Alloggi</h1>
+            <p class="page-subtitle">Per gli ospiti che vengono da lontano</p>
+
+            <!-- Contenuto della sezione #alloggi dall'HTML originale -->
+            <div class="accommodation-intro"> <p>Per aiutarvi nella ricerca di un alloggio per la notte del matrimonio (12 luglio 2025), abbiamo selezionato le migliori piattaforme di prenotazione della zona. Potrete verificare in tempo reale disponibilità e prezzi.</p> </div>
+            <div class="booking-options">
+                <div class="booking-card card-style"> <!-- Aggiunta card-style -->
+                    <i class="fas fa-building"></i> <h4>Booking.com</h4> <p>Trova hotel e B&B a Faicchio e dintorni</p>
+                    <a href="https://www.booking.com/searchresults.it.html?ss=Faicchio&checkin=2025-07-12&checkout=2025-07-13&group_adults=2&no_rooms=1" class="btn" target="_blank" rel="noopener noreferrer">Cerca su Booking</a>
+                </div>
+                <div class="booking-card card-style"> <!-- Aggiunta card-style -->
+                    <i class="fab fa-airbnb"></i> <h4>Airbnb</h4> <p>Scopri appartamenti e case vacanza nella zona</p>
+                    <a href="https://www.airbnb.it/s/Faicchio/homes?checkin=2025-07-12&checkout=2025-07-13&adults=2" class="btn" target="_blank" rel="noopener noreferrer">Cerca su Airbnb</a>
+                </div>
+                <div class="booking-card card-style"> <!-- Aggiunta card-style -->
+                    <i class="fas fa-map-marker-alt"></i> <h4>Google Maps</h4> <p>Visualizza tutte le strutture nelle vicinanze</p>
+                    <a href="https://www.google.com/maps/search/hotel+near+Faicchio+Benevento" class="btn" target="_blank" rel="noopener noreferrer">Cerca su Maps</a>
+                </div>
+            </div>
+            <div class="accommodation-tips">
+                <h4>Suggerimenti per la ricerca</h4>
+                <ul>
+                    <li>La location del ricevimento si trova a Faicchio (BN).</li>
+                    <li>Consigliamo di prenotare con anticipo data l'alta stagione.</li>
+                    <li>Le zone limitrofe (nel raggio di 15km) sono ben collegate.</li>
+                    <li>Per qualsiasi necessità non esitate a contattarci.</li>
+                </ul>
+            </div>
+             <!-- Rimosso il ring divider, non serve più come separatore di sezione -->
+            <!-- Fine contenuto #alloggi -->
+             <a href="#" class="back-to-top" id="backToTop" aria-hidden="true"><i class="fas fa-arrow-up"></i></a>
+        </div>
+    </main>
+	<nav class="page-navigation" aria-label="Navigazione pagine">
+	    <div class="container nav-arrow-container">
+	        <a href="lista-nozze.html" class="nav-arrow prev" aria-label="Pagina precedente"> <!-- Corretto: Solo nome file -->
+	            <i class="fas fa-chevron-left"></i>
+	            <span>Prec.</span>
+	        </a>
+	        <a href="faq.html" class="nav-arrow next" aria-label="Pagina successiva"> <!-- Corretto: Solo nome file -->
+	            <span>Succ.</span>
+	            <i class="fas fa-chevron-right"></i>
+	        </a>
+	    </div>
+	</nav>
+     <footer>
+        <div class="container"> <p>© 2025 - aiFelice</p> <p>Vi aspettiamo!</p> </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contatti - Felice & Federica</title>
+    <!-- Copia tutti i link head da index.html -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://github.com/iFelice/wedding-website/blob/main/images/logosposigrey.png?raw=true">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://github.com/iFelice/wedding-website/blob/main/images/logosposigrey.png?raw=true">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://github.com/iFelice/wedding-website/blob/main/images/logosposigrey.png?raw=true">
+    <link rel="shortcut icon" href="https://github.com/iFelice/wedding-website/blob/main/images/logosposigrey.png?raw=true">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="page-interna page-contatti">
+     <header id="header">
+        <div class="container header-container">
+            <div class="menu-toggle" aria-label="Apri menu" aria-expanded="false"> <i class="fas fa-bars"></i> </div>
+             <nav>
+                 <ul>
+                     <li><a href="index.html">Home</a></li>
+                     <li><a href="storia.html">La Nostra Storia</a></li>
+                     <li><a href="timeline.html">Timeline</a></li>
+                     <li><a href="galleria.html">Galleria</a></li>
+                     <li><a href="condividi.html">Condividi Foto</a></li>
+                     <li><a href="informazioni.html">Informazioni</a></li>
+                     <li><a href="rsvp.html">RSVP</a></li>
+                     <li><a href="lista-nozze.html">Lista Nozze</a></li>
+                     <li><a href="alloggi.html">Alloggi</a></li>
+                     <li><a href="faq.html">FAQ</a></li>
+                     <li><a href="contatti.html" class="active">Contatti</a></li>
+                 </ul>
+            </nav>
+        </div>
+    </header>
+     <main class="content-section" id="contatti"> <!-- Aggiunto ID per CSS -->
+        <div class="container page-container">
+             <h1 class="page-title">Contatti</h1>
+            <p class="page-subtitle">Per qualsiasi informazione non esitare a contattarci</p>
+
+            <!-- Contenuto della sezione #contatti dall'HTML originale -->
+             <!-- Rimosso ring divider -->
+            <div class="contact-card card-style"> <!-- Aggiunta classe card-style -->
+                <p><i class="fas fa-envelope" style="margin-right: 8px; color: var(--dusty-rose);"></i> Email: federicaefelice@gmail.com</p> <!-- Icona opzionale -->
+                <p><i class="fas fa-phone" style="margin-right: 8px; color: var(--dusty-rose);"></i> Telefono: 123-456-7890</p> <!-- CAMBIA NUMERO -->
+                <div class="social-icons">
+                     <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                     <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                     <a href="#" aria-label="Whatsapp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <p>Seguici su Instagram con l'hashtag: <strong>#FedericaeFelice2025</strong></p>
+            </div>
+             <!-- Fine contenuto #contatti -->
+             <a href="#" class="back-to-top" id="backToTop" aria-hidden="true"><i class="fas fa-arrow-up"></i></a>
+        </div>
+    </main>
+	<nav class="page-navigation" aria-label="Navigazione pagine">
+	    <div class="container nav-arrow-container">
+	        <a href="faq.html" class="nav-arrow prev" aria-label="Pagina precedente"> <!-- Corretto: Usa # per la freccia non attiva -->
+	            <i class="fas fa-chevron-left"></i>
+	            <span>Prec.</span>
+	        </a>
+	        <a href="#" class="nav-arrow next" aria-label="Pagina successiva"> <!-- Corretto: Solo nome file -->
+	            <span>Succ.</span>
+	            <i class="fas fa-chevron-right"></i>
+	        </a>
+	    </div>
+	</nav>
+     <footer>
+        <div class="container"> <p>© 2025 - aiFelice</p> <p>Vi aspettiamo!</p> </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

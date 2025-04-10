@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSVP - Felice & Federica</title>
+    <!-- Copia tutti i link head da index.html -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://github.com/iFelice/wedding-website/blob/main/images/logosposigrey.png?raw=true">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://github.com/iFelice/wedding-website/blob/main/images/logosposigrey.png?raw=true">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://github.com/iFelice/wedding-website/blob/main/images/logosposigrey.png?raw=true">
+    <link rel="shortcut icon" href="https://github.com/iFelice/wedding-website/blob/main/images/logosposigrey.png?raw=true">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="page-interna page-rsvp">
+    <header id="header">
+        <div class="container header-container">
+            <div class="menu-toggle" aria-label="Apri menu" aria-expanded="false"> <i class="fas fa-bars"></i> </div>
+             <nav>
+                 <ul>
+                     <li><a href="index.html">Home</a></li>
+                     <li><a href="storia.html">La Nostra Storia</a></li>
+                     <li><a href="timeline.html">Timeline</a></li>
+                     <li><a href="galleria.html">Galleria</a></li>
+                     <li><a href="condividi.html">Condividi Foto</a></li>
+                     <li><a href="informazioni.html">Informazioni</a></li>
+                     <li><a href="rsvp.html" class="active">RSVP</a></li>
+                     <li><a href="lista-nozze.html">Lista Nozze</a></li>
+                     <li><a href="alloggi.html">Alloggi</a></li>
+                     <li><a href="faq.html">FAQ</a></li>
+                     <li><a href="contatti.html">Contatti</a></li>
+                 </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="content-section">
+        <div class="container page-container"> <!-- Rimosso stile colore sottotitolo -->
+            <h1 class="page-title">RSVP</h1>
+            <p class="page-subtitle">Conferma la tua presenza entro il 21 Giugno 2025</p>
+
+            <!-- Contenuto della sezione #rsvp dall'HTML originale -->
+            <form id="rsvpForm" class="rsvp-form">
+                <!-- Overlay per il caricamento (necessario per JS) -->
+                <div id="loading-overlay" style="display: none;" aria-hidden="true">
+                    <div class="spinner"></div>
+                    <p>Invio in corso...</p>
+                </div>
+
+                <div class="form-group"> <label for="nome">Nome e Cognome *</label> <input type="text" id="nome" name="entry.709286806" required> </div>
+                <div class="form-group"> <label for="email">Email *</label> <input type="email" id="email" name="entry.1994603631" required> </div>
+                <div class="form-group">
+                    <label>Partecipazione *</label>
+                    <div class="radio-group">
+                        <label><input type="radio" id="partecipo" name="entry.682165499" value="Sì, ci sarò" required> Sì, parteciperò</label>
+                        <label><input type="radio" id="non-partecipo" name="entry.682165499" value="No, non potrò essere presente"> No, non potrò essere presente</label>
+                     </div>
+                </div>
+                 <!-- Campi condizionali -->
+                <div class="form-group" id="numero-ospiti-group" style="display: none;"> <label for="numero-ospiti">Numero totale di persone (incluso te) *</label> <select id="numero-ospiti" name="entry.349902564"> <option value="">Seleziona il numero di persone</option> <option value="1 persona">1 persona (solo io)</option> <option value="2 persone">2 persone (coppia)</option> <option value="3 persone">3 persone (es. coppia con 1 figlio)</option> <option value="4 persone">4 persone (es. coppia con 2 figli)</option> <option value="5 persone">5 persone (es. coppia con 3 figli)</option> <option value="6 persone">6 persone (es. coppia con 4 figli)</option> </select> </div>
+                <div class="form-group" id="nomi-ospiti-group" style="display: none;"> <label for="nomi-ospiti">Nomi dei componenti della famiglia/gruppo *</label> <small class="form-text">Inserisci i nomi di tutti i partecipanti, escluso il tuo</small> <textarea id="nomi-ospiti" name="entry.155324483" rows="3" placeholder="Es: Mario Rossi (papà), Maria Rossi (mamma), Marco Rossi (figlio 8 anni), Anna Rossi (figlia 5 anni)"></textarea> </div>
+                <div class="form-group" id="preferenze-menu-group" style="display: none;"> <label for="preferenze-menu">Preferenze Menu *</label> <small class="form-text">Indica se qualcuno nel gruppo ha preferenze diverse dal menu standard (es. vegetariano, vegano, etc.). Se tutti seguono il menu standard, seleziona "Menu Standard".</small> <select id="preferenze-menu" name="entry.1172181114"> <option value="">Seleziona una preferenza</option> <option value="Menu Standard">Menu Standard</option> <option value="Menu Vegetariano">Menu Vegetariano</option> <option value="Menu Vegano">Menu Vegano</option> <option value="Menu Senza Glutine">Menu Senza Glutine</option> <option value="Menu Pescetariano">Menu Pescetariano</option> <option value="Altro (specificare nelle note)">Altro (specificare nelle note)</option> </select> </div>
+                <div class="form-group" id="intolleranze-group" style="display: none;"> <label for="intolleranze">Intolleranze o allergie alimentari</label> <small class="form-text">Specifica qui eventuali allergie o intolleranze per ciascun partecipante (es. Mario Rossi: allergia alle noci; Anna Verdi: intolleranza al lattosio).</small> <textarea id="intolleranze" name="entry.304213983" rows="3"></textarea> </div>
+                <!-- Fine Campi Condizionali -->
+                <div class="form-group"> <label for="note">Note aggiuntive</label> <small class="form-text">Usa questo spazio per specificare chi segue menu alternativi, per segnalare la presenza di bambini piccoli (e la loro età), per indicare interesse alla navetta, o per qualsiasi altra comunicazione.</small> <textarea id="note" name="entry.123813858" rows="3"></textarea> </div>
+                <button type="submit" class="btn submit-btn">Invia Conferma</button>
+            </form>
+             <!-- Fine contenuto #rsvp -->
+              <a href="#" class="back-to-top" id="backToTop" aria-hidden="true"><i class="fas fa-arrow-up"></i></a>
+        </div>
+    </main>
+	<nav class="page-navigation" aria-label="Navigazione pagine">
+	    <div class="container nav-arrow-container">
+	        <a href="informazioni.html" class="nav-arrow prev" aria-label="Pagina precedente"> <!-- Corretto: Solo nome file -->
+	            <i class="fas fa-chevron-left"></i>
+	            <span>Prec.</span>
+	        </a>
+	        <a href="lista-nozze.html" class="nav-arrow next" aria-label="Pagina successiva"> <!-- Corretto: Solo nome file -->
+	            <span>Succ.</span>
+	            <i class="fas fa-chevron-right"></i>
+	        </a>
+	    </div>
+	</nav>
+    <footer>
+        <div class="container"> <p>© 2025 - aiFelice</p> <p>Vi aspettiamo!</p> </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

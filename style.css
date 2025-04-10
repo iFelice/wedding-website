@@ -1,0 +1,571 @@
+/* --- NUOVA PALETTE, FONTS E VARIABILI --- */
+:root {
+    --blush-pink-light: #F9F1F1; /* Rosa cipria chiarissimo per sfondi card */
+    --blush-pink-medium: #F4E1E1; /* Rosa cipria per bordi/accenti */
+    --dusty-rose: #D1A8A8;      /* Rosa antico/Malva per titoli, bottoni, accenti */
+    --cream-beige: #FAF5ED;     /* Beige/Crema molto chiaro per sfondo body */
+    --soft-grey: #7f7f7f;       /* Grigio testo principale morbido */
+    --darker-grey: #555555;     /* Grigio scuro per testo importante/hover */
+    --white: #ffffff;
+    --floral-accent-green: #B8CDB4; /* Verde salvia per dettagli */
+    --button-hover: #C39090;    /* Dusty rose più scuro per hover bottoni */
+
+    --font-heading: 'Cormorant Garamond', serif;
+    --font-body: 'Lato', sans-serif;
+
+    --container-max-width: 1100px;
+    --border-radius-small: 4px;
+    --border-radius-medium: 8px;
+    --box-shadow-light: 0 2px 10px rgba(0, 0, 0, 0.06);
+    --box-shadow-subtle: 0 1px 5px rgba(0, 0, 0, 0.08);
+}
+
+/* --- RESET BASE & BODY --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: var(--font-body);
+    color: var(--soft-grey);
+    background: url('https://github.com/iFelice/wedding-website/blob/main/images/aquarell.jpeg?raw=true') no-repeat center center fixed;
+    background-size: cover;
+    line-height: 1.7;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+main {
+    flex-grow: 1;
+}
+.container {
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- HEADER & NAVIGATION --- */
+#header {
+    background-color: rgba(250, 245, 237, 0.95);
+    padding: 12px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--box-shadow-subtle);
+    border-bottom: 1px solid var(--blush-pink-medium);
+    transition: padding 0.3s ease;
+}
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0; padding: 0;
+}
+nav ul li {
+    margin: 0 10px;
+}
+nav ul li a {
+    text-decoration: none;
+    color: var(--darker-grey);
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 6px 8px;
+    transition: color 0.3s ease;
+    position: relative;
+    display: block;
+}
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 1.5px;
+    background-color: var(--dusty-rose);
+    transition: width 0.3s ease;
+}
+nav ul li a:hover::after,
+nav ul li a.active::after {
+    width: 70%;
+}
+nav ul li a:hover,
+nav ul li a.active {
+    color: var(--dusty-rose);
+}
+
+/* --- MOBILE MENU --- */
+.menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    color: var(--darker-grey);
+    cursor: pointer;
+    padding: 5px;
+    background: none; border: none;
+}
+.menu-toggle:hover { color: var(--dusty-rose); }
+
+@media (max-width: 1024px) {
+    .menu-toggle { display: block; }
+    nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgba(250, 245, 237, 0.98);
+        box-shadow: var(--box-shadow-light);
+        padding: 15px 0;
+        border-top: 1px solid var(--blush-pink-medium);
+        z-index: 999;
+    }
+    nav.active { display: block; }
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    nav ul li {
+        margin: 8px 0;
+    }
+    nav ul li a {
+       font-size: 1.2rem;
+       padding: 10px 20px;
+    }
+    nav ul li a::after { bottom: 5px; }
+}
+
+/* --- HERO SECTION (Home Page) --- */
+.hero-section {
+    min-height: calc(100vh - 60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    /* overflow: hidden; */ /* Rimuovi o commenta se le decorazioni vengono tagliate */
+    padding: 40px 20px; /* Padding originale o aggiusta */
+}
+.hero-content {
+    position: relative; /* Fondamentale per posizionare le decorazioni figlie */
+    z-index: 2; /* Contenuto sopra z-index negativi */
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 40px 30px;
+    border-radius: var(--border-radius-medium);
+    max-width: 650px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+h1.couple-names {
+    font-family: var(--font-heading);
+    font-size: 3.2rem;
+    color: var(--darker-grey);
+    font-weight: 600;
+    margin-bottom: 0px;
+    line-height: 1.2;
+}
+.ampersand {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 3rem;
+    color: var(--dusty-rose);
+    margin: 0 5px;
+}
+.wedding-date {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    color: var(--soft-grey);
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+    font-weight: 400;
+}
+/* Countdown */
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+.countdown-item { text-align: center; }
+.countdown-number {
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: var(--darker-grey);
+    font-family: var(--font-heading);
+    line-height: 1;
+}
+.countdown-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--soft-grey);
+    letter-spacing: 1.5px;
+    margin-top: 5px;
+    font-family: var(--font-body);
+}
+
+/* ====== Decorazioni Floreali - RIPOSIZIONATE VICINO AL BOX ====== */
+.floral-decoration {
+    position: absolute;
+    z-index: -1; /* Dietro il box .hero-content */
+    pointer-events: none;
+    /* === DIMENSIONE REGOLATA ===
+       Esempio: max 220px su desktop. Regola questi valori! */
+    width: clamp(100px, 20vw, 220px);
+}
+
+.floral-decoration img {
+    width: 100%;
+    height: auto;
+    display: block;
+    opacity: 0.95;
+}
+
+/* === POSIZIONAMENTO RELATIVO A hero-content ===
+   Usa valori negativi per spostarle fuori dai bordi del box. Regola questi valori! */
+.floral-top-right {
+    top: -40px;    /* Sposta in alto fuori dal box */
+    right: -50px;   /* Sposta a destra fuori dal box */
+    transform: rotate(5deg);
+}
+
+.floral-bottom-left {
+    bottom: -55px; /* Sposta in basso fuori dal box */
+    left: -45px;   /* Sposta a sinistra fuori dal box */
+    transform: rotate(-8deg);
+}
+/* ====== Fine Modifiche Floreali ====== */
+
+
+/* --- STILI PAGINE INTERNE --- */
+.content-section {
+    padding: 50px 0;
+}
+.page-container {
+     background-color: var(--white);
+     padding: 40px;
+     border-radius: var(--border-radius-medium);
+     box-shadow: var(--box-shadow-light);
+     margin-top: 0;
+     margin-bottom: 30px;
+     animation: slideInFromRight 0.5s ease-out forwards; /* O altra animazione */
+}
+.page-title {
+    font-family: var(--font-heading);
+    font-size: 2.6rem;
+    color: var(--dusty-rose);
+    text-align: center;
+    margin-bottom: 35px;
+    font-weight: 500;
+}
+.page-subtitle {
+    text-align: center;
+    font-size: 1.3rem;
+    color: var(--soft-grey);
+    margin-top: -25px;
+    margin-bottom: 35px;
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-weight: 400;
+}
+.card-style {
+    background-color: var(--blush-pink-light);
+    padding: 25px;
+    border-radius: var(--border-radius-medium);
+    border: 1px solid var(--blush-pink-medium);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+.card-style h3 {
+    font-family: var(--font-heading);
+    color: var(--darker-grey);
+    margin-bottom: 12px;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+/* --- ELEMENTI SPECIFICI (Come prima) --- */
+/* [ Incolla qui tutte le regole CSS specifiche per le varie pagine:
+   Storia, Timeline, Galleria, Condividi Foto, Informazioni, RSVP,
+   Lista Nozze, Alloggi, FAQ, Contatti ]
+   ... Queste regole non sono state modificate ... */
+
+/* Storia */
+.storia-content { max-width: 850px; margin: 0 auto; text-align: center; }
+.storia-content p:first-of-type { margin-bottom: 30px; font-size: 1.1rem; }
+.storia-personale { display: flex; gap: 30px; margin-top: 40px; justify-content: center; flex-wrap: wrap; }
+.persona { flex: 1; min-width: 280px; text-align: center; }
+.persona h3 { font-size: 1.6rem; color: var(--dusty-rose);}
+
+/* Timeline */
+.timeline { position: relative; max-width: 800px; margin: 40px auto; padding: 40px 0; }
+.timeline::after { content: ''; position: absolute; width: 2px; background-color: var(--blush-pink-medium); top: 0; bottom: 0; left: 50%; margin-left: -1px; }
+.timeline-item { padding: 10px 40px; position: relative; width: 50%; box-sizing: border-box; }
+.timeline-item::after { content: ''; position: absolute; width: 18px; height: 18px; right: -9px; background-color: var(--white); border: 3px solid var(--dusty-rose); top: 15px; border-radius: 50%; z-index: 1; }
+.timeline-item.left { left: 0; text-align: right; }
+.timeline-item.right { left: 50%; text-align: left; }
+.timeline-item.right::after { left: -9px; }
+.timeline-content { padding: 20px; background-color: var(--white); border-radius: var(--border-radius-small); box-shadow: var(--box-shadow-light); border: 1px solid var(--blush-pink-medium); position: relative; }
+.timeline-content h3 { margin-bottom: 8px; color: var(--dusty-rose); font-family: var(--font-heading); font-size: 1.3rem; font-weight: 600; }
+.timeline-content p { font-size: 0.95rem; }
+
+/* Galleria */
+#galleria .page-container { background-color: transparent; box-shadow: none; padding: 0; }
+.gallery-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); grid-gap: 15px; margin-top: 30px; }
+.gallery-item { height: 220px; overflow: hidden; border-radius: var(--border-radius-small); position: relative; cursor: pointer; transition: transform .3s ease, box-shadow 0.3s ease; border: 1px solid var(--blush-pink-medium); background-color: var(--blush-pink-light); }
+.gallery-item:hover { transform: scale(1.03); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s ease; }
+.gallery-item:hover img { transform: scale(1.1); }
+
+/* Condividi Foto */
+.share-container { background-color: var(--white); border-radius: var(--border-radius-medium); padding: 30px 40px; box-shadow: var(--box-shadow-light); border: 1px solid var(--blush-pink-medium); max-width: 900px; margin: 30px auto; }
+.share-info { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; margin-bottom: 40px; gap: 30px; }
+.app-info { flex: 1; min-width: 300px; }
+.app-info h3 { color: var(--dusty-rose); font-size: 1.8rem; margin-bottom: 15px; font-family: var(--font-heading); }
+.features-list { list-style: none; margin-top: 15px; padding-left: 0; }
+.features-list li { margin-bottom: 8px; color: var(--soft-grey); font-size: 0.95rem;}
+.features-list li i { color: var(--dusty-rose); margin-right: 10px; }
+.qr-container { text-align: center; padding: 10px; }
+.qr-container img { max-width: 160px; margin-bottom: 10px; border: 1px solid var(--blush-pink-medium); padding: 4px; border-radius: var(--border-radius-small); }
+.qr-container p { color: var(--soft-grey); font-size: 0.9rem; }
+.album-link { color: var(--dusty-rose); text-decoration: underline; font-weight: 500; transition: color .3s; }
+.album-link:hover { color: var(--button-hover); }
+.share-instructions { display: flex; justify-content: space-between; gap: 20px; margin-top: 20px; flex-wrap: wrap; }
+.instruction-step { flex: 1; text-align: center; padding: 15px; position: relative; min-width: 150px; }
+.step-number { width: 35px; height: 35px; background-color: var(--dusty-rose); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; font-size: 1.1rem; font-weight: bold; }
+.instruction-step h4 { color: var(--darker-grey); margin-bottom: 5px; font-size: 1.1rem; font-family: var(--font-heading); font-weight: 500; }
+.instruction-step p { font-size: 0.9rem; }
+.additional-info { margin-top: 35px; padding-top: 25px; border-top: 1px solid var(--blush-pink-medium); }
+.additional-info h4 { color: var(--darker-grey); text-align: center; margin-bottom: 20px; font-size: 1.4rem; font-family: var(--font-heading); font-weight: 500;}
+.usage-options { display: flex; justify-content: space-around; gap: 25px; flex-wrap: wrap; }
+.option { flex: 1; min-width: 250px; padding: 20px; background-color: var(--blush-pink-light); border-radius: var(--border-radius-small); border: 1px solid var(--blush-pink-medium); }
+.option h5 { color: var(--darker-grey); margin-bottom: 12px; font-size: 1.1rem; font-family: var(--font-heading); }
+.option h5 i { margin-right: 8px; color: var(--dusty-rose); }
+.option ol { color: var(--soft-grey); padding-left: 20px; font-size: 0.9rem; }
+.option ol li { margin-bottom: 6px; }
+
+/* Informazioni */
+.info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 30px; }
+.info-card { text-align: center; }
+.info-card h3 { font-size: 1.8rem; }
+.info-card p { margin-bottom: 10px; font-size: 1rem;}
+.map { height: 250px; margin-top: 20px; border: 1px solid var(--blush-pink-medium); border-radius: var(--border-radius-small); overflow: hidden;}
+
+/* RSVP Form */
+.rsvp-form { max-width: 700px; margin: 30px auto; background-color: var(--white); padding: 35px 40px; border-radius: var(--border-radius-medium); box-shadow: var(--box-shadow-light); border: 1px solid var(--blush-pink-medium); }
+.form-group { margin-bottom: 25px; }
+.form-group label { display: block; margin-bottom: 8px; color: var(--darker-grey); font-weight: 500; font-size: 1rem; font-family: var(--font-heading);}
+.form-group small.form-text { font-size: 0.85rem; color: var(--soft-grey); display: block; margin-top: -5px; margin-bottom: 5px;}
+.form-group input[type="text"], .form-group input[type="email"], .form-group input[type="tel"], .form-group select, .form-group textarea { width: 100%; padding: 12px 15px; border: 1px solid var(--blush-pink-medium); border-radius: var(--border-radius-small); font-size: 1rem; color: var(--darker-grey); font-family: var(--font-body); background-color: var(--white); transition: border-color 0.3s ease, box-shadow 0.3s ease; }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--dusty-rose); box-shadow: 0 0 0 2px rgba(209, 168, 168, 0.2); }
+.form-group textarea { height: 100px; resize: vertical; }
+.radio-group { display: flex; gap: 25px; margin-top: 10px; flex-wrap: wrap;}
+.radio-group label { color: var(--soft-grey); font-size: 1rem; font-weight: 400; display: inline-flex; align-items: center; cursor: pointer; font-family: var(--font-body);}
+.radio-group input[type="radio"] { margin-right: 8px; transform: scale(1.1); accent-color: var(--dusty-rose); cursor: pointer; }
+.btn, button[type="submit"] { display: inline-block; padding: 12px 25px; font-size: 1.1rem; background-color: var(--dusty-rose); color: var(--white); border: none; border-radius: var(--border-radius-small); cursor: pointer; transition: background-color .3s ease, transform 0.2s ease; text-decoration: none; font-family: var(--font-heading); font-weight: 500; }
+.btn:hover, button[type="submit"]:hover { background-color: var(--button-hover); transform: translateY(-2px); }
+button[type="submit"].submit-btn { width: 100%; margin-top: 15px; font-size: 1.2rem;}
+
+/* Loader per form submit */
+#loading-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.85); display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 1100; text-align: center;}
+.spinner { width: 45px; height: 45px; border: 4px solid var(--blush-pink-medium); border-top: 4px solid var(--dusty-rose); border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 15px; }
+#loading-overlay p { font-family: var(--font-heading); color: var(--darker-grey); font-size: 1.1rem; }
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+/* Lista Nozze */
+#lista-nozze .page-container { background-color: transparent; box-shadow: none; padding: 0;}
+.gift-intro { text-align: center; max-width: 750px; margin: 0 auto 40px; font-size: 1.1rem; line-height: 1.7; color: var(--soft-grey); }
+.gift-option { background-color: var(--white); border: 1px solid var(--blush-pink-medium); border-radius: var(--border-radius-medium); overflow: hidden; box-shadow: var(--box-shadow-light); max-width: 900px; margin: 0 auto; }
+.gift-option-img { width: 100%; height: 350px; overflow: hidden; }
+.gift-option-img img { width: 100%; height: 100%; object-fit: cover; display: block;}
+.gift-option-info { padding: 30px 40px; text-align: center; }
+.gift-option-info h3 { color: var(--dusty-rose); font-size: 2rem; margin-bottom: 15px; font-family: var(--font-heading); font-weight: 500;}
+.gift-option-info p { color: var(--soft-grey); font-size: 1.05rem; line-height: 1.7; margin-bottom: 25px; }
+.gift-details { background-color: var(--blush-pink-light); padding: 25px; border-radius: var(--border-radius-small); margin-top: 25px; border-top: 1px solid var(--blush-pink-medium); }
+.bank-details { text-align: left; max-width: 450px; margin: 15px auto 0; padding: 20px; background-color: var(--white); border-radius: var(--border-radius-small); border: 1px solid var(--blush-pink-medium); }
+.bank-details p { margin-bottom: 8px; font-size: 1rem; color: var(--darker-grey); }
+.bank-details p strong { font-weight: 600; }
+.gift-details > p:first-of-type { font-weight: 500; color: var(--darker-grey); }
+.gift-details > p:last-of-type { margin-top: 15px; font-size: 0.9em; font-style: italic; }
+
+/* Alloggi */
+.accommodation-intro { text-align: center; max-width: 750px; margin: 0 auto 40px; font-size: 1.1rem; }
+.booking-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin: 40px 0; }
+.booking-card { text-align: center; }
+.booking-card i { font-size: 2.5rem; color: var(--dusty-rose); margin-bottom: 15px; }
+.booking-card h4 { color: var(--darker-grey); margin-bottom: 10px; font-size: 1.4rem; font-family: var(--font-heading); font-weight: 500;}
+.booking-card p { margin-bottom: 20px; color: var(--soft-grey); font-size: 0.95rem; }
+.booking-card .btn { padding: 10px 20px; font-size: 1rem;}
+.accommodation-tips { background-color: var(--blush-pink-light); padding: 30px; border-radius: var(--border-radius-medium); margin-top: 40px; text-align: center; border: 1px solid var(--blush-pink-medium); }
+.accommodation-tips h4 { color: var(--darker-grey); margin-bottom: 20px; font-size: 1.3rem; font-family: var(--font-heading); font-weight: 500; }
+.accommodation-tips ul { list-style: none; max-width: 600px; margin: 0 auto; display: inline-block; text-align: left; padding-left: 0; }
+.accommodation-tips li { color: var(--soft-grey); margin-bottom: 12px; font-size: 1rem; padding-left: 25px; position: relative;}
+.accommodation-tips li::before { content: "•"; color: var(--dusty-rose); position: absolute; left: 5px; top: 1px; font-size: 1.3rem; line-height: 1; }
+
+/* FAQ */
+.faq-container { max-width: 800px; margin: 30px auto; }
+.faq-item { margin-bottom: 15px; border-bottom: 1px solid var(--blush-pink-medium); padding-bottom: 15px; }
+.faq-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.faq-question { font-weight: 500; font-size: 1.2rem; color: var(--darker-grey); margin-bottom: 0; padding: 10px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: var(--font-heading); transition: color 0.3s ease; }
+.faq-question:hover { color: var(--dusty-rose); }
+.faq-question::after { content: '+'; font-size: 1.6rem; color: var(--dusty-rose); transition: transform 0.3s ease; font-weight: 300; }
+.faq-question.active::after { content: '−'; transform: rotate(180deg); }
+.faq-answer { display: none; padding: 15px 0 5px 10px; color: var(--soft-grey); font-size: 0.95rem; line-height: 1.7; }
+.faq-answer.show { display: block; }
+
+/* Contatti */
+#contatti .page-container { padding-bottom: 50px;}
+.contact-card { max-width: 600px; margin: 30px auto; text-align: center;}
+.contact-card p { margin-bottom: 15px; font-size: 1.1rem; color: var(--darker-grey); }
+.contact-card p:first-of-type { margin-top: 10px;}
+.social-icons { margin: 25px 0 15px; }
+.social-icons a { display: inline-block; margin: 0 12px; color: var(--dusty-rose); font-size: 1.8rem; transition: color .3s ease, transform 0.3s ease; }
+.social-icons a:hover { color: var(--button-hover); transform: translateY(-3px); }
+.contact-card p strong { color: var(--dusty-rose); font-weight: 600; }
+
+
+/* --- FOOTER --- */
+footer {
+    background-color: var(--dusty-rose);
+    color: var(--white);
+    text-align: center;
+    padding: 25px 0;
+    margin-top: auto;
+}
+footer p {
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+footer p:first-of-type { font-weight: 500; }
+
+/* --- UTILITIES E MODAL --- */
+.back-to-top { position: fixed; bottom: 25px; right: 25px; background-color: var(--dusty-rose); color: var(--white); width: 45px; height: 45px; border-radius: 50%; display: flex; justify-content: center; align-items: center; text-decoration: none; opacity: 0; visibility: hidden; transition: opacity .3s, visibility .3s, transform 0.3s; z-index: 999; border: 2px solid var(--white); box-shadow: 0 2px 5px rgba(0,0,0,0.15); transform: translateY(10px);}
+.back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+.back-to-top:hover { background-color: var(--button-hover); }
+
+.modal { display: none; position: fixed; z-index: 1100; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(40, 40, 40, 0.95); justify-content: center; align-items: center; }
+.modal-content { max-width: 90%; max-height: 85vh; object-fit: contain; margin: auto; display: block; }
+.modal-close { position: fixed; right: 20px; top: 15px; color: rgba(255,255,255,0.8); font-size: 45px; font-weight: 300; cursor: pointer; z-index: 1101; transition: color 0.3s; line-height: 1;}
+.modal-close:hover { color: var(--white); }
+.modal-nav { position: fixed; top: 50%; transform: translateY(-50%); color: rgba(255,255,255,0.7); font-size: 40px; cursor: pointer; z-index: 1101; padding: 15px; transition: color .3s, background-color 0.3s; border-radius: 50%;}
+.modal-nav:hover { color: var(--white); background-color: rgba(255,255,255,0.1); }
+.modal-prev { left: 15px; }
+.modal-next { right: 15px; }
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 768px) {
+    h1.couple-names { font-size: 2.5rem; }
+    .ampersand { font-size: 2.3rem; }
+    .wedding-date { font-size: 1.3rem; }
+    .countdown-number { font-size: 2rem; }
+    .countdown-label { font-size: 0.7rem; }
+    .hero-content { padding: 30px 20px; max-width: 90%; }
+
+    /* ====== Decorazioni Floreali Responsive (Tablet/Mobile) ====== */
+    .floral-decoration {
+        width: clamp(80px, 18vw, 150px); /* Riduci per schermi medi */
+    }
+    .floral-top-right {
+        top: -30px; /* Regola offset negativo */
+        right: -35px;
+    }
+    .floral-bottom-left {
+        bottom: -40px; /* Regola offset negativo */
+        left: -30px;
+    }
+    /* ====== Fine Modifiche Floreali Responsive ====== */
+
+    .page-title { font-size: 2.1rem; }
+    .page-subtitle { font-size: 1.1rem; }
+    .page-container { padding: 30px 20px; }
+
+    .storia-personale { flex-direction: column; gap: 20px; }
+    .timeline::after { left: 20px; }
+    .timeline-item { width: 100%; padding-left: 50px; padding-right: 15px; text-align: left !important; margin-bottom: 20px;}
+    .timeline-item::after { left: 11px; }
+    .timeline-item.right { left: 0; }
+    .timeline-item.right::after { left: 11px; }
+
+    .gallery-container { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; }
+    .gallery-item { height: 130px; }
+
+    .share-info { flex-direction: column; text-align: center; }
+    .app-info { text-align: center; }
+    .features-list { display: inline-block; text-align: left; }
+    .share-instructions { flex-direction: column; gap: 15px;}
+    .usage-options { flex-direction: column; gap: 15px;}
+    .share-container { padding: 20px 25px;}
+
+    .info-grid { grid-template-columns: 1fr; }
+    .rsvp-form { padding: 25px 20px; }
+    .radio-group { gap: 15px; }
+
+    .gift-option-img { height: 250px; }
+    .gift-option-info { padding: 25px 20px; }
+    .bank-details { padding: 15px; }
+
+    .booking-options { grid-template-columns: 1fr; }
+
+    .modal-nav { font-size: 30px; padding: 10px; }
+    .modal-prev { left: 5px; } .modal-next { right: 5px; }
+}
+
+@media (max-width: 480px) {
+    h1.couple-names { font-size: 2rem; }
+    .ampersand { font-size: 1.8rem; }
+    .wedding-date { font-size: 1.1rem; }
+    .countdown { gap: 15px; }
+    .countdown-number { font-size: 1.6rem; }
+
+    /* ====== Decorazioni Floreali Responsive (Mobile Piccolo) ====== */
+     .floral-decoration {
+         width: clamp(60px, 15vw, 100px); /* Riduci ulteriormente */
+     }
+      .floral-top-right {
+        top: -20px; /* Regola offset negativo */
+        right: -25px;
+      }
+      .floral-bottom-left {
+          bottom: -30px; /* Regola offset negativo */
+          left: -20px;
+      }
+     /* ====== Fine Modifiche Floreali Responsive ====== */
+
+    .page-title { font-size: 1.8rem; }
+    .page-subtitle { font-size: 1rem; }
+
+    nav ul li a { font-size: 1.1rem; }
+
+    .gallery-container { grid-template-columns: repeat(2, 1fr); }
+    .gallery-item { height: 150px; }
+
+    .btn, button[type="submit"] { padding: 10px 20px; font-size: 1rem; }
+    button[type="submit"].submit-btn { font-size: 1.1rem; }
+}
+/* --- PAGE TRANSITION (On-Load Animation) --- */
+@keyframes slideInFromRight { 0% { transform: translateX(50px); opacity: 0; } 100% { transform: translateX(0); opacity: 1; } }
+@keyframes slideInFromLeft { 0% { transform: translateX(-50px); opacity: 0; } 100% { transform: translateX(0); opacity: 1; } }
+
+/* Applica l'animazione al contenitore principale della pagina */
+.page-container {
+     /* animation: slideInFromRight 0.5s ease-out forwards; */
+}
+
+/* --- PAGE NAVIGATION ARROWS --- */
+.page-navigation { margin-top: 40px; margin-bottom: 20px; padding: 10px 0; }
+.nav-arrow-container { display: flex; justify-content: space-between; align-items: center; }
+.nav-arrow { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--dusty-rose); font-family: var(--font-heading); font-size: 1.1rem; font-weight: 500; padding: 8px 15px; border: 1px solid transparent; border-radius: var(--border-radius-medium); transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease; }
+.nav-arrow:hover { color: var(--button-hover); background-color: rgba(209, 168, 168, 0.1); }
+.nav-arrow i { font-size: 1rem; }
+.nav-arrow[href="#"], .nav-arrow:not([href]) { visibility: hidden; opacity: 0; pointer-events: none; }
+
+@media (max-width: 768px) {
+    .page-navigation { margin-top: 30px; }
+    .nav-arrow span { display: none; }
+    .nav-arrow { padding: 10px 12px; font-size: 1.3rem; }
+    .nav-arrow i { font-size: 1.2rem; }
+}
