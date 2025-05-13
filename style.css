@@ -1,3 +1,6 @@
+
+/* --- START OF FILE style.css --- */
+
 /* --- NUOVA PALETTE, FONTS E VARIABILI --- */
 :root {
     --blush-pink-light: #F9F1F1; /* Rosa cipria chiarissimo per sfondi card */
@@ -58,46 +61,32 @@ main {
 }
 .header-container {
     display: flex;
-    justify-content: space-between; /* Mantiene il menu toggle a destra (se visibile) */
+    justify-content: space-between;
     align-items: center;
 }
-
-nav {
-    /* La nav si adatterà al contenuto o allo spazio dato dal flex container genitore */
-    /* Per centrare il blocco di navigazione se l'header-container lo permette: */
-    /* margin: 0 auto; */ /* Opzionale, se vuoi la nav stessa centrata */
-}
-
 nav ul {
     display: flex;
     list-style: none;
-    margin: 0 auto; /* Centra l'ul se nav è più larga di ul */
-    padding: 0;
-    justify-content: center; /* Centra gli elementi li all'interno dell'ul */
-    flex-wrap: wrap; /* Permette ai link di andare a capo se non c'è abbastanza spazio */
+    margin: 0; padding: 0;
 }
-
 nav ul li {
-    margin: 0; /* Rimosso margin per un controllo più fine con padding su <a> */
+    margin: 0 10px;
 }
-
 nav ul li a {
     text-decoration: none;
     color: var(--darker-grey);
     font-family: var(--font-heading);
     font-size: 1rem;
     font-weight: 500;
-    padding: 10px 12px; /* Aumentato padding per migliore spaziatura e cliccabilità */
+    padding: 6px 8px;
     transition: color 0.3s ease;
     position: relative;
-    display: block; /* o inline-block per rispettare il padding verticale */
-    text-align: center; /* Assicura che il testo sia centrato nel box del link */
+    display: block;
 }
-
 nav ul li a::after {
     content: '';
     position: absolute;
-    bottom: 5px; /* Leggermente alzato per essere più vicino al testo */
+    bottom: 0px;
     left: 50%;
     transform: translateX(-50%);
     width: 0;
@@ -107,7 +96,7 @@ nav ul li a::after {
 }
 nav ul li a:hover::after,
 nav ul li a.active::after {
-    width: 60%; /* Leggermente ridotto per non sovrapporsi troppo con padding aumentato */
+    width: 70%;
 }
 nav ul li a:hover,
 nav ul li a.active {
@@ -125,17 +114,12 @@ nav ul li a.active {
 }
 .menu-toggle:hover { color: var(--dusty-rose); }
 
-@media (max-width: 1024px) { /* Breakpoint per menu mobile, potrebbe necessitare aggiustamenti */
-    .header-container {
-        /* Su mobile, il toggle è a destra, la nav (se il logo fosse a sinistra) al centro.
-           Se il logo non c'è, il toggle è l'unico elemento fisso. */
-        /* justify-content: space-between; è OK qui */
-    }
+@media (max-width: 1024px) {
     .menu-toggle { display: block; }
     nav {
-        display: none; /* Gestito da JS */
+        display: none;
         position: absolute;
-        top: 100%; /* Appare sotto l'header */
+        top: 100%;
         left: 0;
         width: 100%;
         background-color: rgba(250, 245, 237, 0.98);
@@ -144,30 +128,30 @@ nav ul li a.active {
         border-top: 1px solid var(--blush-pink-medium);
         z-index: 999;
     }
-    nav.active { display: block; } /* Classe aggiunta da JS */
+    nav.active { display: block; }
     nav ul {
         flex-direction: column;
-        align-items: center; /* Centra gli li verticalmente */
+        align-items: center;
     }
     nav ul li {
-        margin: 6px 0; /* Spaziatura verticale tra i link nel menu mobile */
+        margin: 8px 0;
     }
     nav ul li a {
        font-size: 1.2rem;
-       padding: 10px 20px; /* Padding per i link mobile */
+       padding: 10px 20px;
     }
     nav ul li a::after { bottom: 5px; }
 }
 
-
 /* --- HERO SECTION (Home Page) --- */
 .hero-section {
-    min-height: calc(100vh - 60px); /* 60px è un'approssimazione dell'altezza header, da verificare */
+    min-height: calc(100vh - 60px);
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     position: relative;
+    /* overflow: hidden; */ /* COMMENTA O RIMUOVI questa riga se le decorazioni vengono tagliate */
     padding: 40px 20px;
 }
 .hero-content {
@@ -230,7 +214,7 @@ h1.couple-names {
 /* ====== Decorazioni Floreali - RIPOSIZIONATE VICINO AL BOX ====== */
 .floral-decoration {
     position: absolute;
-    z-index: -1; /* Dietro hero-content */
+    z-index: -1;
     pointer-events: none;
     width: clamp(100px, 20vw, 220px); /* Dimensione Desktop */
 }
@@ -253,14 +237,6 @@ h1.couple-names {
 /* ====== Fine Modifiche Floreali ====== */
 
 
-/* --- CONTENITORE PULSANTE RSVP SOTTO HERO --- */
-.hero-rsvp-button-container {
-    text-align: center;
-    padding: 30px 20px; /* Spazio sopra/sotto il pulsante */
-}
-/* Lo stile del .btn è già definito più avanti, verrà applicato */
-
-
 /* --- STILI PAGINE INTERNE --- */
 /* [ ... Stili pagine interne come prima ... ] */
 .content-section {
@@ -271,7 +247,7 @@ h1.couple-names {
      padding: 40px;
      border-radius: var(--border-radius-medium);
      box-shadow: var(--box-shadow-light);
-     margin-top: 0; /* Rimosso per non avere doppio margine con la sezione hero */
+     margin-top: 0;
      margin-bottom: 30px;
      animation: slideInFromRight 0.5s ease-out forwards; /* O altra animazione */
 }
@@ -421,7 +397,7 @@ button[type="submit"].submit-btn { width: 100%; margin-top: 15px; font-size: 1.2
 .accommodation-tips h4 { color: var(--darker-grey); margin-bottom: 20px; font-size: 1.3rem; font-family: var(--font-heading); font-weight: 500; }
 .accommodation-tips ul { list-style: none; max-width: 600px; margin: 0 auto; display: inline-block; text-align: left; padding-left: 0; }
 .accommodation-tips li { color: var(--soft-grey); margin-bottom: 12px; font-size: 1rem; padding-left: 25px; position: relative;}
-.accommodation-tips li::before { content: "•"; /* Usato un bullet point più standard */ color: var(--dusty-rose); position: absolute; left: 5px; top: 1px; font-size: 1.3rem; line-height: 1; }
+.accommodation-tips li::before { content: "•"; color: var(--dusty-rose); position: absolute; left: 5px; top: 1px; font-size: 1.3rem; line-height: 1; }
 
 /* FAQ */
 .faq-container { max-width: 800px; margin: 30px auto; }
@@ -430,7 +406,7 @@ button[type="submit"].submit-btn { width: 100%; margin-top: 15px; font-size: 1.2
 .faq-question { font-weight: 500; font-size: 1.2rem; color: var(--darker-grey); margin-bottom: 0; padding: 10px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: var(--font-heading); transition: color 0.3s ease; }
 .faq-question:hover { color: var(--dusty-rose); }
 .faq-question::after { content: '+'; font-size: 1.6rem; color: var(--dusty-rose); transition: transform 0.3s ease; font-weight: 300; }
-.faq-question.active::after { content: '−'; /* Meno invece di em dash */ transform: rotate(0deg); /* Non serve rotazione per il meno */ }
+.faq-question.active::after { content: '−'; transform: rotate(180deg); }
 .faq-answer { display: none; padding: 15px 0 5px 10px; color: var(--soft-grey); font-size: 0.95rem; line-height: 1.7; }
 .faq-answer.show { display: block; }
 
@@ -451,7 +427,7 @@ footer {
     color: var(--white);
     text-align: center;
     padding: 25px 0;
-    margin-top: auto; /* Spinge il footer in basso se il contenuto è poco */
+    margin-top: auto;
 }
 footer p {
     margin-bottom: 5px;
@@ -560,19 +536,13 @@ footer p:first-of-type { font-weight: 500; }
     .page-title { font-size: 1.8rem; }
     .page-subtitle { font-size: 1rem; }
 
-    /* Navigazione mobile già gestita sopra, qui puoi sovrascrivere se serve */
-    /* nav ul li a { font-size: 1.1rem; } /* Già gestito in @media (max-width: 1024px) */
+    nav ul li a { font-size: 1.1rem; }
 
-    .gallery-container { grid-template-columns: repeat(2, 1fr); } /* Due colonne su mobile piccolo */
+    .gallery-container { grid-template-columns: repeat(2, 1fr); }
     .gallery-item { height: 150px; }
 
     .btn, button[type="submit"] { padding: 10px 20px; font-size: 1rem; }
     button[type="submit"].submit-btn { font-size: 1.1rem; }
-
-    .hero-rsvp-button-container .btn {
-        font-size: 1rem; /* Adatta dimensione pulsante per mobile piccolo */
-        padding: 10px 20px;
-    }
 }
 /* --- PAGE TRANSITION (On-Load Animation) --- */
 @keyframes slideInFromRight { 0% { transform: translateX(50px); opacity: 0; } 100% { transform: translateX(0); opacity: 1; } }
@@ -580,7 +550,7 @@ footer p:first-of-type { font-weight: 500; }
 
 /* Applica l'animazione al contenitore principale della pagina */
 .page-container {
-     /* animation: slideInFromRight 0.5s ease-out forwards; */ /* Commentato come originale */
+     /* animation: slideInFromRight 0.5s ease-out forwards; */
 }
 
 /* --- PAGE NAVIGATION ARROWS --- */
@@ -593,7 +563,9 @@ footer p:first-of-type { font-weight: 500; }
 
 @media (max-width: 768px) {
     .page-navigation { margin-top: 30px; }
-    .nav-arrow span { display: none; } /* Nasconde testo "Prec." e "Succ." su mobile */
+    .nav-arrow span { display: none; }
     .nav-arrow { padding: 10px 12px; font-size: 1.3rem; }
     .nav-arrow i { font-size: 1.2rem; }
 }
+
+/* --- END OF FILE style.css --- */
