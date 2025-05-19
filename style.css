@@ -443,17 +443,6 @@ button[type="submit"].submit-btn { width: 100%; margin-top: 15px; font-size: 1.2
 .accommodation-tips li { color: var(--soft-grey); margin-bottom: 12px; font-size: 1rem; padding-left: 25px; position: relative;}
 .accommodation-tips li::before { content: "•"; color: var(--dusty-rose); position: absolute; left: 5px; top: 1px; font-size: 1.3rem; line-height: 1; }
 
-/* FAQ */
-.faq-container { max-width: 800px; margin: 30px auto; }
-.faq-item { margin-bottom: 15px; border-bottom: 1px solid var(--blush-pink-medium); padding-bottom: 15px; }
-.faq-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-.faq-question { font-weight: 500; font-size: 1.2rem; color: var(--darker-grey); margin-bottom: 0; padding: 10px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: var(--font-heading); transition: color 0.3s ease; }
-.faq-question:hover { color: var(--dusty-rose); }
-.faq-question::after { content: '+'; font-size: 1.6rem; color: var(--dusty-rose); transition: transform 0.3s ease; font-weight: 300; }
-.faq-question.active::after { content: '−'; transform: rotate(0deg); }
-.faq-answer { display: none; padding: 15px 0 5px 10px; color: var(--soft-grey); font-size: 0.95rem; line-height: 1.7; }
-.faq-answer.show { display: block; }
-
 /* Contatti */
 #contatti .page-container { padding-bottom: 50px;}
 .contact-card { max-width: 600px; margin: 30px auto; text-align: center;}
