@@ -279,8 +279,10 @@ h1.couple-names {
 /* --- CONTENITORE PULSANTE RSVP SOTTO HERO --- */
 .hero-rsvp-button-container {
     text-align: center;
-    /* <<< MODIFICA: Ripristina padding originale o quello preferito */
-    padding: 30px 20px;
+    padding: 0 20px; /* Rimuovi padding verticale, gestiremo con margin */
+    /* <<< MODIFICA: Aggiungi un margine superiore di 100px */
+    margin-top: 100px;
+    margin-bottom: 20px; /* Un po' di spazio prima della navigazione pagine o footer */
 }
 
 /* --- STILI PAGINE INTERNE --- */
