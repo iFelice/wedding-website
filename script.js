@@ -93,54 +93,6 @@ if (countdownElement) { // Esegui solo se esiste l'elemento countdown
     }
 }
 
-
-// --- FAQ accordion (Solo su Pagina FAQ) ---
-const faqContainer = document.querySelector('.faq-container');
-if (faqContainer) { // Esegui solo se siamo nella pagina con le FAQ
-    const faqQuestions = faqContainer.querySelectorAll('.faq-question');
-    faqQuestions.forEach((question, index) => {
-        const answer = question.nextElementSibling;
-        if (answer && answer.classList.contains('faq-answer')) {
-            const questionId = `faq-question-${index}`;
-            const answerId = `faq-answer-${index}`;
-            setAttributes(question, { 'id': questionId, 'aria-expanded': 'false', 'aria-controls': answerId, 'role': 'button', 'tabindex': '0' });
-            setAttributes(answer, { 'id': answerId, 'role': 'region', 'aria-labelledby': questionId });
-            answer.style.display = 'none'; // Nascondi inizialmente con JS
-
-            question.addEventListener('click', () => {
-                const isActive = question.classList.toggle('active');
-                answer.style.display = isActive ? 'block' : 'none';
-                // // Animazione slide (sostituisce display block/none)
-                // if (isActive) {
-                //     answer.style.maxHeight = answer.scrollHeight + "px";
-                //     answer.style.paddingTop = '15px'; // Ripristina padding se usi maxHeight
-                //     answer.style.paddingBottom = '5px';
-                // } else {
-                //     answer.style.maxHeight = null;
-                //     answer.style.paddingTop = '0';
-                //     answer.style.paddingBottom = '0';
-                // }
-                question.setAttribute('aria-expanded', isActive);
-
-                // Chiudi le altre (opzionale)
-                faqQuestions.forEach((otherQ, otherIdx) => {
-                    if (otherIdx !== index && otherQ.classList.contains('active')) {
-                         otherQ.classList.remove('active');
-                         otherQ.nextElementSibling.style.display = 'none';
-                         // otherQ.nextElementSibling.style.maxHeight = null; // Per animazione
-                         otherQ.setAttribute('aria-expanded', 'false');
-                    }
-                });
-            });
-
-            question.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); question.click(); }
-            });
-        }
-    });
-}
-
-
 // --- Gallery modal implementation (Solo su Pagina Galleria) ---
 const galleryContainerElement = document.querySelector('.gallery-container');
 if (galleryContainerElement) { // Esegui solo se siamo nella pagina galleria
