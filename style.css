@@ -329,14 +329,6 @@ h1.couple-names {
 
 /* --- ELEMENTI SPECIFICI (Come prima) --- */
 /* [ ... Incolla qui tutte le regole CSS specifiche per le varie pagine ... ] */
-/* ... (IL TUO CSS PRECEDENTE DA "Storia" FINO A "Contatti" VA QUI)... */
-
-/* Storia */
-.storia-content { max-width: 850px; margin: 0 auto; text-align: center; }
-.storia-content p:first-of-type { margin-bottom: 30px; font-size: 1.1rem; }
-.storia-personale { display: flex; gap: 30px; margin-top: 40px; justify-content: center; flex-wrap: wrap; }
-.persona { flex: 1; min-width: 280px; text-align: center; }
-.persona h3 { font-size: 1.6rem; color: var(--dusty-rose);}
 
 /* Timeline */
 .timeline { position: relative; max-width: 800px; margin: 40px auto; padding: 40px 0; }
