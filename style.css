@@ -175,7 +175,7 @@ nav ul li a.active {
     position: relative;
     min-height: calc(100vh - 47px - 109px); /* Header: 47px, Footer: 109px */
     /* <<< MODIFICA: Padding top molto piccolo per avvicinare all'header */
-    padding: 20px 20px 0; /* Esempio: 20px sopra, puoi provare anche meno (es. 10px) */
+    padding: 100px 20px 0; /* Esempio: 20px sopra, puoi provare anche meno (es. 10px) */
     box-sizing: border-box;
 }
 
