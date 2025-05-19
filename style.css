@@ -502,26 +502,25 @@ footer p:first-of-type { font-weight: 500; }
     top: 0;
     width: 100%;
     height: 100%;
-    /* <<< MODIFICA: Riduci l'opacità del colore di sfondo (es. da 0.95 a 0.8 o 0.75) */
-    background-color: rgba(40, 40, 40, 0.8); /* Era rgba(40, 40, 40, 0.95) */
-    justify-content: center;
-    align-items: center;
-    padding: 20px; /* <<< AGGIUNGI: Un po' di padding per distanziare l'immagine dai bordi della viewport */
-    box-sizing: border-box; /* <<< AGGIUNGI: Per includere il padding nel width/height */
+    background-color: rgba(40, 40, 40, 0.8);
+    /* <<< MODIFICA: Abilita lo scroll sulla modale se il contenuto è più grande */
+    overflow-y: auto; /* Permette lo scroll verticale se necessario */
+    padding: 20px;
+    box-sizing: border-box;
+    justify-content: center; /* Mantenuto per centrare orizzontalmente */
+    align-items: center;     /* Mantenuto per centrare verticalmente se l'immagine è più piccola */
+                               /* Se l'immagine è più alta, overflow-y gestirà lo scroll e
+                                  l'immagine partirà dall'alto grazie al flusso flex. */
 }
 
 .modal-content { /* Questo è il tag <img> nel tuo JS, quindi #modalImg */
-    /* Se usi un div contenitore per l'immagine, applica questi stili a quel div,
-       e all'immagine interna metti width: 100%; height: auto; o viceversa.
-       Dato il tuo JS, #modalImg è direttamente l'immagine. */
-    max-width: 100%; /* <<< MODIFICA: Permetti all'immagine di usare tutta la larghezza disponibile nel padding della modale */
-    max-height: 100%;/* <<< MODIFICA: Permetti all'immagine di usare tutta l'altezza disponibile nel padding della modale */
+    max-width: 100%;
+    max-height: 100%;
     object-fit: contain;
-    display: block; /* Assicura che sia un blocco per i margini e per evitare spazi extra sotto */
-    margin: auto; /* Questo dovrebbe già centrare l'immagine se è più piccola dei max */
-    /* Opzionale: Aggiungi un'ombra leggera all'immagine stessa per farla risaltare un po' dallo sfondo */
+    display: block;
+    margin: auto; /* Centra l'immagine all'interno dello spazio disponibile */
     /* box-shadow: 0 0 25px rgba(0,0,0,0.5); */
-    border-radius: var(--border-radius-small); /* Opzionale: angoli arrotondati per l'immagine ingrandita */
+    border-radius: var(--border-radius-small);
 }
 
 .modal-close {
@@ -568,12 +567,15 @@ footer p:first-of-type { font-weight: 500; }
 @media (max-width: 768px) {
     .modal {
         padding: 10px; /* Padding ridotto per la modale su mobile */
+        /* align-items: flex-start; */ /* Opzionale: se vuoi che le immagini alte partano sempre dall'alto
+                                        anche se c'è spazio, ma con overflow-y: auto dovrebbe già farlo */
     }
+
     .modal-content {
-        /* Su mobile potremmo voler forzare l'immagine ad essere un po' più piccola
-           rispetto ai bordi, se il padding della modale non basta */
-        /* max-width: 95%;
-           max-height: 95%; */
+        /* Non dovrebbero servire max-width/max-height specifici qui se quelli sopra sono 100%
+           e object-fit: contain fa il suo lavoro. Il padding su .modal crea il margine. */
+        /* Se l'immagine è ancora troppo grande, potrebbe esserci un problema con il calcolo
+           di 100% height/width rispetto al genitore (.modal) con padding. */
     }
     .modal-close {
         font-size: 35px;
