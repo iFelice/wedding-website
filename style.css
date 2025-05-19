@@ -462,10 +462,38 @@ footer p {
 footer p:first-of-type { font-weight: 500; }
 
 /* --- UTILITIES E MODAL --- */
-.back-to-top { /* ... il tuo stile per back-to-top ... */ }
-.back-to-top.show { /* ... */ }
-.back-to-top:hover { /* ... */ }
+.back-to-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: var(--dusty-rose); /* <<< COLORE DI SFONDO TEMATICO */
+    color: var(--white);                 /* <<< COLORE ICONA BIANCO */
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex; /* Per centrare l'icona */
+    justify-content: center;
+    align-items: center;
+    text-decoration: none; /* Rimuove la sottolineatura del link */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s, visibility .3s, transform 0.3s;
+    z-index: 999;
+    border: 2px solid var(--white); /* Bordo bianco, come da tuo stile precedente */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    transform: translateY(10px);
+}
 
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background-color: var(--button-hover); /* Colore hover tematico */
+    /* color: var(--white); // Già bianco, non serve se non cambia */
+}
 .modal {
     display: none;
     position: fixed;
