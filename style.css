@@ -462,18 +462,103 @@ footer p {
 footer p:first-of-type { font-weight: 500; }
 
 /* --- UTILITIES E MODAL --- */
-.back-to-top { position: fixed; bottom: 25px; right: 25px; background-color: var(--dusty-rose); color: var(--white); width: 45px; height: 45px; border-radius: 50%; display: flex; justify-content: center; align-items: center; text-decoration: none; opacity: 0; visibility: hidden; transition: opacity .3s, visibility .3s, transform 0.3s; z-index: 999; border: 2px solid var(--white); box-shadow: 0 2px 5px rgba(0,0,0,0.15); transform: translateY(10px);}
-.back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
-.back-to-top:hover { background-color: var(--button-hover); }
+.back-to-top { /* ... il tuo stile per back-to-top ... */ }
+.back-to-top.show { /* ... */ }
+.back-to-top:hover { /* ... */ }
 
-.modal { display: none; position: fixed; z-index: 1100; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(40, 40, 40, 0.95); justify-content: center; align-items: center; }
-.modal-content { max-width: 90%; max-height: 85vh; object-fit: contain; margin: auto; display: block; }
-.modal-close { position: fixed; right: 20px; top: 15px; color: rgba(255,255,255,0.8); font-size: 45px; font-weight: 300; cursor: pointer; z-index: 1101; transition: color 0.3s; line-height: 1;}
-.modal-close:hover { color: var(--white); }
-.modal-nav { position: fixed; top: 50%; transform: translateY(-50%); color: rgba(255,255,255,0.7); font-size: 40px; cursor: pointer; z-index: 1101; padding: 15px; transition: color .3s, background-color 0.3s; border-radius: 50%;}
-.modal-nav:hover { color: var(--white); background-color: rgba(255,255,255,0.1); }
-.modal-prev { left: 15px; }
-.modal-next { right: 15px; }
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /* <<< MODIFICA: Riduci l'opacità del colore di sfondo (es. da 0.95 a 0.8 o 0.75) */
+    background-color: rgba(40, 40, 40, 0.8); /* Era rgba(40, 40, 40, 0.95) */
+    justify-content: center;
+    align-items: center;
+    padding: 20px; /* <<< AGGIUNGI: Un po' di padding per distanziare l'immagine dai bordi della viewport */
+    box-sizing: border-box; /* <<< AGGIUNGI: Per includere il padding nel width/height */
+}
+
+.modal-content { /* Questo è il tag <img> nel tuo JS, quindi #modalImg */
+    /* Se usi un div contenitore per l'immagine, applica questi stili a quel div,
+       e all'immagine interna metti width: 100%; height: auto; o viceversa.
+       Dato il tuo JS, #modalImg è direttamente l'immagine. */
+    max-width: 100%; /* <<< MODIFICA: Permetti all'immagine di usare tutta la larghezza disponibile nel padding della modale */
+    max-height: 100%;/* <<< MODIFICA: Permetti all'immagine di usare tutta l'altezza disponibile nel padding della modale */
+    object-fit: contain;
+    display: block; /* Assicura che sia un blocco per i margini e per evitare spazi extra sotto */
+    margin: auto; /* Questo dovrebbe già centrare l'immagine se è più piccola dei max */
+    /* Opzionale: Aggiungi un'ombra leggera all'immagine stessa per farla risaltare un po' dallo sfondo */
+    /* box-shadow: 0 0 25px rgba(0,0,0,0.5); */
+    border-radius: var(--border-radius-small); /* Opzionale: angoli arrotondati per l'immagine ingrandita */
+}
+
+.modal-close {
+    position: fixed; /* o absolute se .modal è il genitore di riferimento */
+    right: 25px;  /* Aumentato leggermente per via del padding della modale */
+    top: 20px;    /* Aumentato leggermente */
+    color: rgba(255,255,255,0.9); /* Leggermente più visibile */
+    font-size: 40px; /* Ridotto leggermente */
+    font-weight: 300;
+    cursor: pointer;
+    z-index: 1101;
+    transition: color 0.3s;
+    line-height: 1;
+    padding: 5px; /* Aggiungi un po' di area cliccabile */
+}
+.modal-close:hover {
+    color: var(--white);
+}
+
+.modal-nav {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255,255,255,0.8); /* Leggermente più visibile */
+    font-size: 35px; /* Ridotto leggermente */
+    cursor: pointer;
+    z-index: 1101;
+    padding: 20px 10px; /* Aumentato padding verticale per migliore area cliccabile */
+    transition: color .3s, background-color 0.3s;
+    border-radius: 8px; /* Angoli più morbidi */
+}
+.modal-nav:hover {
+    color: var(--white);
+    background-color: rgba(255,255,255,0.15);
+}
+.modal-prev {
+    left: 15px; /* Distanza dal bordo, considera il padding della modale */
+}
+.modal-next {
+    right: 15px; /* Distanza dal bordo, considera il padding della modale */
+}
+
+/* Aggiustamenti per mobile per la modale */
+@media (max-width: 768px) {
+    .modal {
+        padding: 10px; /* Padding ridotto per la modale su mobile */
+    }
+    .modal-content {
+        /* Su mobile potremmo voler forzare l'immagine ad essere un po' più piccola
+           rispetto ai bordi, se il padding della modale non basta */
+        /* max-width: 95%;
+           max-height: 95%; */
+    }
+    .modal-close {
+        font-size: 35px;
+        right: 15px;
+        top: 10px;
+    }
+    .modal-nav {
+        font-size: 30px;
+        padding: 15px 5px;
+    }
+    .modal-prev { left: 5px; }
+    .modal-next { right: 5px; }
+}
 
 /* --- RESPONSIVE ADJUSTMENTS --- */
 @media (max-width: 768px) {
