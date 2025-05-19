@@ -169,28 +169,30 @@ nav ul li a.active {
 .hero-section {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Tenta di centrare il contenuto verticalmente */
+    /* <<< MODIFICA: Prova con 'flex-start' per spingere il contenuto verso l'alto
+                     se c'è spazio verticale extra dopo il calcolo di min-height.
+                     In alternativa, puoi lasciare 'center' e giocare principalmente con il padding-top. */
+    justify-content: flex-start; /* o 'center' e regola padding-top sotto */
     align-items: center;
     text-align: center;
     position: relative;
-    /* === MODIFICA CRUCIALE: Altezza Dinamica === */
-    /* DEVI MISURARE L'ALTEZZA EFFETTIVA DEL TUO HEADER E FOOTER CON GLI STRUMENTI DI SVILUPPO
-       E SOSTITUIRE I VALORI 60px e 73px QUI SOTTO. */
-    min-height: calc(100vh - 47px - 108px); /* Esempio: 60px header, 73px footer */
-    /* <<< MODIFICA: Aumenta leggermente il padding-top se necessario, o mantieni basso
-                     per avvicinare il contenuto all'header. Il justify-content dovrebbe aiutare. */
-    padding: 10px 20px 0; /* Padding top ridotto, nessun padding bottom qui */
+    /* === MODIFICA CRUCIALE: Altezze aggiornate! === */
+    min-height: calc(100vh - 47px - 109px); /* Header: 47px, Footer: 109px */
+    /* <<< MODIFICA: Riduci drasticamente o azzera il padding-top
+                     per avvicinare il contenuto all'header. */
+    padding: 5px 20px 0; /* Esempio con padding-top molto piccolo. Prova anche 0px. */
     box-sizing: border-box;
 }
+
 .hero-content {
     position: relative;
     z-index: 2;
     background-color: rgba(255, 255, 255, 0.8);
-    /* <<< MODIFICA: Ripristina padding più generoso o quello originale */
-    padding: 40px 30px; /* Era 25px 30px, torniamo a quello che avevi */
+    padding: 40px 30px; /* Manteniamo il padding interno del box */
     border-radius: var(--border-radius-medium);
     max-width: 650px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    /* margin-top: 20px; */ /* Esempio, da decommentare e regolare se necessario */
 }
 h1.couple-names {
     font-family: var(--font-heading);
