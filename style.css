@@ -169,18 +169,13 @@ nav ul li a.active {
 .hero-section {
     display: flex;
     flex-direction: column;
-    /* <<< MODIFICA: Prova con 'flex-start' per spingere il contenuto verso l'alto
-                     se c'è spazio verticale extra dopo il calcolo di min-height.
-                     In alternativa, puoi lasciare 'center' e giocare principalmente con il padding-top. */
-    justify-content: flex-start; /* o 'center' e regola padding-top sotto */
+    justify-content: flex-start; /* Mantiene il contenuto spinto in alto */
     align-items: center;
     text-align: center;
     position: relative;
-    /* === MODIFICA CRUCIALE: Altezze aggiornate! === */
     min-height: calc(100vh - 47px - 109px); /* Header: 47px, Footer: 109px */
-    /* <<< MODIFICA: Riduci drasticamente o azzera il padding-top
-                     per avvicinare il contenuto all'header. */
-    padding: 5px 20px 0; /* Esempio con padding-top molto piccolo. Prova anche 0px. */
+    /* <<< MODIFICA: Padding top molto piccolo per avvicinare all'header */
+    padding: 20px 20px 0; /* Esempio: 20px sopra, puoi provare anche meno (es. 10px) */
     box-sizing: border-box;
 }
 
@@ -188,11 +183,10 @@ nav ul li a.active {
     position: relative;
     z-index: 2;
     background-color: rgba(255, 255, 255, 0.8);
-    padding: 40px 30px; /* Manteniamo il padding interno del box */
+    padding: 40px 30px;
     border-radius: var(--border-radius-medium);
     max-width: 650px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    margin-top: 100px; */ /* Esempio, da decommentare e regolare se necessario */
 }
 h1.couple-names {
     font-family: var(--font-heading);
