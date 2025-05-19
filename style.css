@@ -281,7 +281,7 @@ h1.couple-names {
     text-align: center;
     padding: 0 20px; /* Rimuovi padding verticale, gestiremo con margin */
     /* <<< MODIFICA: Aggiungi un margine superiore di 100px */
-    margin-top: 100px;
+    margin-top: 200px;
     margin-bottom: 20px; /* Un po' di spazio prima della navigazione pagine o footer */
 }
 
