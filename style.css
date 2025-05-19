@@ -192,7 +192,7 @@ nav ul li a.active {
     border-radius: var(--border-radius-medium);
     max-width: 650px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    margin-top: 70px; */ /* Esempio, da decommentare e regolare se necessario */
+    margin-top: 100px; */ /* Esempio, da decommentare e regolare se necessario */
 }
 h1.couple-names {
     font-family: var(--font-heading);
