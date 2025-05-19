@@ -62,6 +62,13 @@
                 <div class="form-group" id="preferenze-menu-group" style="display: none;"> <label for="preferenze-menu">Preferenze Menu *</label> <small class="form-text">Indica se qualcuno nel gruppo ha preferenze diverse dal menu standard (es. vegetariano, vegano, etc.). Se tutti seguono il menu standard, seleziona "Menu Standard".</small> <select id="preferenze-menu" name="entry.1172181114"> <option value="">Seleziona una preferenza</option> <option value="Menu Standard">Menu Standard</option> <option value="Menu Vegetariano">Menu Vegetariano</option> <option value="Menu Vegano">Menu Vegano</option> <option value="Menu Senza Glutine">Menu Senza Glutine</option> <option value="Menu Pescetariano">Menu Pescetariano</option> <option value="Altro (specificare nelle note)">Altro (specificare nelle note)</option> </select> </div>
                 <div class="form-group" id="intolleranze-group" style="display: none;"> <label for="intolleranze">Intolleranze o allergie alimentari</label> <small class="form-text">Specifica qui eventuali allergie o intolleranze per ciascun partecipante (es. Mario Rossi: allergia alle noci; Anna Verdi: intolleranza al lattosio).</small> <textarea id="intolleranze" name="entry.304213983" rows="3"></textarea> </div>
                 <!-- Fine Campi Condizionali -->
+		    <div class="form-group" id="preferenze-ospiti-dinamiche-group" style="display: none;">
+                    <label>Preferenze Menu per Ospite</label>
+                    <small class="form-text">Per ogni persona indicata (incluso te se partecipi), seleziona la preferenza di menu.</small>
+                    <div id="menu-ospiti-container">
+                        <!-- I menu a tendina verranno aggiunti qui da JavaScript -->
+                    </div>
+                </div>
                 <div class="form-group"> <label for="note">Note aggiuntive</label> <small class="form-text">Usa questo spazio per specificare chi segue menu alternativi, per segnalare la presenza di bambini piccoli (e la loro età), o per qualsiasi altra comunicazione.</small> <textarea id="note" name="entry.123813858" rows="3"></textarea> </div>
                 <button type="submit" class="btn submit-btn">Invia Conferma</button>
             </form>
