@@ -177,7 +177,7 @@ nav ul li a.active {
     /* === MODIFICA IMPORTANTE: Altezza Dinamica === */
     /* Sostituisci 60px e 73px con le altezze REALI del tuo header e footer */
     /* Misura con gli strumenti di sviluppo del browser! */
-    min-height: calc(100vh - 60px - 73px); /* Esempio: 60px header, 73px footer */
+    min-height: calc(100vh - 47.1875px - 108.969px); /* Esempio: 60px header, 73px footer */
     padding: 20px 20px 0; /* Ridotto padding top, nessun padding bottom per guadagnare spazio */
     box-sizing: border-box;
 }
