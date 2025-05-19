@@ -474,6 +474,7 @@ footer p:first-of-type { font-weight: 500; }
     display: flex; /* Per centrare l'icona */
     justify-content: center;
     align-items: center;
+    touch-action: pan-y;
     text-decoration: none; /* Rimuove la sottolineatura del link */
     opacity: 0;
     visibility: hidden;
